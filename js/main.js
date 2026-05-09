@@ -107,7 +107,7 @@ function renderChannel(ch, idx) {
     <div class="section-title">★ 直近 HIT 動画</div>
     <div id="hits-${ch.id}"></div>
 
-    <div class="section-title">動画別 views 推移 (左リスト hover/click + ↑↓キーで切替)</div>
+    <div class="section-title">動画別 views 推移 (左リスト click + ↑↓キーで切替)</div>
     <div class="video-section">
       <div id="vlist-${ch.id}" class="video-list"></div>
       <div>
@@ -445,7 +445,6 @@ function renderVideoHistory(ch) {
   }).join("");
 
   list.querySelectorAll(".video-row").forEach((row) => {
-    row.addEventListener("mouseenter", () => draw(row.dataset.vid));
     row.addEventListener("click", () => draw(row.dataset.vid));
   });
 
