@@ -1,0 +1,3182 @@
+{
+  "generated_at": "2026-05-09T18:56:04Z",
+  "channels": [
+    {
+      "id": "UCe-sQjBOXaOLpRktgavAKmw",
+      "title": "戒くんのIT力高めるチャンネル",
+      "subs_history": [
+        {
+          "timestamp": "2026-05-08",
+          "subs": 266
+        },
+        {
+          "timestamp": "2026-05-07",
+          "subs": 266
+        },
+        {
+          "timestamp": "2026-05-09",
+          "subs": 304
+        },
+        {
+          "timestamp": "2026-05-09T09:42:51Z",
+          "subs": 314
+        },
+        {
+          "timestamp": "2026-05-09T09:45:06Z",
+          "subs": 314
+        },
+        {
+          "timestamp": "2026-05-09T09:48:50Z",
+          "subs": 314
+        },
+        {
+          "timestamp": "2026-05-09T12:13:24Z",
+          "subs": 320
+        }
+      ],
+      "views_history": [
+        {
+          "timestamp": "2026-05-08",
+          "total_views": 24601,
+          "videos": 229
+        },
+        {
+          "timestamp": "2026-05-07",
+          "total_views": 24661,
+          "videos": 229
+        },
+        {
+          "timestamp": "2026-05-09",
+          "total_views": 27473,
+          "videos": 239
+        },
+        {
+          "timestamp": "2026-05-09T09:42:51Z",
+          "total_views": 28290,
+          "videos": 239
+        },
+        {
+          "timestamp": "2026-05-09T09:45:06Z",
+          "total_views": 28291,
+          "videos": 239
+        },
+        {
+          "timestamp": "2026-05-09T09:48:50Z",
+          "total_views": 28258,
+          "videos": 239
+        },
+        {
+          "timestamp": "2026-05-09T12:13:24Z",
+          "total_views": 28698,
+          "videos": 240
+        }
+      ],
+      "recent_hits": [
+        {
+          "video_id": "M3i2A0BuvtY",
+          "title": "【神アプデ】OpenAI Codex v0.128.0の新機能「/goal」が凄すぎる！徹底解説",
+          "views": 2836,
+          "score": 8.863,
+          "age_days": 8,
+          "published_at": "2026-05-01",
+          "url": "https://www.youtube.com/watch?v=M3i2A0BuvtY"
+        },
+        {
+          "video_id": "6cr39U4l5iw",
+          "title": "【完全ガイド】Claude DesktopにOllamaを連携させる方法！ローカルLLMを無料で使う",
+          "views": 2759,
+          "score": 8.622,
+          "age_days": 3,
+          "published_at": "2026-05-06",
+          "url": "https://www.youtube.com/watch?v=6cr39U4l5iw"
+        },
+        {
+          "video_id": "rLNli32XvTc",
+          "title": "【神アプデ】Claude Agent SDKがついに発表！AI開発が激変する",
+          "views": 1131,
+          "score": 3.534,
+          "age_days": 2,
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=rLNli32XvTc"
+        },
+        {
+          "video_id": "SYf4OYcwivw",
+          "title": "【緊急】Linuxカーネル新たな脆弱性「Copy Fail」CVE-2026-31431を解説！全ディストリ影響の権限昇格",
+          "views": 1127,
+          "score": 3.522,
+          "age_days": 9,
+          "published_at": "2026-04-30",
+          "url": "https://www.youtube.com/watch?v=SYf4OYcwivw"
+        }
+      ],
+      "video_history": {
+        "aya8PsSOJsU": {
+          "title": "【緊急】Palo Alto PAN-OSにゼロデイ脆弱性！CVSS9.3で実環境悪用中",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=aya8PsSOJsU",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 4
+            },
+            {
+              "date": "2026-05-08",
+              "views": 10
+            },
+            {
+              "date": "2026-05-09",
+              "views": 16
+            }
+          ]
+        },
+        "bvPfpURj1VY": {
+          "title": "【神アプデ】Claude利用枠が2倍に！Code Review・CI自動修正・Remote Agents登場",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=bvPfpURj1VY",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 12
+            },
+            {
+              "date": "2026-05-08",
+              "views": 21
+            },
+            {
+              "date": "2026-05-09",
+              "views": 33
+            }
+          ]
+        },
+        "mPH2uUZTEcg": {
+          "title": "【OpenAI新発表】B2B Signalsとは？営業を激変させるAI登場！",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=mPH2uUZTEcg",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 4
+            },
+            {
+              "date": "2026-05-08",
+              "views": 8
+            },
+            {
+              "date": "2026-05-09",
+              "views": 13
+            }
+          ]
+        },
+        "v087Q8R_-t0": {
+          "title": "【神アプデ】Grok WebにConnectors登場！Notion・GitHub等7サービスと連携可能に",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=v087Q8R_-t0",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 8
+            },
+            {
+              "date": "2026-05-08",
+              "views": 11
+            },
+            {
+              "date": "2026-05-09",
+              "views": 14
+            }
+          ]
+        },
+        "rLNli32XvTc": {
+          "title": "【神アプデ】Claude Agent SDKがついに発表！AI開発が激変する",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=rLNli32XvTc",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 31
+            },
+            {
+              "date": "2026-05-08",
+              "views": 66
+            },
+            {
+              "date": "2026-05-09",
+              "views": 1131
+            }
+          ]
+        },
+        "F_WCnMDhGS4": {
+          "title": "【最新発表】マルチエージェント・Outcomes・Dreaming徹底解説！",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=F_WCnMDhGS4",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 12
+            },
+            {
+              "date": "2026-05-08",
+              "views": 22
+            },
+            {
+              "date": "2026-05-09",
+              "views": 66
+            }
+          ]
+        },
+        "qfCUgtP-LOE": {
+          "title": "【NVIDIA】Spectrum-X新技術MRC登場！数十万GPU対応の次世代AIネットワーク",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=qfCUgtP-LOE",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 28
+            },
+            {
+              "date": "2026-05-08",
+              "views": 41
+            },
+            {
+              "date": "2026-05-09",
+              "views": 47
+            }
+          ]
+        },
+        "Y_kWTklO3vM": {
+          "title": "【速報】5/6 SF開催！開発者カンファレンス、London 5/19・東京 6/10も開催決定！",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=Y_kWTklO3vM",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 1
+            },
+            {
+              "date": "2026-05-08",
+              "views": 5
+            },
+            {
+              "date": "2026-05-09",
+              "views": 11
+            }
+          ]
+        },
+        "qCItF9PVXkc": {
+          "title": "【Microsoft発表】Copilot Coworkで業務革命！対話から実行へ進化",
+          "published_at": "2026-05-06",
+          "url": "https://www.youtube.com/watch?v=qCItF9PVXkc",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 61
+            },
+            {
+              "date": "2026-05-08",
+              "views": 85
+            },
+            {
+              "date": "2026-05-09",
+              "views": 97
+            }
+          ]
+        },
+        "zEj5x0vP3JI": {
+          "title": "【神機能】Claude APIの認証が激変！Workload Identity Federation完全解説",
+          "published_at": "2026-05-06",
+          "url": "https://www.youtube.com/watch?v=zEj5x0vP3JI",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 17
+            },
+            {
+              "date": "2026-05-08",
+              "views": 25
+            },
+            {
+              "date": "2026-05-09",
+              "views": 35
+            }
+          ]
+        },
+        "3tWd-34RfaQ": {
+          "title": "【ついに登場】GPT-5.5 Instant解禁！ChatGPTが超進化で会話が激変！",
+          "published_at": "2026-05-06",
+          "url": "https://www.youtube.com/watch?v=3tWd-34RfaQ",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 59
+            },
+            {
+              "date": "2026-05-08",
+              "views": 67
+            },
+            {
+              "date": "2026-05-09",
+              "views": 67
+            }
+          ]
+        },
+        "kaYAmwPvMnw": {
+          "title": "【神アプデ】Claude APIがWorkload Identity Federationに対応！もうAPIキー不要",
+          "published_at": "2026-05-06",
+          "url": "https://www.youtube.com/watch?v=kaYAmwPvMnw",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 34
+            },
+            {
+              "date": "2026-05-08",
+              "views": 40
+            },
+            {
+              "date": "2026-05-09",
+              "views": 61
+            }
+          ]
+        },
+        "6cr39U4l5iw": {
+          "title": "【完全ガイド】Claude DesktopにOllamaを連携させる方法！ローカルLLMを無料で使う",
+          "published_at": "2026-05-06",
+          "url": "https://www.youtube.com/watch?v=6cr39U4l5iw",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 1149
+            },
+            {
+              "date": "2026-05-08",
+              "views": 1703
+            },
+            {
+              "date": "2026-05-09",
+              "views": 2759
+            }
+          ]
+        },
+        "0Uo4MP06T0s": {
+          "title": "【Roomba生みの親が新会社設立】家庭用AIロボット「Mikey」誕生！",
+          "published_at": "2026-05-05",
+          "url": "https://www.youtube.com/watch?v=0Uo4MP06T0s",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 28
+            },
+            {
+              "date": "2026-05-08",
+              "views": 34
+            },
+            {
+              "date": "2026-05-09",
+              "views": 34
+            }
+          ]
+        },
+        "sGaj359A3iw": {
+          "title": "【2026年4月】Google AI神アプデ！Gemma4＆Vids無料化で激震",
+          "published_at": "2026-05-05",
+          "url": "https://www.youtube.com/watch?v=sGaj359A3iw",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 99
+            },
+            {
+              "date": "2026-05-08",
+              "views": 129
+            },
+            {
+              "date": "2026-05-09",
+              "views": 136
+            }
+          ]
+        },
+        "m3gI_6cNd0g": {
+          "title": "【衝撃】敵AIが米陸軍を瞬殺！2026年実施のサイバー戦演習の全貌 / AI TTX 2.0",
+          "published_at": "2026-05-05",
+          "url": "https://www.youtube.com/watch?v=m3gI_6cNd0g",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 13
+            },
+            {
+              "date": "2026-05-08",
+              "views": 16
+            },
+            {
+              "date": "2026-05-09",
+              "views": 17
+            }
+          ]
+        },
+        "GRNA3lHtdfE": {
+          "title": "【OpenAI新機能】Codex App Serverで自社製品にAIを組み込む方法！",
+          "published_at": "2026-05-04",
+          "url": "https://www.youtube.com/watch?v=GRNA3lHtdfE",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 266
+            },
+            {
+              "date": "2026-05-08",
+              "views": 295
+            },
+            {
+              "date": "2026-05-09",
+              "views": 302
+            }
+          ]
+        },
+        "TfuCNYadidU": {
+          "title": "【緊急】cPanel重大ゼロデイ脆弱性を悪用！Sorryランサムウェア大規模攻撃発生",
+          "published_at": "2026-05-03",
+          "url": "https://www.youtube.com/watch?v=TfuCNYadidU",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 64
+            },
+            {
+              "date": "2026-05-08",
+              "views": 64
+            },
+            {
+              "date": "2026-05-09",
+              "views": 65
+            }
+          ]
+        },
+        "fZUaS_R2ifA": {
+          "title": "【緊急】Cursor更新必須！CVE-2026-26268でgit cloneから任意コード実行の脆弱性",
+          "published_at": "2026-05-03",
+          "url": "https://www.youtube.com/watch?v=fZUaS_R2ifA",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 48
+            },
+            {
+              "date": "2026-05-08",
+              "views": 49
+            },
+            {
+              "date": "2026-05-09",
+              "views": 51
+            }
+          ]
+        },
+        "dYbLZ57r5ZM": {
+          "title": "【完全解説】Emotetとは何だったのか？史上最凶マルウェアの正体と終焉",
+          "published_at": "2026-05-03",
+          "url": "https://www.youtube.com/watch?v=dYbLZ57r5ZM",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 24
+            },
+            {
+              "date": "2026-05-08",
+              "views": 24
+            },
+            {
+              "date": "2026-05-09",
+              "views": 24
+            }
+          ]
+        },
+        "XBxsaqboIrA": {
+          "title": "【検証】ChatGPTアプリでスカイスキャナー予約成功！スタバはまさかの失敗",
+          "published_at": "2026-05-03",
+          "url": "https://www.youtube.com/watch?v=XBxsaqboIrA",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 63
+            },
+            {
+              "date": "2026-05-08",
+              "views": 63
+            },
+            {
+              "date": "2026-05-09",
+              "views": 65
+            }
+          ]
+        },
+        "IXtRpsCfjp4": {
+          "title": "【AI法務革命】MicrosoftがWordに「Legal Agent」搭載！契約書業務が激変",
+          "published_at": "2026-05-03",
+          "url": "https://www.youtube.com/watch?v=IXtRpsCfjp4",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 39
+            },
+            {
+              "date": "2026-05-08",
+              "views": 39
+            },
+            {
+              "date": "2026-05-09",
+              "views": 40
+            }
+          ]
+        },
+        "0VsNLmnar2I": {
+          "title": "【ChatGPT Pro 30日間】Codexペットを孵化させて当てよう！/hatchコマンド公開",
+          "published_at": "2026-05-03",
+          "url": "https://www.youtube.com/watch?v=0VsNLmnar2I",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 19
+            },
+            {
+              "date": "2026-05-08",
+              "views": 19
+            },
+            {
+              "date": "2026-05-09",
+              "views": 22
+            }
+          ]
+        },
+        "KwxJNhtm4K8": {
+          "title": "【速報】OpenAI DevDay 2026がSF開催決定！GPT-5.5無料チケットも",
+          "published_at": "2026-05-02",
+          "url": "https://www.youtube.com/watch?v=KwxJNhtm4K8",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 39
+            },
+            {
+              "date": "2026-05-08",
+              "views": 40
+            },
+            {
+              "date": "2026-05-09",
+              "views": 41
+            }
+          ]
+        },
+        "ODIAFkn9VVA": {
+          "title": "【新機能】Codexに「ペット」登場！/petコマンドで相棒を起こせ！",
+          "published_at": "2026-05-02",
+          "url": "https://www.youtube.com/watch?v=ODIAFkn9VVA",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 51
+            },
+            {
+              "date": "2026-05-08",
+              "views": 53
+            },
+            {
+              "date": "2026-05-09",
+              "views": 55
+            }
+          ]
+        },
+        "6q5DPW_ySEY": {
+          "title": "【神アプデ】Codexに全ワークフローを数クリックで移行！設定もプラグインも一発インポート",
+          "published_at": "2026-05-02",
+          "url": "https://www.youtube.com/watch?v=6q5DPW_ySEY",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 114
+            },
+            {
+              "date": "2026-05-08",
+              "views": 116
+            },
+            {
+              "date": "2026-05-09",
+              "views": 119
+            }
+          ]
+        },
+        "HNhhdY_FD1g": {
+          "title": "【速報】Claude Securityがパブリックベータ公開！Enterprise向け新機能を徹底解説",
+          "published_at": "2026-05-01",
+          "url": "https://www.youtube.com/watch?v=HNhhdY_FD1g",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 49
+            },
+            {
+              "date": "2026-05-08",
+              "views": 49
+            },
+            {
+              "date": "2026-05-09",
+              "views": 49
+            }
+          ]
+        },
+        "M3i2A0BuvtY": {
+          "title": "【神アプデ】OpenAI Codex v0.128.0の新機能「/goal」が凄すぎる！徹底解説",
+          "published_at": "2026-05-01",
+          "url": "https://www.youtube.com/watch?v=M3i2A0BuvtY",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 2816
+            },
+            {
+              "date": "2026-05-08",
+              "views": 2821
+            },
+            {
+              "date": "2026-05-09",
+              "views": 2836
+            }
+          ]
+        },
+        "p1lp2Tte2Ls": {
+          "title": "【緊急】SAP npmパッケージ4種が汚染！1100超のリポジトリ流出の衝撃",
+          "published_at": "2026-05-01",
+          "url": "https://www.youtube.com/watch?v=p1lp2Tte2Ls",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 29
+            },
+            {
+              "date": "2026-05-08",
+              "views": 29
+            },
+            {
+              "date": "2026-05-09",
+              "views": 30
+            }
+          ]
+        },
+        "1SCFLG-1tiQ": {
+          "title": "【OpenAI新機能】ChatGPTアカウントを守る高度なセキュリティ機能(AAS)が登場！",
+          "published_at": "2026-05-01",
+          "url": "https://www.youtube.com/watch?v=1SCFLG-1tiQ",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 18
+            },
+            {
+              "date": "2026-05-08",
+              "views": 18
+            },
+            {
+              "date": "2026-05-09",
+              "views": 18
+            }
+          ]
+        },
+        "TrwcQ4TzG04": {
+          "title": "【警告】AIエージェント乗っ取り！ClawHub30個の悪質スキルで仮想通貨マイニング被害9800件",
+          "published_at": "2026-05-01",
+          "url": "https://www.youtube.com/watch?v=TrwcQ4TzG04",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 115
+            },
+            {
+              "date": "2026-05-08",
+              "views": 116
+            },
+            {
+              "date": "2026-05-09",
+              "views": 117
+            }
+          ]
+        },
+        "69TamxTten4": {
+          "title": "【衝撃】ChatGPTが生んだ\"ゴブリン\"の謎！OpenAI公式が明かす爆笑エピソード",
+          "published_at": "2026-04-30",
+          "url": "https://www.youtube.com/watch?v=69TamxTten4",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 78
+            },
+            {
+              "date": "2026-05-08",
+              "views": 79
+            },
+            {
+              "date": "2026-05-09",
+              "views": 79
+            }
+          ]
+        },
+        "CSfK4PS4vao": {
+          "title": "【完全比較】GPT-5.5と5.4のプロンプト設計の違いを徹底解説！",
+          "published_at": "2026-04-30",
+          "url": "https://www.youtube.com/watch?v=CSfK4PS4vao",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 53
+            },
+            {
+              "date": "2026-05-08",
+              "views": 53
+            },
+            {
+              "date": "2026-05-09",
+              "views": 53
+            }
+          ]
+        },
+        "G_PSQh79rNc": {
+          "title": "【神アプデ】CloudflareがStripeと連携！AIエージェントが自動でドメイン購入＆デプロイする時代へ",
+          "published_at": "2026-04-30",
+          "url": "https://www.youtube.com/watch?v=G_PSQh79rNc",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 20
+            },
+            {
+              "date": "2026-05-08",
+              "views": 20
+            },
+            {
+              "date": "2026-05-09",
+              "views": 20
+            }
+          ]
+        },
+        "SYf4OYcwivw": {
+          "title": "【緊急】Linuxカーネル新たな脆弱性「Copy Fail」CVE-2026-31431を解説！全ディストリ影響の権限昇格",
+          "published_at": "2026-04-30",
+          "url": "https://www.youtube.com/watch?v=SYf4OYcwivw",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 1114
+            },
+            {
+              "date": "2026-05-08",
+              "views": 1118
+            },
+            {
+              "date": "2026-05-09",
+              "views": 1127
+            }
+          ]
+        },
+        "A57m-R-fxcM": {
+          "title": "【最新情報】MITRE ATT&CK公式が発表！知らないと損するサイバー攻撃の最新手口",
+          "published_at": "2026-04-30",
+          "url": "https://www.youtube.com/watch?v=A57m-R-fxcM",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 7
+            },
+            {
+              "date": "2026-05-08",
+              "views": 7
+            },
+            {
+              "date": "2026-05-09",
+              "views": 7
+            }
+          ]
+        },
+        "aTZYMWxUaec": {
+          "title": "【朗報】Claude Codeがスマホ通知に対応！長時間タスクも離席OKな神機能の設定方法",
+          "published_at": "2026-04-29",
+          "url": "https://www.youtube.com/watch?v=aTZYMWxUaec",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 30
+            },
+            {
+              "date": "2026-05-08",
+              "views": 31
+            },
+            {
+              "date": "2026-05-09",
+              "views": 32
+            }
+          ]
+        },
+        "RiEIN7mKtQc": {
+          "title": "【Claude Code 2.1.121】MCP自動読み込みが神！開発効率が激変する最新アプデ解説",
+          "published_at": "2026-04-29",
+          "url": "https://www.youtube.com/watch?v=RiEIN7mKtQc",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 109
+            },
+            {
+              "date": "2026-05-08",
+              "views": 109
+            },
+            {
+              "date": "2026-05-09",
+              "views": 109
+            }
+          ]
+        },
+        "07ks51ZC1qY": {
+          "title": "【衝撃】ClaudeがBlender・Adobe等8つのクリエイティブツールと連携開始！AI創作の常識が変わる",
+          "published_at": "2026-04-29",
+          "url": "https://www.youtube.com/watch?v=07ks51ZC1qY",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 200
+            },
+            {
+              "date": "2026-05-08",
+              "views": 206
+            },
+            {
+              "date": "2026-05-09",
+              "views": 217
+            }
+          ]
+        },
+        "PnhnuEPxE0Q": {
+          "title": "【Langfuse日本上陸】東京リージョン開設！LLM運用が国内で完結する時代へ",
+          "published_at": "2026-04-29",
+          "url": "https://www.youtube.com/watch?v=PnhnuEPxE0Q",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 3
+            },
+            {
+              "date": "2026-05-08",
+              "views": 4
+            },
+            {
+              "date": "2026-05-09",
+              "views": 4
+            }
+          ]
+        },
+        "lLKAC2Lvikk": {
+          "title": "【革命】AmazonがAI音声Q&A機能「Join the chat」を商品ページに搭載！",
+          "published_at": "2026-04-29",
+          "url": "https://www.youtube.com/watch?v=lLKAC2Lvikk",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 9
+            },
+            {
+              "date": "2026-05-08",
+              "views": 9
+            },
+            {
+              "date": "2026-05-09",
+              "views": 10
+            }
+          ]
+        },
+        "oOQUX1bTN48": {
+          "title": "【GitHub全体が危険】CVE-2026-3854でリモートコード実行！数百万リポジトリに影響",
+          "published_at": "2026-04-29",
+          "url": "https://www.youtube.com/watch?v=oOQUX1bTN48",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 213
+            },
+            {
+              "date": "2026-05-08",
+              "views": 214
+            },
+            {
+              "date": "2026-05-09",
+              "views": 219
+            }
+          ]
+        },
+        "Oc12sGXvj6s": {
+          "title": "【Google翻訳】AI発音練習機能が新登場！話すだけで発音を矯正してくれる神アプデ",
+          "published_at": "2026-04-29",
+          "url": "https://www.youtube.com/watch?v=Oc12sGXvj6s",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 133
+            },
+            {
+              "date": "2026-05-08",
+              "views": 133
+            },
+            {
+              "date": "2026-05-09",
+              "views": 134
+            }
+          ]
+        },
+        "j6vc8wfBb3o": {
+          "title": "【衝撃】YouTubeがAI検索を導入！「ガイド付き回答」機能の全貌とは",
+          "published_at": "2026-04-29",
+          "url": "https://www.youtube.com/watch?v=j6vc8wfBb3o",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 14
+            },
+            {
+              "date": "2026-05-08",
+              "views": 14
+            },
+            {
+              "date": "2026-05-09",
+              "views": 14
+            }
+          ]
+        },
+        "CdYFhQB-3SM": {
+          "title": "【衝撃】AWS×OpenAIが連携！BedrockでGPT利用可能に",
+          "published_at": "2026-04-29",
+          "url": "https://www.youtube.com/watch?v=CdYFhQB-3SM",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 30
+            },
+            {
+              "date": "2026-05-08",
+              "views": 30
+            },
+            {
+              "date": "2026-05-09",
+              "views": 30
+            }
+          ]
+        },
+        "gcjx5QlJiBU": {
+          "title": "【OpenAI Symphony】全issueにAIエージェントを配置！Codex自動化の未来が凄い",
+          "published_at": "2026-04-28",
+          "url": "https://www.youtube.com/watch?v=gcjx5QlJiBU",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 70
+            },
+            {
+              "date": "2026-05-08",
+              "views": 72
+            },
+            {
+              "date": "2026-05-09",
+              "views": 79
+            }
+          ]
+        },
+        "gpCqEHKGNv8": {
+          "title": "【衝撃】Microsoft 365にGPT-5.5 Thinking搭載！Word・Excel・PowerPointが劇的進化",
+          "published_at": "2026-04-28",
+          "url": "https://www.youtube.com/watch?v=gpCqEHKGNv8",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 63
+            },
+            {
+              "date": "2026-05-08",
+              "views": 63
+            },
+            {
+              "date": "2026-05-09",
+              "views": 66
+            }
+          ]
+        },
+        "ELG-VUqFXW8": {
+          "title": "【悲報】Claude ProでOpus使用が追加課金必須に！料金と影響を徹底解説",
+          "published_at": "2026-04-28",
+          "url": "https://www.youtube.com/watch?v=ELG-VUqFXW8",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 85
+            },
+            {
+              "date": "2026-05-08",
+              "views": 87
+            },
+            {
+              "date": "2026-05-09",
+              "views": 88
+            }
+          ]
+        },
+        "CeMThJ8v98w": {
+          "title": "【衝撃】UbuntuにAI機能搭載へ！Canonicalが発表した計画がすごい",
+          "published_at": "2026-04-28",
+          "url": "https://www.youtube.com/watch?v=CeMThJ8v98w",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 152
+            },
+            {
+              "date": "2026-05-08",
+              "views": 152
+            },
+            {
+              "date": "2026-05-09",
+              "views": 185
+            }
+          ]
+        },
+        "5DaOX7pdvYw": {
+          "title": "【悲報】GitHub Copilotコードレビューが6月からActions課金に！無料枠が消える",
+          "published_at": "2026-04-28",
+          "url": "https://www.youtube.com/watch?v=5DaOX7pdvYw",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 91
+            },
+            {
+              "date": "2026-05-08",
+              "views": 97
+            },
+            {
+              "date": "2026-05-09",
+              "views": 107
+            }
+          ]
+        },
+        "IVjh517CftI": {
+          "title": "【緊急】iOS 26.4.2セキュリティ更新！通知データ漏洩の脆弱性を今すぐ修正せよ",
+          "published_at": "2026-04-28",
+          "url": "https://www.youtube.com/watch?v=IVjh517CftI",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 235
+            },
+            {
+              "date": "2026-05-08",
+              "views": 253
+            },
+            {
+              "date": "2026-05-09",
+              "views": 281
+            }
+          ]
+        },
+        "wNc6fsdfUgs": {
+          "title": "【Outlook×Copilot】受信トレイを自動管理するAgent Modeが革命的すぎる！",
+          "published_at": "2026-04-28",
+          "url": "https://www.youtube.com/watch?v=wNc6fsdfUgs",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 75
+            },
+            {
+              "date": "2026-05-08",
+              "views": 75
+            },
+            {
+              "date": "2026-05-09",
+              "views": 76
+            }
+          ]
+        },
+        "F0z70IRI4Ms": {
+          "title": "【今更聞けないGit】現場で恥をかく前に知っておきたい基本と実践テクニック！",
+          "published_at": "2026-04-27",
+          "url": "https://www.youtube.com/watch?v=F0z70IRI4Ms",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 23
+            },
+            {
+              "date": "2026-05-08",
+              "views": 23
+            },
+            {
+              "date": "2026-05-09",
+              "views": 23
+            }
+          ]
+        },
+        "RoPUwwMnRgA": {
+          "title": "【完全図解】今さら聞けないOSI参照モデル7階層を10分で総まとめ！",
+          "published_at": "2026-04-27",
+          "url": "https://www.youtube.com/watch?v=RoPUwwMnRgA",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 8
+            },
+            {
+              "date": "2026-05-08",
+              "views": 8
+            },
+            {
+              "date": "2026-05-09",
+              "views": 8
+            }
+          ]
+        },
+        "6QgtGMu9LoA": {
+          "title": "【今更聞けない】ARPテーブルの仕組みを5分で完全理解！ネットワーク基礎",
+          "published_at": "2026-04-27",
+          "url": "https://www.youtube.com/watch?v=6QgtGMu9LoA",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 4
+            },
+            {
+              "date": "2026-05-08",
+              "views": 4
+            },
+            {
+              "date": "2026-05-09",
+              "views": 4
+            }
+          ]
+        },
+        "EWNqOXHNwiw": {
+          "title": "【Claude Code】Opus4.7時代にやめるべき6つの習慣！公式が警告する新常識",
+          "published_at": "2026-04-27",
+          "url": "https://www.youtube.com/watch?v=EWNqOXHNwiw",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 132
+            },
+            {
+              "date": "2026-05-08",
+              "views": 132
+            },
+            {
+              "date": "2026-05-09",
+              "views": 134
+            }
+          ]
+        },
+        "AK7KkwHIrfI": {
+          "title": "【神ツール】CVEをAIが自動分析！27機能搭載のMCPサーバーが凄すぎた",
+          "published_at": "2026-04-27",
+          "url": "https://www.youtube.com/watch?v=AK7KkwHIrfI",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 4
+            },
+            {
+              "date": "2026-05-08",
+              "views": 4
+            },
+            {
+              "date": "2026-05-09",
+              "views": 4
+            }
+          ]
+        },
+        "5d26372ODUA": {
+          "title": "【神ファイル】Karpathy流CLAUDE.mdでClaude Codeの暴走が止まる！4つの原則とは",
+          "published_at": "2026-04-27",
+          "url": "https://www.youtube.com/watch?v=5d26372ODUA",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 97
+            },
+            {
+              "date": "2026-05-08",
+              "views": 98
+            },
+            {
+              "date": "2026-05-09",
+              "views": 98
+            }
+          ]
+        },
+        "-LXMD_R-_6o": {
+          "title": "【Claude Code Opus 4.7】自律実行が進化！効果的に使うプロンプト設計の極意",
+          "published_at": "2026-04-26",
+          "url": "https://www.youtube.com/watch?v=-LXMD_R-_6o",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 49
+            },
+            {
+              "date": "2026-05-08",
+              "views": 49
+            },
+            {
+              "date": "2026-05-09",
+              "views": 49
+            }
+          ]
+        },
+        "85YXfcbIgko": {
+          "title": "【神プラグイン】claude-code-setupで設定全自動化！Anthropic公式が本気出した",
+          "published_at": "2026-04-26",
+          "url": "https://www.youtube.com/watch?v=85YXfcbIgko",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 63
+            },
+            {
+              "date": "2026-05-08",
+              "views": 63
+            },
+            {
+              "date": "2026-05-09",
+              "views": 63
+            }
+          ]
+        },
+        "wr114afYtmY": {
+          "title": "【AWS新発表】Bedrock不要！Claude PlatformがAWSに直接統合された衝撃",
+          "published_at": "2026-04-26",
+          "url": "https://www.youtube.com/watch?v=wr114afYtmY",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 65
+            },
+            {
+              "date": "2026-05-08",
+              "views": 65
+            },
+            {
+              "date": "2026-05-09",
+              "views": 65
+            }
+          ]
+        },
+        "QPieEsXxuS0": {
+          "title": "【Codex新機能】AutoReviewでAIがコードレビュー！効率化と潜むリスクとは",
+          "published_at": "2026-04-26",
+          "url": "https://www.youtube.com/watch?v=QPieEsXxuS0",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 23
+            },
+            {
+              "date": "2026-05-08",
+              "views": 23
+            },
+            {
+              "date": "2026-05-09",
+              "views": 24
+            }
+          ]
+        },
+        "Kv9NM5IN1Wk": {
+          "title": "【革命】Exa for Claudeが登場！AI検索が次元を超えた",
+          "published_at": "2026-04-26",
+          "url": "https://www.youtube.com/watch?v=Kv9NM5IN1Wk",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 43
+            },
+            {
+              "date": "2026-05-08",
+              "views": 43
+            },
+            {
+              "date": "2026-05-09",
+              "views": 43
+            }
+          ]
+        },
+        "nhxOo4u_EtM": {
+          "title": "【衝撃】デジタル庁がAI「源内」をOSS公開！日本の行政が変わる",
+          "published_at": "2026-04-26",
+          "url": "https://www.youtube.com/watch?v=nhxOo4u_EtM",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 152
+            },
+            {
+              "date": "2026-05-08",
+              "views": 166
+            },
+            {
+              "date": "2026-05-09",
+              "views": 177
+            }
+          ]
+        },
+        "3BCZ0cBjJ9s": {
+          "title": "【Cursor 3】新機能/multitaskで並列処理！非同期サブエージェントが革命的すぎる",
+          "published_at": "2026-04-26",
+          "url": "https://www.youtube.com/watch?v=3BCZ0cBjJ9s",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 29
+            },
+            {
+              "date": "2026-05-08",
+              "views": 31
+            },
+            {
+              "date": "2026-05-09",
+              "views": 33
+            }
+          ]
+        },
+        "pMkcQkAGGco": {
+          "title": "【Bitwarden】npmパッケージが乗っ取られた！25万DLの人気ツールに潜む罠",
+          "published_at": "2026-04-25",
+          "url": "https://www.youtube.com/watch?v=pMkcQkAGGco",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 53
+            },
+            {
+              "date": "2026-05-08",
+              "views": 55
+            },
+            {
+              "date": "2026-05-09",
+              "views": 58
+            }
+          ]
+        },
+        "2bOC-FsWP80": {
+          "title": "【衝撃】DeepSeek V4 Previewが凄すぎる！AI業界が震えた性能を徹底解説",
+          "published_at": "2026-04-25",
+          "url": "https://www.youtube.com/watch?v=2bOC-FsWP80",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 184
+            },
+            {
+              "date": "2026-05-08",
+              "views": 184
+            },
+            {
+              "date": "2026-05-09",
+              "views": 185
+            }
+          ]
+        },
+        "ermPuBCB9_E": {
+          "title": "【革命】Hybrid Attention Architectureが従来モデルを超える理由！",
+          "published_at": "2026-04-25",
+          "url": "https://www.youtube.com/watch?v=ermPuBCB9_E",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 30
+            },
+            {
+              "date": "2026-05-08",
+              "views": 30
+            },
+            {
+              "date": "2026-05-09",
+              "views": 30
+            }
+          ]
+        },
+        "PBZyAGnocF0": {
+          "title": "【Claude Code】品質低下の原因3つを特定！全ユーザーの利用制限リセットへ",
+          "published_at": "2026-04-24",
+          "url": "https://www.youtube.com/watch?v=PBZyAGnocF0",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 23
+            },
+            {
+              "date": "2026-05-08",
+              "views": 23
+            },
+            {
+              "date": "2026-05-09",
+              "views": 23
+            }
+          ]
+        },
+        "9d8ynitVGJk": {
+          "title": "【衝撃】OpenAIがGPT-5.5発表！ChatGPTとCodexで利用開始",
+          "published_at": "2026-04-24",
+          "url": "https://www.youtube.com/watch?v=9d8ynitVGJk",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 51
+            },
+            {
+              "date": "2026-05-08",
+              "views": 51
+            },
+            {
+              "date": "2026-05-09",
+              "views": 51
+            }
+          ]
+        },
+        "5h_3q8L7XNg": {
+          "title": "【革命】Claude管理エージェントに記憶機能が追加！セッションを超えて学習するAIの衝撃",
+          "published_at": "2026-04-24",
+          "url": "https://www.youtube.com/watch?v=5h_3q8L7XNg",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 187
+            },
+            {
+              "date": "2026-05-08",
+              "views": 187
+            },
+            {
+              "date": "2026-05-09",
+              "views": 187
+            }
+          ]
+        },
+        "3iQ6zL8Ep0M": {
+          "title": "【革命】OpenAI Codex がSSHリモート接続に対応！開発効率が激変する新機能",
+          "published_at": "2026-04-24",
+          "url": "https://www.youtube.com/watch?v=3iQ6zL8Ep0M",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 92
+            },
+            {
+              "date": "2026-05-08",
+              "views": 94
+            },
+            {
+              "date": "2026-05-09",
+              "views": 96
+            }
+          ]
+        },
+        "Sa_5gagESnU": {
+          "title": "【衝撃】XがAI機能「Grok」でフィード革命！カスタム機能を実際に使ってみた",
+          "published_at": "2026-04-23",
+          "url": "https://www.youtube.com/watch?v=Sa_5gagESnU",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 21
+            },
+            {
+              "date": "2026-05-08",
+              "views": 21
+            },
+            {
+              "date": "2026-05-09",
+              "views": 22
+            }
+          ]
+        },
+        "JXU_CNtI5Gw": {
+          "title": "【衝撃】ChatGPT for Clinicians無料開放！医師超えスコア59点の実力とは",
+          "published_at": "2026-04-23",
+          "url": "https://www.youtube.com/watch?v=JXU_CNtI5Gw",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 25
+            },
+            {
+              "date": "2026-05-08",
+              "views": 26
+            },
+            {
+              "date": "2026-05-09",
+              "views": 27
+            }
+          ]
+        },
+        "vddBvIWhX6Y": {
+          "title": "【速報】ChatGPT Workspace Agents登場！AI社員が仕事を変える",
+          "published_at": "2026-04-23",
+          "url": "https://www.youtube.com/watch?v=vddBvIWhX6Y",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 94
+            },
+            {
+              "date": "2026-05-08",
+              "views": 95
+            },
+            {
+              "date": "2026-05-09",
+              "views": 95
+            }
+          ]
+        },
+        "ygioNxxRJTE": {
+          "title": "【Claude Code新機能】/ultrareviewでバグを自動検出！無料で3回試せる神コマンド",
+          "published_at": "2026-04-23",
+          "url": "https://www.youtube.com/watch?v=ygioNxxRJTE",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 44
+            },
+            {
+              "date": "2026-05-08",
+              "views": 44
+            },
+            {
+              "date": "2026-05-09",
+              "views": 44
+            }
+          ]
+        },
+        "F7yHSRxbeiw": {
+          "title": "【Seedance 2.0】次世代AI動画生成がヤバすぎる！驚異の進化を徹底解説",
+          "published_at": "2026-04-22",
+          "url": "https://www.youtube.com/watch?v=F7yHSRxbeiw",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 71
+            },
+            {
+              "date": "2026-05-08",
+              "views": 71
+            },
+            {
+              "date": "2026-05-09",
+              "views": 71
+            }
+          ]
+        },
+        "kOzmx6JzHPM": {
+          "title": "【革命】Claude for WordでWord作業が激変！AI文書編集の全貌",
+          "published_at": "2026-04-22",
+          "url": "https://www.youtube.com/watch?v=kOzmx6JzHPM",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 59
+            },
+            {
+              "date": "2026-05-08",
+              "views": 59
+            },
+            {
+              "date": "2026-05-09",
+              "views": 59
+            }
+          ]
+        },
+        "cnpTVbEy4G8": {
+          "title": "【速報】OpenAI「Images 2.0」発表！2K解像度＆パノラマ対応の全貌を解説",
+          "published_at": "2026-04-22",
+          "url": "https://www.youtube.com/watch?v=cnpTVbEy4G8",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 32
+            },
+            {
+              "date": "2026-05-08",
+              "views": 32
+            },
+            {
+              "date": "2026-05-09",
+              "views": 32
+            }
+          ]
+        },
+        "yYAOXqid5KA": {
+          "title": "【GPT-5.5】ついに登場！前モデルと何が変わった？衝撃の進化ポイント5選",
+          "published_at": "2026-04-22",
+          "url": "https://www.youtube.com/watch?v=yYAOXqid5KA",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 122
+            },
+            {
+              "date": "2026-05-08",
+              "views": 122
+            },
+            {
+              "date": "2026-05-09",
+              "views": 122
+            }
+          ]
+        },
+        "cZLlMJQJfdM": {
+          "title": "【革命】Claude Live Artifactsが凄すぎる！AI開発の常識が変わる",
+          "published_at": "2026-04-22",
+          "url": "https://www.youtube.com/watch?v=cZLlMJQJfdM",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 100
+            },
+            {
+              "date": "2026-05-08",
+              "views": 100
+            },
+            {
+              "date": "2026-05-09",
+              "views": 100
+            }
+          ]
+        },
+        "ccQHwh1NsKE": {
+          "title": "【速報】Gemini in Chromeがついに日本上陸！AIブラウザの新時代が始まる",
+          "published_at": "2026-04-21",
+          "url": "https://www.youtube.com/watch?v=ccQHwh1NsKE",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 164
+            },
+            {
+              "date": "2026-05-08",
+              "views": 168
+            },
+            {
+              "date": "2026-05-09",
+              "views": 168
+            }
+          ]
+        },
+        "XhzCxg2_Sy8": {
+          "title": "【革命】Claude Mythosを再現！OpenMythosの再帰型AIが常識を覆す",
+          "published_at": "2026-04-21",
+          "url": "https://www.youtube.com/watch?v=XhzCxg2_Sy8",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 226
+            },
+            {
+              "date": "2026-05-08",
+              "views": 226
+            },
+            {
+              "date": "2026-05-09",
+              "views": 228
+            }
+          ]
+        },
+        "OoXe5LOuSMs": {
+          "title": "【完全解説】Codex Computer Useの使い方！インストールから実践まで",
+          "published_at": "2026-04-19",
+          "url": "https://www.youtube.com/watch?v=OoXe5LOuSMs",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 335
+            },
+            {
+              "date": "2026-05-08",
+              "views": 345
+            },
+            {
+              "date": "2026-05-09",
+              "views": 349
+            }
+          ]
+        },
+        "UgrEdloOQeo": {
+          "title": "【知らないとヤバい】システムプロンプトとユーザープロンプトの決定的な違い",
+          "published_at": "2026-04-19",
+          "url": "https://www.youtube.com/watch?v=UgrEdloOQeo",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 16
+            },
+            {
+              "date": "2026-05-08",
+              "views": 16
+            },
+            {
+              "date": "2026-05-09",
+              "views": 16
+            }
+          ]
+        },
+        "Ail-kWBw_6Q": {
+          "title": "【今更聞けない】Fine-Tuningを完全理解！初心者でも5分でわかる基礎と実践",
+          "published_at": "2026-04-19",
+          "url": "https://www.youtube.com/watch?v=Ail-kWBw_6Q",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 5
+            },
+            {
+              "date": "2026-05-08",
+              "views": 5
+            },
+            {
+              "date": "2026-05-09",
+              "views": 5
+            }
+          ]
+        },
+        "8mLMNx3sPtg": {
+          "title": "【今更聞けないRAG】仕組みから実装まで10分で完全理解！",
+          "published_at": "2026-04-19",
+          "url": "https://www.youtube.com/watch?v=8mLMNx3sPtg",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 10
+            },
+            {
+              "date": "2026-05-08",
+              "views": 10
+            },
+            {
+              "date": "2026-05-09",
+              "views": 10
+            }
+          ]
+        },
+        "Bbm-uFC7TkE": {
+          "title": "【徹底比較】RAGとFine-Tuningどっちを選ぶ？現場で差がつく使い分け！",
+          "published_at": "2026-04-19",
+          "url": "https://www.youtube.com/watch?v=Bbm-uFC7TkE",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 3
+            },
+            {
+              "date": "2026-05-08",
+              "views": 3
+            },
+            {
+              "date": "2026-05-09",
+              "views": 3
+            }
+          ]
+        },
+        "y6shA22Ntr4": {
+          "title": "【今更聞けないMCP】AI連携の新常識を10分で完全理解！",
+          "published_at": "2026-04-19",
+          "url": "https://www.youtube.com/watch?v=y6shA22Ntr4",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 29
+            },
+            {
+              "date": "2026-05-08",
+              "views": 29
+            },
+            {
+              "date": "2026-05-09",
+              "views": 29
+            }
+          ]
+        },
+        "2kvq371uhHY": {
+          "title": "【今更聞けない】Skillsとは？たった10分で完全理解！",
+          "published_at": "2026-04-19",
+          "url": "https://www.youtube.com/watch?v=2kvq371uhHY",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 22
+            },
+            {
+              "date": "2026-05-08",
+              "views": 22
+            },
+            {
+              "date": "2026-05-09",
+              "views": 22
+            }
+          ]
+        },
+        "GetmcVYP0_0": {
+          "title": "【速報】Claude Designがついに登場！AI×デザインの常識が変わる",
+          "published_at": "2026-04-18",
+          "url": "https://www.youtube.com/watch?v=GetmcVYP0_0",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 159
+            },
+            {
+              "date": "2026-05-08",
+              "views": 159
+            },
+            {
+              "date": "2026-05-09",
+              "views": 159
+            }
+          ]
+        },
+        "A9hyysu4DHE": {
+          "title": "【IPv8爆誕】IPv6を超える新プロトコルが斬新すぎて世界中で話題に！",
+          "published_at": "2026-04-18",
+          "url": "https://www.youtube.com/watch?v=A9hyysu4DHE",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 226
+            },
+            {
+              "date": "2026-05-08",
+              "views": 226
+            },
+            {
+              "date": "2026-05-09",
+              "views": 226
+            }
+          ]
+        },
+        "r0s75TrEM4M": {
+          "title": "【OpenAI】GPT-5.4-Cyber発表！1000万ドルでサイバー防御が変わる",
+          "published_at": "2026-04-18",
+          "url": "https://www.youtube.com/watch?v=r0s75TrEM4M",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 133
+            },
+            {
+              "date": "2026-05-08",
+              "views": 133
+            },
+            {
+              "date": "2026-05-09",
+              "views": 133
+            }
+          ]
+        },
+        "kFIr9ZTLCsE": {
+          "title": "【衝撃】OpenAI Codexがmac操作を自動化！バックグラウンドで勝手に動くAIが凄すぎる",
+          "published_at": "2026-04-17",
+          "url": "https://www.youtube.com/watch?v=kFIr9ZTLCsE",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 118
+            },
+            {
+              "date": "2026-05-08",
+              "views": 118
+            },
+            {
+              "date": "2026-05-09",
+              "views": 118
+            }
+          ]
+        },
+        "Lvcbm_Z_94s": {
+          "title": "【衝撃】OpenAIが生命科学特化AI「GPT-Rosalind」を発表！創薬・医学研究が激変する",
+          "published_at": "2026-04-17",
+          "url": "https://www.youtube.com/watch?v=Lvcbm_Z_94s",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 53
+            },
+            {
+              "date": "2026-05-08",
+              "views": 53
+            },
+            {
+              "date": "2026-05-09",
+              "views": 53
+            }
+          ]
+        },
+        "TbAgXY91Z2A": {
+          "title": "【速報】Claude Opus 4.7がついに登場！AI業界を揺るがす進化の全貌",
+          "published_at": "2026-04-17",
+          "url": "https://www.youtube.com/watch?v=TbAgXY91Z2A",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 113
+            },
+            {
+              "date": "2026-05-08",
+              "views": 113
+            },
+            {
+              "date": "2026-05-09",
+              "views": 113
+            }
+          ]
+        },
+        "c6BhIk7dMIM": {
+          "title": "【神機能】Claudeの学習モードが凄すぎる！AI活用が劇的に変わる",
+          "published_at": "2026-04-17",
+          "url": "https://www.youtube.com/watch?v=c6BhIk7dMIM",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 80
+            },
+            {
+              "date": "2026-05-08",
+              "views": 81
+            },
+            {
+              "date": "2026-05-09",
+              "views": 82
+            }
+          ]
+        },
+        "mSZX_gWNFr0": {
+          "title": "【Google Chrome新機能】AIプロンプトを保存・再利用できる「Skills」が革命的すぎる！",
+          "published_at": "2026-04-16",
+          "url": "https://www.youtube.com/watch?v=mSZX_gWNFr0",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 75
+            },
+            {
+              "date": "2026-05-08",
+              "views": 75
+            },
+            {
+              "date": "2026-05-09",
+              "views": 75
+            }
+          ]
+        },
+        "AqPJ4P5USEc": {
+          "title": "【衝撃】Anthropic料金体系を大改革！AI使用量ベース課金へ転換の裏事情",
+          "published_at": "2026-04-16",
+          "url": "https://www.youtube.com/watch?v=AqPJ4P5USEc",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 1245
+            },
+            {
+              "date": "2026-05-08",
+              "views": 1246
+            },
+            {
+              "date": "2026-05-09",
+              "views": 1246
+            }
+          ]
+        },
+        "sWs4Wqx4n3s": {
+          "title": "【衝撃】GeminiアプリがMacに登場！Option+Spaceで即起動＆画面共有AIが便利すぎる",
+          "published_at": "2026-04-16",
+          "url": "https://www.youtube.com/watch?v=sWs4Wqx4n3s",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 138
+            },
+            {
+              "date": "2026-05-08",
+              "views": 140
+            },
+            {
+              "date": "2026-05-09",
+              "views": 140
+            }
+          ]
+        },
+        "0ikGYRD5lDM": {
+          "title": "【速報】GPT-5.4 Cyberリリース！AIサイバー防衛の新時代が来た",
+          "published_at": "2026-04-16",
+          "url": "https://www.youtube.com/watch?v=0ikGYRD5lDM",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 134
+            },
+            {
+              "date": "2026-05-08",
+              "views": 134
+            },
+            {
+              "date": "2026-05-09",
+              "views": 134
+            }
+          ]
+        },
+        "tuzEQ0VBI7M": {
+          "title": "【Claude Code】ルーチン機能が革命的！スケジュール実行＆API連携でPC不要の自動化術",
+          "published_at": "2026-04-15",
+          "url": "https://www.youtube.com/watch?v=tuzEQ0VBI7M",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 53
+            },
+            {
+              "date": "2026-05-08",
+              "views": 53
+            },
+            {
+              "date": "2026-05-09",
+              "views": 53
+            }
+          ]
+        },
+        "T9eFuTL_RWM": {
+          "title": "【緊急対策】2026年04月 Windows Update 月例パッチ セキュリティ更新プログラム",
+          "published_at": "2026-04-15",
+          "url": "https://www.youtube.com/watch?v=T9eFuTL_RWM",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 117
+            },
+            {
+              "date": "2026-05-08",
+              "views": 118
+            },
+            {
+              "date": "2026-05-09",
+              "views": 119
+            }
+          ]
+        },
+        "AFsFiVYqMek": {
+          "title": "【2026年最新】AGT導入方法を徹底解説！初心者でも簡単セットアップ",
+          "published_at": "2026-04-15",
+          "url": "https://www.youtube.com/watch?v=AFsFiVYqMek",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 15
+            },
+            {
+              "date": "2026-05-08",
+              "views": 15
+            },
+            {
+              "date": "2026-05-09",
+              "views": 15
+            }
+          ]
+        },
+        "-ljqP2G8vHc": {
+          "title": "【革命】Claude Codeデスクトップ版が神リデザイン！複数セッション同時実行が可能に",
+          "published_at": "2026-04-15",
+          "url": "https://www.youtube.com/watch?v=-ljqP2G8vHc",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 46
+            },
+            {
+              "date": "2026-05-08",
+              "views": 46
+            },
+            {
+              "date": "2026-05-09",
+              "views": 46
+            }
+          ]
+        },
+        "BLrU7062hIk": {
+          "title": "【衝撃】Cloudflareが\"AIエージェント専用クラウド\"を発表！コンテナより100倍高速の新時代",
+          "published_at": "2026-04-15",
+          "url": "https://www.youtube.com/watch?v=BLrU7062hIk",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 99
+            },
+            {
+              "date": "2026-05-08",
+              "views": 99
+            },
+            {
+              "date": "2026-05-09",
+              "views": 99
+            }
+          ]
+        },
+        "eTX-CBc--30": {
+          "title": "【Claude Code】全自動で動くRoutines機能が神すぎる！設定方法を徹底解説",
+          "published_at": "2026-04-14",
+          "url": "https://www.youtube.com/watch?v=eTX-CBc--30",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 119
+            },
+            {
+              "date": "2026-05-08",
+              "views": 119
+            },
+            {
+              "date": "2026-05-09",
+              "views": 119
+            }
+          ]
+        },
+        "HEkTmnnD1qA": {
+          "title": "【速報】Google Gemini新機能「パーソナル インテリジェンス」が変えるAIの未来！",
+          "published_at": "2026-04-14",
+          "url": "https://www.youtube.com/watch?v=HEkTmnnD1qA",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 263
+            },
+            {
+              "date": "2026-05-08",
+              "views": 264
+            },
+            {
+              "date": "2026-05-09",
+              "views": 265
+            }
+          ]
+        },
+        "bfAVTq9huY8": {
+          "title": "【無料でAIエージェント】LM StudioとOpenClawをローカルで動かす方法！",
+          "published_at": "2026-04-14",
+          "url": "https://www.youtube.com/watch?v=bfAVTq9huY8",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 138
+            },
+            {
+              "date": "2026-05-08",
+              "views": 139
+            },
+            {
+              "date": "2026-05-09",
+              "views": 141
+            }
+          ]
+        },
+        "PFFSnXLgIQc": {
+          "title": "【危険】GitHubとJiraの通知機能を悪用！開発者を狙う新型フィッシング手口とは",
+          "published_at": "2026-04-14",
+          "url": "https://www.youtube.com/watch?v=PFFSnXLgIQc",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 29
+            },
+            {
+              "date": "2026-05-08",
+              "views": 29
+            },
+            {
+              "date": "2026-05-09",
+              "views": 29
+            }
+          ]
+        },
+        "kq7xs2N-n1k": {
+          "title": "【悲報】Outlook Lite、5月25日でサービス撤退へ！その理由とは",
+          "published_at": "2026-04-13",
+          "url": "https://www.youtube.com/watch?v=kq7xs2N-n1k",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 14
+            },
+            {
+              "date": "2026-05-08",
+              "views": 14
+            },
+            {
+              "date": "2026-05-09",
+              "views": 14
+            }
+          ]
+        },
+        "gvWpjVB_sYk": {
+          "title": "【2026年4月最新】Claude vs Codex徹底比較！共通点と決定的な違いとは",
+          "published_at": "2026-04-12",
+          "url": "https://www.youtube.com/watch?v=gvWpjVB_sYk",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 89
+            },
+            {
+              "date": "2026-05-08",
+              "views": 89
+            },
+            {
+              "date": "2026-05-09",
+              "views": 89
+            }
+          ]
+        },
+        "J4hd4tWBC3Y": {
+          "title": "【2026年最新】Claude vs Codex マルチエージェント開発の常識が変わった！徹底比較",
+          "published_at": "2026-04-12",
+          "url": "https://www.youtube.com/watch?v=J4hd4tWBC3Y",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 115
+            },
+            {
+              "date": "2026-05-08",
+              "views": 117
+            },
+            {
+              "date": "2026-05-09",
+              "views": 121
+            }
+          ]
+        },
+        "b8R-TOKbhZc": {
+          "title": "【月額1万円超え】OpenAI Pro新プラン登場！3段階の料金体系とCodex強化の全貌",
+          "published_at": "2026-04-11",
+          "url": "https://www.youtube.com/watch?v=b8R-TOKbhZc",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 149
+            },
+            {
+              "date": "2026-05-08",
+              "views": 149
+            },
+            {
+              "date": "2026-05-09",
+              "views": 151
+            }
+          ]
+        },
+        "gWmv1xuWv6Q": {
+          "title": "【緊急】OpenAIがmacOSアプリのセキュリティ脆弱性を発表！全ユーザーに更新必須",
+          "published_at": "2026-04-11",
+          "url": "https://www.youtube.com/watch?v=gWmv1xuWv6Q",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 58
+            },
+            {
+              "date": "2026-05-08",
+              "views": 58
+            },
+            {
+              "date": "2026-05-09",
+              "views": 58
+            }
+          ]
+        },
+        "yzxiJDVvLwY": {
+          "title": "【無料】MS公式AI「VibeVoice」が会議60分を一発で議事録化！GitHub★3.8万の実力",
+          "published_at": "2026-04-11",
+          "url": "https://www.youtube.com/watch?v=yzxiJDVvLwY",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 75
+            },
+            {
+              "date": "2026-05-08",
+              "views": 75
+            },
+            {
+              "date": "2026-05-09",
+              "views": 76
+            }
+          ]
+        },
+        "pcM_T3ovWH8": {
+          "title": "【MITRE発】金融詐欺を止めろ！世界の大手銀行が挑む最新防御フレームワークとは",
+          "published_at": "2026-04-11",
+          "url": "https://www.youtube.com/watch?v=pcM_T3ovWH8",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 4
+            },
+            {
+              "date": "2026-05-08",
+              "views": 4
+            },
+            {
+              "date": "2026-05-09",
+              "views": 4
+            }
+          ]
+        },
+        "nXqzrXARNSA": {
+          "title": "【神機能】Claude Codeの「/ultraplan」が凄すぎた！開発効率が爆上がり",
+          "published_at": "2026-04-11",
+          "url": "https://www.youtube.com/watch?v=nXqzrXARNSA",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 1290
+            },
+            {
+              "date": "2026-05-08",
+              "views": 1291
+            },
+            {
+              "date": "2026-05-09",
+              "views": 1294
+            }
+          ]
+        },
+        "AGg8-nuYs6w": {
+          "title": "【革命】GeminiにNotebookLM統合！ノートブック機能でAI作業効率が激変する",
+          "published_at": "2026-04-11",
+          "url": "https://www.youtube.com/watch?v=AGg8-nuYs6w",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 78
+            },
+            {
+              "date": "2026-05-08",
+              "views": 78
+            },
+            {
+              "date": "2026-05-09",
+              "views": 78
+            }
+          ]
+        },
+        "YNR0ZY7HeUU": {
+          "title": "【革命】ClaudeのMonitor機能でトークン節約！エージェントが自動で監視する時代へ",
+          "published_at": "2026-04-10",
+          "url": "https://www.youtube.com/watch?v=YNR0ZY7HeUU",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 87
+            },
+            {
+              "date": "2026-05-08",
+              "views": 87
+            },
+            {
+              "date": "2026-05-09",
+              "views": 87
+            }
+          ]
+        },
+        "_92N3OsdeIs": {
+          "title": "【革命】Claude Managed Agentsが遂に登場！AI自動化の常識が変わる",
+          "published_at": "2026-04-10",
+          "url": "https://www.youtube.com/watch?v=_92N3OsdeIs",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 138
+            },
+            {
+              "date": "2026-05-08",
+              "views": 138
+            },
+            {
+              "date": "2026-05-09",
+              "views": 138
+            }
+          ]
+        },
+        "Ilv9aVDwsik": {
+          "title": "【速報】Meta新AI「Muse Spark」が凄い！マルチモーダルの常識が変わる",
+          "published_at": "2026-04-10",
+          "url": "https://www.youtube.com/watch?v=Ilv9aVDwsik",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 36
+            },
+            {
+              "date": "2026-05-08",
+              "views": 36
+            },
+            {
+              "date": "2026-05-09",
+              "views": 36
+            }
+          ]
+        },
+        "lNb4mc-wi7k": {
+          "title": "【革命】Claude Opusを顧問にしてコスト激減！新アドバイザー戦略がすごい",
+          "published_at": "2026-04-10",
+          "url": "https://www.youtube.com/watch?v=lNb4mc-wi7k",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 48
+            },
+            {
+              "date": "2026-05-08",
+              "views": 48
+            },
+            {
+              "date": "2026-05-09",
+              "views": 48
+            }
+          ]
+        },
+        "R7wXDCEkHRE": {
+          "title": "【神機能】Claude Codeに/autofix-pr登場！PR修正が全自動に！",
+          "published_at": "2026-04-08",
+          "url": "https://www.youtube.com/watch?v=R7wXDCEkHRE",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 26
+            },
+            {
+              "date": "2026-05-08",
+              "views": 26
+            },
+            {
+              "date": "2026-05-09",
+              "views": 26
+            }
+          ]
+        },
+        "PM3_KPa0KSk": {
+          "title": "【DeepTutor】論文もPDFもAIが個別指導！香港大学発の無料AI家庭教師がすごい",
+          "published_at": "2026-04-08",
+          "url": "https://www.youtube.com/watch?v=PM3_KPa0KSk",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 85
+            },
+            {
+              "date": "2026-05-08",
+              "views": 86
+            },
+            {
+              "date": "2026-05-09",
+              "views": 86
+            }
+          ]
+        },
+        "vkctLBVewfk": {
+          "title": "【革命】S3がファイルシステムに！AWS S3 Filesで変わるデータ管理",
+          "published_at": "2026-04-08",
+          "url": "https://www.youtube.com/watch?v=vkctLBVewfk",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 95
+            },
+            {
+              "date": "2026-05-08",
+              "views": 95
+            },
+            {
+              "date": "2026-05-09",
+              "views": 96
+            }
+          ]
+        },
+        "O-6P5QX3cF8": {
+          "title": "【衝撃】Claude Mythos PreviewがVertex AIに登場！次世代AIの実力とは",
+          "published_at": "2026-04-08",
+          "url": "https://www.youtube.com/watch?v=O-6P5QX3cF8",
+          "history": [
+            {
+              "date": "2026-05-07",
+              "views": 91
+            },
+            {
+              "date": "2026-05-08",
+              "views": 91
+            },
+            {
+              "date": "2026-05-09",
+              "views": 91
+            }
+          ]
+        },
+        "BaLI4yQCnH0": {
+          "title": "【Linux権限昇格】Dirty Fragの脆弱性！9年間放置されたゼロデイを徹底解説",
+          "published_at": "2026-05-08",
+          "url": "https://www.youtube.com/watch?v=BaLI4yQCnH0",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 43
+            },
+            {
+              "date": "2026-05-09",
+              "views": 101
+            }
+          ]
+        },
+        "dP3ndbLhgvE": {
+          "title": "【速報】GPT-Realtime-Translate登場！リアルタイム翻訳の革命がついに始まる",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=dP3ndbLhgvE",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 76
+            },
+            {
+              "date": "2026-05-09",
+              "views": 117
+            }
+          ]
+        },
+        "vvRuJVX1dt0": {
+          "title": "【2026/05/07】世界パスワードデイ & パスキーデイ！もう password123は卒業しよう！",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=vvRuJVX1dt0",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 3
+            },
+            {
+              "date": "2026-05-09",
+              "views": 4
+            }
+          ]
+        },
+        "XgFxzSNayEo": {
+          "title": "【最新AI】GPT-Realtime-2がついにリリース！衝撃の進化を徹底解説！",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=XgFxzSNayEo",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 64
+            },
+            {
+              "date": "2026-05-09",
+              "views": 127
+            }
+          ]
+        },
+        "3P30PH7fHOU": {
+          "title": "【緊急】Apache HTTP Server に重大脆弱性！数百万台がRCEの危険に！CVE-2026-23918を解説",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=3P30PH7fHOU",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 23
+            },
+            {
+              "date": "2026-05-09",
+              "views": 31
+            }
+          ]
+        },
+        "oHNr0W3zgbQ": {
+          "title": "【衝撃】Claude Auto Dreamとは！？AIが自動で夢を見る時代へ突入！",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=oHNr0W3zgbQ",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 22
+            },
+            {
+              "date": "2026-05-09",
+              "views": 49
+            }
+          ]
+        },
+        "VBn4hMuv6G0": {
+          "title": "【新機能】ChatGPTに「信頼できる連絡先 Trusted Contact」登場！緊急時の安心サポートを徹底解説",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=VBn4hMuv6G0",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 7
+            },
+            {
+              "date": "2026-05-09",
+              "views": 9
+            }
+          ]
+        },
+        "II0mpBP2ZaQ": {
+          "title": "【神アプデ】CodexがついにChromeで動作！タブ並列処理で作業効率爆上げ",
+          "published_at": "2026-05-07",
+          "url": "https://www.youtube.com/watch?v=II0mpBP2ZaQ",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 57
+            },
+            {
+              "date": "2026-05-09",
+              "views": 97
+            }
+          ]
+        },
+        "KESxyfVIIk4": {
+          "title": "【ついに登場】Codex Remote-Control徹底解説！話題の新機能を試してみた",
+          "published_at": "2026-05-09",
+          "url": "https://www.youtube.com/watch?v=KESxyfVIIk4",
+          "history": [
+            {
+              "date": "2026-05-09",
+              "views": 5
+            }
+          ]
+        },
+        "7S-QblL7DIU": {
+          "title": "【速報】GPT5.5-Cyberプレビュー開始！サイバー特化AIの実力とは？",
+          "published_at": "2026-05-08",
+          "url": "https://www.youtube.com/watch?v=7S-QblL7DIU",
+          "history": [
+            {
+              "date": "2026-05-09",
+              "views": 32
+            }
+          ]
+        },
+        "Hv4ybdPC4kA": {
+          "title": "【Mac対応】Perplexity Personal Computer無料公開！AIエージェントの実力は？",
+          "published_at": "2026-05-08",
+          "url": "https://www.youtube.com/watch?v=Hv4ybdPC4kA",
+          "history": [
+            {
+              "date": "2026-05-09",
+              "views": 28
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "UC_dLmVT-fjTCxTVrrVhhoyw",
+      "title": "AI時代のテック速報【ずんだもん解説】",
+      "subs_history": [
+        {
+          "timestamp": "2026-05-08",
+          "subs": 1750
+        },
+        {
+          "timestamp": "2026-05-09",
+          "subs": 1760
+        },
+        {
+          "timestamp": "2026-05-09T09:42:51Z",
+          "subs": 1760
+        },
+        {
+          "timestamp": "2026-05-09T09:45:06Z",
+          "subs": 1760
+        },
+        {
+          "timestamp": "2026-05-09T09:48:50Z",
+          "subs": 1760
+        },
+        {
+          "timestamp": "2026-05-09T12:13:24Z",
+          "subs": 1760
+        }
+      ],
+      "views_history": [
+        {
+          "timestamp": "2026-05-08",
+          "total_views": 101319,
+          "videos": 62
+        },
+        {
+          "timestamp": "2026-05-09",
+          "total_views": 101852,
+          "videos": 62
+        },
+        {
+          "timestamp": "2026-05-09T09:42:51Z",
+          "total_views": 102014,
+          "videos": 62
+        },
+        {
+          "timestamp": "2026-05-09T09:45:06Z",
+          "total_views": 102014,
+          "videos": 62
+        },
+        {
+          "timestamp": "2026-05-09T09:48:50Z",
+          "total_views": 101975,
+          "videos": 62
+        },
+        {
+          "timestamp": "2026-05-09T12:13:24Z",
+          "total_views": 102084,
+          "videos": 62
+        }
+      ],
+      "recent_hits": [],
+      "video_history": {
+        "UDfoPMVro-k": {
+          "title": "ClaudeをハッキングAIに変える「RAPTOR」の正体",
+          "published_at": "2026-04-19",
+          "url": "https://www.youtube.com/watch?v=UDfoPMVro-k",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 1446
+            },
+            {
+              "date": "2026-05-09",
+              "views": 1446
+            }
+          ]
+        },
+        "FZgpvXwyqQM": {
+          "title": "デザイナーなしで2プロンプトでUI完成？Claude Designが常識を壊した",
+          "published_at": "2026-04-18",
+          "url": "https://www.youtube.com/watch?v=FZgpvXwyqQM",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 308
+            },
+            {
+              "date": "2026-05-09",
+              "views": 308
+            }
+          ]
+        },
+        "5nhxH9IB7uw": {
+          "title": "Microsoft製ローカルAI「Foundry Local」が完全無償でOllamaを超えた理由",
+          "published_at": "2026-04-16",
+          "url": "https://www.youtube.com/watch?v=5nhxH9IB7uw",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 7092
+            },
+            {
+              "date": "2026-05-09",
+              "views": 7113
+            }
+          ]
+        },
+        "eLhc57stNpU": {
+          "title": "DiscordコミュニティがGPT-4超えAIエージェントを作った：Hermes Agentの衝撃",
+          "published_at": "2026-04-15",
+          "url": "https://www.youtube.com/watch?v=eLhc57stNpU",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 714
+            },
+            {
+              "date": "2026-05-09",
+              "views": 721
+            }
+          ]
+        },
+        "emC-sSL94RM": {
+          "title": "Mandiant FLAREが無料公開：高度なマルウェア解析教材の全貌",
+          "published_at": "2026-04-15",
+          "url": "https://www.youtube.com/watch?v=emC-sSL94RM",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 113
+            },
+            {
+              "date": "2026-05-09",
+              "views": 113
+            }
+          ]
+        },
+        "V4TNfJwWMf8": {
+          "title": "Googleの「Magika」が50年物のfileコマンドを99%精度で完全に超えた",
+          "published_at": "2026-04-14",
+          "url": "https://www.youtube.com/watch?v=V4TNfJwWMf8",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 619
+            },
+            {
+              "date": "2026-05-09",
+              "views": 619
+            }
+          ]
+        },
+        "zHsPwsLe2Jw": {
+          "title": "Win11Debloat：Windows 11の隠れた800MBを取り戻す方法",
+          "published_at": "2026-04-14",
+          "url": "https://www.youtube.com/watch?v=zHsPwsLe2Jw",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 1490
+            },
+            {
+              "date": "2026-05-09",
+              "views": 1491
+            }
+          ]
+        },
+        "BgHPMo-Xt7A": {
+          "title": "AIのムダ喋りを省く「caveman」でトークン代を劇的削減",
+          "published_at": "2026-04-14",
+          "url": "https://www.youtube.com/watch?v=BgHPMo-Xt7A",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 310
+            },
+            {
+              "date": "2026-05-09",
+              "views": 310
+            }
+          ]
+        },
+        "Bt3q8Cv_e-M": {
+          "title": "自動運転AIの「脳」WorldEngineが常識を壊した：ルール不要で世界を理解する",
+          "published_at": "2026-04-13",
+          "url": "https://www.youtube.com/watch?v=Bt3q8Cv_e-M",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 102
+            },
+            {
+              "date": "2026-05-09",
+              "views": 102
+            }
+          ]
+        },
+        "wazjxyzZU8k": {
+          "title": "GPT-4が人間より40点低い「時間推論」をKronosが解決する",
+          "published_at": "2026-04-13",
+          "url": "https://www.youtube.com/watch?v=wazjxyzZU8k",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 129
+            },
+            {
+              "date": "2026-05-09",
+              "views": 129
+            }
+          ]
+        },
+        "lIjItBdODGo": {
+          "title": "GitHubスター30,000超：MicrosoftのMarkItDownがRAGパイプラインを変えた",
+          "published_at": "2026-04-13",
+          "url": "https://www.youtube.com/watch?v=lIjItBdODGo",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 2426
+            },
+            {
+              "date": "2026-05-09",
+              "views": 2430
+            }
+          ]
+        },
+        "v5oX2u-Ao7U": {
+          "title": "RAG精度低下の60%はモデルじゃなくPDF解析が原因だった",
+          "published_at": "2026-04-13",
+          "url": "https://www.youtube.com/watch?v=v5oX2u-Ao7U",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 137
+            },
+            {
+              "date": "2026-05-09",
+              "views": 137
+            }
+          ]
+        },
+        "nlIGq8SJsBY": {
+          "title": "MozillaがAI専用ハッキングツールを無償公開——あなたのAIは今すぐ突破される",
+          "published_at": "2026-04-13",
+          "url": "https://www.youtube.com/watch?v=nlIGq8SJsBY",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 327
+            },
+            {
+              "date": "2026-05-09",
+              "views": 327
+            }
+          ]
+        },
+        "N6kO7ln02EQ": {
+          "title": "GPT-4oに唯一対抗できる完全オープンソース音声LLM「VoxCPM」が登場",
+          "published_at": "2026-04-13",
+          "url": "https://www.youtube.com/watch?v=N6kO7ln02EQ",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 135
+            },
+            {
+              "date": "2026-05-09",
+              "views": 135
+            }
+          ]
+        },
+        "uH7zYRzwiuk": {
+          "title": "トークン25倍圧縮！agent-browserがAIエージェントのWeb操作を変えた",
+          "published_at": "2026-04-12",
+          "url": "https://www.youtube.com/watch?v=uH7zYRzwiuk",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 2166
+            },
+            {
+              "date": "2026-05-09",
+              "views": 2166
+            }
+          ]
+        },
+        "SmBiC1kCt84": {
+          "title": "ブラウザを自分でクラッシュさせてマルウェアを仕込む「CrashFix」の全貌：セキュリティ専門家が震えた新手口",
+          "published_at": "2026-04-12",
+          "url": "https://www.youtube.com/watch?v=SmBiC1kCt84",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 108
+            },
+            {
+              "date": "2026-05-09",
+              "views": 108
+            }
+          ]
+        },
+        "MPGQU8Y_WRs": {
+          "title": "インストールコマンドが罠だった：AIツールを狙うInstallFix攻撃の全貌",
+          "published_at": "2026-04-12",
+          "url": "https://www.youtube.com/watch?v=MPGQU8Y_WRs",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 114
+            },
+            {
+              "date": "2026-05-09",
+              "views": 114
+            }
+          ]
+        },
+        "iH0C4jnR_g4": {
+          "title": "git addが不要になった：GoogleエンジニアがGitの設計ミスを修正したVCS「Jujutsu」",
+          "published_at": "2026-04-11",
+          "url": "https://www.youtube.com/watch?v=iH0C4jnR_g4",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 2507
+            },
+            {
+              "date": "2026-05-09",
+              "views": 2507
+            }
+          ]
+        },
+        "U_070leEyvM": {
+          "title": "2MBでOllamaを超えた：Lemonadeがローカルフルスタックを無料で実現する方法",
+          "published_at": "2026-04-11",
+          "url": "https://www.youtube.com/watch?v=U_070leEyvM",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 8666
+            },
+            {
+              "date": "2026-05-09",
+              "views": 8704
+            }
+          ]
+        },
+        "mbAZ0nWb_iY": {
+          "title": "Claude Codeを10並列で指揮する無限キャンバス「Maestri」が登場（完全無料版と有料版あり）",
+          "published_at": "2026-04-11",
+          "url": "https://www.youtube.com/watch?v=mbAZ0nWb_iY",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 392
+            },
+            {
+              "date": "2026-05-09",
+              "views": 397
+            }
+          ]
+        },
+        "ZD9BlToeG_4": {
+          "title": "誰も知らない量子フレームワーク「QClaw」がQiskitを超えるかもしれない理由",
+          "published_at": "2026-04-10",
+          "url": "https://www.youtube.com/watch?v=ZD9BlToeG_4",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 48
+            },
+            {
+              "date": "2026-05-09",
+              "views": 48
+            }
+          ]
+        },
+        "GORSNwNttOk": {
+          "title": "400超のランサムウェアグループを無料で可視化——日本発CIG Portalの衝撃",
+          "published_at": "2026-04-10",
+          "url": "https://www.youtube.com/watch?v=GORSNwNttOk",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 80
+            },
+            {
+              "date": "2026-05-09",
+              "views": 80
+            }
+          ]
+        },
+        "7vPTf9F6eYM": {
+          "title": "AIが書くために設計されたプログラミング言語「Vera」— 人間向け70年の常識を破壊",
+          "published_at": "2026-04-10",
+          "url": "https://www.youtube.com/watch?v=7vPTf9F6eYM",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 1583
+            },
+            {
+              "date": "2026-05-09",
+              "views": 1583
+            }
+          ]
+        },
+        "RRIUSH0n0Xw": {
+          "title": "Claude Codeの思考深度が67%削減されていた件",
+          "published_at": "2026-04-10",
+          "url": "https://www.youtube.com/watch?v=RRIUSH0n0Xw",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 3353
+            },
+            {
+              "date": "2026-05-09",
+              "views": 3353
+            }
+          ]
+        },
+        "pasnim1U0d8": {
+          "title": "Anthropic「Claude Managed Agents」でエンジニア不要のAI本番運用が現実に",
+          "published_at": "2026-04-09",
+          "url": "https://www.youtube.com/watch?v=pasnim1U0d8",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 278
+            },
+            {
+              "date": "2026-05-09",
+              "views": 278
+            }
+          ]
+        },
+        "7uFyfG2WO-M": {
+          "title": "MetaがOpenAIに宣戦布告——Muse Sparkで2兆円賭けた覇権争いの全貌",
+          "published_at": "2026-04-09",
+          "url": "https://www.youtube.com/watch?v=7uFyfG2WO-M",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 132
+            },
+            {
+              "date": "2026-05-09",
+              "views": 132
+            }
+          ]
+        },
+        "StXaHVx-1Pc": {
+          "title": "文献レビュー40時間が激減？Zotero統合AI「DeepTutor」が研究の常識を壊した",
+          "published_at": "2026-04-09",
+          "url": "https://www.youtube.com/watch?v=StXaHVx-1Pc",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 148
+            },
+            {
+              "date": "2026-05-09",
+              "views": 152
+            }
+          ]
+        },
+        "j3fltIlX7dI": {
+          "title": "目に見えないコードが400リポジトリを汚染：GlassWormが「読めるコードは安全」という常識を破壊した",
+          "published_at": "2026-04-08",
+          "url": "https://www.youtube.com/watch?v=j3fltIlX7dI",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 58
+            },
+            {
+              "date": "2026-05-09",
+              "views": 58
+            }
+          ]
+        },
+        "NaGAhDWFs60": {
+          "title": "国立国会図書館が無料公開したAI OCRが有料サービスを超えた：NDLOCR-Liteの真実",
+          "published_at": "2026-04-06",
+          "url": "https://www.youtube.com/watch?v=NaGAhDWFs60",
+          "history": [
+            {
+              "date": "2026-05-08",
+              "views": 61635
+            },
+            {
+              "date": "2026-05-09",
+              "views": 62081
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
