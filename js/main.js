@@ -151,12 +151,21 @@ function computeRecentDelta(history, key, days) {
 
 function aggregateDailyLast(history, key) {
   const byDate = {};
-  history.forEach((p) => {
+  // 時系列順に処理（snapshots.jsonl のファイル順が乱れていても日内最終値が取れる）
+  const sorted = [...history].sort((a, b) => (a.timestamp || "").localeCompare(b.timestamp || ""));
+  sorted.forEach((p) => {
     const d = (p.timestamp || "").slice(0, 10);
     if (!d) return;
     byDate[d] = p[key];
   });
-  return Object.keys(byDate).sort().map((d) => ({ date: d, value: byDate[d] }));
+  // 累計値は単調増加を保証（API 取得の動画セット入れ替わりで見かけ上減ることがあるノイズを除去）
+  const dates = Object.keys(byDate).sort();
+  let prev = -Infinity;
+  return dates.map((d) => {
+    const v = Math.max(byDate[d], prev);
+    prev = v;
+    return { date: d, value: v };
+  });
 }
 
 function drawDualSeries(canvasId, history, key, cumLabel, deltaLabel, color) {
@@ -403,12 +412,20 @@ function renderVideoHistory(ch) {
       if (isActive) row.scrollIntoView({ block: "nearest", behavior: "smooth" });
     });
     if (posLabel) posLabel.textContent = `${activeIdx + 1} / ${entries.length}`;
-    const cumData = v.history.map((p) => ({ x: parseTs(p.date), y: p.views }));
+    // 日付順 + cumulative max で単調増加を保証
+    const sortedH = [...v.history].sort((a, b) => a.date.localeCompare(b.date));
+    let prevV = 0;
+    const monotone = sortedH.map((p) => {
+      const y = Math.max(p.views, prevV);
+      prevV = y;
+      return { date: p.date, views: y };
+    });
+    const cumData = monotone.map((p) => ({ x: parseTs(p.date), y: p.views }));
     const deltaData = [];
-    for (let i = 1; i < v.history.length; i++) {
+    for (let i = 1; i < monotone.length; i++) {
       deltaData.push({
-        x: parseTs(v.history[i].date),
-        y: v.history[i].views - v.history[i - 1].views,
+        x: parseTs(monotone[i].date),
+        y: monotone[i].views - monotone[i - 1].views,
       });
     }
     if (chart) chart.destroy();
