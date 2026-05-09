@@ -201,6 +201,13 @@ main {
 
 .hit-meta .views { color: var(--hit); font-weight: 600; }
 
+.hit.rising { border-left-color: #bf8700; }
+.hit.rising:hover { border-left-color: var(--accent); }
+.hit-meta .rising-delta {
+  color: #bf8700;
+  font-weight: 700;
+}
+
 .empty {
   color: var(--text-dim);
   font-style: italic;

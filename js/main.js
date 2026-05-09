@@ -104,7 +104,10 @@ function renderChannel(ch, idx) {
       </div>
     </div>
 
-    <div class="section-title">★ 直近 HIT 動画</div>
+    <div class="section-title">🔥 今伸びている動画 (直近 3 日に +500/日 以上 & 累計 1,000+)</div>
+    <div id="rising-${ch.id}"></div>
+
+    <div class="section-title">★ 直近 HIT 動画 (age ≤ 14d & 累計 1,000+)</div>
     <div id="hits-${ch.id}"></div>
 
     <div class="section-title">動画別 views 推移 (左リスト click + ↑↓キーで切替)</div>
@@ -126,6 +129,7 @@ function renderChannel(ch, idx) {
     drawDualSeries(`subs-${ch.id}`, subs, "subs", "登録者数", "+ 登録者 / 日", PALETTE[idx % PALETTE.length]);
     drawDualSeries(`views-${ch.id}`, views, "total_views", "累計 views", "+ views / 日", PALETTE[(idx + 1) % PALETTE.length]);
     drawDailyPosts(`posts-${ch.id}`, ch.daily_posts || []);
+    renderRising(`rising-${ch.id}`, ch);
     renderHits(`hits-${ch.id}`, ch.recent_hits || []);
     renderVideoHistory(ch);
   }, 0);
@@ -290,6 +294,60 @@ function drawDailyPosts(canvasId, posts) {
       },
     },
   });
+}
+
+function findRisingVideos(ch, days = 3, dailyThreshold = 500, cumulativeThreshold = 1000) {
+  const rising = [];
+  const now = Date.now();
+  for (const [vid, v] of Object.entries(ch.video_history || {})) {
+    if (!v.history || v.history.length < 2) continue;
+    const latest = v.history[v.history.length - 1].views;
+    if (latest < cumulativeThreshold) continue;
+
+    let maxDelta = 0;
+    let recentTotalDelta = 0;
+    let bigDayDate = null;
+    for (let i = 1; i < v.history.length; i++) {
+      const date = new Date(v.history[i].date + "T00:00:00Z");
+      const ageDays = (now - date.getTime()) / 86400000;
+      if (ageDays > days) continue;
+      const delta = v.history[i].views - v.history[i - 1].views;
+      recentTotalDelta += delta;
+      if (delta > maxDelta) {
+        maxDelta = delta;
+        bigDayDate = v.history[i].date;
+      }
+    }
+    if (maxDelta >= dailyThreshold) {
+      rising.push({ vid, ...v, latest, maxDelta, recentTotalDelta, bigDayDate });
+    }
+  }
+  rising.sort((a, b) => b.maxDelta - a.maxDelta);
+  return rising;
+}
+
+function renderRising(containerId, ch) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const rising = findRisingVideos(ch);
+  if (!rising.length) {
+    el.innerHTML = `<div class="empty">直近 3 日で +500 views/日 以上の急伸動画なし</div>`;
+    return;
+  }
+  el.className = "hits";
+  el.innerHTML = rising.map((r) => `
+    <a class="hit rising" href="${r.url || ('https://www.youtube.com/watch?v=' + r.vid)}" target="_blank" rel="noopener">
+      <div class="hit-title">${escapeHtml(r.title)}</div>
+      <div class="hit-meta">
+        <span class="rising-delta">+${fmtN(r.maxDelta)} / 日 (${r.bigDayDate})</span>
+        <span>累計 ${fmtN(r.latest)}</span>
+        <span>3日合計 +${fmtN(r.recentTotalDelta)}</span>
+      </div>
+      <div class="hit-meta" style="margin-top:0.3rem">
+        <span>投稿: ${r.published_at}</span>
+      </div>
+    </a>
+  `).join("");
 }
 
 function renderHits(containerId, hits) {
