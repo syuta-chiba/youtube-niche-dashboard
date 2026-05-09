@@ -413,10 +413,11 @@ function renderVideoHistory(ch) {
           y: {
             type: "linear",
             position: "left",
-            beginAtZero: false,
+            beginAtZero: true,
+            suggestedMax: 1250,
             ticks: { color: COL_TICK, callback: (v) => fmtN(v) },
             grid: { color: COL_GRID },
-            title: { display: true, text: "累計 views", color: COL_TICK },
+            title: { display: true, text: "累計 views (1,000 で HIT)", color: COL_TICK },
           },
           y1: {
             type: "linear",
