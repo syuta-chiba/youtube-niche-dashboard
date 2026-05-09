@@ -448,6 +448,10 @@ function renderVideoHistory(ch) {
     row.addEventListener("click", () => draw(row.dataset.vid));
   });
 
+  const scrollToChart = () => {
+    if (canvas) canvas.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  };
+
   document.addEventListener("keydown", (e) => {
     if (!panel || !panel.classList.contains("active")) return;
     const tag = document.activeElement && document.activeElement.tagName;
@@ -455,11 +459,13 @@ function renderVideoHistory(ch) {
     if (e.key === "ArrowDown" || e.key === "ArrowRight" || e.key === "j") {
       if (activeIdx < entries.length - 1) {
         draw(entries[activeIdx + 1].vid);
+        scrollToChart();
         e.preventDefault();
       }
     } else if (e.key === "ArrowUp" || e.key === "ArrowLeft" || e.key === "k") {
       if (activeIdx > 0) {
         draw(entries[activeIdx - 1].vid);
+        scrollToChart();
         e.preventDefault();
       }
     }
