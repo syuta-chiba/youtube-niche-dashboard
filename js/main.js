@@ -107,7 +107,7 @@ function renderChannel(ch, idx) {
     <div class="section-title">★ 直近 HIT 動画</div>
     <div id="hits-${ch.id}"></div>
 
-    <div class="section-title">動画別 views 推移 (左のリストを hover/click で切替、下ボタンで前後移動)</div>
+    <div class="section-title">動画別 views 推移 (左リスト hover/click + ↑↓キーで切替)</div>
     <div class="video-section">
       <div id="vlist-${ch.id}" class="video-list"></div>
       <div>
@@ -115,9 +115,8 @@ function renderChannel(ch, idx) {
           <div class="video-chart-canvas"><canvas id="vchart-${ch.id}"></canvas></div>
         </div>
         <div class="video-nav">
-          <button id="vprev-${ch.id}" type="button">← 前の動画</button>
+          <span class="video-nav-hint">↑↓ キーで前後の動画に切替</span>
           <span id="vpos-${ch.id}" class="video-nav-pos"></span>
-          <button id="vnext-${ch.id}" type="button">次の動画 →</button>
         </div>
       </div>
     </div>
@@ -331,9 +330,8 @@ function renderVideoHistory(ch) {
   let activeVid = null;
   let activeIdx = 0;
 
-  const prevBtn = document.getElementById("vprev-" + ch.id);
-  const nextBtn = document.getElementById("vnext-" + ch.id);
   const posLabel = document.getElementById("vpos-" + ch.id);
+  const panel = document.getElementById("ch-" + ch.id);
 
   const draw = (vid) => {
     if (vid === activeVid) return;
@@ -346,8 +344,6 @@ function renderVideoHistory(ch) {
       row.classList.toggle("active", isActive);
       if (isActive) row.scrollIntoView({ block: "nearest", behavior: "smooth" });
     });
-    if (prevBtn) prevBtn.disabled = activeIdx <= 0;
-    if (nextBtn) nextBtn.disabled = activeIdx >= entries.length - 1;
     if (posLabel) posLabel.textContent = `${activeIdx + 1} / ${entries.length}`;
     const cumData = v.history.map((p) => ({ x: parseTs(p.date), y: p.views }));
     const deltaData = [];
@@ -435,26 +431,38 @@ function renderVideoHistory(ch) {
     });
   };
 
-  list.innerHTML = entries.map((e) => `
-    <div class="video-row" data-vid="${e.vid}">
+  list.innerHTML = entries.map((e) => {
+    const tier = e.latest >= 1000 ? "hit" : e.latest < 100 ? "cold" : "warm";
+    return `
+    <div class="video-row tier-${tier}" data-vid="${e.vid}">
       <div class="video-row-title">${escapeHtml(e.title)}</div>
       <div class="video-row-meta">
         <span class="views">${fmtN(e.latest)} views</span>
         <span>${e.published_at}</span>
       </div>
-    </div>
-  `).join("");
+    </div>`;
+  }).join("");
 
   list.querySelectorAll(".video-row").forEach((row) => {
     row.addEventListener("mouseenter", () => draw(row.dataset.vid));
     row.addEventListener("click", () => draw(row.dataset.vid));
   });
 
-  if (prevBtn) prevBtn.addEventListener("click", () => {
-    if (activeIdx > 0) draw(entries[activeIdx - 1].vid);
-  });
-  if (nextBtn) nextBtn.addEventListener("click", () => {
-    if (activeIdx < entries.length - 1) draw(entries[activeIdx + 1].vid);
+  document.addEventListener("keydown", (e) => {
+    if (!panel || !panel.classList.contains("active")) return;
+    const tag = document.activeElement && document.activeElement.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+    if (e.key === "ArrowDown" || e.key === "ArrowRight" || e.key === "j") {
+      if (activeIdx < entries.length - 1) {
+        draw(entries[activeIdx + 1].vid);
+        e.preventDefault();
+      }
+    } else if (e.key === "ArrowUp" || e.key === "ArrowLeft" || e.key === "k") {
+      if (activeIdx > 0) {
+        draw(entries[activeIdx - 1].vid);
+        e.preventDefault();
+      }
+    }
   });
 
   draw(entries[0].vid);

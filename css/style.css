@@ -13,13 +13,18 @@
 
 * { box-sizing: border-box; }
 
+html, body { max-width: 100%; overflow-x: hidden; }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.5;
+  word-break: break-word;
 }
+
+img, canvas, svg { max-width: 100%; height: auto; }
 
 header {
   padding: 1.5rem 2rem;
@@ -235,9 +240,20 @@ main {
 
 .video-row:last-child { border-bottom: none; }
 .video-row:hover { background: var(--accent-bg); }
+.video-row.tier-hit { border-left-color: var(--hit); }
+.video-row.tier-cold { opacity: 0.55; }
 .video-row.active {
   background: var(--accent-bg-strong);
   border-left-color: var(--accent);
+  opacity: 1;
+}
+.video-row.tier-hit .views {
+  color: var(--hit);
+  font-weight: 700;
+}
+.video-row.tier-cold .views {
+  color: var(--text-dim);
+  font-weight: normal;
 }
 
 .video-row-title {
@@ -297,4 +313,36 @@ main {
 .video-nav-pos {
   font-size: 0.85rem;
   color: var(--text-dim);
+}
+
+.video-nav-hint {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* === レスポンシブ === */
+@media (max-width: 768px) {
+  header { padding: 1rem; }
+  header h1 { font-size: 1.15rem; }
+  nav { padding: 0 0.5rem; gap: 0; }
+  nav button { padding: 0.7rem 0.7rem; font-size: 0.85rem; }
+  main { padding: 1rem; }
+  .channel h2 { font-size: 1.05rem; }
+  .kpi { min-width: 0; flex: 1 1 calc(50% - 0.5rem); padding: 0.7rem 0.9rem; }
+  .kpi-value { font-size: 1.1rem; }
+  .kpi-label { font-size: 0.7rem; }
+  .chart-box { padding: 0.7rem; }
+  .chart-canvas { height: 200px; }
+  .video-chart-canvas { height: 280px; }
+  .video-list { max-height: 300px; }
+  .hits { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  header { padding: 0.8rem; }
+  main { padding: 0.6rem; }
+  .kpi { flex: 1 1 100%; }
+  .chart-canvas { height: 180px; }
+  .video-chart-canvas { height: 240px; }
+  .video-nav { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
 }
