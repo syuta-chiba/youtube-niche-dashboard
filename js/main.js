@@ -78,20 +78,12 @@ function renderChannel(ch, idx) {
 
     <div class="charts">
       <div class="chart-box">
-        <h3>登録者数の推移</h3>
+        <h3>登録者数 (累計 + 1 日の伸び)</h3>
         <div class="chart-canvas"><canvas id="subs-${ch.id}"></canvas></div>
       </div>
       <div class="chart-box">
-        <h3>登録者の日次増分 (前日比)</h3>
-        <div class="chart-canvas"><canvas id="subs-delta-${ch.id}"></canvas></div>
-      </div>
-      <div class="chart-box">
-        <h3>累計 views の推移</h3>
+        <h3>累計 views (累計 + 1 日の伸び)</h3>
         <div class="chart-canvas"><canvas id="views-${ch.id}"></canvas></div>
-      </div>
-      <div class="chart-box">
-        <h3>views の日次増分 (前日比)</h3>
-        <div class="chart-canvas"><canvas id="views-delta-${ch.id}"></canvas></div>
       </div>
       <div class="chart-box charts-full">
         <h3>1 日の投稿本数 (Shorts 除外、直近 60 日)</h3>
@@ -112,10 +104,8 @@ function renderChannel(ch, idx) {
   `;
 
   setTimeout(() => {
-    drawTimeSeries(`subs-${ch.id}`, subs, "subs", "登録者", PALETTE[idx % PALETTE.length]);
-    drawDailyDelta(`subs-delta-${ch.id}`, subs, "subs", "+ 登録者 / 日");
-    drawTimeSeries(`views-${ch.id}`, views, "total_views", "累計 views", PALETTE[(idx + 1) % PALETTE.length]);
-    drawDailyDelta(`views-delta-${ch.id}`, views, "total_views", "+ views / 日");
+    drawDualSeries(`subs-${ch.id}`, subs, "subs", "登録者数", "+ 登録者 / 日", PALETTE[idx % PALETTE.length]);
+    drawDualSeries(`views-${ch.id}`, views, "total_views", "累計 views", "+ views / 日", PALETTE[(idx + 1) % PALETTE.length]);
     drawDailyPosts(`posts-${ch.id}`, ch.daily_posts || []);
     renderHits(`hits-${ch.id}`, ch.recent_hits || []);
     renderVideoHistory(ch);
@@ -124,38 +114,81 @@ function renderChannel(ch, idx) {
   return wrap;
 }
 
-function drawTimeSeries(canvasId, points, key, label, color) {
+function drawDualSeries(canvasId, history, key, cumLabel, deltaLabel, color) {
   const canvas = document.getElementById(canvasId);
-  if (!canvas || !points.length) return;
-  const data = points.map((p) => ({ x: parseTs(p.timestamp), y: p[key] }));
+  if (!canvas || !history.length) return;
+  const daily = aggregateDailyLast(history, key);
+  if (!daily.length) return;
+  const labels = daily.map((d) => d.date);
+  const cumValues = daily.map((d) => d.value);
+  const deltaValues = [null];
+  for (let i = 1; i < daily.length; i++) {
+    deltaValues.push(daily[i].value - daily[i - 1].value);
+  }
+
   new Chart(canvas, {
-    type: "line",
     data: {
-      datasets: [{
-        label,
-        data,
-        borderColor: color,
-        backgroundColor: color + "33",
-        fill: true,
-        tension: 0.2,
-        pointRadius: 3,
-      }],
+      labels,
+      datasets: [
+        {
+          type: "line",
+          label: cumLabel,
+          data: cumValues,
+          borderColor: color,
+          backgroundColor: color + "33",
+          fill: false,
+          tension: 0.2,
+          pointRadius: 5,
+          pointHoverRadius: 8,
+          borderWidth: 2.5,
+          yAxisID: "y",
+          order: 2,
+        },
+        {
+          type: "bar",
+          label: deltaLabel,
+          data: deltaValues,
+          backgroundColor: deltaValues.map((v) => v == null ? "transparent" : (v >= 0 ? "#3fb95099" : "#f8514999")),
+          borderColor: deltaValues.map((v) => v == null ? "transparent" : (v >= 0 ? "#3fb950" : "#f85149")),
+          borderWidth: 1,
+          yAxisID: "y1",
+          order: 1,
+        },
+      ],
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { labels: { color: "#c9d1d9" } } },
-      scales: {
-        x: {
-          type: "time",
-          time: { unit: "day", tooltipFormat: "yyyy-MM-dd HH:mm" },
-          ticks: { color: "#8b949e" },
-          grid: { color: "#30363d44" },
+      interaction: { mode: "index", intersect: false, axis: "x" },
+      plugins: {
+        legend: { labels: { color: "#c9d1d9" } },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const v = ctx.parsed.y;
+              if (v == null) return null;
+              const sign = ctx.dataset.yAxisID === "y1" && v > 0 ? "+" : "";
+              return `${ctx.dataset.label}: ${sign}${fmtN(v)}`;
+            },
+          },
         },
+      },
+      scales: {
+        x: { ticks: { color: "#8b949e" }, grid: { color: "#30363d44" } },
         y: {
-          beginAtZero: false,
+          type: "linear",
+          position: "left",
           ticks: { color: "#8b949e", callback: (v) => fmtN(v) },
           grid: { color: "#30363d44" },
+          title: { display: true, text: cumLabel, color: "#8b949e" },
+        },
+        y1: {
+          type: "linear",
+          position: "right",
+          beginAtZero: true,
+          ticks: { color: "#8b949e", callback: (v) => fmtN(v) },
+          grid: { drawOnChartArea: false },
+          title: { display: true, text: deltaLabel, color: "#8b949e" },
         },
       },
     },
@@ -176,45 +209,6 @@ function aggregateDailyLast(history, key) {
     byDate[d] = p[key];
   });
   return Object.keys(byDate).sort().map((d) => ({ date: d, value: byDate[d] }));
-}
-
-function drawDailyDelta(canvasId, history, key, label) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas) return;
-  const daily = aggregateDailyLast(history, key);
-  if (daily.length < 2) {
-    canvas.parentElement.innerHTML = `<div style="color:var(--text-dim);padding:1rem;font-size:0.85rem">日次差分を出すには 2 日分のスナップショットが必要 (現在 ${daily.length} 日)</div>`;
-    return;
-  }
-  const deltas = [];
-  for (let i = 1; i < daily.length; i++) {
-    deltas.push({ date: daily[i].date, value: daily[i].value - daily[i - 1].value });
-  }
-  new Chart(canvas, {
-    type: "bar",
-    data: {
-      labels: deltas.map((d) => d.date),
-      datasets: [{
-        label,
-        data: deltas.map((d) => d.value),
-        backgroundColor: deltas.map((d) => d.value >= 0 ? "#3fb95099" : "#f8514999"),
-        borderColor: deltas.map((d) => d.value >= 0 ? "#3fb950" : "#f85149"),
-        borderWidth: 1,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { labels: { color: "#c9d1d9" } } },
-      scales: {
-        x: { ticks: { color: "#8b949e" }, grid: { color: "#30363d44" } },
-        y: {
-          ticks: { color: "#8b949e", callback: (v) => fmtN(v) },
-          grid: { color: "#30363d44" },
-        },
-      },
-    },
-  });
 }
 
 function drawDailyPosts(canvasId, posts) {
@@ -250,6 +244,7 @@ function drawDailyPosts(canvasId, posts) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false, axis: "x" },
       plugins: { legend: { labels: { color: "#c9d1d9" } } },
       scales: {
         x: { ticks: { color: "#8b949e", maxRotation: 60, minRotation: 45 }, grid: { color: "#30363d44" } },
@@ -342,10 +337,19 @@ function renderVideoHistory(ch) {
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false, axis: "x" },
         plugins: {
           legend: { labels: { color: "#c9d1d9" } },
           tooltip: {
-            callbacks: { afterTitle: () => `published: ${v.published_at}` },
+            callbacks: {
+              afterTitle: () => `published: ${v.published_at}`,
+              label: (ctx) => {
+                const val = ctx.parsed.y;
+                if (val == null) return null;
+                const sign = ctx.dataset.yAxisID === "y1" && val > 0 ? "+" : "";
+                return `${ctx.dataset.label}: ${sign}${fmtN(val)}`;
+              },
+            },
           },
         },
         scales: {
