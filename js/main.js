@@ -1,8 +1,21 @@
-const PALETTE = ["#58a6ff", "#f85149", "#3fb950", "#d29922", "#a371f7"];
+const PALETTE = ["#0969da", "#cf222e", "#1a7f37", "#bf8700", "#8250df"];
+const COL_TICK = "#57606a";
+const COL_GRID = "#d0d7de66";
+const COL_LEGEND = "#1f2328";
+const COL_POS = "#1a7f37";
+const COL_POS_BG = "#1a7f3766";
+const COL_NEG = "#cf222e";
+const COL_NEG_BG = "#cf222e66";
+
 const fmtN = (n) => n.toLocaleString("ja-JP");
 const fmtTs = (ts) => ts.length === 10 ? ts : ts.replace("T", " ").replace("Z", "");
 
 async function load() {
+  // Chart.js global defaults
+  Chart.defaults.color = COL_LEGEND;
+  Chart.defaults.borderColor = COL_GRID;
+  Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif';
+
   const res = await fetch("data/dashboard.json", { cache: "no-store" });
   const data = await res.json();
   document.getElementById("generated-at").textContent =
@@ -15,7 +28,7 @@ async function load() {
 function buildTabs(channels) {
   const nav = document.getElementById("channel-nav");
   const tabs = [];
-  channels.forEach((ch, idx) => {
+  channels.forEach((ch) => {
     const btn = document.createElement("button");
     btn.textContent = ch.title;
     btn.onclick = () => activateTab(ch.id, tabs);
@@ -51,9 +64,9 @@ function renderChannel(ch, idx) {
   const lastSubs = subs.length ? subs[subs.length - 1].subs : 0;
   const firstSubs = subs.length ? subs[0].subs : 0;
   const subsDelta = lastSubs - firstSubs;
-  const lastViews = views.length ? views[views.length - 1].total_views : 0;
-  const firstViews = views.length ? views[0].total_views : 0;
-  const viewsDelta = lastViews - firstViews;
+
+  // 直近 1 週間の views 増分（snapshot が短いなら最古からの増分）
+  const last7 = computeRecentDelta(views, "total_views", 7);
 
   wrap.innerHTML = `
     <h2>${escapeHtml(ch.title)}</h2>
@@ -63,8 +76,8 @@ function renderChannel(ch, idx) {
         <div class="kpi-value">${fmtN(lastSubs)}<span class="kpi-delta ${subsDelta >= 0 ? "pos" : "neg"}">${subsDelta >= 0 ? "+" : ""}${fmtN(subsDelta)}</span></div>
       </div>
       <div class="kpi">
-        <div class="kpi-label">累計 views (取得 window)</div>
-        <div class="kpi-value">${fmtN(lastViews)}<span class="kpi-delta ${viewsDelta >= 0 ? "pos" : "neg"}">${viewsDelta >= 0 ? "+" : ""}${fmtN(viewsDelta)}</span></div>
+        <div class="kpi-label">直近 ${last7.spanLabel} の views</div>
+        <div class="kpi-value"><span class="${last7.delta >= 0 ? "pos" : "neg"}" style="color:var(--${last7.delta >= 0 ? "pos" : "hit"})">${last7.delta >= 0 ? "+" : ""}${fmtN(last7.delta)}</span></div>
       </div>
       <div class="kpi">
         <div class="kpi-label">スナップショット</div>
@@ -94,12 +107,12 @@ function renderChannel(ch, idx) {
     <div class="section-title">★ 直近 HIT 動画</div>
     <div id="hits-${ch.id}"></div>
 
-    <div class="section-title">動画別 views 推移</div>
-    <div class="video-picker">
-      <select id="vsel-${ch.id}"></select>
-    </div>
-    <div class="chart-box">
-      <div class="video-chart-canvas"><canvas id="vchart-${ch.id}"></canvas></div>
+    <div class="section-title">動画別 views 推移 (左のリストを hover/click で切替)</div>
+    <div class="video-section">
+      <div id="vlist-${ch.id}" class="video-list"></div>
+      <div class="chart-box">
+        <div class="video-chart-canvas"><canvas id="vchart-${ch.id}"></canvas></div>
+      </div>
     </div>
   `;
 
@@ -112,6 +125,28 @@ function renderChannel(ch, idx) {
   }, 0);
 
   return wrap;
+}
+
+function computeRecentDelta(history, key, days) {
+  if (!history.length) return { delta: 0, spanLabel: `${days}日` };
+  const last = history[history.length - 1];
+  const lastDate = parseTs(last.timestamp);
+  const cutoff = new Date(lastDate.getTime() - days * 86400000);
+  const base = history.find((h) => parseTs(h.timestamp) >= cutoff) || history[0];
+  const baseDate = parseTs(base.timestamp);
+  const actualDays = Math.max(1, Math.round((lastDate - baseDate) / 86400000));
+  const spanLabel = actualDays >= days ? `${days}日` : `${actualDays}日 (短縮)`;
+  return { delta: last[key] - base[key], spanLabel };
+}
+
+function aggregateDailyLast(history, key) {
+  const byDate = {};
+  history.forEach((p) => {
+    const d = (p.timestamp || "").slice(0, 10);
+    if (!d) return;
+    byDate[d] = p[key];
+  });
+  return Object.keys(byDate).sort().map((d) => ({ date: d, value: byDate[d] }));
 }
 
 function drawDualSeries(canvasId, history, key, cumLabel, deltaLabel, color) {
@@ -135,11 +170,11 @@ function drawDualSeries(canvasId, history, key, cumLabel, deltaLabel, color) {
           label: cumLabel,
           data: cumValues,
           borderColor: color,
-          backgroundColor: color + "33",
+          backgroundColor: color + "22",
           fill: false,
           tension: 0.2,
           pointRadius: 5,
-          pointHoverRadius: 8,
+          pointHoverRadius: 9,
           borderWidth: 2.5,
           yAxisID: "y",
           order: 2,
@@ -148,8 +183,8 @@ function drawDualSeries(canvasId, history, key, cumLabel, deltaLabel, color) {
           type: "bar",
           label: deltaLabel,
           data: deltaValues,
-          backgroundColor: deltaValues.map((v) => v == null ? "transparent" : (v >= 0 ? "#3fb95099" : "#f8514999")),
-          borderColor: deltaValues.map((v) => v == null ? "transparent" : (v >= 0 ? "#3fb950" : "#f85149")),
+          backgroundColor: deltaValues.map((v) => v == null ? "transparent" : (v >= 0 ? COL_POS_BG : COL_NEG_BG)),
+          borderColor: deltaValues.map((v) => v == null ? "transparent" : (v >= 0 ? COL_POS : COL_NEG)),
           borderWidth: 1,
           yAxisID: "y1",
           order: 1,
@@ -161,7 +196,7 @@ function drawDualSeries(canvasId, history, key, cumLabel, deltaLabel, color) {
       maintainAspectRatio: false,
       interaction: { mode: "nearest", intersect: false, axis: "x" },
       plugins: {
-        legend: { labels: { color: "#c9d1d9" } },
+        legend: { labels: { color: COL_LEGEND } },
         tooltip: {
           mode: "index",
           intersect: false,
@@ -176,21 +211,21 @@ function drawDualSeries(canvasId, history, key, cumLabel, deltaLabel, color) {
         },
       },
       scales: {
-        x: { ticks: { color: "#8b949e" }, grid: { color: "#30363d44" } },
+        x: { ticks: { color: COL_TICK }, grid: { color: COL_GRID } },
         y: {
           type: "linear",
           position: "left",
-          ticks: { color: "#8b949e", callback: (v) => fmtN(v) },
-          grid: { color: "#30363d44" },
-          title: { display: true, text: cumLabel, color: "#8b949e" },
+          ticks: { color: COL_TICK, callback: (v) => fmtN(v) },
+          grid: { color: COL_GRID },
+          title: { display: true, text: cumLabel, color: COL_TICK },
         },
         y1: {
           type: "linear",
           position: "right",
           beginAtZero: true,
-          ticks: { color: "#8b949e", callback: (v) => fmtN(v) },
+          ticks: { color: COL_TICK, callback: (v) => fmtN(v) },
           grid: { drawOnChartArea: false },
-          title: { display: true, text: deltaLabel, color: "#8b949e" },
+          title: { display: true, text: deltaLabel, color: COL_TICK },
         },
       },
     },
@@ -202,17 +237,6 @@ function parseTs(ts) {
   return new Date(ts);
 }
 
-function aggregateDailyLast(history, key) {
-  // 同じ日付内の複数スナップショットは「最後の値」を採用
-  const byDate = {};
-  history.forEach((p) => {
-    const d = (p.timestamp || "").slice(0, 10);
-    if (!d) return;
-    byDate[d] = p[key];
-  });
-  return Object.keys(byDate).sort().map((d) => ({ date: d, value: byDate[d] }));
-}
-
 function drawDailyPosts(canvasId, posts) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
@@ -220,7 +244,6 @@ function drawDailyPosts(canvasId, posts) {
     canvas.parentElement.innerHTML = `<div style="color:var(--text-dim);padding:1rem;font-size:0.85rem">投稿データなし</div>`;
     return;
   }
-  // 投稿のない日も含めて日付範囲を埋める
   const start = new Date(posts[0].date + "T00:00:00Z");
   const end = new Date(posts[posts.length - 1].date + "T00:00:00Z");
   const map = Object.fromEntries(posts.map((p) => [p.date, p.count]));
@@ -238,8 +261,8 @@ function drawDailyPosts(canvasId, posts) {
       datasets: [{
         label: "投稿本数 / 日",
         data: values,
-        backgroundColor: "#58a6ff99",
-        borderColor: "#58a6ff",
+        backgroundColor: PALETTE[0] + "66",
+        borderColor: PALETTE[0],
         borderWidth: 1,
       }],
     },
@@ -248,15 +271,15 @@ function drawDailyPosts(canvasId, posts) {
       maintainAspectRatio: false,
       interaction: { mode: "nearest", intersect: false, axis: "x" },
       plugins: {
-        legend: { labels: { color: "#c9d1d9" } },
+        legend: { labels: { color: COL_LEGEND } },
         tooltip: { mode: "index", intersect: false },
       },
       scales: {
-        x: { ticks: { color: "#8b949e", maxRotation: 60, minRotation: 45 }, grid: { color: "#30363d44" } },
+        x: { ticks: { color: COL_TICK, maxRotation: 60, minRotation: 45 }, grid: { color: COL_GRID } },
         y: {
           beginAtZero: true,
-          ticks: { color: "#8b949e", precision: 0 },
-          grid: { color: "#30363d44" },
+          ticks: { color: COL_TICK, precision: 0 },
+          grid: { color: COL_GRID },
         },
       },
     },
@@ -284,27 +307,30 @@ function renderHits(containerId, hits) {
 }
 
 function renderVideoHistory(ch) {
-  const sel = document.getElementById("vsel-" + ch.id);
+  const list = document.getElementById("vlist-" + ch.id);
   const canvas = document.getElementById("vchart-" + ch.id);
-  if (!sel || !canvas) return;
+  if (!list || !canvas) return;
 
   const entries = Object.entries(ch.video_history || {})
     .map(([vid, v]) => ({ vid, ...v, latest: v.history[v.history.length - 1].views }))
     .sort((a, b) => b.latest - a.latest);
 
   if (!entries.length) {
-    sel.innerHTML = `<option>動画データなし</option>`;
+    list.innerHTML = `<div class="video-row" style="color:var(--text-dim)">動画データなし</div>`;
     return;
   }
 
-  sel.innerHTML = entries.map((e) =>
-    `<option value="${e.vid}">${e.latest.toLocaleString()} views | ${e.published_at} | ${escapeHtml(e.title.slice(0, 60))}</option>`
-  ).join("");
-
   let chart = null;
-  const draw = () => {
-    const v = entries.find((x) => x.vid === sel.value);
+  let activeVid = null;
+
+  const draw = (vid) => {
+    if (vid === activeVid) return;
+    activeVid = vid;
+    const v = entries.find((x) => x.vid === vid);
     if (!v) return;
+    list.querySelectorAll(".video-row").forEach((row) => {
+      row.classList.toggle("active", row.dataset.vid === vid);
+    });
     const cumData = v.history.map((p) => ({ x: parseTs(p.date), y: p.views }));
     const deltaData = [];
     for (let i = 1; i < v.history.length; i++) {
@@ -322,20 +348,24 @@ function renderVideoHistory(ch) {
             label: "累計 views",
             data: cumData,
             borderColor: PALETTE[0],
-            backgroundColor: PALETTE[0] + "33",
+            backgroundColor: PALETTE[0] + "22",
             fill: false,
             tension: 0.2,
-            pointRadius: 4,
+            pointRadius: 5,
+            pointHoverRadius: 9,
+            borderWidth: 2.5,
             yAxisID: "y",
+            order: 2,
           },
           {
             type: "bar",
             label: "1 日の伸び",
             data: deltaData,
-            backgroundColor: deltaData.map((d) => d.y >= 0 ? "#3fb95099" : "#f8514999"),
-            borderColor: deltaData.map((d) => d.y >= 0 ? "#3fb950" : "#f85149"),
+            backgroundColor: deltaData.map((d) => d.y >= 0 ? COL_POS_BG : COL_NEG_BG),
+            borderColor: deltaData.map((d) => d.y >= 0 ? COL_POS : COL_NEG),
             borderWidth: 1,
             yAxisID: "y1",
+            order: 1,
           },
         ],
       },
@@ -344,12 +374,12 @@ function renderVideoHistory(ch) {
         maintainAspectRatio: false,
         interaction: { mode: "nearest", intersect: false, axis: "x" },
         plugins: {
-          legend: { labels: { color: "#c9d1d9" } },
+          legend: { labels: { color: COL_LEGEND } },
           tooltip: {
             mode: "index",
             intersect: false,
             callbacks: {
-              afterTitle: () => `published: ${v.published_at}`,
+              afterTitle: () => `${escapeHtml(v.title)}\npublished: ${v.published_at}`,
               label: (ctx) => {
                 const val = ctx.parsed.y;
                 if (val == null) return null;
@@ -363,33 +393,46 @@ function renderVideoHistory(ch) {
           x: {
             type: "time",
             time: { unit: "day", tooltipFormat: "yyyy-MM-dd" },
-            ticks: { color: "#8b949e" },
-            grid: { color: "#30363d44" },
+            ticks: { color: COL_TICK },
+            grid: { color: COL_GRID },
           },
           y: {
             type: "linear",
             position: "left",
             beginAtZero: false,
-            ticks: { color: "#8b949e", callback: (v) => fmtN(v) },
-            grid: { color: "#30363d44" },
-            title: { display: true, text: "累計 views", color: "#8b949e" },
+            ticks: { color: COL_TICK, callback: (v) => fmtN(v) },
+            grid: { color: COL_GRID },
+            title: { display: true, text: "累計 views", color: COL_TICK },
           },
           y1: {
             type: "linear",
             position: "right",
             beginAtZero: true,
-            ticks: { color: "#8b949e", callback: (v) => fmtN(v) },
+            ticks: { color: COL_TICK, callback: (v) => fmtN(v) },
             grid: { drawOnChartArea: false },
-            title: { display: true, text: "1 日の伸び", color: "#8b949e" },
+            title: { display: true, text: "1 日の伸び", color: COL_TICK },
           },
         },
       },
     });
   };
 
-  sel.value = entries[0].vid;
-  sel.onchange = draw;
-  draw();
+  list.innerHTML = entries.map((e) => `
+    <div class="video-row" data-vid="${e.vid}">
+      <div class="video-row-title">${escapeHtml(e.title)}</div>
+      <div class="video-row-meta">
+        <span class="views">${fmtN(e.latest)} views</span>
+        <span>${e.published_at}</span>
+      </div>
+    </div>
+  `).join("");
+
+  list.querySelectorAll(".video-row").forEach((row) => {
+    row.addEventListener("mouseenter", () => draw(row.dataset.vid));
+    row.addEventListener("click", () => draw(row.dataset.vid));
+  });
+
+  draw(entries[0].vid);
 }
 
 function escapeHtml(s) {
@@ -399,5 +442,5 @@ function escapeHtml(s) {
 
 load().catch((err) => {
   console.error(err);
-  document.body.innerHTML = `<pre style="color:#f85149;padding:2rem">load error: ${err.message}</pre>`;
+  document.body.innerHTML = `<pre style="color:#cf222e;padding:2rem">load error: ${err.message}</pre>`;
 });
