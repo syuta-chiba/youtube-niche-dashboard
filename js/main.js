@@ -107,11 +107,18 @@ function renderChannel(ch, idx) {
     <div class="section-title">★ 直近 HIT 動画</div>
     <div id="hits-${ch.id}"></div>
 
-    <div class="section-title">動画別 views 推移 (左のリストを hover/click で切替)</div>
+    <div class="section-title">動画別 views 推移 (左のリストを hover/click で切替、下ボタンで前後移動)</div>
     <div class="video-section">
       <div id="vlist-${ch.id}" class="video-list"></div>
-      <div class="chart-box">
-        <div class="video-chart-canvas"><canvas id="vchart-${ch.id}"></canvas></div>
+      <div>
+        <div class="chart-box">
+          <div class="video-chart-canvas"><canvas id="vchart-${ch.id}"></canvas></div>
+        </div>
+        <div class="video-nav">
+          <button id="vprev-${ch.id}" type="button">← 前の動画</button>
+          <span id="vpos-${ch.id}" class="video-nav-pos"></span>
+          <button id="vnext-${ch.id}" type="button">次の動画 →</button>
+        </div>
       </div>
     </div>
   `;
@@ -322,15 +329,26 @@ function renderVideoHistory(ch) {
 
   let chart = null;
   let activeVid = null;
+  let activeIdx = 0;
+
+  const prevBtn = document.getElementById("vprev-" + ch.id);
+  const nextBtn = document.getElementById("vnext-" + ch.id);
+  const posLabel = document.getElementById("vpos-" + ch.id);
 
   const draw = (vid) => {
     if (vid === activeVid) return;
     activeVid = vid;
-    const v = entries.find((x) => x.vid === vid);
+    activeIdx = entries.findIndex((x) => x.vid === vid);
+    const v = entries[activeIdx];
     if (!v) return;
     list.querySelectorAll(".video-row").forEach((row) => {
-      row.classList.toggle("active", row.dataset.vid === vid);
+      const isActive = row.dataset.vid === vid;
+      row.classList.toggle("active", isActive);
+      if (isActive) row.scrollIntoView({ block: "nearest", behavior: "smooth" });
     });
+    if (prevBtn) prevBtn.disabled = activeIdx <= 0;
+    if (nextBtn) nextBtn.disabled = activeIdx >= entries.length - 1;
+    if (posLabel) posLabel.textContent = `${activeIdx + 1} / ${entries.length}`;
     const cumData = v.history.map((p) => ({ x: parseTs(p.date), y: p.views }));
     const deltaData = [];
     for (let i = 1; i < v.history.length; i++) {
@@ -430,6 +448,13 @@ function renderVideoHistory(ch) {
   list.querySelectorAll(".video-row").forEach((row) => {
     row.addEventListener("mouseenter", () => draw(row.dataset.vid));
     row.addEventListener("click", () => draw(row.dataset.vid));
+  });
+
+  if (prevBtn) prevBtn.addEventListener("click", () => {
+    if (activeIdx > 0) draw(entries[activeIdx - 1].vid);
+  });
+  if (nextBtn) nextBtn.addEventListener("click", () => {
+    if (activeIdx < entries.length - 1) draw(entries[activeIdx + 1].vid);
   });
 
   draw(entries[0].vid);

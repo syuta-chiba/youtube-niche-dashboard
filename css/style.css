@@ -263,3 +263,38 @@ main {
 }
 
 .video-chart-canvas { height: 360px; }
+
+.video-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.6rem;
+  gap: 0.5rem;
+}
+
+.video-nav button {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.video-nav button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.video-nav button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.video-nav-pos {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
