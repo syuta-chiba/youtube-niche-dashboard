@@ -159,10 +159,12 @@ function drawDualSeries(canvasId, history, key, cumLabel, deltaLabel, color) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      interaction: { mode: "index", intersect: false, axis: "x" },
+      interaction: { mode: "nearest", intersect: false, axis: "x" },
       plugins: {
         legend: { labels: { color: "#c9d1d9" } },
         tooltip: {
+          mode: "index",
+          intersect: false,
           callbacks: {
             label: (ctx) => {
               const v = ctx.parsed.y;
@@ -244,8 +246,11 @@ function drawDailyPosts(canvasId, posts) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      interaction: { mode: "index", intersect: false, axis: "x" },
-      plugins: { legend: { labels: { color: "#c9d1d9" } } },
+      interaction: { mode: "nearest", intersect: false, axis: "x" },
+      plugins: {
+        legend: { labels: { color: "#c9d1d9" } },
+        tooltip: { mode: "index", intersect: false },
+      },
       scales: {
         x: { ticks: { color: "#8b949e", maxRotation: 60, minRotation: 45 }, grid: { color: "#30363d44" } },
         y: {
@@ -337,10 +342,12 @@ function renderVideoHistory(ch) {
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        interaction: { mode: "index", intersect: false, axis: "x" },
+        interaction: { mode: "nearest", intersect: false, axis: "x" },
         plugins: {
           legend: { labels: { color: "#c9d1d9" } },
           tooltip: {
+            mode: "index",
+            intersect: false,
             callbacks: {
               afterTitle: () => `published: ${v.published_at}`,
               label: (ctx) => {
