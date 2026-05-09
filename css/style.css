@@ -40,25 +40,35 @@ header h1 {
 .sep { margin: 0 0.6rem; }
 
 nav {
-  padding: 1rem 2rem;
+  padding: 0 2rem;
   display: flex;
-  gap: 0.8rem;
+  gap: 0;
   flex-wrap: wrap;
   border-bottom: 1px solid var(--border);
+  background: var(--bg);
 }
 
 nav button {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 0.4rem 0.9rem;
-  border-radius: 6px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-dim);
+  padding: 0.9rem 1.2rem;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
 }
 
-nav button:hover { border-color: var(--accent); }
-nav button.active { border-color: var(--accent); color: var(--accent); }
+nav button:hover { color: var(--text); }
+nav button.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.channel { display: none; }
+.channel.active { display: block; }
 
 main {
   padding: 2rem;
@@ -138,6 +148,8 @@ main {
 }
 
 .chart-canvas { height: 240px; }
+
+.charts-full { grid-column: 1 / -1; }
 
 .section-title {
   font-size: 0.95rem;
