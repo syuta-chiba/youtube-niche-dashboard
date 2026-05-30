@@ -794,28 +794,8 @@ const RISING_DEFAULT = {
   windowDays: 3,         // 3 日窓で合計伸び閾値を判定
   totalDeltaMin: 30,
   todayDeltaMin: 20,
-  recentDays: 7,         // テーブルに表示する直近日数（1 日刻み）
+  recentObservations: 6, // テーブルに表示する直近観測ポイント数
 };
-
-function dailyDeltas(history) {
-  // 観測ポイント (1 日複数回) を日単位に集約してから日次デルタを出す。
-  // 各日はその日の最終観測値を採用し、cumulative max で単調増加を保証。
-  const sorted = [...history].sort((a, b) => a.date.localeCompare(b.date));
-  const byDay = {};
-  sorted.forEach((p) => { byDay[(p.date || "").slice(0, 10)] = p.views; });
-  const days = Object.keys(byDay).filter(Boolean).sort();
-  let prev = 0;
-  const mono = days.map((d) => {
-    const v = Math.max(byDay[d], prev);
-    prev = v;
-    return { ts: d, views: v };
-  });
-  const deltas = [];
-  for (let i = 1; i < mono.length; i++) {
-    deltas.push({ ts: mono[i].ts, delta: mono[i].views - mono[i - 1].views });
-  }
-  return { mono, deltas };
-}
 
 function obsDeltas(history) {
   // monotone clamp してから観測ポイント間の差分
@@ -859,8 +839,8 @@ function collectRising(channels, cfg = RISING_DEFAULT) {
       const totalDelta = windowDeltas.reduce((s, d) => s + Math.max(0, d.delta), 0);
       const todayDelta = windowDeltas.length ? windowDeltas[windowDeltas.length - 1].delta : 0;
       if (totalDelta < cfg.totalDeltaMin && todayDelta < cfg.todayDeltaMin) continue;
-      // 表示用には直近 N 日分（1 日刻みに集約）
-      const recent = dailyDeltas(v.history).deltas.slice(-cfg.recentDays);
+      // 表示用には直近 N 観測ポイント
+      const recent = deltas.slice(-cfg.recentObservations);
       // age 30d 超の古い動画はノイズなので除外
       const pub = (v.published_at || "").slice(0, 10);
       let ageDays = 999;
@@ -899,7 +879,7 @@ function renderRisingWatch(channels) {
   // 全動画の観測ポイント (ts) を集約してソート → 直近 N 個を列ヘッダに採用
   const allTs = new Set();
   rows.forEach((r) => r.recent.forEach((d) => allTs.add(d.ts)));
-  const recentTs = [...allTs].sort().slice(-RISING_DEFAULT.recentDays);
+  const recentTs = [...allTs].sort().slice(-RISING_DEFAULT.recentObservations);
 
   // チャンネル毎件数（ボタン用ラベル）
   const byChannel = {};
