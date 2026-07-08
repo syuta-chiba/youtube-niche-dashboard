@@ -196,7 +196,7 @@ function renderChannel(ch, idx) {
           <div class="video-chart-canvas"><canvas id="vchart-${ch.id}"></canvas></div>
         </div>
         <div class="video-nav">
-          <span class="video-nav-hint">↑↓ 動画切替 / ←→ ソート切替</span>
+          <span class="video-nav-hint">↑↓ 動画切替 / ←→ ソート切替 (チャートにカーソルを載せている間は ←→ で前日/翌日へ)</span>
           <span id="vpos-${ch.id}" class="video-nav-pos"></span>
         </div>
       </div>
@@ -626,6 +626,7 @@ function renderVideoHistory(ch) {
   let entriesView = [...entries].sort((a, b) => (b[sortKey] || 0) - (a[sortKey] || 0));
 
   let chart = null;
+  let curDaily = [];
   let activeVid = null;
   let activeIdx = 0;
 
@@ -722,6 +723,7 @@ function renderVideoHistory(ch) {
         date: d,
         views: Math.round(vals.reduce((s, x) => s + x, 0) / vals.length),
       }));
+    curDaily = daily;
     const cumData = daily.map((p) => ({ x: parseTs(p.date), y: p.views }));
     const deltaData = [];
     for (let i = 1; i < daily.length; i++) {
@@ -816,6 +818,26 @@ function renderVideoHistory(ch) {
     if (canvas) canvas.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
+  // チャートにカーソルを載せている間は ←→ でツールチップを前日/翌日に移動
+  let chartHover = false;
+  if (canvas) {
+    canvas.addEventListener("mouseenter", () => { chartHover = true; });
+    canvas.addEventListener("mouseleave", () => { chartHover = false; });
+  }
+  const moveTooltip = (dir) => {
+    if (!chart || !curDaily.length) return false;
+    const act = chart.getActiveElements();
+    let i = act.length ? act[0].index : (dir > 0 ? -1 : curDaily.length);
+    i = Math.min(curDaily.length - 1, Math.max(0, i + dir));
+    const els = [{ datasetIndex: 0, index: i }];
+    if (i >= 1) els.push({ datasetIndex: 1, index: i - 1 });
+    chart.setActiveElements(els);
+    const pt = chart.getDatasetMeta(0).data[i];
+    chart.tooltip.setActiveElements(els, { x: pt.x, y: pt.y });
+    chart.update();
+    return true;
+  };
+
   const SORT_KEYS = ["latest", "d1", "d2", "d3"];
   document.addEventListener("keydown", (e) => {
     if (!panel || !panel.classList.contains("active")) return;
@@ -834,12 +856,20 @@ function renderVideoHistory(ch) {
         e.preventDefault();
       }
     } else if (e.key === "ArrowRight" || e.key === "l") {
+      if (chartHover && e.key === "ArrowRight") {
+        if (moveTooltip(1)) e.preventDefault();
+        return;
+      }
       const i = SORT_KEYS.indexOf(sortKey);
       if (i >= 0 && i < SORT_KEYS.length - 1) {
         setSort(SORT_KEYS[i + 1]);
         e.preventDefault();
       }
     } else if (e.key === "ArrowLeft" || e.key === "h") {
+      if (chartHover && e.key === "ArrowLeft") {
+        if (moveTooltip(-1)) e.preventDefault();
+        return;
+      }
       const i = SORT_KEYS.indexOf(sortKey);
       if (i > 0) {
         setSort(SORT_KEYS[i - 1]);
