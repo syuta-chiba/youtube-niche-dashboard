@@ -33,7 +33,8 @@ async function load() {
     "updated: " + fmtTs(data.generated_at);
   const main = document.getElementById("channels");
   data.channels.forEach((ch, idx) => main.appendChild(renderChannel(ch, idx)));
-  renderRisingWatch(data.channels);
+  // 広告混ざり枠 (boosted) は真似元候補ではないので横断急伸ウォッチから除外
+  renderRisingWatch(data.channels.filter((c) => !c.boosted));
   buildTabs(data.channels);
 }
 
@@ -55,7 +56,7 @@ function buildTabs(channels) {
 
   channels.forEach((ch) => {
     const btn = document.createElement("button");
-    btn.textContent = ch.title;
+    btn.textContent = (ch.boosted ? "⚠️ " : "") + ch.title;
     btn.onclick = () => activateTab(ch.id, tabs);
     tabs.push({ id: ch.id, btn });
     nav.appendChild(btn);
@@ -132,7 +133,7 @@ function renderChannel(ch, idx) {
   const deltaCls = (n) => n >= 0 ? "pos" : "neg";
 
   wrap.innerHTML = `
-    <h2>${escapeHtml(ch.title)} <span class="ch-date">(${todayDate || "—"} JST 時点)</span></h2>
+    <h2>${escapeHtml(ch.title)} <span class="ch-date">(${todayDate || "—"} JST 時点)</span>${ch.boosted ? ' <span class="boosted-badge">⚠️ 広告混ざり枠 — 過去にブースト形跡あり。views/score は割引で読み、like率を併読</span>' : ""}</h2>
     <div class="kpi-period-tabs" id="kpip-${ch.id}">
       ${kpiPeriods.map((p, i) => `<button class="kpip${i === 0 ? " active" : ""}" data-p="${p.key}">${p.label}</button>`).join("")}
       <span class="kpip-span" id="kpipspan-${ch.id}"></span>

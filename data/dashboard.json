@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T01:43:08Z",
+  "generated_at": "2026-07-08T02:56:19Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -116170,6 +116170,249 @@
           ]
         }
       }
+    },
+    {
+      "id": "UCaSJDqA8W5x6ITcWtC5hHvw",
+      "title": "HAYAKIのAIラボ",
+      "subs_history": [
+        {
+          "timestamp": "2026-07-08T02:56:16Z",
+          "subs": 452
+        }
+      ],
+      "views_history": [
+        {
+          "timestamp": "2026-07-08T02:56:16Z",
+          "total_views": 27488,
+          "videos": 49
+        }
+      ],
+      "daily_posts": [
+        {
+          "date": "2026-05-09",
+          "count": 1
+        },
+        {
+          "date": "2026-05-10",
+          "count": 1
+        },
+        {
+          "date": "2026-05-16",
+          "count": 1
+        },
+        {
+          "date": "2026-05-21",
+          "count": 1
+        },
+        {
+          "date": "2026-05-24",
+          "count": 1
+        },
+        {
+          "date": "2026-05-30",
+          "count": 1
+        },
+        {
+          "date": "2026-05-31",
+          "count": 1
+        },
+        {
+          "date": "2026-06-07",
+          "count": 1
+        },
+        {
+          "date": "2026-06-10",
+          "count": 1
+        },
+        {
+          "date": "2026-06-13",
+          "count": 1
+        },
+        {
+          "date": "2026-06-20",
+          "count": 1
+        },
+        {
+          "date": "2026-06-26",
+          "count": 1
+        },
+        {
+          "date": "2026-06-29",
+          "count": 1
+        },
+        {
+          "date": "2026-07-04",
+          "count": 1
+        }
+      ],
+      "recent_hits": [
+        {
+          "video_id": "XtXUBtD3RKI",
+          "title": "【ループエンジニアリング】私はもうAIにプロンプトを打ちません。私の仕事はループを設計することです。",
+          "views": 3309,
+          "score": 7.321,
+          "age_days": 8,
+          "published_at": "2026-06-29",
+          "url": "https://www.youtube.com/watch?v=XtXUBtD3RKI"
+        }
+      ],
+      "video_history": {
+        "KUz3wwQhveY": {
+          "title": "PC上の操作を見て覚えるCodexの「Record & Replay」が凄い！",
+          "published_at": "2026-07-04",
+          "url": "https://www.youtube.com/watch?v=KUz3wwQhveY",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 191
+            }
+          ]
+        },
+        "XtXUBtD3RKI": {
+          "title": "【ループエンジニアリング】私はもうAIにプロンプトを打ちません。私の仕事はループを設計することです。",
+          "published_at": "2026-06-29",
+          "url": "https://www.youtube.com/watch?v=XtXUBtD3RKI",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 3309
+            }
+          ]
+        },
+        "J67yG9eRG7s": {
+          "title": "【サーバー不要】GASで超簡単に勤怠管理システムを作成！ClaudeCodeで爆速内製する全手順",
+          "published_at": "2026-06-26",
+          "url": "https://www.youtube.com/watch?v=J67yG9eRG7s",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 114
+            }
+          ]
+        },
+        "AW5NVH-UgAw": {
+          "title": "Claude Routines と Typefully を使ったX / Threads自動投稿の実装手順",
+          "published_at": "2026-06-20",
+          "url": "https://www.youtube.com/watch?v=AW5NVH-UgAw",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 127
+            }
+          ]
+        },
+        "7wgoPubZV18": {
+          "title": "【Supabase×Vercel】ClaudeCodeに指示するだけで公開も認証機能もDBも使える無料インフラ構築方法",
+          "published_at": "2026-06-13",
+          "url": "https://www.youtube.com/watch?v=7wgoPubZV18",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 302
+            }
+          ]
+        },
+        "gv7M9eMQFIo": {
+          "title": "Expo × ClaudeCode (Fable5)で誰でも爆速にスマホアプリが開発できる",
+          "published_at": "2026-06-10",
+          "url": "https://www.youtube.com/watch?v=gv7M9eMQFIo",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 281
+            }
+          ]
+        },
+        "76_NiML3NBo": {
+          "title": "【必須】バイブコーディングを「遊び」で終わらせないためにAPIを理解しよう",
+          "published_at": "2026-06-07",
+          "url": "https://www.youtube.com/watch?v=76_NiML3NBo",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 148
+            }
+          ]
+        },
+        "pq7Ax8k49tE": {
+          "title": "【Claude新機能】作業を自動化できる「Routines」の紹介",
+          "published_at": "2026-04-15",
+          "url": "https://www.youtube.com/watch?v=pq7Ax8k49tE",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 1090
+            }
+          ]
+        },
+        "lznHb41P4WM": {
+          "title": "【Claude新機能】仕事を丸投げできるClaude Managed Agentsの紹介",
+          "published_at": "2026-04-11",
+          "url": "https://www.youtube.com/watch?v=lznHb41P4WM",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 1726
+            }
+          ]
+        },
+        "lua2LYGtqAc": {
+          "title": "【最短10分】GitHubとVercelでWebアプリを無料公開する方法！知識0からの完全ガイド",
+          "published_at": "2026-03-25",
+          "url": "https://www.youtube.com/watch?v=lua2LYGtqAc",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 1725
+            }
+          ]
+        },
+        "N4XBCE6Sv7k": {
+          "title": "【24時間働くAI】軽量で安全な自律型AIエージェント、NanoClawを紹介！",
+          "published_at": "2026-03-21",
+          "url": "https://www.youtube.com/watch?v=N4XBCE6Sv7k",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 2051
+            }
+          ]
+        },
+        "319sgjEiMdQ": {
+          "title": "【AI開発手法】AWSが推奨するAI駆動開発！AI-DLCについて紹介",
+          "published_at": "2026-03-15",
+          "url": "https://www.youtube.com/watch?v=319sgjEiMdQ",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 1310
+            }
+          ]
+        },
+        "8q5MWnIzE30": {
+          "title": "【超入門】Claude Code × CursorでTODOアプリ開発。動画の通りにやるだけで完成します",
+          "published_at": "2026-03-07",
+          "url": "https://www.youtube.com/watch?v=8q5MWnIzE30",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 2091
+            }
+          ]
+        },
+        "c7-iDBxz_3I": {
+          "title": "Claude Code × Remotion 入門｜AIにコードを書かせて動画を作る最新フロー",
+          "published_at": "2026-02-28",
+          "url": "https://www.youtube.com/watch?v=c7-iDBxz_3I",
+          "history": [
+            {
+              "date": "2026-07-08T02:56:16Z",
+              "views": 1374
+            }
+          ]
+        }
+      },
+      "boosted": true
     }
   ]
 }
