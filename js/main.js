@@ -8,6 +8,22 @@ const COL_NEG = "#cf222e";
 const COL_NEG_BG = "#cf222e66";
 
 const fmtN = (n) => n.toLocaleString("ja-JP");
+
+// 広告判定バッジ (build_pages_data.py が like率から算出した ad_check を表示)
+function adBadge(v) {
+  if (v.ad_check === "suspect")
+    return `<span class="ad-flag ad-suspect" title="like率 ${v.like_pct}% (like ${v.likes ?? "?"}個) — 500再生以上で like率 0.4% 未満は広告/購入views疑い">⚠️広告疑 like ${v.like_pct}%</span>`;
+  if (v.ad_check === "ok")
+    return `<span class="ad-flag ad-ok" title="like率 ${v.like_pct}% — 健全域 (0.4% 以上)">like ${v.like_pct}%</span>`;
+  if (v.ad_check === "na")
+    return `<span class="ad-flag ad-na" title="500再生未満のため広告判定の対象外">like ${v.like_pct}%</span>`;
+  if (v.ad_check === "unknown")
+    return `<span class="ad-flag ad-na" title="like数非公開チャンネルのため判定不能">like非公開</span>`;
+  return "";
+}
+
+const chIcon = (ch, cls = "ch-icon") =>
+  ch.icon ? `<img class="${cls}" src="${ch.icon}" alt="" loading="lazy">` : "";
 const JST_MS = 9 * 3600 * 1000;
 // ISO タイムスタンプ → JST の YYYY-MM-DD。日付のみの値 (タイムゾーン不明) はそのまま返す。
 function jstDate(ts) {
@@ -56,7 +72,7 @@ function buildTabs(channels) {
 
   channels.forEach((ch) => {
     const btn = document.createElement("button");
-    btn.textContent = (ch.boosted ? "⚠️ " : "") + ch.title;
+    btn.innerHTML = `${chIcon(ch)}${ch.boosted ? "⚠️ " : ""}${escapeHtml(ch.title)}`;
     btn.onclick = () => activateTab(ch.id, tabs);
     tabs.push({ id: ch.id, btn });
     nav.appendChild(btn);
@@ -133,7 +149,7 @@ function renderChannel(ch, idx) {
   const deltaCls = (n) => n >= 0 ? "pos" : "neg";
 
   wrap.innerHTML = `
-    <h2>${escapeHtml(ch.title)} <span class="ch-date">(${todayDate || "—"} JST 時点)</span>${ch.boosted ? ' <span class="boosted-badge">⚠️ 広告混ざり枠 — 過去にブースト形跡あり。views/score は割引で読み、like率を併読</span>' : ""}</h2>
+    <h2>${chIcon(ch, "ch-icon ch-icon-lg")}${escapeHtml(ch.title)} <span class="ch-date">(${todayDate || "—"} JST 時点)</span>${ch.boosted ? ' <span class="boosted-badge">⚠️ 広告混ざり枠 — 過去にブースト形跡あり。views/score は割引で読み、like率を併読</span>' : ""}</h2>
     <div class="kpi-period-tabs" id="kpip-${ch.id}">
       ${kpiPeriods.map((p, i) => `<button class="kpip${i === 0 ? " active" : ""}" data-p="${p.key}">${p.label}</button>`).join("")}
       <span class="kpip-span" id="kpipspan-${ch.id}"></span>
@@ -567,6 +583,7 @@ function renderHits(containerId, hits, ch) {
         <span class="views">${fmtN(h.views)} views</span>
         <span>score ${h.score.toFixed(2)}</span>
         <span>${h.age_days}d ago</span>
+        ${adBadge(h)}
       </div>
     </a>
   `).join("");
@@ -654,6 +671,7 @@ function renderVideoHistory(ch) {
           ${metric}
           <span>${e.published_at}</span>
           ${accel}
+          ${adBadge(e)}
         </div>
       </div>`;
   };
@@ -983,6 +1001,9 @@ function collectRising(channels, cfg = RISING_DEFAULT) {
         recent,
         trend: trendIcon(deltas),
         tier: latest >= 1000 ? "hit" : "warmup",
+        ad_check: v.ad_check,
+        like_pct: v.like_pct,
+        likes: v.likes,
       });
     }
   });
@@ -1114,6 +1135,7 @@ function renderRisingRow(r, recentTs) {
         <div class="rw-sub">
           ${tierLabel}
           <span class="rw-channel">${escapeHtml(r.channelTitle)}</span>
+          ${adBadge(r)}
         </div>
       </td>
       <td class="rw-num">${fmtN(r.latest)}</td>

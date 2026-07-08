@@ -679,3 +679,34 @@ main {
   margin-left: 0.6rem;
   vertical-align: middle;
 }
+
+/* ---- 広告判定バッジ / チャンネルアイコン ---- */
+.ad-flag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  white-space: nowrap;
+  cursor: help;
+}
+.ad-flag.ad-suspect {
+  color: #cf222e;
+  border-color: rgba(207, 34, 46, 0.5);
+  background: rgba(207, 34, 46, 0.06);
+}
+.ad-flag.ad-ok {
+  color: #1a7f37;
+  border-color: rgba(26, 127, 55, 0.35);
+  background: rgba(26, 127, 55, 0.05);
+}
+.ad-flag.ad-na { opacity: 0.75; }
+
+.ch-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  vertical-align: -4px;
+  margin-right: 0.45rem;
+}
+.ch-icon-lg { width: 26px; height: 26px; vertical-align: -5px; }
