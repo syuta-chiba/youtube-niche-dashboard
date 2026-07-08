@@ -96,6 +96,33 @@ function renderChannel(ch, idx) {
   const todayViewsDelta = computeTodayDelta(views, "total_views", todayDate);
   const todayPosts = (ch.daily_posts || []).find((d) => d.date === todayDate)?.count || 0;
 
+  // KPI 期間切替 (今日 / 3日 / 7日 / 28日)
+  const dateMinus = (dstr, days) => new Date(Date.UTC(
+    Number(dstr.slice(0, 4)), Number(dstr.slice(5, 7)) - 1, Number(dstr.slice(8, 10))
+  ) - days * 86400000).toISOString().slice(0, 10);
+  const sumPosts = (days) => !todayDate ? 0 : (ch.daily_posts || [])
+    .filter((p) => p.date > dateMinus(todayDate, days) && p.date <= todayDate)
+    .reduce((s, p) => s + p.count, 0);
+  const kpiPeriods = [
+    { key: "today", label: "今日" },
+    { key: "3", label: "3日", days: 3 },
+    { key: "7", label: "7日", days: 7 },
+    { key: "28", label: "28日", days: 28 },
+  ];
+  const kpiStats = {};
+  kpiPeriods.forEach((p) => {
+    if (p.key === "today") {
+      kpiStats[p.key] = { subs: todaySubsDelta, views: todayViewsDelta, posts: todayPosts, span: "" };
+    } else {
+      const s = computeRecentDelta(subs, "subs", p.days);
+      const v = computeRecentDelta(views, "total_views", p.days);
+      kpiStats[p.key] = {
+        subs: s.delta, views: v.delta, posts: sumPosts(p.days),
+        span: v.spanLabel.includes("短縮") ? `実データ ${v.spanLabel}` : "",
+      };
+    }
+  });
+
   // 急伸ウォッチ条件をこのチャンネルだけに適用
   const risingThisCh = collectRising([ch]);
   const hitCount = risingThisCh.filter((r) => r.tier === "hit").length;
@@ -106,19 +133,23 @@ function renderChannel(ch, idx) {
 
   wrap.innerHTML = `
     <h2>${escapeHtml(ch.title)} <span class="ch-date">(${todayDate || "—"} JST 時点)</span></h2>
+    <div class="kpi-period-tabs" id="kpip-${ch.id}">
+      ${kpiPeriods.map((p, i) => `<button class="kpip${i === 0 ? " active" : ""}" data-p="${p.key}">${p.label}</button>`).join("")}
+      <span class="kpip-span" id="kpipspan-${ch.id}"></span>
+    </div>
     <div class="kpi-row">
       <div class="kpi">
         <div class="kpi-label">登録者の伸び</div>
-        <div class="kpi-value ${deltaCls(todaySubsDelta)}">${fmtDelta(todaySubsDelta)}</div>
+        <div class="kpi-value ${deltaCls(todaySubsDelta)}" id="kpiv-subs-${ch.id}">${fmtDelta(todaySubsDelta)}</div>
         <div class="kpi-sub">累計 ${fmtN(lastSubs)}</div>
       </div>
       <div class="kpi">
         <div class="kpi-label">再生数の伸び</div>
-        <div class="kpi-value ${deltaCls(todayViewsDelta)}">${fmtDelta(todayViewsDelta)}</div>
+        <div class="kpi-value ${deltaCls(todayViewsDelta)}" id="kpiv-views-${ch.id}">${fmtDelta(todayViewsDelta)}</div>
       </div>
       <div class="kpi">
         <div class="kpi-label">投稿本数</div>
-        <div class="kpi-value">${fmtN(todayPosts)}</div>
+        <div class="kpi-value" id="kpiv-posts-${ch.id}">${fmtN(todayPosts)}</div>
       </div>
       <div class="kpi" title="3 日合計伸び ≥ 30 または 直近観測 ≥ 20 を満たし、累計 1,000 未満">
         <div class="kpi-label">離陸中</div>
@@ -173,6 +204,20 @@ function renderChannel(ch, idx) {
   `;
 
   setTimeout(() => {
+    const kpTabs = wrap.querySelectorAll(`.kpi-period-tabs .kpip`);
+    kpTabs.forEach((btn) => btn.addEventListener("click", () => {
+      kpTabs.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const st = kpiStats[btn.dataset.p];
+      const subsEl = document.getElementById(`kpiv-subs-${ch.id}`);
+      subsEl.textContent = fmtDelta(st.subs);
+      subsEl.className = `kpi-value ${deltaCls(st.subs)}`;
+      const viewsEl = document.getElementById(`kpiv-views-${ch.id}`);
+      viewsEl.textContent = fmtDelta(st.views);
+      viewsEl.className = `kpi-value ${deltaCls(st.views)}`;
+      document.getElementById(`kpiv-posts-${ch.id}`).textContent = fmtN(st.posts);
+      document.getElementById(`kpipspan-${ch.id}`).textContent = st.span;
+    }));
     drawDualSeries(`subs-${ch.id}`, subs, "subs", "登録者数", "+ 登録者 / 日", PALETTE[idx % PALETTE.length]);
     drawDailyDeltaBar(`vdelta-${ch.id}`, views, "total_views", "+ views / 日", PALETTE[(idx + 1) % PALETTE.length]);
     drawDailyPosts(`posts-${ch.id}`, ch.daily_posts || []);

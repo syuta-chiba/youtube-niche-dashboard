@@ -649,3 +649,21 @@ main {
 .legend-body li { margin: 0.2rem 0; }
 .legend-note { color: var(--text-dim); font-size: 0.8rem; }
 @media (max-width: 640px) { .legend { margin: 0.75rem 1rem 0; } }
+
+/* ---- KPI 期間切替 ---- */
+.kpi-period-tabs { display: flex; gap: 0.4rem; align-items: center; margin: 0 0 0.6rem; flex-wrap: wrap; }
+.kpi-period-tabs .kpip {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  padding: 0.15rem 0.75rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--text-dim);
+}
+.kpi-period-tabs .kpip:hover { color: var(--text); }
+.kpi-period-tabs .kpip.active {
+  background: var(--accent-bg-strong);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.kpip-span { font-size: 0.75rem; color: var(--text-dim); }
