@@ -20,6 +20,35 @@
 
 <nav id="channel-nav"></nav>
 
+<details class="legend">
+  <summary>❓ このダッシュボードの見方（何が表示されているか）</summary>
+  <div class="legend-body">
+    <p>真似元候補チャンネル (priority) の定点観測。GitHub Actions が <strong>1日4回 (JST 3・9・15・21時ごろ)</strong> にデータを取得。<strong>日付の区切りはすべて JST（日本時間）</strong>。60秒以下の Shorts は集計から除外。</p>
+
+    <h4>🔥 急伸ウォッチ（タブ先頭）</h4>
+    <p>全チャンネル横断で「<strong>直近3日の合計 +30 以上</strong> または <strong>直近観測で +20 以上</strong>」伸びている動画の一覧。日次の伸びを列で表示。<strong>HIT</strong> = 累計1,000再生以上 / <strong>離陸中</strong> = 1,000未満。勢い: ▲加速 ▽減速 →横ばい ■停止。ここに出た動画は「真似元候補」＝早期参入の窓が開いているサイン。</p>
+
+    <h4>チャンネル別タブ・上段の数字タイル</h4>
+    <ul>
+      <li><strong>登録者の伸び</strong> — 最新観測日の JST 0時から現在までの登録者の増分。下の「累計」が現在の登録者数。</li>
+      <li><strong>再生数の伸び</strong> — 同じ期間の「チャンネル全体（直近300本・Shorts除く）の合計再生数」の増分。特定の1本ではなくチャンネル全体が1日に稼いだ再生数。⚠️ 新作公開直後や、301本目以降の古い動画が集計から外れた日は数字が歪むことがある。</li>
+      <li><strong>投稿本数</strong> — その日に公開された本編の本数（公開日は YouTube API の UTC 日付基準のため、JST 朝9時までの公開は前日扱いになることがある）。</li>
+      <li><strong>離陸中 / HIT</strong> — 急伸ウォッチ条件を満たす動画のうち、累計1,000未満 / 1,000以上の本数。</li>
+    </ul>
+
+    <h4>グラフ・リスト</h4>
+    <ul>
+      <li><strong>登録者数</strong> — 累計（線）と1日の伸び（棒）。</li>
+      <li><strong>1日の再生回数</strong> — チャンネル合計の日次増分。</li>
+      <li><strong>1日の投稿本数</strong> — 直近60日の投稿ペース。</li>
+      <li><strong>★直近HIT</strong> — 公開14日以内かつ累計1,000再生以上の動画（時間軸 sweet spot のシグナル）。</li>
+      <li><strong>動画別 views 推移</strong> — 直近30日に公開された動画＋全HIT動画の観測履歴。↑↓キーで動画切替、←→でソート切替。</li>
+    </ul>
+
+    <p class="legend-note">views は YouTube 公開値のため、観測間隔（最大6時間）ぶんの遅れがある。データ元 CSV は private repo の time_series/ に蓄積。</p>
+  </div>
+</details>
+
 <main>
   <section id="rising-watch-panel" class="tab-panel"></section>
   <section id="channels"></section>

@@ -8,7 +8,18 @@ const COL_NEG = "#cf222e";
 const COL_NEG_BG = "#cf222e66";
 
 const fmtN = (n) => n.toLocaleString("ja-JP");
-const fmtTs = (ts) => ts.length === 10 ? ts : ts.replace("T", " ").replace("Z", "");
+const JST_MS = 9 * 3600 * 1000;
+// ISO タイムスタンプ → JST の YYYY-MM-DD。日付のみの値 (タイムゾーン不明) はそのまま返す。
+function jstDate(ts) {
+  if (!ts) return "";
+  if (ts.length <= 10) return ts;
+  return new Date(parseTs(ts).getTime() + JST_MS).toISOString().slice(0, 10);
+}
+const fmtTs = (ts) => {
+  if (!ts || ts.length === 10) return ts;
+  const d = new Date(parseTs(ts).getTime() + JST_MS).toISOString();
+  return `${d.slice(0, 10)} ${d.slice(11, 16)} JST`;
+};
 
 async function load() {
   // Chart.js global defaults
@@ -77,9 +88,9 @@ function renderChannel(ch, idx) {
   const views = ch.views_history || [];
   const lastSubs = subs.length ? subs[subs.length - 1].subs : 0;
 
-  // 「その日」= 最新スナップショットの UTC 日付
+  // 「その日」= 最新スナップショットの JST 日付
   const latestTs = subs.length ? (subs[subs.length - 1].timestamp || "") : "";
-  const todayDate = latestTs.slice(0, 10);
+  const todayDate = jstDate(latestTs);
 
   const todaySubsDelta = computeTodayDelta(subs, "subs", todayDate);
   const todayViewsDelta = computeTodayDelta(views, "total_views", todayDate);
@@ -94,7 +105,7 @@ function renderChannel(ch, idx) {
   const deltaCls = (n) => n >= 0 ? "pos" : "neg";
 
   wrap.innerHTML = `
-    <h2>${escapeHtml(ch.title)} <span class="ch-date">(${todayDate || "—"} 時点)</span></h2>
+    <h2>${escapeHtml(ch.title)} <span class="ch-date">(${todayDate || "—"} JST 時点)</span></h2>
     <div class="kpi-row">
       <div class="kpi">
         <div class="kpi-label">登録者の伸び</div>
@@ -174,7 +185,7 @@ function renderChannel(ch, idx) {
 }
 
 function computeTodayDelta(history, key, todayDate) {
-  // todayDate (YYYY-MM-DD) を基準に、その日始まり (00:00:00Z) 以前で最も新しいスナップショットを base に取って差分を返す。
+  // todayDate (JST の YYYY-MM-DD) を基準に、その日の JST 0時以前で最も新しいスナップショットを base に取って差分を返す。
   // base が存在しなければ、最古スナップショットを使う (=「観測開始以来」になるが当日に複数 snap がある場合は当日内の最古との差で代用)。
   if (!history.length || !todayDate) return 0;
   const sorted = [...history].sort((a, b) => (a.timestamp || "").localeCompare(b.timestamp || ""));
@@ -182,7 +193,7 @@ function computeTodayDelta(history, key, todayDate) {
     Number(todayDate.slice(0, 4)),
     Number(todayDate.slice(5, 7)) - 1,
     Number(todayDate.slice(8, 10))
-  );
+  ) - JST_MS;
   let base = null;
   let firstOfDay = null;
   for (const h of sorted) {
@@ -212,7 +223,7 @@ function aggregateDailyLast(history, key) {
   // 時系列順に処理（snapshots.jsonl のファイル順が乱れていても日内最終値が取れる）
   const sorted = [...history].sort((a, b) => (a.timestamp || "").localeCompare(b.timestamp || ""));
   sorted.forEach((p) => {
-    const d = (p.timestamp || "").slice(0, 10);
+    const d = jstDate(p.timestamp || "");
     if (!d) return;
     byDate[d] = p[key];
   });
@@ -802,7 +813,7 @@ function dailyDeltas(history) {
   // 各日はその日の最終観測値を採用し、cumulative max で単調増加を保証。
   const sorted = [...history].sort((a, b) => a.date.localeCompare(b.date));
   const byDay = {};
-  sorted.forEach((p) => { byDay[(p.date || "").slice(0, 10)] = p.views; });
+  sorted.forEach((p) => { byDay[jstDate(p.date || "")] = p.views; });
   const days = Object.keys(byDay).filter(Boolean).sort();
   let prev = 0;
   const mono = days.map((d) => {

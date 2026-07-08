@@ -627,3 +627,26 @@ main {
   .video-chart-canvas { height: 240px; }
   .video-nav { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
 }
+
+/* ---- 説明パネル (凡例) ---- */
+.legend {
+  margin: 0.75rem 2rem 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  font-size: 0.85rem;
+}
+.legend summary {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  color: var(--text-dim);
+  user-select: none;
+}
+.legend summary:hover { color: var(--text); }
+.legend-body { padding: 0 1.25rem 0.75rem; }
+.legend-body h4 { margin: 0.9rem 0 0.25rem; }
+.legend-body p, .legend-body ul { margin: 0.25rem 0; color: var(--text); }
+.legend-body ul { padding-left: 1.25rem; }
+.legend-body li { margin: 0.2rem 0; }
+.legend-note { color: var(--text-dim); font-size: 0.8rem; }
+@media (max-width: 640px) { .legend { margin: 0.75rem 1rem 0; } }
