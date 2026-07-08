@@ -632,7 +632,6 @@ main {
 .legend {
   margin: 0.75rem 2rem 0;
   border: 1px solid var(--border);
-  border-radius: 8px;
   background: var(--panel);
   font-size: 0.85rem;
 }
