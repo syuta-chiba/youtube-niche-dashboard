@@ -709,12 +709,25 @@ function renderVideoHistory(ch) {
       prevV = y;
       return { date: p.date, views: y };
     });
-    const cumData = monotone.map((p) => ({ x: parseTs(p.date), y: p.views }));
+    // 1日4回の観測点をそのまま出すと点が多すぎるので、JST日ごとに平均して1点に集約
+    const byDay = new Map();
+    monotone.forEach((p) => {
+      const d = jstDate(p.date);
+      if (!byDay.has(d)) byDay.set(d, []);
+      byDay.get(d).push(p.views);
+    });
+    const daily = [...byDay.entries()]
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([d, vals]) => ({
+        date: d,
+        views: Math.round(vals.reduce((s, x) => s + x, 0) / vals.length),
+      }));
+    const cumData = daily.map((p) => ({ x: parseTs(p.date), y: p.views }));
     const deltaData = [];
-    for (let i = 1; i < monotone.length; i++) {
+    for (let i = 1; i < daily.length; i++) {
       deltaData.push({
-        x: parseTs(monotone[i].date),
-        y: monotone[i].views - monotone[i - 1].views,
+        x: parseTs(daily[i].date),
+        y: daily[i].views - daily[i - 1].views,
       });
     }
     if (chart) chart.destroy();
