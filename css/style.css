@@ -711,6 +711,57 @@ main {
   background: rgba(26, 127, 55, 0.05);
 }
 .ad-flag.ad-na { opacity: 0.75; }
+.ad-flag.ad-below {
+  color: #9a6700;
+  border-color: rgba(154, 103, 0, 0.5);
+  background: rgba(154, 103, 0, 0.07);
+}
+
+/* ---- チャンネル横断分析 (急伸ウォッチ) ---- */
+.rw-row { cursor: pointer; }
+
+.xa-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.xa-badge-cross {
+  color: #1a7f37;
+  border-color: rgba(26, 127, 55, 0.5);
+  background: rgba(26, 127, 55, 0.08);
+}
+.xa-badge-same { color: var(--text-dim); }
+.xa-badge-new {
+  color: #0969da;
+  border-color: rgba(9, 105, 218, 0.4);
+  background: rgba(9, 105, 218, 0.06);
+}
+.xa-timing-icon { font-size: 0.72rem; cursor: help; }
+
+.rw-xa td {
+  background: rgba(9, 105, 218, 0.035);
+  border-bottom: 1px solid var(--border);
+  padding: 0.55rem 0.8rem 0.65rem;
+}
+.xa-detail { font-size: 0.78rem; line-height: 1.55; }
+.xa-timing { font-weight: 600; margin-bottom: 0.3rem; }
+.xa-timing-best { color: #1a7f37; }
+.xa-timing-ok { color: #9a6700; }
+.xa-timing-late { color: #cf222e; }
+.xa-sims-title { font-weight: 600; margin-bottom: 0.15rem; }
+.xa-sim { padding-left: 0.4rem; }
+.xa-sim a { color: inherit; }
+.xa-sim a:hover { color: #0969da; }
+.xa-sim-ch { color: var(--text-dim); }
+.xa-sim-kw {
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  margin-left: 0.4rem;
+}
+.xa-verdict { margin-top: 0.25rem; color: var(--text-dim); }
+.xa-verdict-cross { color: #1a7f37; font-weight: 600; }
 
 .ch-icon {
   width: 20px;

@@ -10,11 +10,20 @@ const COL_NEG_BG = "#cf222e66";
 const fmtN = (n) => n.toLocaleString("ja-JP");
 
 // 広告判定バッジ (build_pages_data.py が like率から算出した ad_check を表示)
-function adBadge(v) {
+// chAvg = チャンネル平均 like率 (views>=500 の動画の平均)。判定対象動画が平均未満なら
+// 「▼平均以下」を出す — HIT なのに平均以下 = 広告/購入 views で伸びて見えているだけの疑い。
+function adBadge(v, chAvg) {
+  const avgTxt = chAvg != null && v.like_pct != null ? ` (ch平均 ${chAvg}%)` : "";
+  const below =
+    chAvg != null && v.like_pct != null && v.like_pct < chAvg &&
+    (v.ad_check === "ok" || v.ad_check === "suspect");
+  const belowMark = below
+    ? `<span class="ad-flag ad-below" title="この動画の like率 ${v.like_pct}% はチャンネル平均 ${chAvg}% より低い。HIT なのに平均以下なら広告/購入 views を疑うサイン">▼平均以下</span>`
+    : "";
   if (v.ad_check === "suspect")
-    return `<span class="ad-flag ad-suspect" title="like率 ${v.like_pct}% (like ${v.likes ?? "?"}個) — 500再生以上で like率 0.4% 未満は広告/購入views疑い">⚠️広告疑 like ${v.like_pct}%</span>`;
+    return `<span class="ad-flag ad-suspect" title="like率 ${v.like_pct}%${avgTxt} (like ${v.likes ?? "?"}個) — 500再生以上で like率 0.4% 未満は広告/購入views疑い">⚠️広告疑 like ${v.like_pct}%${avgTxt}</span>${belowMark}`;
   if (v.ad_check === "ok")
-    return `<span class="ad-flag ad-ok" title="like率 ${v.like_pct}% — 健全域 (0.4% 以上)">like ${v.like_pct}%</span>`;
+    return `<span class="ad-flag ad-ok" title="like率 ${v.like_pct}%${avgTxt} — 健全域 (0.4% 以上)">like ${v.like_pct}%${avgTxt}</span>${belowMark}`;
   if (v.ad_check === "na")
     return `<span class="ad-flag ad-na" title="500再生未満のため広告判定の対象外">like ${v.like_pct}%</span>`;
   if (v.ad_check === "unknown")
@@ -583,7 +592,7 @@ function renderHits(containerId, hits, ch) {
         <span class="views">${fmtN(h.views)} views</span>
         <span>score ${h.score.toFixed(2)}</span>
         <span>${h.age_days}d ago</span>
-        ${adBadge(h)}
+        ${adBadge(h, ch ? ch.avg_like_pct : null)}
       </div>
     </a>
   `).join("");
@@ -671,7 +680,7 @@ function renderVideoHistory(ch) {
           ${metric}
           <span>${e.published_at}</span>
           ${accel}
-          ${adBadge(e)}
+          ${adBadge(e, ch.avg_like_pct)}
         </div>
       </div>`;
   };
@@ -1004,6 +1013,7 @@ function collectRising(channels, cfg = RISING_DEFAULT) {
         ad_check: v.ad_check,
         like_pct: v.like_pct,
         likes: v.likes,
+        avgLikePct: ch.avg_like_pct,
       });
     }
   });
@@ -1012,10 +1022,94 @@ function collectRising(channels, cfg = RISING_DEFAULT) {
   return out;
 }
 
+// === チャンネル横断分析 ===
+//
+// Slack 急伸通知に同梱している「類似HIT＋参入タイミング分析」
+// (priority_channels_check.py の extract_keywords / find_similar_hits / timing_label)
+// の JS 移植。急伸ウォッチの各候補に対して自動で横断分析をかける。
+// ロジックを変える時は Python 側と両方直すこと。
+
+const KW_RE = /[A-Za-z][A-Za-z0-9.+#_-]{2,}|[ァ-ヶー]{3,}|[一-龥]{2,}/g;
+const KW_STOP = new Set(["claude", "claudecode", "code", "with", "your", "the", "for", "and", "ai"]);
+
+function extractKeywords(title) {
+  const out = new Set();
+  for (const m of (title || "").match(KW_RE) || []) {
+    const t = m.toLowerCase();
+    if (!KW_STOP.has(t) && t.length >= 3) out.add(t);
+  }
+  return out;
+}
+
+// 全 priority ch の HIT 動画 (1,000+ views) を類似HIT検索コーパスにする。
+// boosted 枠は views が実需要を反映しないためコーパス外 (channel_strategy §5 と同方針)。
+function buildHitCorpus(channels) {
+  const corpus = [];
+  channels.filter((c) => !c.boosted).forEach((ch) => {
+    for (const [vid, v] of Object.entries(ch.video_history || {})) {
+      if (!v.history || !v.history.length) continue;
+      const hist = [...v.history].sort((a, b) => a.date.localeCompare(b.date));
+      const latest = hist[hist.length - 1].views;
+      if (latest < 1000) continue;
+      corpus.push({
+        vid,
+        title: v.title,
+        url: v.url || `https://www.youtube.com/watch?v=${vid}`,
+        published_at: (v.published_at || "").slice(0, 10),
+        views: latest,
+        channelId: ch.id,
+        channelTitle: ch.title,
+        kw: extractKeywords(v.title),
+      });
+    }
+  });
+  return corpus;
+}
+
+function timingVerdict(ageDays, velocity) {
+  if (ageDays <= 3) return { icon: "🟢", label: "初速ゾーン（参入の最良タイミング）", cls: "xa-timing-best" };
+  if (velocity != null && velocity >= 80) return { icon: "🟡", label: "まだ伸びている（参入間に合う）", cls: "xa-timing-ok" };
+  if (velocity != null && velocity < 20) return { icon: "🔴", label: "ピークアウト気味（真似るなら急ぐ）", cls: "xa-timing-late" };
+  return { icon: "🟡", label: "観測中", cls: "xa-timing-ok" };
+}
+
+// 急伸候補 1 件に横断分析をかける。
+// 戻り値: {sims, cross, isNew, velocity, timing}
+function crossAnalysis(r, corpus) {
+  const kw = extractKeywords(r.title);
+  const scored = [];
+  for (const c of corpus) {
+    if (c.vid === r.vid) continue;
+    const shared = [...kw].filter((k) => c.kw.has(k));
+    if (!shared.length) continue;
+    scored.push({ nShared: shared.length, sharedKw: shared, ...c });
+  }
+  scored.sort((a, b) => b.nShared - a.nShared || b.views - a.views);
+  const sims = scored.slice(0, 3);
+  const cross = sims.some((s) => s.channelId !== r.channelId);
+  // views/日 ≒ 直近 1 日の伸び (Python 版は直近2観測点から算出、閾値 80/20 は共通)
+  const velocity = r.recent && r.recent.length ? r.recent[r.recent.length - 1].delta : null;
+  return {
+    sims,
+    cross,
+    isNew: sims.length === 0,
+    velocity,
+    timing: timingVerdict(r.ageDays, velocity),
+  };
+}
+
+function xaBadge(a) {
+  if (a.cross) return '<span class="xa-badge xa-badge-cross" title="同テーマが他チャンネルでもHIT＝横展開の実証あり（強シグナル）">🌐 横展開実証</span>';
+  if (a.isNew) return '<span class="xa-badge xa-badge-new" title="過去履歴にキーワードが重なるHITなし">🆕 新規テーマ</span>';
+  return '<span class="xa-badge xa-badge-same" title="類似HITは自チャンネル内のみ">🔁 自ch実証</span>';
+}
+
 function renderRisingWatch(channels) {
   const panel = document.getElementById("rising-watch-panel");
   if (!panel) return;
   const rows = collectRising(channels);
+  const corpus = buildHitCorpus(channels);
+  rows.forEach((r) => { r.xa = crossAnalysis(r, corpus); });
 
   // 全動画の観測ポイント (ts) を集約してソート → 直近 N 個を列ヘッダに採用
   const allTs = new Set();
@@ -1033,6 +1127,7 @@ function renderRisingWatch(channels) {
     <div class="rw-header">
       <h2>🔥 急伸ウォッチ — 直近 3 日に伸びている動画</h2>
       <p class="rw-help">既に HIT (累計 1,000+) と 離陸中 (1,000 未満) を含む。「3日合計伸び」降順。<strong>▲</strong> = 直近で加速、<strong>▽</strong> = 減速、<strong>→</strong> = 横ばい、<strong>■</strong> = 停止。</p>
+      <p class="rw-help"><strong>行クリックで横断分析を展開</strong>（類似HIT・参入タイミング。Slack 急伸通知と同ロジック）。<span class="xa-badge xa-badge-cross">🌐 横展開実証</span> = 同テーマが他チャンネルでもHIT（真似る価値の強シグナル） / <span class="xa-badge xa-badge-same">🔁 自ch実証</span> = 類似HITが自チャンネル内のみ / <span class="xa-badge xa-badge-new">🆕 新規テーマ</span> = 過去履歴に類似HITなし。⏱ 🟢初速ゾーン 🟡伸び継続 🔴ピークアウト気味。</p>
 
       <div class="rw-filter-group">
         <span class="rw-filter-label">チャンネル</span>
@@ -1085,12 +1180,25 @@ function renderRisingWatch(channels) {
       row.style.display = show ? "" : "none";
       if (show) visible += 1;
     });
+    // フィルタ変更時は展開中の横断分析を全部畳む（親行と表示がズレるのを防ぐ）
+    panel.querySelectorAll(".rw-xa").forEach((row) => { row.style.display = "none"; });
     const empty = panel.querySelector(".rw-empty");
     if (empty) {
       empty.style.display = visible === 0 ? "block" : "none";
       empty.textContent = visible === 0 ? "該当動画なし（フィルタ条件で 0 件）。" : "";
     }
   };
+
+  // 行クリック → 横断分析の展開/折りたたみ（リンククリックは除外）
+  panel.querySelectorAll(".rw-row").forEach((row) => {
+    row.addEventListener("click", (e) => {
+      if (e.target.closest("a")) return;
+      const vid = row.dataset.vid;
+      if (!vid) return;
+      const xa = panel.querySelector(`.rw-xa[data-for="${CSS.escape(vid)}"]`);
+      if (xa) xa.style.display = xa.style.display === "none" ? "" : "none";
+    });
+  });
 
   panel.querySelectorAll(".rw-filter-tier").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -1128,14 +1236,17 @@ function renderRisingRow(r, recentTs) {
   }).join("");
   const tierLabel = r.tier === "hit" ? '<span class="rw-tier rw-tier-hit">HIT</span>' : '<span class="rw-tier rw-tier-warmup">離陸中</span>';
   const ageLabel = r.ageDays === 0 ? "今日" : `${r.ageDays}d`;
-  return `
-    <tr class="rw-row" data-tier="${r.tier}" data-ch="${escapeHtml(r.channelId)}">
+  const xa = r.xa;
+  const mainRow = `
+    <tr class="rw-row" data-vid="${escapeHtml(r.vid)}" data-tier="${r.tier}" data-ch="${escapeHtml(r.channelId)}" title="クリックで横断分析を展開">
       <td class="rw-col-title">
         <a href="${r.url}" target="_blank" rel="noopener" class="rw-title">${escapeHtml(r.title)}</a>
         <div class="rw-sub">
           ${tierLabel}
           <span class="rw-channel">${escapeHtml(r.channelTitle)}</span>
-          ${adBadge(r)}
+          ${xa ? `<span class="xa-timing-icon" title="${xa.timing.label}">${xa.timing.icon}</span>` : ""}
+          ${xa ? xaBadge(xa) : ""}
+          ${adBadge(r, r.avgLikePct)}
         </div>
       </td>
       <td class="rw-num">${fmtN(r.latest)}</td>
@@ -1145,6 +1256,38 @@ function renderRisingRow(r, recentTs) {
       <td class="rw-trend ${r.trend.cls}" title="${r.trend.label}">${r.trend.icon}</td>
     </tr>
   `;
+  if (!xa) return mainRow;
+
+  const velTxt = xa.velocity != null ? `~${fmtN(xa.velocity)} views/日` : "速度データ不足";
+  let simsHtml;
+  if (xa.sims.length) {
+    simsHtml = `<div class="xa-sims-title">🔁 類似HIT ${xa.sims.length}件:</div>` + xa.sims.map((s) => `
+      <div class="xa-sim">
+        ${s.channelId !== r.channelId ? '<span class="xa-sim-cross" title="別チャンネルの HIT">🌐</span>' : "・"}
+        <span class="xa-sim-ch">[${escapeHtml(s.channelTitle)}]</span>
+        <a href="${s.url}" target="_blank" rel="noopener">${escapeHtml(s.title)}</a>
+        — ${fmtN(s.views)}v${s.published_at ? ` / ${s.published_at}公開` : ""}
+        <span class="xa-sim-kw">共有KW: ${s.sharedKw.slice(0, 4).map(escapeHtml).join(", ")}</span>
+      </div>`).join("");
+    if (xa.cross) {
+      simsHtml += `<div class="xa-verdict xa-verdict-cross">→ 同テーマが他チャンネルでもHIT＝横展開の実証あり（強シグナル）</div>`;
+    } else {
+      simsHtml += `<div class="xa-verdict">→ 類似HITは同一チャンネル内のみ（横展開は未実証）</div>`;
+    }
+  } else {
+    simsHtml = `<div class="xa-verdict">🔁 類似HIT: 過去履歴に該当なし（新規テーマの可能性 — 当たれば先行者、外れれば需要なし）</div>`;
+  }
+  const analysisRow = `
+    <tr class="rw-xa" data-for="${escapeHtml(r.vid)}" data-tier="${r.tier}" data-ch="${escapeHtml(r.channelId)}" style="display:none">
+      <td colspan="${5 + recentTs.length}">
+        <div class="xa-detail">
+          <div class="xa-timing ${xa.timing.cls}">⏱ 参入タイミング: ${xa.timing.icon} ${xa.timing.label}（公開${r.ageDays}日前 / ${velTxt}）</div>
+          ${simsHtml}
+        </div>
+      </td>
+    </tr>
+  `;
+  return mainRow + analysisRow;
 }
 
 function escapeHtml(s) {
