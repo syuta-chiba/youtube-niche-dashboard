@@ -149,7 +149,7 @@ function renderChannel(ch, idx) {
   const deltaCls = (n) => n >= 0 ? "pos" : "neg";
 
   wrap.innerHTML = `
-    <h2>${chIcon(ch, "ch-icon ch-icon-lg")}${escapeHtml(ch.title)} <span class="ch-date">(${todayDate || "—"} JST 時点)</span>${ch.boosted ? ' <span class="boosted-badge">⚠️ 広告混ざり枠 — 過去にブースト形跡あり。views/score は割引で読み、like率を併読</span>' : ""}</h2>
+    <h2>${chIcon(ch, "ch-icon ch-icon-lg")}<a class="ch-link" href="https://www.youtube.com/channel/${encodeURIComponent(ch.id)}" target="_blank" rel="noopener" title="YouTube でチャンネルを開く">${escapeHtml(ch.title)}</a> <span class="ch-date">(${todayDate || "—"} JST 時点)</span>${ch.boosted ? ' <span class="boosted-badge">⚠️ 広告混ざり枠 — 過去にブースト形跡あり。views/score は割引で読み、like率を併読</span>' : ""}</h2>
     <div class="kpi-period-tabs" id="kpip-${ch.id}">
       ${kpiPeriods.map((p, i) => `<button class="kpip${i === 0 ? " active" : ""}" data-p="${p.key}">${p.label}</button>`).join("")}
       <span class="kpip-span" id="kpipspan-${ch.id}"></span>

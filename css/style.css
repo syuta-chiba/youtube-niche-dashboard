@@ -148,6 +148,16 @@ main {
   margin-left: 0.6rem;
 }
 
+.channel h2 .ch-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.channel h2 .ch-link:hover {
+  text-decoration: underline;
+  color: var(--accent, #0969da);
+}
+
 .charts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
