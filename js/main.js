@@ -152,6 +152,7 @@ function renderChannel(ch, idx) {
   // 急伸ウォッチ条件をこのチャンネルだけに適用
   const risingThisCh = collectRising([ch]);
   const hitCount = risingThisCh.filter((r) => r.tier === "hit").length;
+  const semiCount = risingThisCh.filter((r) => r.tier === "semi").length;
   const warmupCount = risingThisCh.filter((r) => r.tier === "warmup").length;
 
   const fmtDelta = (n) => `${n >= 0 ? "+" : ""}${fmtN(n)}`;
@@ -177,12 +178,16 @@ function renderChannel(ch, idx) {
         <div class="kpi-label">投稿本数</div>
         <div class="kpi-value" id="kpiv-posts-${ch.id}">${fmtN(todayPosts)}</div>
       </div>
-      <div class="kpi" title="3 日合計伸び ≥ 30 または 直近観測 ≥ 20 を満たし、累計 1,000 未満">
+      <div class="kpi" title="急伸中だが、まだチャンネルの普段の再生数（中央値）の範囲内">
         <div class="kpi-label">離陸中</div>
         <div class="kpi-value warmup">${fmtN(warmupCount)}</div>
       </div>
-      <div class="kpi" title="3 日合計伸び ≥ 30 または 直近観測 ≥ 20 を満たし、累計 1,000+">
-        <div class="kpi-label">HIT</div>
+      <div class="kpi" title="チャンネル中央値の ${HIT.mult}〜${HIT.strongMult} 倍の再生 = 軽い突出（伸びかけ）">
+        <div class="kpi-label">🚀 準HIT</div>
+        <div class="kpi-value semi">${fmtN(semiCount)}</div>
+      </div>
+      <div class="kpi" title="チャンネル中央値の ${HIT.strongMult} 倍以上の再生 = 本物の突出（ブレイク）">
+        <div class="kpi-label">🎯 HIT</div>
         <div class="kpi-value hit">${fmtN(hitCount)}</div>
       </div>
     </div>
@@ -510,9 +515,7 @@ function renderRising(containerId, ch) {
   }
   el.className = "hits";
   el.innerHTML = rising.map((r) => {
-    const tierBadge = r.tier === "hit"
-      ? '<span class="rw-tier rw-tier-hit">HIT</span>'
-      : '<span class="rw-tier rw-tier-warmup">離陸中</span>';
+    const badge = tierBadge(r.tier);
     const recent = r.recent || [];
     const dayDeltas = [
       recent[recent.length - 1]?.delta,
@@ -527,7 +530,7 @@ function renderRising(containerId, ch) {
     return `
     <a class="hit ${r.tier === "warmup" ? "rising" : ""}" href="${r.url}" data-vid="${escapeHtml(r.vid)}" target="_blank" rel="noopener" title="クリック: 下のグラフを表示 / Ctrl+クリック: YouTube">
       <div class="hit-title">${escapeHtml(r.title)}</div>
-      <div class="hit-meta">${tierBadge}</div>
+      <div class="hit-meta">${badge}</div>
       <div class="card-metrics">
         <div class="card-metric">
           <div class="card-metric-label">総再生数</div>
@@ -661,7 +664,8 @@ function renderVideoHistory(ch) {
   const panel = document.getElementById("ch-" + ch.id);
 
   const renderRow = (e) => {
-    const tier = e.latest >= 1000 ? "hit" : e.latest < 100 ? "cold" : "warm";
+    const hitTh = channelHitThreshold(ch);
+    const tier = e.latest >= hitTh ? "hit" : e.latest < hitTh * 0.1 ? "cold" : "warm";
     let metric;
     if (sortKey === "latest") {
       metric = `<span class="views">${fmtN(e.latest)} views</span>`;
@@ -824,7 +828,7 @@ function renderVideoHistory(ch) {
             suggestedMax: 1250,
             ticks: { color: COL_TICK, callback: (v) => fmtN(v) },
             grid: { color: COL_GRID },
-            title: { display: true, text: "累計 views (1,000 で HIT)", color: COL_TICK },
+            title: { display: true, text: `累計 views (${fmtN(channelHitThreshold(ch))} で🎯HIT)`, color: COL_TICK },
           },
           y1: {
             type: "linear",
@@ -833,7 +837,7 @@ function renderVideoHistory(ch) {
             suggestedMax: 1250,
             ticks: { color: COL_TICK, callback: (v) => fmtN(v) },
             grid: { drawOnChartArea: false },
-            title: { display: true, text: "1 日の伸び (1,000 で HIT)", color: COL_TICK },
+            title: { display: true, text: "1 日の伸び", color: COL_TICK },
           },
         },
       },
@@ -924,6 +928,59 @@ const RISING_DEFAULT = {
   recentDays: 7,         // テーブルに表示する直近日数（1 日刻み）
 };
 
+// === HIT 定義（チャンネル相対・二段構え）===
+// 絶対 1,000 再生ではなく「そのチャンネルの普段（中央値）に対して突出しているか」で判定する。
+// 例: 普段 48 再生の ch が 1,000 再生 = 20倍 → 明確なブレイク。逆に普段数千の ch が 3,000 再生でも日常なので HIT ではない。
+//   🎯 HIT  = 普段の strongMult 倍以上（本物の突出）
+//   🚀 準HIT = 普段の mult 倍以上（軽い突出・伸びかけ）
+//   離陸中   = それ未満（急伸条件は満たすが、まだ普段の範囲）
+const HIT = {
+  strongMult: 5,     // 🎯 HIT のしきい（中央値の何倍）
+  mult: 3,           // 🚀 準HIT のしきい（中央値の何倍）
+  relFloor: 500,     // 相対しきいの絶対下限（小チャンネルのノイズ除け）
+  absFallback: 1000, // 本数が少なく中央値が不安定な ch はこの絶対値で判定
+  minSample: 5,      // 中央値を信頼するのに必要な最低動画本数
+};
+
+const TIER_META = {
+  hit:    { label: "🎯 HIT",   cls: "rw-tier-hit" },
+  semi:   { label: "🚀 準HIT",  cls: "rw-tier-semi" },
+  warmup: { label: "離陸中",     cls: "rw-tier-warmup" },
+};
+const tierBadge = (tier) => {
+  const m = TIER_META[tier] || TIER_META.warmup;
+  return `<span class="rw-tier ${m.cls}">${m.label}</span>`;
+};
+
+// チャンネルの「普段の再生数」= 動画別 latest views の中央値（ショートはデータ生成時に除外済み）
+function channelBaseline(ch) {
+  const views = [];
+  for (const v of Object.values(ch.video_history || {})) {
+    if (!v.history || !v.history.length) continue;
+    views.push(v.history[v.history.length - 1].views);
+  }
+  if (views.length < HIT.minSample) return null;
+  views.sort((a, b) => a - b);
+  const mid = Math.floor(views.length / 2);
+  return views.length % 2 ? views[mid] : (views[mid - 1] + views[mid]) / 2;
+}
+
+// 中央値の mult 倍しきい（baseline 不安定なら絶対値フォールバック）
+function channelThreshold(ch, mult) {
+  const base = channelBaseline(ch);
+  if (base == null) return HIT.absFallback;
+  return Math.max(HIT.relFloor, Math.round(mult * base));
+}
+const channelHitThreshold = (ch) => channelThreshold(ch, HIT.strongMult);  // 🎯 HIT
+const channelSemiThreshold = (ch) => channelThreshold(ch, HIT.mult);       // 🚀 準HIT
+
+// 再生数 → tier ("hit" | "semi" | "warmup")
+function hitTier(latest, hitTh, semiTh) {
+  if (latest >= hitTh) return "hit";
+  if (latest >= semiTh) return "semi";
+  return "warmup";
+}
+
 function dailyDeltas(history) {
   // 観測ポイント (1 日複数回) を日単位に集約してから日次デルタを出す。
   // 各日はその日の最終観測値を採用し、cumulative max で単調増加を保証。
@@ -977,6 +1034,9 @@ function collectRising(channels, cfg = RISING_DEFAULT) {
   const cutoffMs = Date.now() - cfg.windowDays * 86400000;
   channels.forEach((ch) => {
     const vh = ch.video_history || {};
+    const hitThreshold = channelHitThreshold(ch);   // 🎯 HIT しきい（5x）
+    const semiThreshold = channelSemiThreshold(ch); // 🚀 準HIT しきい（3x）
+    const base = channelBaseline(ch);
     for (const [vid, v] of Object.entries(vh)) {
       if (!v.history || v.history.length < 2) continue;
       const { mono, deltas } = obsDeltas(v.history);
@@ -1009,7 +1069,10 @@ function collectRising(channels, cfg = RISING_DEFAULT) {
         todayDelta,
         recent,
         trend: trendIcon(deltas),
-        tier: latest >= 1000 ? "hit" : "warmup",
+        tier: hitTier(latest, hitThreshold, semiThreshold),
+        hitThreshold,
+        semiThreshold,
+        baselineMult: base ? +(latest / base).toFixed(1) : null,
         ad_check: v.ad_check,
         like_pct: v.like_pct,
         likes: v.likes,
@@ -1046,11 +1109,12 @@ function extractKeywords(title) {
 function buildHitCorpus(channels) {
   const corpus = [];
   channels.filter((c) => !c.boosted).forEach((ch) => {
+    const hitTh = channelHitThreshold(ch); // 相対 HIT しきい値でコーパスを絞る
     for (const [vid, v] of Object.entries(ch.video_history || {})) {
       if (!v.history || !v.history.length) continue;
       const hist = [...v.history].sort((a, b) => a.date.localeCompare(b.date));
       const latest = hist[hist.length - 1].views;
-      if (latest < 1000) continue;
+      if (latest < hitTh) continue;
       corpus.push({
         vid,
         title: v.title,
@@ -1126,7 +1190,7 @@ function renderRisingWatch(channels) {
   panel.innerHTML = `
     <div class="rw-header">
       <h2>🔥 急伸ウォッチ — 直近 3 日に伸びている動画</h2>
-      <p class="rw-help">既に HIT (累計 1,000+) と 離陸中 (1,000 未満) を含む。「3日合計伸び」降順。<strong>▲</strong> = 直近で加速、<strong>▽</strong> = 減速、<strong>→</strong> = 横ばい、<strong>■</strong> = 停止。</p>
+      <p class="rw-help">HIT はチャンネル相対で判定（普段=中央値の何倍か）。<span class="rw-tier rw-tier-hit">🎯 HIT</span> = ${HIT.strongMult}倍以上（本物の突出） / <span class="rw-tier rw-tier-semi">🚀 準HIT</span> = ${HIT.mult}〜${HIT.strongMult}倍（伸びかけ） / <span class="rw-tier rw-tier-warmup">離陸中</span> = それ未満。「3日合計伸び」降順。<strong>▲</strong> = 直近で加速、<strong>▽</strong> = 減速、<strong>→</strong> = 横ばい、<strong>■</strong> = 停止。</p>
       <p class="rw-help"><strong>行クリックで横断分析を展開</strong>（類似HIT・参入タイミング。Slack 急伸通知と同ロジック）。<span class="xa-badge xa-badge-cross">🌐 横展開実証</span> = 同テーマが他チャンネルでもHIT（真似る価値の強シグナル） / <span class="xa-badge xa-badge-same">🔁 自ch実証</span> = 類似HITが自チャンネル内のみ / <span class="xa-badge xa-badge-new">🆕 新規テーマ</span> = 過去履歴に類似HITなし。⏱ 🟢初速ゾーン 🟡伸び継続 🔴ピークアウト気味。</p>
 
       <div class="rw-filter-group">
@@ -1143,7 +1207,8 @@ function renderRisingWatch(channels) {
         <span class="rw-filter-label">tier</span>
         <div class="rw-filters">
           <button class="rw-filter rw-filter-tier active" data-tier="all">全部</button>
-          <button class="rw-filter rw-filter-tier" data-tier="hit">既に HIT (${rows.filter((r) => r.tier === "hit").length})</button>
+          <button class="rw-filter rw-filter-tier" data-tier="hit">🎯 HIT (${rows.filter((r) => r.tier === "hit").length})</button>
+          <button class="rw-filter rw-filter-tier" data-tier="semi">🚀 準HIT (${rows.filter((r) => r.tier === "semi").length})</button>
           <button class="rw-filter rw-filter-tier" data-tier="warmup">離陸中 (${rows.filter((r) => r.tier === "warmup").length})</button>
         </div>
       </div>
@@ -1234,7 +1299,7 @@ function renderRisingRow(r, recentTs) {
     const cls = v <= 0 ? "rw-day-zero" : v >= 80 ? "rw-day-strong" : v >= 30 ? "rw-day-mid" : "rw-day-low";
     return `<td class="rw-day ${cls}">${v > 0 ? "+" : ""}${fmtN(v)}</td>`;
   }).join("");
-  const tierLabel = r.tier === "hit" ? '<span class="rw-tier rw-tier-hit">HIT</span>' : '<span class="rw-tier rw-tier-warmup">離陸中</span>';
+  const tierLabel = tierBadge(r.tier);
   const ageLabel = r.ageDays === 0 ? "今日" : `${r.ageDays}d`;
   const xa = r.xa;
   const mainRow = `

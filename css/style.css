@@ -125,6 +125,7 @@ main {
 .kpi-value.pos { color: var(--pos); }
 .kpi-value.neg { color: var(--hit); }
 .kpi-value.warmup { color: #9a6700; }
+.kpi-value.semi { color: #1a7f37; }
 .kpi-value.hit { color: var(--hit); }
 
 .kpi-sub {
@@ -555,6 +556,11 @@ main {
   background: rgba(207, 34, 46, 0.12);
   color: var(--hit);
   border: 1px solid rgba(207, 34, 46, 0.3);
+}
+.rw-tier-semi {
+  background: rgba(26, 127, 55, 0.12);
+  color: var(--pos, #1a7f37);
+  border: 1px solid rgba(26, 127, 55, 0.3);
 }
 .rw-tier-warmup {
   background: rgba(191, 135, 0, 0.12);
