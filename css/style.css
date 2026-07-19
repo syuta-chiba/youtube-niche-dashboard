@@ -125,6 +125,7 @@ main {
 .kpi-value.pos { color: var(--pos); }
 .kpi-value.neg { color: var(--hit); }
 .kpi-value.warmup { color: #9a6700; }
+.kpi-value.semi { color: #1a7f37; }
 .kpi-value.hit { color: var(--hit); }
 
 .kpi-sub {
@@ -556,6 +557,11 @@ main {
   color: var(--hit);
   border: 1px solid rgba(207, 34, 46, 0.3);
 }
+.rw-tier-semi {
+  background: rgba(26, 127, 55, 0.12);
+  color: var(--pos, #1a7f37);
+  border: 1px solid rgba(26, 127, 55, 0.3);
+}
 .rw-tier-warmup {
   background: rgba(191, 135, 0, 0.12);
   color: #9a6700;
@@ -762,6 +768,20 @@ main {
 }
 .xa-verdict { margin-top: 0.25rem; color: var(--text-dim); }
 .xa-verdict-cross { color: #1a7f37; font-weight: 600; }
+
+.xa-badge-market {
+  color: #8250df;
+  border-color: rgba(130, 80, 223, 0.4);
+  background: rgba(130, 80, 223, 0.06);
+}
+.xa-market {
+  margin-top: 0.45rem;
+  padding-top: 0.4rem;
+  border-top: 1px dashed var(--border);
+}
+.xa-market-title { font-weight: 600; margin-bottom: 0.15rem; }
+.xa-market-stats { color: var(--text-dim); margin-bottom: 0.15rem; }
+.xa-market-date { font-size: 0.72rem; }
 
 .ch-icon {
   width: 20px;
