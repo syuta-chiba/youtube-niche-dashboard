@@ -31,6 +31,9 @@ function adBadge(v, chAvg) {
   return "";
 }
 
+// video_id → 市場検証結果 (dashboard.json の market フィールド。load() で代入)
+let MARKET = {};
+
 const chIcon = (ch, cls = "ch-icon") =>
   ch.icon ? `<img class="${cls}" src="${ch.icon}" alt="" loading="lazy">` : "";
 const JST_MS = 9 * 3600 * 1000;
@@ -54,6 +57,7 @@ async function load() {
 
   const res = await fetch("data/dashboard.json", { cache: "no-store" });
   const data = await res.json();
+  MARKET = data.market || {}; // market_validate.py の全YouTube横断需要検証キャッシュ
   document.getElementById("generated-at").textContent =
     "updated: " + fmtTs(data.generated_at);
   const main = document.getElementById("channels");
@@ -210,7 +214,7 @@ function renderChannel(ch, idx) {
     <div class="section-title">🔥 急伸動画 (急伸ウォッチと同条件: 3日合計 ≥ 30 または 直近観測 ≥ 20)</div>
     <div id="rising-${ch.id}"></div>
 
-    <div class="section-title">★ 直近 HIT 動画 (age ≤ 14d & 累計 1,000+)</div>
+    <div class="section-title">★ 直近 HIT / 準HIT 動画 (age ≤ 14d・ch相対判定: 普段の${HIT.mult}倍で🚀 / ${HIT.strongMult}倍で🎯)</div>
     <div id="hits-${ch.id}"></div>
 
     <div class="section-title">動画別 views 推移 (↑↓ で動画切替 / ←→ でソート切替)</div>
@@ -584,15 +588,19 @@ function renderHits(containerId, hits, ch) {
   const el = document.getElementById(containerId);
   if (!el) return;
   if (!hits.length) {
-    el.innerHTML = `<div class="empty">直近 14 日に 1,000+ views の HIT なし</div>`;
+    el.innerHTML = `<div class="empty">直近 14 日に HIT / 準HIT なし（ch相対しきい値未達）</div>`;
     return;
   }
   el.className = "hits";
+  // tier はバックエンド算出値 (recent_hits[].tier) を優先。無い古い JSON は views から判定。
+  const tierOf = (h) => h.tier || (ch ? hitTier(h.views, channelHitThreshold(ch), channelSemiThreshold(ch)) : "hit");
   el.innerHTML = hits.map((h) => `
     <a class="hit" href="${h.url}" data-vid="${escapeHtml(h.video_id)}" target="_blank" rel="noopener" title="クリック: 下のグラフを表示 / Ctrl+クリック: YouTube">
       <div class="hit-title">${escapeHtml(h.title)}</div>
       <div class="hit-meta">
+        ${tierBadge(tierOf(h))}
         <span class="views">${fmtN(h.views)} views</span>
+        ${h.baseline_mult != null ? `<span title="チャンネルの普段（中央値）の何倍か">普段の${h.baseline_mult}倍</span>` : ""}
         <span>score ${h.score.toFixed(2)}</span>
         <span>${h.age_days}d ago</span>
         ${adBadge(h, ch ? ch.avg_like_pct : null)}
@@ -952,8 +960,11 @@ const tierBadge = (tier) => {
   return `<span class="rw-tier ${m.cls}">${m.label}</span>`;
 };
 
-// チャンネルの「普段の再生数」= 動画別 latest views の中央値（ショートはデータ生成時に除外済み）
+// チャンネルの「普段の再生数」。バックエンド (build_pages_data.py) が最新 CSV 全動画から
+// 算出した baseline_median を優先する。video_history からの再計算は「追跡対象（≒HITと直近30日）
+// だけ」の偏ったサンプルで中央値が過大に出るため、古い JSON 向けのフォールバック扱い。
 function channelBaseline(ch) {
+  if (ch.baseline_median != null) return ch.baseline_median;
   const views = [];
   for (const v of Object.values(ch.video_history || {})) {
     if (!v.history || !v.history.length) continue;
@@ -965,8 +976,10 @@ function channelBaseline(ch) {
   return views.length % 2 ? views[mid] : (views[mid - 1] + views[mid]) / 2;
 }
 
-// 中央値の mult 倍しきい（baseline 不安定なら絶対値フォールバック）
+// 中央値の mult 倍しきい（バックエンド算出値優先・baseline 不安定なら絶対値フォールバック）
 function channelThreshold(ch, mult) {
+  if (mult === HIT.strongMult && ch.hit_threshold != null) return ch.hit_threshold;
+  if (mult === HIT.mult && ch.semi_threshold != null) return ch.semi_threshold;
   const base = channelBaseline(ch);
   if (base == null) return HIT.absFallback;
   return Math.max(HIT.relFloor, Math.round(mult * base));
@@ -1311,6 +1324,7 @@ function renderRisingRow(r, recentTs) {
           <span class="rw-channel">${escapeHtml(r.channelTitle)}</span>
           ${xa ? `<span class="xa-timing-icon" title="${xa.timing.label}">${xa.timing.icon}</span>` : ""}
           ${xa ? xaBadge(xa) : ""}
+          ${MARKET[r.vid] ? '<span class="xa-badge xa-badge-market" title="全YouTube横断の市場検証データあり — クリックで展開">🌍 市場検証</span>' : ""}
           ${adBadge(r, r.avgLikePct)}
         </div>
       </td>
@@ -1342,12 +1356,32 @@ function renderRisingRow(r, recentTs) {
   } else {
     simsHtml = `<div class="xa-verdict">🔁 類似HIT: 過去履歴に該当なし（新規テーマの可能性 — 当たれば先行者、外れれば需要なし）</div>`;
   }
+  // 🌍 市場検証 (market_validate.py が YouTube 全体を検索した結果。急伸検知された動画のみ存在)
+  const m = MARKET[r.vid];
+  let marketHtml = "";
+  if (m && m.n != null) {
+    if (m.n === 0) {
+      marketHtml = `<div class="xa-market"><div class="xa-market-title">🌍 市場検証「${escapeHtml(m.query)}」: 外部動画が見つからず（新規テーマ濃厚）</div></div>`;
+    } else {
+      const ex = (m.examples || []).slice(0, 3).map((e) => `
+        <div class="xa-sim">・<a href="${e.url}" target="_blank" rel="noopener">${escapeHtml(e.title)}</a>
+          <span class="xa-sim-ch">[${escapeHtml(e.channel)}]</span>
+          — ${fmtN(e.views)}v / 登録${fmtN(e.subs)} / score ${e.score} / ${e.age_days}d前</div>`).join("");
+      marketHtml = `
+        <div class="xa-market">
+          <div class="xa-market-title">🌍 市場検証「${escapeHtml(m.query)}」: ${escapeHtml(m.verdict || "")}</div>
+          <div class="xa-market-stats">監視枠外 ${m.n}本中 HIT率(score≥2.0) ${Math.round((m.hit_rate || 0) * 100)}% ・ 直近90日 ${m.recent90_hits}/${m.recent90_n}本HIT ・ 外部中央値 ${fmtN(m.median_views || 0)}v <span class="xa-market-date">(検証 ${(m.checked_at || "").slice(0, 10)})</span></div>
+          ${ex}
+        </div>`;
+    }
+  }
   const analysisRow = `
     <tr class="rw-xa" data-for="${escapeHtml(r.vid)}" data-tier="${r.tier}" data-ch="${escapeHtml(r.channelId)}" style="display:none">
       <td colspan="${5 + recentTs.length}">
         <div class="xa-detail">
           <div class="xa-timing ${xa.timing.cls}">⏱ 参入タイミング: ${xa.timing.icon} ${xa.timing.label}（公開${r.ageDays}日前 / ${velTxt}）</div>
           ${simsHtml}
+          ${marketHtml}
         </div>
       </td>
     </tr>
