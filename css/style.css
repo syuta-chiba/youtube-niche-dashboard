@@ -844,6 +844,17 @@ nav button.nav-discovery { font-weight: 600; }
 
 /* 🗂 発見済みch プール */
 .pl-ch a { color: inherit; font-weight: 600; }
+.pl-reject {
+  font-size: 0.72rem;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid rgba(207, 34, 46, 0.4);
+  border-radius: 999px;
+  background: transparent;
+  color: #cf222e;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.pl-reject:hover { background: rgba(207, 34, 46, 0.08); }
 .pl-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .pl-date { white-space: nowrap; color: var(--text-dim); }
 .pl-up { color: #1a7f37; font-weight: 600; }

@@ -164,6 +164,7 @@ function renderPool(pool) {
       <td class="pl-num" title="RSS 最新15本 (公開7日超) の views 中央値 = そのchの普段">${p.median_views != null ? fmtN(p.median_views) : "—"}</td>
       <td class="pl-date">${escapeHtml(p.latest_video_at || "—")}</td>
       <td class="pl-date" title="発見経路: ${escapeHtml(p.source || "?")}">${escapeHtml(p.added || "—")}</td>
+      <td><button class="pl-reject" data-cid="${escapeHtml(p.channel_id)}" data-title="${escapeHtml(p.title)}" title="rejected_channels.txt 用の行をコピー → 上の編集リンクから貼って commit すると、巡回・照合・表示の全部から外れる">✗違う</button></td>
     </tr>`;
   }).join("");
 
@@ -172,12 +173,16 @@ function renderPool(pool) {
     <p class="dv-desc">discovery の検索・市場検証・外部コーパスで一度でも視界に入った ch を全員ここに貯め、
     毎朝 <strong>RSS フィードで巡回 (quota ゼロ)</strong>。跳ねた動画が出た瞬間に 📡 Slack 通知で再浮上する —
     「一度 gate に落ちたら二度と見ない」を無くす層。並びは前月比の登録者の伸び順。全競合を洗い出す方針で増やし続ける。</p>
+    <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧の全部から外れる（行削除で復帰）。</p>
     <div class="dv-table-wrap">
       <table class="dv-table">
-        <thead><tr><th>チャンネル</th><th>登録者</th><th>前月比</th><th>再生中央値</th><th>最新投稿</th><th>発見日</th></tr></thead>
-        <tbody>${rows || '<tr><td colspan="6">（まだプールが空 — 今夜の discovery / rss patrol から貯まり始めます）</td></tr>'}</tbody>
+        <thead><tr><th>チャンネル</th><th>登録者</th><th>前月比</th><th>再生中央値</th><th>最新投稿</th><th>発見日</th><th></th></tr></thead>
+        <tbody>${rows || '<tr><td colspan="7">（まだプールが空 — 今夜の discovery / rss patrol から貯まり始めます）</td></tr>'}</tbody>
       </table>
     </div>`;
+  panel.querySelectorAll(".pl-reject").forEach((btn) => {
+    btn.addEventListener("click", () => copyRejectLine(btn, btn.dataset.cid, btn.dataset.title));
+  });
 }
 
 // === 🧭 新規発見タブ (discovery loop の検索キーワード + 評価済み ch 台帳) ===
@@ -186,9 +191,22 @@ const DV_DECISION = {
   promoted: { label: "✅ AUTO追加済み", cls: "dv-ok" },
   "queued(cap)": { label: "✅ 合格・確認待ち", cls: "dv-ok" },
   queued: { label: "🔎 queue (見送り)", cls: "dv-queue" },
-  rejected: { label: "✗ 不採用", cls: "dv-ng" },
+  rejected: { label: "✗ 不採用 (機械)", cls: "dv-ng" },
+  rejected_human: { label: "🚫 違う確定 (人間)", cls: "dv-ng" },
   skip: { label: "− 取得不可", cls: "dv-na" },
 };
+
+// 「違う確定」リスト (rejected_channels.txt) への追記行をクリップボードへコピー。
+// 静的サイトなので直接書き込めない — コピー → GitHub 編集画面に貼って commit する導線。
+const REJECT_EDIT_URL = "https://github.com/syuta-chiba/youtube-niche-research/edit/main/rejected_channels.txt";
+function copyRejectLine(btn, cid, title) {
+  const today = new Date().toISOString().slice(0, 10);
+  const line = `${cid}  # ${title} (違う確定 ${today})`;
+  navigator.clipboard.writeText(line).then(() => {
+    btn.textContent = "📋 コピー済み";
+    setTimeout(() => { btn.textContent = "✗違う"; }, 2500);
+  });
+}
 
 function renderDiscovery(dv) {
   const panel = document.getElementById("discovery-panel");
@@ -204,12 +222,15 @@ function renderDiscovery(dv) {
 
   const evRows = evaluated.map((e) => {
     const d = DV_DECISION[e.decision] || { label: escapeHtml(e.decision || "?"), cls: "dv-na" };
+    const rejectBtn = e.decision === "rejected_human" ? ""
+      : `<button class="pl-reject" data-cid="${escapeHtml(e.channel_id)}" data-title="${escapeHtml(e.title)}" title="rejected_channels.txt 用の行をコピー">✗違う</button>`;
     return `
     <tr>
       <td class="dv-date">${escapeHtml(e.date || "")}</td>
       <td class="dv-ch"><a href="https://www.youtube.com/channel/${encodeURIComponent(e.channel_id)}" target="_blank" rel="noopener">${escapeHtml(e.title)}</a></td>
       <td><span class="dv-badge ${d.cls}">${d.label}</span></td>
       <td class="dv-note">${escapeHtml(e.reason || "")}</td>
+      <td>${rejectBtn}</td>
     </tr>`;
   }).join("");
 
@@ -228,13 +249,17 @@ function renderDiscovery(dv) {
     </div>
 
     <h3>評価済みチャンネル (${evaluated.length}件)</h3>
-    <p class="dv-sub">discovery が深掘り評価した候補の台帳 (新しい順)。「✅ 合格・確認待ち」を見て、良ければ priority_channels.txt へ手動追加する。</p>
+    <p class="dv-sub">discovery が深掘り評価した候補の台帳 (新しい順)。「✅ 合格・確認待ち」を見て、良ければ priority_channels.txt へ手動追加。
+    違うと確定したら「✗違う」で行をコピーし <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a> へ貼って commit。</p>
     <div class="dv-table-wrap">
       <table class="dv-table">
-        <thead><tr><th>評価日</th><th>チャンネル</th><th>判定</th><th>理由</th></tr></thead>
-        <tbody>${evRows || '<tr><td colspan="4">（まだ評価履歴なし）</td></tr>'}</tbody>
+        <thead><tr><th>評価日</th><th>チャンネル</th><th>判定</th><th>理由</th><th></th></tr></thead>
+        <tbody>${evRows || '<tr><td colspan="5">（まだ評価履歴なし）</td></tr>'}</tbody>
       </table>
     </div>`;
+  panel.querySelectorAll(".pl-reject").forEach((btn) => {
+    btn.addEventListener("click", () => copyRejectLine(btn, btn.dataset.cid, btn.dataset.title));
+  });
 }
 
 function activateTab(id, tabs) {

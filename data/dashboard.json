@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T04:13:50Z",
+  "generated_at": "2026-07-21T04:40:29Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -98848,6 +98848,47 @@
         }
       ],
       "source_title": "【記憶を持て】Agent Memoryを三層比較"
+    },
+    "G8ZfaW40tqw": {
+      "query": "fable max pro",
+      "checked_at": "2026-07-21T04:36:46Z",
+      "n": 23,
+      "hit_rate": 0.17,
+      "flop_rate": 0.57,
+      "recent90_n": 23,
+      "recent90_hits": 4,
+      "median_views": 1296,
+      "verdict": "🟡 部分的に実証（当たる例はあるが打率は低め — 演出/切り口勝負）",
+      "examples": [
+        {
+          "title": "Claude Fable 5 Is Now Permanent | Here's Why",
+          "channel": "Victor Lindqvist | AI Systems for Ambitious People",
+          "views": 48418,
+          "subs": 2330,
+          "score": 20.78,
+          "age_days": 1,
+          "url": "https://www.youtube.com/watch?v=IbQ9wrmgxuI"
+        },
+        {
+          "title": "【消える前に】Claude Fable 5でまずやるべき5つのこと",
+          "channel": "AIをかんたん解説@メリノちゃん",
+          "views": 1039,
+          "subs": 70,
+          "score": 14.84,
+          "age_days": 21,
+          "url": "https://www.youtube.com/watch?v=CLlwuzkLg3Y"
+        },
+        {
+          "title": "Claude Fable 5が今日からルール激変｜Max組み込み・Proは従量課金に #Anthropic #Claude #Shorts",
+          "channel": "生成AIの最新情報まとめマゼンチュア",
+          "views": 1065,
+          "subs": 142,
+          "score": 7.5,
+          "age_days": 1,
+          "url": "https://www.youtube.com/watch?v=EMKWBzMGctE"
+        }
+      ],
+      "source_title": "Claude Fable 5 料金 Max Pro 従量課金"
     }
   },
   "external_hits": [
@@ -98934,6 +98975,42 @@
       "published_at": "2026-03-28T05:48:31+00:00",
       "url": "https://www.youtube.com/watch?v=fMx9N4_BrxU",
       "source": "rss_patrol"
+    },
+    {
+      "video_id": "CLlwuzkLg3Y",
+      "title": "【消える前に】Claude Fable 5でまずやるべき5つのこと",
+      "channel": "AIをかんたん解説@メリノちゃん",
+      "channel_id": "UC7zrHgABD9b2mtUiTVAZOGA",
+      "views": 1039,
+      "subs": 70,
+      "score": 14.84,
+      "published_at": "2026-06-29T16:00:05Z",
+      "url": "https://www.youtube.com/watch?v=CLlwuzkLg3Y",
+      "source": "market_validate"
+    },
+    {
+      "video_id": "EMKWBzMGctE",
+      "title": "Claude Fable 5が今日からルール激変｜Max組み込み・Proは従量課金に #Anthropic #Claude #Shorts",
+      "channel": "生成AIの最新情報まとめマゼンチュア",
+      "channel_id": "UCG5PakctYGIUJ92Tjl5bslg",
+      "views": 1065,
+      "subs": 142,
+      "score": 7.5,
+      "published_at": "2026-07-20T03:00:16Z",
+      "url": "https://www.youtube.com/watch?v=EMKWBzMGctE",
+      "source": "market_validate"
+    },
+    {
+      "video_id": "IbQ9wrmgxuI",
+      "title": "Claude Fable 5 Is Now Permanent | Here's Why",
+      "channel": "Victor Lindqvist | AI Systems for Ambitious People",
+      "channel_id": "UCxO54q_znYV9wJgeoh-K5Aw",
+      "views": 48418,
+      "subs": 2330,
+      "score": 20.78,
+      "published_at": "2026-07-19T14:44:27Z",
+      "url": "https://www.youtube.com/watch?v=IbQ9wrmgxuI",
+      "source": "market_validate"
     }
   ],
   "discovery": {
@@ -99160,15 +99237,16 @@
   ],
   "quota": {
     "date_pt": "2026-07-20",
-    "today_units": 6,
+    "today_units": 108,
     "limit": 10000,
     "by_source": {
-      "rss_patrol": 6
+      "rss_patrol": 6,
+      "market_validate": 102
     },
     "daily": [
       {
         "date": "2026-07-20",
-        "units": 6
+        "units": 108
       }
     ]
   }
