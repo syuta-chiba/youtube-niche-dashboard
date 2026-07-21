@@ -77,6 +77,7 @@ async function load() {
   renderMarketPage(data.market || {});
   renderAnalyses(data.analyses || []);
   renderVideoTablePanel(data.channels);
+  renderDailyReports(data.daily_reports || []);
   buildTabs(data.channels);
 }
 
@@ -108,6 +109,7 @@ function panelEl(id) {
   if (id === "market") return document.getElementById("market-panel");
   if (id === "analyses") return document.getElementById("analyses-panel");
   if (id === "vtable") return document.getElementById("vtable-panel");
+  if (id === "daily") return document.getElementById("daily-panel");
   return document.getElementById("ch-" + id);
 }
 
@@ -121,6 +123,13 @@ function buildTabs(channels) {
   risingBtn.onclick = () => activateTab("rising-watch", tabs);
   tabs.push({ id: "rising-watch", btn: risingBtn });
   nav.appendChild(risingBtn);
+
+  // 📰 日次レポート (Slack はリンクだけ、読む場所はここ — 2026-07-21 方針)
+  const dailyBtn = document.createElement("button");
+  dailyBtn.textContent = "📰 日次";
+  dailyBtn.onclick = () => activateTab("daily", tabs);
+  tabs.push({ id: "daily", btn: dailyBtn });
+  nav.appendChild(dailyBtn);
 
   // 既存の注目チャンネル群 (priority 観測対象)
   channels.forEach((ch) => {
@@ -170,7 +179,10 @@ function buildTabs(channels) {
   tabs.push({ id: "analyses", btn: anBtn });
   nav.appendChild(anBtn);
 
-  activateTab("rising-watch", tabs);
+  // Slack のリンク (…/#daily 等) から特定タブを直接開けるようにする
+  const hashTab = (location.hash || "").slice(1);
+  const known = new Set(tabs.map((t) => t.id));
+  activateTab(known.has(hashTab) ? hashTab : "rising-watch", tabs);
 }
 
 // === 📋 動画分析タブ (全動画 × views/普段比/like率/広告判定/公開1・3・7・14・28日後views) ===
@@ -266,6 +278,55 @@ function renderVideoTablePanel(channels) {
     sel.appendChild(btn);
   });
   if (channels[0]) renderVtBody(channels[0]);
+}
+
+// === 📰 日次レポートタブ (daily_report.py の構造化データ。Slack はここへのリンクだけ運ぶ) ===
+
+function dailyVideoRow(v, extra) {
+  return `
+    <tr>
+      <td class="vt-thumb"><a href="https://www.youtube.com/watch?v=${encodeURIComponent(v.video_id)}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${encodeURIComponent(v.video_id)}/default.jpg" alt="" loading="lazy"></a></td>
+      <td class="mk-title"><a href="https://www.youtube.com/watch?v=${encodeURIComponent(v.video_id)}" target="_blank" rel="noopener">${escapeHtml(v.title || "")}</a>${v.channel ? `<br><span class="pl-na">${escapeHtml(v.channel)}</span>` : ""}</td>
+      <td class="pl-num"><strong>${fmtN(v.views)}</strong>${v.delta != null ? `<br><span class="pl-up">+${fmtN(v.delta)}</span>` : ""}</td>
+      <td class="pl-date">${escapeHtml(extra || v.published_at || "")}</td>
+    </tr>`;
+}
+
+function renderDailyReportBody(r) {
+  const head = `<thead><tr><th></th><th>動画</th><th>views (+昨日)</th><th>公開</th></tr></thead>`;
+  const movers = (r.movers || []).length
+    ? `<h4>📈 自ch 昨日伸びた動画</h4><div class="dv-table-wrap"><table class="dv-table">${head}<tbody>${(r.movers || []).map((m) => dailyVideoRow(m)).join("")}</tbody></table></div>`
+    : "<h4>📈 自ch</h4><p class='dv-sub'>昨日伸びた動画なし</p>";
+  const recent = (r.recent || []).length
+    ? `<h4>🐣 公開7日以内の初速</h4><div class="dv-table-wrap"><table class="dv-table">${head}<tbody>${(r.recent || []).map((v) => dailyVideoRow(v)).join("")}</tbody></table></div>`
+    : "";
+  const prio = (r.priority || []).length
+    ? `<h4>🎯 priority 直近24h 急伸</h4><div class="dv-table-wrap"><table class="dv-table">${head}<tbody>${(r.priority || []).map((p) => dailyVideoRow(p)).join("")}</tbody></table></div>`
+    : "";
+  return `
+    <p class="dv-desc">登録者 <strong>${fmtN(r.subs)}</strong>${r.subs_delta != null ? ` (${r.subs_delta >= 0 ? "+" : ""}${fmtN(r.subs_delta)})` : ""}
+    ・ 総再生 <strong>${fmtN(r.total_views)}</strong>${r.views_delta != null ? ` (+${fmtN(r.views_delta)})` : ""}</p>
+    ${movers}${recent}${prio}
+    <p class="dv-sub">🔍 ${escapeHtml(r.discovery || "")}${r.quota_yesterday ? ` ・ 📡 API消費 昨日 ${fmtN(r.quota_yesterday)}u / 10,000u` : ""}</p>`;
+}
+
+function renderDailyReports(reports) {
+  const panel = document.getElementById("daily-panel");
+  if (!panel) return;
+  if (!reports.length) {
+    panel.innerHTML = `<h2>📰 日次レポート</h2><p class="dv-sub">（まだデータなし — 明朝 7:30 の daily-report から貯まります）</p>`;
+    return;
+  }
+  const latest = reports[0];
+  const past = reports.slice(1).map((r) => `
+    <details class="an-item">
+      <summary><span class="an-date">${escapeHtml(r.date)}</span> 登録者 ${fmtN(r.subs)}${r.subs_delta != null ? ` (${r.subs_delta >= 0 ? "+" : ""}${fmtN(r.subs_delta)})` : ""} ・ 再生 +${fmtN(r.views_delta ?? 0)}</summary>
+      <div class="an-body">${renderDailyReportBody(r)}</div>
+    </details>`).join("");
+  panel.innerHTML = `
+    <h2>📰 日次レポート ${escapeHtml(latest.date)} (${escapeHtml(latest.weekday || "")})</h2>
+    ${renderDailyReportBody(latest)}
+    ${past ? `<h3>過去のレポート</h3>${past}` : ""}`;
 }
 
 // === 📚 分析履歴タブ ===
