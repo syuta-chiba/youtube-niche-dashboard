@@ -59,7 +59,7 @@ async function load() {
   // Chart.js global defaults
   Chart.defaults.color = COL_LEGEND;
   Chart.defaults.borderColor = COL_GRID;
-  Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif';
+  Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif';
 
   const res = await fetch("data/dashboard.json", { cache: "no-store" });
   const data = await res.json();
