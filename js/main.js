@@ -218,12 +218,9 @@ function renderMarketPage(market) {
   const entries = Object.entries(market || {})
     .sort((a, b) => (b[1].checked_at || "").localeCompare(a[1].checked_at || ""));
 
-  const cards = entries.map(([vid, m]) => {
-    const vids = m.videos || [];
-    const rows = vids.map((v) => `
+  const mkRow = (v) => `
       <tr>
         <td>${marketVideoBadge(v)}</td>
-        <td title="${v.lang === "ja" ? "日本語圏" : "海外 (先行指標 — 日本語圏の実証には数えない)"}">${v.lang === "ja" ? "🇯🇵" : v.lang ? "🌐" : ""}</td>
         <td class="dv-ch"><a href="https://www.youtube.com/channel/${encodeURIComponent(v.channel_id || "")}" target="_blank" rel="noopener">${escapeHtml(v.channel || "?")}</a></td>
         <td class="mk-title"><a href="${v.url}" target="_blank" rel="noopener">${escapeHtml(v.title || "")}</a></td>
         <td class="pl-num">${fmtN(v.views || 0)}</td>
@@ -231,7 +228,20 @@ function renderMarketPage(market) {
         <td class="pl-num">${v.mult != null ? v.mult + "倍" : "—"}</td>
         <td class="pl-num">${fmtN(v.subs || 0)}</td>
         <td class="pl-date">${v.age_days != null ? v.age_days + "d前" : ""}</td>
-      </tr>`).join("");
+      </tr>`;
+  const mkHead = `<thead><tr><th>判定</th><th>チャンネル</th><th>動画</th><th>views</th><th>普段</th><th>倍率</th><th>登録者</th><th>公開</th></tr></thead>`;
+  const cards = entries.map(([vid, m]) => {
+    const vids = m.videos || [];
+    // 🇯🇵 と 🌐 は表を物理的に分離 (海外は先行指標であって自分の市場の実証ではない)
+    const jaVids = vids.filter((v) => v.lang === "ja");
+    const otherVids = vids.filter((v) => v.lang !== "ja");
+    const jaTable = `<h4>🇯🇵 日本語圏 (${jaVids.length}本)</h4>
+      ${jaVids.length ? `<div class="dv-table-wrap"><table class="dv-table">${mkHead}<tbody>${jaVids.map(mkRow).join("")}</tbody></table></div>`
+        : '<p class="dv-sub">該当なし — この条件で当てた日本語チャンネルはまだ無い (先行者の窓)</p>'}`;
+    const otherTable = otherVids.length ? `
+      <details class="an-item"><summary>🌐 海外 (${otherVids.length}本) — 先行指標。日本語圏の実証には数えない</summary>
+        <div class="dv-table-wrap"><table class="dv-table">${mkHead}<tbody>${otherVids.map(mkRow).join("")}</tbody></table></div>
+      </details>` : "";
     const legacy = !vids.length && (m.examples || []).length
       ? `<p class="dv-sub">（旧形式の検証結果のため明細なし。代表例: ${(m.examples || []).map((e) => escapeHtml(e.title)).join(" / ")}）</p>`
       : "";
@@ -239,12 +249,9 @@ function renderMarketPage(market) {
     <div class="mk-card">
       <h3>「${escapeHtml(m.query || "")}」 <span class="mk-verdict">${escapeHtml(m.verdict || "")}</span></h3>
       <p class="dv-sub">検証元: ${escapeHtml(m.source_title || vid)} ・ 検証日 ${(m.checked_at || "").slice(0, 10)}${m.event_date ? ` ・ <strong>📅 イベント起点 ${m.event_date} 以降のみ検索</strong>` : ""} ・
-      🇯🇵 ${m.ja_n ?? m.n ?? "?"}本中 HIT率 ${Math.round((m.hit_rate || 0) * 100)}%${m.wave_n != null ? ` ・ 🌊 波(直近${m.wave_days || 7}日) ${m.wave_hits}/${m.wave_n}` : ""}${m.other_n ? ` ・ 🌐 海外 ${m.other_n}本中 ${Math.round((m.other_hit_rate || 0) * 100)}%` : ""}${m.n_shorts_excluded ? ` ・ Shorts ${m.n_shorts_excluded}本除外済` : ""}</p>
+      🇯🇵 ${m.ja_n ?? m.n ?? "?"}本中 HIT率 ${Math.round((m.hit_rate || 0) * 100)}%${m.wave_n != null ? ` ・ 🌊 波(直近${m.wave_days || 7}日) ${m.wave_hits}/${m.wave_n}` : ""}${m.other_n ? ` ・ 🌐 海外 ${m.other_n}本中 ${Math.round((m.other_hit_rate || 0) * 100)}%` : ""}${m.n_shorts_excluded ? ` ・ Shorts ${m.n_shorts_excluded}本除外` : ""}${m.n_offtopic_excluded ? ` ・ 無関係 ${m.n_offtopic_excluded}本除外` : ""}</p>
       ${legacy}
-      ${vids.length ? `<div class="dv-table-wrap"><table class="dv-table">
-        <thead><tr><th>判定</th><th>言語</th><th>チャンネル</th><th>動画</th><th>views</th><th>普段</th><th>倍率</th><th>登録者</th><th>公開</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table></div>` : ""}
+      ${vids.length ? jaTable + otherTable : ""}
     </div>`;
   }).join("");
 
@@ -443,7 +450,7 @@ function renderChannel(ch, idx) {
   const deltaCls = (n) => n >= 0 ? "pos" : "neg";
 
   wrap.innerHTML = `
-    <h2>${chIcon(ch, "ch-icon ch-icon-lg")}<a class="ch-link" href="https://www.youtube.com/channel/${encodeURIComponent(ch.id)}" target="_blank" rel="noopener" title="YouTube でチャンネルを開く">${escapeHtml(ch.title)}</a> <span class="ch-date">(${todayDate || "—"} JST 時点)</span>${ch.boosted ? ' <span class="boosted-badge">⚠️ 広告混ざり枠 — 過去にブースト形跡あり。views/score は割引で読み、like率を併読</span>' : ""}</h2>
+    <h2>${chIcon(ch, "ch-icon ch-icon-lg")}<a class="ch-link" href="https://www.youtube.com/channel/${encodeURIComponent(ch.id)}" target="_blank" rel="noopener" title="YouTube でチャンネルを開く">${escapeHtml(ch.title)}</a> <span class="ch-date">(${todayDate || "—"} JST 時点)</span> <a class="ch-link" href="videos.html?ch=${encodeURIComponent(ch.id)}" title="全動画の時系列一覧 (views/like率/広告判定/公開1・3・7・14・28日後の伸び)">📋 全動画分析</a>${ch.boosted ? ' <span class="boosted-badge">⚠️ 広告混ざり枠 — 過去にブースト形跡あり。views/score は割引で読み、like率を併読</span>' : ""}</h2>
     <div class="kpi-period-tabs" id="kpip-${ch.id}">
       ${kpiPeriods.map((p, i) => `<button class="kpip${i === 0 ? " active" : ""}" data-p="${p.key}">${p.label}</button>`).join("")}
       <span class="kpip-span" id="kpipspan-${ch.id}"></span>
