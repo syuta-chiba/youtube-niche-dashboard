@@ -855,6 +855,17 @@ nav button.nav-discovery { font-weight: 600; }
   white-space: nowrap;
 }
 .pl-reject:hover { background: rgba(207, 34, 46, 0.08); }
+
+/* 🌍 外部需要タブ */
+.mk-card {
+  margin: 1rem 0 1.4rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.mk-card h3 { margin: 0 0 0.2rem; }
+.mk-verdict { font-size: 0.82rem; font-weight: 500; }
+.mk-title a { color: inherit; }
 .pl-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .pl-date { white-space: nowrap; color: var(--text-dim); }
 .pl-up { color: #1a7f37; font-weight: 600; }

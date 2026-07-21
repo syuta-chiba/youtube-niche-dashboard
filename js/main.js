@@ -74,6 +74,7 @@ async function load() {
   renderRisingWatch(data.channels.filter((c) => !c.boosted));
   renderDiscovery(data.discovery || {});
   renderPool(data.pool || []);
+  renderMarketPage(data.market || {});
   buildTabs(data.channels);
 }
 
@@ -102,6 +103,7 @@ function panelEl(id) {
   if (id === "rising-watch") return document.getElementById("rising-watch-panel");
   if (id === "discovery") return document.getElementById("discovery-panel");
   if (id === "pool") return document.getElementById("pool-panel");
+  if (id === "market") return document.getElementById("market-panel");
   return document.getElementById("ch-" + id);
 }
 
@@ -143,7 +145,67 @@ function buildTabs(channels) {
   tabs.push({ id: "pool", btn: poolBtn });
   nav.appendChild(poolBtn);
 
+  const mkBtn = document.createElement("button");
+  mkBtn.className = "nav-discovery";
+  mkBtn.textContent = "🌍 外部需要";
+  mkBtn.onclick = () => activateTab("market", tabs);
+  tabs.push({ id: "market", btn: mkBtn });
+  nav.appendChild(mkBtn);
+
   activateTab("rising-watch", tabs);
+}
+
+// === 🌍 外部需要タブ (market_validate の全明細 — このクエリでこの ch が出てきてこうだった) ===
+
+function marketVideoBadge(v) {
+  if (v.rel_hit) return '<span class="dv-badge dv-ok" title="そのchの普段 (RSS最新15本中央値) の5倍以上・500v以上">🎯 HIT</span>';
+  if (v.mult == null) return '<span class="dv-badge dv-na" title="RSSフィードが取れず普段を測定できない (削除ch等)">判定不能</span>';
+  if (v.mult < 1) return '<span class="dv-badge dv-ng" title="そのchの普段より回っていない">▼普段未満</span>';
+  return '<span class="dv-badge dv-queue" title="普段は超えたが5倍には届かず">中間</span>';
+}
+
+function renderMarketPage(market) {
+  const panel = document.getElementById("market-panel");
+  if (!panel) return;
+  const entries = Object.entries(market || {})
+    .sort((a, b) => (b[1].checked_at || "").localeCompare(a[1].checked_at || ""));
+
+  const cards = entries.map(([vid, m]) => {
+    const vids = m.videos || [];
+    const rows = vids.map((v) => `
+      <tr>
+        <td>${marketVideoBadge(v)}</td>
+        <td class="dv-ch"><a href="https://www.youtube.com/channel/${encodeURIComponent(v.channel_id || "")}" target="_blank" rel="noopener">${escapeHtml(v.channel || "?")}</a></td>
+        <td class="mk-title"><a href="${v.url}" target="_blank" rel="noopener">${escapeHtml(v.title || "")}</a></td>
+        <td class="pl-num">${fmtN(v.views || 0)}</td>
+        <td class="pl-num" title="そのchの普段 = RSS最新15本 (公開7日超) の views 中央値">${v.ch_median != null ? fmtN(v.ch_median) : "—"}</td>
+        <td class="pl-num">${v.mult != null ? v.mult + "倍" : "—"}</td>
+        <td class="pl-num">${fmtN(v.subs || 0)}</td>
+        <td class="pl-date">${v.age_days != null ? v.age_days + "d前" : ""}</td>
+      </tr>`).join("");
+    const legacy = !vids.length && (m.examples || []).length
+      ? `<p class="dv-sub">（旧形式の検証結果のため明細なし。代表例: ${(m.examples || []).map((e) => escapeHtml(e.title)).join(" / ")}）</p>`
+      : "";
+    return `
+    <div class="mk-card">
+      <h3>「${escapeHtml(m.query || "")}」 <span class="mk-verdict">${escapeHtml(m.verdict || "")}</span></h3>
+      <p class="dv-sub">検証元: ${escapeHtml(m.source_title || vid)} ・ 検証日 ${(m.checked_at || "").slice(0, 10)} ・
+      外部${m.n ?? "?"}本 / HIT率(普段の5倍) ${Math.round((m.hit_rate || 0) * 100)}% / 普段未満 ${Math.round((m.flop_rate || 0) * 100)}%</p>
+      ${legacy}
+      ${vids.length ? `<div class="dv-table-wrap"><table class="dv-table">
+        <thead><tr><th>判定</th><th>チャンネル</th><th>動画</th><th>views</th><th>普段</th><th>倍率</th><th>登録者</th><th>公開</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>` : ""}
+    </div>`;
+  }).join("");
+
+  panel.innerHTML = `
+    <h2>🌍 外部需要分析 (${entries.length}件) — market_validate の全明細</h2>
+    <p class="dv-desc">急伸/本命検知が出たテーマについて、YouTube 全体を検索 (search.list 100u/件) して
+    「監視枠外のチャンネルでも当たっているか」を測った記録。判定はチャンネル相対 —
+    各外部chの<strong>普段 (RSSフィード中央値・quota ゼロ) の5倍以上</strong>を 🎯HIT とする。
+    「登録者数比 (score)」は 2026-07-21 に廃止。倍率降順。</p>
+    ${cards || '<p class="dv-sub">（まだ検証記録なし — 急伸検知が出た回に自動実行されます）</p>'}`;
 }
 
 // === 🗂 発見済みチャンネル一覧 (RSS 巡回プール = 注目には入れていない競合候補全員) ===
