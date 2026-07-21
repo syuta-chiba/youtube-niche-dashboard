@@ -14,6 +14,7 @@
   .vt .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .vt .date { white-space: nowrap; color: var(--text-dim); }
   .vt .title a { color: inherit; }
+  .vt .thumb img { width: 80px; height: 45px; object-fit: cover; border-radius: 4px; display: block; }
   .vt tr.tier-hit { background: rgba(26, 127, 55, 0.07); }
   .vt tr.tier-semi { background: rgba(191, 135, 0, 0.06); }
   .vt .na { color: var(--text-dim); }
@@ -68,6 +69,7 @@ function adCell(v) {
     return `
     <tr class="${tier}">
       <td class="date">${esc(v.published_at)}</td>
+      <td class="thumb"><a href="${v.url}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${encodeURIComponent(v.video_id)}/default.jpg" alt="" loading="lazy"></a></td>
       <td class="title"><a href="${v.url}" target="_blank" rel="noopener">${esc(v.title)}</a></td>
       <td class="num"><strong>${fmtN(v.views)}</strong>${mult ? `<br><span class="na" title="普段(中央値 ${fmtN(ch.baseline_median)}v)の何倍か">${mult}倍</span>` : ""}</td>
       <td class="num">${v.like_pct != null ? v.like_pct + "%" : "—"}</td>
@@ -85,7 +87,7 @@ function adCell(v) {
     <div class="vt-wrap">
       <table class="vt">
         <thead><tr>
-          <th>投稿日</th><th>タイトル</th><th>views (普段比)</th><th>like率</th><th>広告</th>
+          <th>投稿日</th><th></th><th>タイトル</th><th>views (普段比)</th><th>like率</th><th>広告</th>
           <th>1日</th><th>3日</th><th>7日</th><th>14日</th><th>28日</th>
         </tr></thead>
         <tbody>${rows || '<tr><td colspan="10">データなし</td></tr>'}</tbody>

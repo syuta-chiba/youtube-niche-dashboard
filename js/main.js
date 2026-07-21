@@ -76,6 +76,7 @@ async function load() {
   renderPool(data.pool || []);
   renderMarketPage(data.market || {});
   renderAnalyses(data.analyses || []);
+  renderVideoTablePanel(data.channels);
   buildTabs(data.channels);
 }
 
@@ -106,6 +107,7 @@ function panelEl(id) {
   if (id === "pool") return document.getElementById("pool-panel");
   if (id === "market") return document.getElementById("market-panel");
   if (id === "analyses") return document.getElementById("analyses-panel");
+  if (id === "vtable") return document.getElementById("vtable-panel");
   return document.getElementById("ch-" + id);
 }
 
@@ -133,6 +135,13 @@ function buildTabs(channels) {
   const sep = document.createElement("span");
   sep.className = "nav-sep";
   nav.appendChild(sep);
+
+  const vtBtn = document.createElement("button");
+  vtBtn.className = "nav-discovery";
+  vtBtn.textContent = "📋 動画分析";
+  vtBtn.onclick = () => activateTab("vtable", tabs);
+  tabs.push({ id: "vtable", btn: vtBtn });
+  nav.appendChild(vtBtn);
   const dvBtn = document.createElement("button");
   dvBtn.className = "nav-discovery";
   dvBtn.textContent = "🧭 新規発見";
@@ -162,6 +171,67 @@ function buildTabs(channels) {
   nav.appendChild(anBtn);
 
   activateTab("rising-watch", tabs);
+}
+
+// === 📋 動画分析タブ (全動画 × views/普段比/like率/広告判定/公開1・3・7・14・28日後views) ===
+// 別ページ videos.html と同じデータ (ch.video_table)。サムネは i.ytimg.com から直接 (API 不要)。
+
+function vtAdCell(v) {
+  if (v.ad_check === "suspect") return `<span class="ad-flag ad-suspect" title="like率0.4%未満 または 期待like数の50%未満">⚠️疑い</span>`;
+  if (v.ad_check === "ok") return `<span class="ad-flag ad-ok" title="回帰基準線に対し健全${v.likes_vs_exp_pct != null ? ` (期待比${v.likes_vs_exp_pct}%)` : ""}">✓健全</span>`;
+  if (v.ad_check === "unknown") return `<span class="ad-flag ad-na">like非公開</span>`;
+  return `<span class="ad-flag ad-na" title="500再生未満は判定対象外">—</span>`;
+}
+
+function renderVtBody(ch) {
+  const body = document.getElementById("vt-body");
+  if (!body) return;
+  const rows = (ch.video_table || []).map((v) => {
+    const tier = ch.hit_threshold && v.views >= ch.hit_threshold ? "vt-hit"
+      : ch.semi_threshold && v.views >= ch.semi_threshold ? "vt-semi" : "";
+    const mult = ch.baseline_median ? (v.views / ch.baseline_median).toFixed(1) : null;
+    const cells = [1, 3, 7, 14, 28].map((n) =>
+      `<td class="pl-num" title="公開${n}日後時点の views (日次観測から復元。— は観測開始前で不明)">${v["d" + n] != null ? fmtN(v["d" + n]) : '<span class="pl-na">—</span>'}</td>`).join("");
+    return `
+    <tr class="${tier}">
+      <td class="pl-date">${escapeHtml(v.published_at || "")}</td>
+      <td class="vt-thumb"><a href="${v.url}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${encodeURIComponent(v.video_id)}/default.jpg" alt="" loading="lazy"></a></td>
+      <td class="mk-title"><a href="${v.url}" target="_blank" rel="noopener">${escapeHtml(v.title || "")}</a></td>
+      <td class="pl-num"><strong>${fmtN(v.views)}</strong>${mult ? `<br><span class="pl-na" title="普段(中央値 ${fmtN(ch.baseline_median)}v)の何倍か">${mult}倍</span>` : ""}</td>
+      <td class="pl-num">${v.like_pct != null ? v.like_pct + "%" : "—"}</td>
+      <td>${vtAdCell(v)}</td>
+      ${cells}
+    </tr>`;
+  }).join("");
+  body.innerHTML = `
+    <p class="dv-sub">全 ${(ch.video_table || []).length} 本 (Shorts除外・新しい順)。普段(中央値) <strong>${fmtN(ch.baseline_median)}v</strong>
+    / 🎯HIT ${fmtN(ch.hit_threshold)}v以上 = 緑行 / 🚀準HIT ${fmtN(ch.semi_threshold)}v以上 = 黄行。
+    「N日」列 = 公開N日後時点の累計 views (日次定点観測から復元。観測開始前に公開された動画は —)。</p>
+    <div class="dv-table-wrap">
+      <table class="dv-table vt-table">
+        <thead><tr><th>投稿日</th><th></th><th>タイトル</th><th>views (普段比)</th><th>like率</th><th>広告</th><th>1日</th><th>3日</th><th>7日</th><th>14日</th><th>28日</th></tr></thead>
+        <tbody>${rows || '<tr><td colspan="11">データなし</td></tr>'}</tbody>
+      </table>
+    </div>`;
+}
+
+function renderVideoTablePanel(channels) {
+  const panel = document.getElementById("vtable-panel");
+  if (!panel) return;
+  panel.innerHTML = `<h2>📋 全動画分析</h2><div id="vt-chsel" class="vt-chsel"></div><div id="vt-body"></div>`;
+  const sel = panel.querySelector("#vt-chsel");
+  channels.forEach((ch, i) => {
+    const btn = document.createElement("button");
+    btn.className = "vt-chbtn" + (i === 0 ? " active" : "");
+    btn.innerHTML = `${chIcon(ch)}${ch.boosted ? "⚠️ " : ""}${escapeHtml(ch.title)}`;
+    btn.onclick = () => {
+      sel.querySelectorAll(".vt-chbtn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderVtBody(ch);
+    };
+    sel.appendChild(btn);
+  });
+  if (channels[0]) renderVtBody(channels[0]);
 }
 
 // === 📚 分析履歴タブ ===
