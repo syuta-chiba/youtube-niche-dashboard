@@ -223,6 +223,7 @@ function renderMarketPage(market) {
     const rows = vids.map((v) => `
       <tr>
         <td>${marketVideoBadge(v)}</td>
+        <td title="${v.lang === "ja" ? "日本語圏" : "海外 (先行指標 — 日本語圏の実証には数えない)"}">${v.lang === "ja" ? "🇯🇵" : v.lang ? "🌐" : ""}</td>
         <td class="dv-ch"><a href="https://www.youtube.com/channel/${encodeURIComponent(v.channel_id || "")}" target="_blank" rel="noopener">${escapeHtml(v.channel || "?")}</a></td>
         <td class="mk-title"><a href="${v.url}" target="_blank" rel="noopener">${escapeHtml(v.title || "")}</a></td>
         <td class="pl-num">${fmtN(v.views || 0)}</td>
@@ -238,10 +239,10 @@ function renderMarketPage(market) {
     <div class="mk-card">
       <h3>「${escapeHtml(m.query || "")}」 <span class="mk-verdict">${escapeHtml(m.verdict || "")}</span></h3>
       <p class="dv-sub">検証元: ${escapeHtml(m.source_title || vid)} ・ 検証日 ${(m.checked_at || "").slice(0, 10)} ・
-      外部${m.n ?? "?"}本 / HIT率(普段の5倍) ${Math.round((m.hit_rate || 0) * 100)}% / 普段未満 ${Math.round((m.flop_rate || 0) * 100)}%</p>
+      🇯🇵 ${m.ja_n ?? m.n ?? "?"}本中 HIT率 ${Math.round((m.hit_rate || 0) * 100)}%${m.wave_n != null ? ` ・ 🌊 波(直近${m.wave_days || 7}日) ${m.wave_hits}/${m.wave_n}` : ""}${m.other_n ? ` ・ 🌐 海外 ${m.other_n}本中 ${Math.round((m.other_hit_rate || 0) * 100)}%` : ""}${m.n_shorts_excluded ? ` ・ Shorts ${m.n_shorts_excluded}本除外済` : ""}</p>
       ${legacy}
       ${vids.length ? `<div class="dv-table-wrap"><table class="dv-table">
-        <thead><tr><th>判定</th><th>チャンネル</th><th>動画</th><th>views</th><th>普段</th><th>倍率</th><th>登録者</th><th>公開</th></tr></thead>
+        <thead><tr><th>判定</th><th>言語</th><th>チャンネル</th><th>動画</th><th>views</th><th>普段</th><th>倍率</th><th>登録者</th><th>公開</th></tr></thead>
         <tbody>${rows}</tbody>
       </table></div>` : ""}
     </div>`;
@@ -1672,7 +1673,7 @@ function renderRisingRow(r, recentTs) {
       marketHtml = `
         <div class="xa-market">
           <div class="xa-market-title">🌍 市場検証「${escapeHtml(m.query)}」: ${escapeHtml(m.verdict || "")}</div>
-          <div class="xa-market-stats">監視枠外 ${m.n}本中 HIT率(そのchの普段の5倍以上) ${Math.round((m.hit_rate || 0) * 100)}% ・ 直近90日 ${m.recent90_hits}/${m.recent90_n}本HIT ・ 外部中央値 ${fmtN(m.median_views || 0)}v <span class="xa-market-date">(検証 ${(m.checked_at || "").slice(0, 10)})</span></div>
+          <div class="xa-market-stats">🇯🇵 日本語圏 ${m.ja_n ?? m.n}本中 HIT率(普段の5倍) ${Math.round((m.hit_rate || 0) * 100)}%${m.wave_n != null ? ` ・ 🌊 波(直近${m.wave_days || 7}日) ${m.wave_hits}/${m.wave_n}本HIT` : ""}${m.other_n ? ` ・ 🌐 海外 ${m.other_n}本中 ${Math.round((m.other_hit_rate || 0) * 100)}% (先行指標)` : ""} <span class="xa-market-date">(検証 ${(m.checked_at || "").slice(0, 10)}${m.n_shorts_excluded ? ` / Shorts ${m.n_shorts_excluded}本除外` : ""})</span></div>
           ${ex}
         </div>`;
     }
