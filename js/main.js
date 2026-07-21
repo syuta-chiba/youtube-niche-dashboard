@@ -37,6 +37,8 @@ function adBadge(v, base) {
 
 // video_id → 市場検証結果 (dashboard.json の market フィールド。load() で代入)
 let MARKET = {};
+// 外部HITコーパス (market_validate / discovery_loop が蓄積した監視枠外の HIT。load() で代入)
+let EXTERNAL_HITS = [];
 
 const chIcon = (ch, cls = "ch-icon") =>
   ch.icon ? `<img class="${cls}" src="${ch.icon}" alt="" loading="lazy">` : "";
@@ -62,6 +64,7 @@ async function load() {
   const res = await fetch("data/dashboard.json", { cache: "no-store" });
   const data = await res.json();
   MARKET = data.market || {}; // market_validate.py の全YouTube横断需要検証キャッシュ
+  EXTERNAL_HITS = data.external_hits || [];
   document.getElementById("generated-at").textContent =
     "updated: " + fmtTs(data.generated_at);
   const main = document.getElementById("channels");
@@ -1123,10 +1126,12 @@ function extractKeywords(title) {
   return out;
 }
 
-// 全 priority ch の HIT 動画 (1,000+ views) を類似HIT検索コーパスにする。
+// 全 priority ch の HIT 動画 (1,000+ views) + 外部HITコーパスを類似HIT検索コーパスにする。
 // boosted 枠は views が実需要を反映しないためコーパス外 (channel_strategy §5 と同方針)。
-function buildHitCorpus(channels) {
+// externalHits = 監視枠外の HIT (market_validate / discovery_loop 蓄積。external:true で 🌍 表示)。
+function buildHitCorpus(channels, externalHits) {
   const corpus = [];
+  const watched = new Set(channels.map((c) => c.id));
   channels.filter((c) => !c.boosted).forEach((ch) => {
     const hitTh = channelHitThreshold(ch); // 相対 HIT しきい値でコーパスを絞る
     for (const [vid, v] of Object.entries(ch.video_history || {})) {
@@ -1145,6 +1150,20 @@ function buildHitCorpus(channels) {
         kw: extractKeywords(v.title),
       });
     }
+  });
+  (externalHits || []).forEach((e) => {
+    if (!e.video_id || watched.has(e.channel_id)) return; // 監視枠内は上で照合済み
+    corpus.push({
+      vid: e.video_id,
+      title: e.title,
+      url: e.url || `https://www.youtube.com/watch?v=${e.video_id}`,
+      published_at: (e.published_at || "").slice(0, 10),
+      views: e.views || 0,
+      channelId: e.channel_id || "",
+      channelTitle: e.channel || "?",
+      external: true,
+      kw: extractKeywords(e.title),
+    });
   });
   return corpus;
 }
@@ -1170,11 +1189,13 @@ function crossAnalysis(r, corpus) {
   scored.sort((a, b) => b.nShared - a.nShared || b.views - a.views);
   const sims = scored.slice(0, 3);
   const cross = sims.some((s) => s.channelId !== r.channelId);
+  const crossExternal = sims.some((s) => s.external);
   // views/日 ≒ 直近 1 日の伸び (Python 版は直近2観測点から算出、閾値 80/20 は共通)
   const velocity = r.recent && r.recent.length ? r.recent[r.recent.length - 1].delta : null;
   return {
     sims,
     cross,
+    crossExternal,
     isNew: sims.length === 0,
     velocity,
     timing: timingVerdict(r.ageDays, velocity),
@@ -1182,8 +1203,9 @@ function crossAnalysis(r, corpus) {
 }
 
 function xaBadge(a) {
+  if (a.crossExternal) return '<span class="xa-badge xa-badge-cross" title="監視枠外のチャンネルでも同テーマがHIT＝世の中の需要実証（最強シグナル）">🌍 外部実証</span>';
   if (a.cross) return '<span class="xa-badge xa-badge-cross" title="同テーマが他チャンネルでもHIT＝横展開の実証あり（強シグナル）">🌐 横展開実証</span>';
-  if (a.isNew) return '<span class="xa-badge xa-badge-new" title="過去履歴にキーワードが重なるHITなし">🆕 新規テーマ</span>';
+  if (a.isNew) return '<span class="xa-badge xa-badge-new" title="過去履歴・外部コーパスにキーワードが重なるHITなし">🆕 新規テーマ</span>';
   return '<span class="xa-badge xa-badge-same" title="類似HITは自チャンネル内のみ">🔁 自ch実証</span>';
 }
 
@@ -1191,7 +1213,7 @@ function renderRisingWatch(channels) {
   const panel = document.getElementById("rising-watch-panel");
   if (!panel) return;
   const rows = collectRising(channels);
-  const corpus = buildHitCorpus(channels);
+  const corpus = buildHitCorpus(channels, EXTERNAL_HITS);
   rows.forEach((r) => { r.xa = crossAnalysis(r, corpus); });
 
   // 全動画の観測ポイント (ts) を集約してソート → 直近 N 個を列ヘッダに採用
@@ -1348,19 +1370,21 @@ function renderRisingRow(r, recentTs) {
   if (xa.sims.length) {
     simsHtml = `<div class="xa-sims-title">🔁 類似HIT ${xa.sims.length}件:</div>` + xa.sims.map((s) => `
       <div class="xa-sim">
-        ${s.channelId !== r.channelId ? '<span class="xa-sim-cross" title="別チャンネルの HIT">🌐</span>' : "・"}
+        ${s.external ? '<span class="xa-sim-cross" title="監視枠外チャンネルの HIT (外部コーパス)">🌍</span>' : s.channelId !== r.channelId ? '<span class="xa-sim-cross" title="別チャンネルの HIT">🌐</span>' : "・"}
         <span class="xa-sim-ch">[${escapeHtml(s.channelTitle)}]</span>
         <a href="${s.url}" target="_blank" rel="noopener">${escapeHtml(s.title)}</a>
         — ${fmtN(s.views)}v${s.published_at ? ` / ${s.published_at}公開` : ""}
         <span class="xa-sim-kw">共有KW: ${s.sharedKw.slice(0, 4).map(escapeHtml).join(", ")}</span>
       </div>`).join("");
-    if (xa.cross) {
+    if (xa.crossExternal) {
+      simsHtml += `<div class="xa-verdict xa-verdict-cross">→ 監視枠外のチャンネルでも同テーマがHIT＝世の中の需要実証（最強シグナル）</div>`;
+    } else if (xa.cross) {
       simsHtml += `<div class="xa-verdict xa-verdict-cross">→ 同テーマが他チャンネルでもHIT＝横展開の実証あり（強シグナル）</div>`;
     } else {
       simsHtml += `<div class="xa-verdict">→ 類似HITは同一チャンネル内のみ（横展開は未実証）</div>`;
     }
   } else {
-    simsHtml = `<div class="xa-verdict">🔁 類似HIT: 過去履歴に該当なし（新規テーマの可能性 — 当たれば先行者、外れれば需要なし）</div>`;
+    simsHtml = `<div class="xa-verdict">🔁 類似HIT: 過去履歴・外部コーパスに該当なし（新規テーマの可能性 — 当たれば先行者、外れれば需要なし）</div>`;
   }
   // 🌍 市場検証 (market_validate.py が YouTube 全体を検索した結果。急伸検知された動画のみ存在)
   const m = MARKET[r.vid];
