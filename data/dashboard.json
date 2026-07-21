@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T05:51:23Z",
+  "generated_at": "2026-07-21T05:53:27Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -109621,7 +109621,18 @@
           "url": "https://www.youtube.com/watch?v=WpyGjDyw2zM"
         }
       ],
-      "source_title": "Claude Fable 5 料金 Max Pro 従量課金"
+      "source_title": "Claude Fable 5 料金 Max Pro 従量課金",
+      "source": {
+        "video_id": "G8ZfaW40tqw",
+        "title": "速報Claude Fable 5が7月20日で激変！Maxは標準Proは従量課金へ",
+        "channel": "AIで自動で動画を作る工場",
+        "channel_id": "UCnIjsbHegQj9ydrdcWlvUyQ",
+        "views": 1985,
+        "ch_median": 153,
+        "mult": 13.0,
+        "published_at": "2026-07-18T09:54:03Z",
+        "url": "https://www.youtube.com/watch?v=G8ZfaW40tqw"
+      }
     }
   },
   "external_hits": [
@@ -110188,16 +110199,16 @@
   ],
   "quota": {
     "date_pt": "2026-07-20",
-    "today_units": 618,
+    "today_units": 619,
     "limit": 10000,
     "by_source": {
       "rss_patrol": 6,
-      "market_validate": 612
+      "market_validate": 613
     },
     "daily": [
       {
         "date": "2026-07-20",
-        "units": 618
+        "units": 619
       }
     ]
   }

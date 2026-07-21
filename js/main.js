@@ -235,7 +235,19 @@ function renderMarketPage(market) {
     // 🇯🇵 と 🌐 は表を物理的に分離 (海外は先行指標であって自分の市場の実証ではない)
     const jaVids = vids.filter((v) => v.lang === "ja");
     const otherVids = vids.filter((v) => v.lang !== "ja");
-    const jaTable = `<h4>🇯🇵 日本語圏 (${jaVids.length}本)</h4>
+    const srcRow = m.source ? `
+      <div class="dv-table-wrap"><table class="dv-table"><tbody>
+        <tr>
+          <td><span class="dv-badge dv-queue" title="この検証のきっかけになった動画。検索対象からは除外している (自分で自分を実証しないため)">📡 検知元</span></td>
+          <td class="dv-ch"><a href="https://www.youtube.com/channel/${encodeURIComponent(m.source.channel_id || "")}" target="_blank" rel="noopener">${escapeHtml(m.source.channel || "")}</a></td>
+          <td class="mk-title"><a href="${m.source.url}" target="_blank" rel="noopener">${escapeHtml(m.source.title || "")}</a></td>
+          <td class="pl-num">${fmtN(m.source.views || 0)}</td>
+          <td class="pl-num">${m.source.ch_median != null ? fmtN(m.source.ch_median) : "—"}</td>
+          <td class="pl-num">${m.source.mult != null ? "<strong>" + m.source.mult + "倍</strong>" : "—"}</td>
+          <td class="pl-date">${escapeHtml((m.source.published_at || "").slice(0, 10))}公開</td>
+        </tr>
+      </tbody></table></div>` : "";
+    const jaTable = `${srcRow}<h4>🇯🇵 日本語圏 (${jaVids.length}本)</h4>
       ${jaVids.length ? `<div class="dv-table-wrap"><table class="dv-table">${mkHead}<tbody>${jaVids.map(mkRow).join("")}</tbody></table></div>`
         : '<p class="dv-sub">該当なし — この条件で当てた日本語チャンネルはまだ無い (先行者の窓)</p>'}`;
     const otherTable = otherVids.length ? `
