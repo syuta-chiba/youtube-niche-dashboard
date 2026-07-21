@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T01:30:13Z",
+  "generated_at": "2026-07-21T03:23:33Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -98850,5 +98850,148 @@
       "source_title": "【記憶を持て】Agent Memoryを三層比較"
     }
   },
-  "external_hits": []
+  "external_hits": [],
+  "discovery": {
+    "header": "emperor_ch ディスカバリ用キーワード (v4 / 2026-07-21)",
+    "keywords": [
+      {
+        "kw": "Codex",
+        "note": "Sura 完全版5742 / 戒くん /goal2918 ほか多数"
+      },
+      {
+        "kw": "Claude Code 新機能",
+        "note": "戒くん Agent View/radio/autoMode / Sura Monitor1873"
+      },
+      {
+        "kw": "Claude Code コマンド",
+        "note": "Sura /goal・/passes・/teleport・/loop 等のShorts群"
+      },
+      {
+        "kw": "Claude Agent SDK",
+        "note": "戒くん 2690 / Sura 完全攻略2080 / 自ch 219(最大長尺)"
+      },
+      {
+        "kw": "Claude Managed Agents",
+        "note": "Sura 1016 / 戒くん Auto mode系"
+      },
+      {
+        "kw": "Ollama",
+        "note": "戒くん 連携4170・脆弱性425 / 自ch 3000+"
+      },
+      {
+        "kw": "MCP サーバー",
+        "note": "Sura Codex自身をMCP化1904"
+      },
+      {
+        "kw": "Hermes Agent",
+        "note": "Sura 3377・v0.15解説674"
+      },
+      {
+        "kw": "コーディングエージェント",
+        "note": "Sura OpenAI vs Anthropic1396"
+      },
+      {
+        "kw": "Grok CLI",
+        "note": "Sura Grok Build988 / 戒くん Grok Build117"
+      },
+      {
+        "kw": "Gemini CLI",
+        "note": "戒くん Gemini CLI / Google I/O総まとめ"
+      },
+      {
+        "kw": "AI 脆弱性",
+        "note": "戒くん CVE・ClaudeBleed745・Ollama脆弱性 等セキュリティ多数"
+      },
+      {
+        "kw": "ローカルLLM 比較",
+        "note": "実証鉱脈 (小規模78%HIT / フレブル7,871)。local_llm_comparison_plan"
+      },
+      {
+        "kw": "LM Studio",
+        "note": "ローカルLLM実行環境の定番。Ollama と同層の視聴者"
+      },
+      {
+        "kw": "llama.cpp",
+        "note": "ずんだもん解説「Ollama は llama.cpp より1.8倍遅い」2818 HIT"
+      },
+      {
+        "kw": "vLLM",
+        "note": "推論サーバ軸。技術者しか検索しないジャーゴン"
+      },
+      {
+        "kw": "DeepSeek ローカル",
+        "note": "V4 が新最強級 (モデル鮮度)。ローカル実行需要"
+      },
+      {
+        "kw": "Kimi K2",
+        "note": "K2.6 新最強級 (モデル鮮度)。日本語情報が薄い=先行余地"
+      },
+      {
+        "kw": "Claude Code hooks",
+        "note": "自動化設定の定番機能。実運用層ど真ん中"
+      },
+      {
+        "kw": "AIエージェント 自作",
+        "note": "作ってみた系の需要軸。Agent SDK 層と重なる"
+      }
+    ],
+    "evaluated": [
+      {
+        "channel_id": "UCw-ytk4y6y4MntCyeiSa_-w",
+        "title": "皇帝ペンギンラボ",
+        "date": "2026-07-20",
+        "decision": "queued",
+        "reason": "HIT不足 (0本 < 2、単発は生存バイアス §1.1)"
+      },
+      {
+        "channel_id": "UCGq2Y94R8nXkJw0m2YFO4fA",
+        "title": "マイケル@プログラミング学習チャンネル",
+        "date": "2026-07-19",
+        "decision": "queued",
+        "reason": "関連度低 (KWヒット 2 < 3、off-topic 疑い)"
+      },
+      {
+        "channel_id": "UCcsyQTTNQLwYQHS4T9kCr-Q",
+        "title": "海外のAIエージェント最新トレンド",
+        "date": "2026-07-02",
+        "decision": "queued",
+        "reason": "関連度低 (KWヒット 2 < 3、off-topic 疑い)"
+      },
+      {
+        "channel_id": "UCnIjsbHegQj9ydrdcWlvUyQ",
+        "title": "AIで自動で動画を作る工場",
+        "date": "2026-06-24",
+        "decision": "queued",
+        "reason": "関連度低 (KWヒット 2 < 3、off-topic 疑い)"
+      },
+      {
+        "channel_id": "UC1gd9cPD_AotroKyBsvwPaQ",
+        "title": "10 minutes seminar",
+        "date": "2026-06-10",
+        "decision": "queued",
+        "reason": "関連度低 (KWヒット 2 < 3、off-topic 疑い)"
+      },
+      {
+        "channel_id": "UCR9UPXpzSe8DxFwRfNnuTfQ",
+        "title": "AI実践道場 for エンジニア",
+        "date": "2026-06-09",
+        "decision": "queued",
+        "reason": "活動停止疑い (最新投稿 168d 前)"
+      },
+      {
+        "channel_id": "UC9L2--MStX-awWSmXHnBLJg",
+        "title": "🌴Trail Fusion AI🚗",
+        "date": "2026-06-07",
+        "decision": "rejected",
+        "reason": "本編3本/単発HITのみ + off-topic疑い。ゲート厳格化(本編>=8,HIT>=2,KW>=3)で除外"
+      },
+      {
+        "channel_id": "UCOh_82KS_7afbapJzm2CnZg",
+        "title": "ECに特化したAIチャットボット 接客のプロAI",
+        "date": "2026-06-07",
+        "decision": "skip",
+        "reason": "動画取得不可"
+      }
+    ]
+  }
 }

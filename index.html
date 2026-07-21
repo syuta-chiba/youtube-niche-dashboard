@@ -48,12 +48,16 @@
       <li><strong>動画別 views 推移</strong> — 直近30日に公開された動画＋全HIT動画の観測履歴。↑↓キーで動画切替、←→でソート切替。</li>
     </ul>
 
+    <h4>🧭 新規発見（右端のタブ）</h4>
+    <p>discovery loop（毎朝 JST 4:23）が使う<strong>検索キーワード一覧</strong>と、<strong>評価済みチャンネルの履歴</strong>（合格・確認待ち / queue / 不採用と理由）。既存の注目チャンネル（左側のタブ群）に「次に加える候補」を検討する場所。HIT 判定はチャンネル相対（普段の5倍・下限500v・偽HIT除外後）。</p>
+
     <p class="legend-note">views は YouTube 公開値のため、観測間隔（最大6時間）ぶんの遅れがある。データ元 CSV は private repo の time_series/ に蓄積。<strong>⚠️ 付きタブ = 広告混ざり枠</strong>（過去にブースト形跡のあるチャンネル。テーマの動きの参考用で、views/score は割引で読む。横断急伸ウォッチには含めない）。</p>
   </div>
 </details>
 
 <main>
   <section id="rising-watch-panel" class="tab-panel"></section>
+  <section id="discovery-panel" class="tab-panel"></section>
   <section id="channels"></section>
 </main>
 

@@ -71,11 +71,13 @@ async function load() {
   data.channels.forEach((ch, idx) => main.appendChild(renderChannel(ch, idx)));
   // 広告混ざり枠 (boosted) は真似元候補ではないので横断急伸ウォッチから除外
   renderRisingWatch(data.channels.filter((c) => !c.boosted));
+  renderDiscovery(data.discovery || {});
   buildTabs(data.channels);
 }
 
 function panelEl(id) {
   if (id === "rising-watch") return document.getElementById("rising-watch-panel");
+  if (id === "discovery") return document.getElementById("discovery-panel");
   return document.getElementById("ch-" + id);
 }
 
@@ -90,6 +92,7 @@ function buildTabs(channels) {
   tabs.push({ id: "rising-watch", btn: risingBtn });
   nav.appendChild(risingBtn);
 
+  // 既存の注目チャンネル群 (priority 観測対象)
   channels.forEach((ch) => {
     const btn = document.createElement("button");
     btn.innerHTML = `${chIcon(ch)}${ch.boosted ? "⚠️ " : ""}${escapeHtml(ch.title)}`;
@@ -97,7 +100,76 @@ function buildTabs(channels) {
     tabs.push({ id: ch.id, btn });
     nav.appendChild(btn);
   });
+
+  // 新規発見 (discovery loop) — 既存チャンネル群と区切り線で分ける
+  const sep = document.createElement("span");
+  sep.className = "nav-sep";
+  nav.appendChild(sep);
+  const dvBtn = document.createElement("button");
+  dvBtn.className = "nav-discovery";
+  dvBtn.textContent = "🧭 新規発見";
+  dvBtn.onclick = () => activateTab("discovery", tabs);
+  tabs.push({ id: "discovery", btn: dvBtn });
+  nav.appendChild(dvBtn);
+
   activateTab("rising-watch", tabs);
+}
+
+// === 🧭 新規発見タブ (discovery loop の検索キーワード + 評価済み ch 台帳) ===
+
+const DV_DECISION = {
+  promoted: { label: "✅ AUTO追加済み", cls: "dv-ok" },
+  "queued(cap)": { label: "✅ 合格・確認待ち", cls: "dv-ok" },
+  queued: { label: "🔎 queue (見送り)", cls: "dv-queue" },
+  rejected: { label: "✗ 不採用", cls: "dv-ng" },
+  skip: { label: "− 取得不可", cls: "dv-na" },
+};
+
+function renderDiscovery(dv) {
+  const panel = document.getElementById("discovery-panel");
+  if (!panel) return;
+  const kws = dv.keywords || [];
+  const evaluated = dv.evaluated || [];
+
+  const kwRows = kws.map((k) => `
+    <tr>
+      <td class="dv-kw">${escapeHtml(k.kw)}</td>
+      <td class="dv-note">${escapeHtml(k.note || "")}</td>
+    </tr>`).join("");
+
+  const evRows = evaluated.map((e) => {
+    const d = DV_DECISION[e.decision] || { label: escapeHtml(e.decision || "?"), cls: "dv-na" };
+    return `
+    <tr>
+      <td class="dv-date">${escapeHtml(e.date || "")}</td>
+      <td class="dv-ch"><a href="https://www.youtube.com/channel/${encodeURIComponent(e.channel_id)}" target="_blank" rel="noopener">${escapeHtml(e.title)}</a></td>
+      <td><span class="dv-badge ${d.cls}">${d.label}</span></td>
+      <td class="dv-note">${escapeHtml(e.reason || "")}</td>
+    </tr>`;
+  }).join("");
+
+  panel.innerHTML = `
+    <h2>🧭 新規発見 — discovery loop (毎朝 JST 4:23)</h2>
+    <p class="dv-desc">ニッチ技術キーワードで YouTube を検索し、「普段の再生数が低いのに特定企画だけ跳ねる」同層チャンネル (subs 50-2000) を発掘する自動ループ。
+    HIT はチャンネル相対 (普段中央値の5倍・下限500v・広告偽HIT除外後)。合格候補もここと Slack に出るだけで、priority への追加は人間の確認制。</p>
+
+    <h3>検索キーワード (${kws.length}語)</h3>
+    <p class="dv-sub">${escapeHtml(dv.header || "")} — 1語 = search.list 100u/日。ニッチさ自体が「同規模ch」フィルタとして機能する。検知した HIT タイトルから新KWを還流して鮮度を保つ。</p>
+    <div class="dv-table-wrap">
+      <table class="dv-table">
+        <thead><tr><th>キーワード</th><th>根拠 (実証HIT)</th></tr></thead>
+        <tbody>${kwRows || '<tr><td colspan="2">（データなし）</td></tr>'}</tbody>
+      </table>
+    </div>
+
+    <h3>評価済みチャンネル (${evaluated.length}件)</h3>
+    <p class="dv-sub">discovery が深掘り評価した候補の台帳 (新しい順)。「✅ 合格・確認待ち」を見て、良ければ priority_channels.txt へ手動追加する。</p>
+    <div class="dv-table-wrap">
+      <table class="dv-table">
+        <thead><tr><th>評価日</th><th>チャンネル</th><th>判定</th><th>理由</th></tr></thead>
+        <tbody>${evRows || '<tr><td colspan="4">（まだ評価履歴なし）</td></tr>'}</tbody>
+      </table>
+    </div>`;
 }
 
 function activateTab(id, tabs) {
