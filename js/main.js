@@ -67,12 +67,34 @@ async function load() {
   EXTERNAL_HITS = data.external_hits || [];
   document.getElementById("generated-at").textContent =
     "updated: " + fmtTs(data.generated_at);
+  renderQuotaMeter(data.quota);
   const main = document.getElementById("channels");
   data.channels.forEach((ch, idx) => main.appendChild(renderChannel(ch, idx)));
   // 広告混ざり枠 (boosted) は真似元候補ではないので横断急伸ウォッチから除外
   renderRisingWatch(data.channels.filter((c) => !c.boosted));
   renderDiscovery(data.discovery || {});
   buildTabs(data.channels);
+}
+
+// YouTube Data API quota の推定消費をヘッダに表示 (自己計上ログ quota_log.jsonl 由来。
+// 日境界は quota リセットに合わせて太平洋時間。正確な値は Cloud Console のみ)
+function renderQuotaMeter(q) {
+  if (!q) return;
+  const meta = document.querySelector("header .meta");
+  if (!meta) return;
+  const sep = document.createElement("span");
+  sep.className = "sep";
+  sep.textContent = "·";
+  const el = document.createElement("span");
+  el.id = "quota-meter";
+  const pct = q.limit ? Math.round((100 * q.today_units) / q.limit) : 0;
+  if (pct >= 80) el.classList.add("quota-warn");
+  el.textContent = `API ${fmtN(q.today_units)} / ${fmtN(q.limit)}u (${pct}%)`;
+  const brk = Object.entries(q.by_source || {}).map(([s, u]) => `${s}: ${fmtN(u)}u`).join(" / ");
+  el.title = `YouTube Data API の今日の推定消費 (quota リセット境界 = 太平洋時間 ${q.date_pt})。`
+    + `内訳: ${brk || "まだ記録なし"}。スクリプトの自己計上による推定値 — 正確な値は Cloud Console で確認`;
+  meta.appendChild(sep);
+  meta.appendChild(el);
 }
 
 function panelEl(id) {

@@ -792,6 +792,9 @@ main {
 }
 .ch-icon-lg { width: 26px; height: 26px; vertical-align: -5px; }
 
+#quota-meter { cursor: help; }
+#quota-meter.quota-warn { color: #cf222e; font-weight: 700; }
+
 /* === 🧭 新規発見タブ (discovery loop) === */
 .nav-sep {
   display: inline-block;

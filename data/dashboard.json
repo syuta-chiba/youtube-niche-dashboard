@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T03:23:33Z",
+  "generated_at": "2026-07-21T03:30:49Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -98993,5 +98993,12 @@
         "reason": "動画取得不可"
       }
     ]
+  },
+  "quota": {
+    "date_pt": "2026-07-20",
+    "today_units": 0,
+    "limit": 10000,
+    "by_source": {},
+    "daily": []
   }
 }
