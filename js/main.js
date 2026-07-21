@@ -164,20 +164,42 @@ function buildTabs(channels) {
   activateTab("rising-watch", tabs);
 }
 
-// === 📚 分析履歴タブ (docs/case_*.md / analysis_*.md を marked.js でレンダリング) ===
+// === 📚 分析履歴タブ ===
+// 主役は evidence (情報源) テーブル: この分析でどの動画が見つかり、そのchの普段中央値が
+// いくつで、対象動画は何倍だったか — の列挙。本文プロースは畳んで添えるだけ。
 
 function renderAnalyses(analyses) {
   const panel = document.getElementById("analyses-panel");
   if (!panel) return;
-  const cards = (analyses || []).map((a, i) => `
-    <details class="an-item"${i === 0 ? " open" : ""}>
-      <summary><span class="an-date">${escapeHtml(a.date)}</span> ${escapeHtml(a.title)}</summary>
-      <div class="an-body">${typeof marked !== "undefined" ? marked.parse(a.content || "") : `<pre>${escapeHtml(a.content || "")}</pre>`}</div>
-    </details>`).join("");
+  const cards = (analyses || []).map((a) => {
+    const ev = a.evidence || [];
+    const evTable = ev.length ? `
+      <div class="dv-table-wrap"><table class="dv-table">
+        <thead><tr><th>種別</th><th>動画</th><th>チャンネル</th><th>普段(中央値)</th><th>views</th><th>倍率</th><th>時期</th></tr></thead>
+        <tbody>${ev.map((e) => `
+          <tr>
+            <td class="pl-date">${escapeHtml(e.kind || "")}${e.note ? ` <span class="dv-note">(${escapeHtml(e.note)})</span>` : ""}</td>
+            <td class="mk-title">${e.url ? `<a href="${e.url}" target="_blank" rel="noopener">${escapeHtml(e.title || "")}</a>` : escapeHtml(e.title || "")}</td>
+            <td class="dv-ch">${escapeHtml(e.channel || "")}</td>
+            <td class="pl-num">${e.ch_median != null ? fmtN(e.ch_median) + "v" : "—"}</td>
+            <td class="pl-num">${e.views != null ? fmtN(e.views) + "v" : "—"}</td>
+            <td class="pl-num">${e.mult != null ? "<strong>" + e.mult + "倍</strong>" : "—"}</td>
+            <td class="pl-date">${escapeHtml(e.age || "")}</td>
+          </tr>`).join("")}</tbody>
+      </table></div>` : "";
+    return `
+    <div class="mk-card">
+      <h3><span class="an-date">${escapeHtml(a.date)}</span> ${escapeHtml(a.title)}</h3>
+      ${evTable || '<p class="dv-sub">（情報源テーブルなしの旧形式ドキュメント — 全文は下で展開）</p>'}
+      <details class="an-item">
+        <summary>📄 分析全文を読む</summary>
+        <div class="an-body">${typeof marked !== "undefined" ? marked.parse(a.content || "") : `<pre>${escapeHtml(a.content || "")}</pre>`}</div>
+      </details>
+    </div>`;
+  }).join("");
   panel.innerHTML = `
     <h2>📚 分析履歴 (${(analyses || []).length}件)</h2>
-    <p class="dv-desc">docs/ に正本化された分析ドキュメント (ケーススタディ・深掘り分析)。
-    新しい分析が commit されると次の cron でここに自動追加される。最新が先頭 (開いた状態)。</p>
+    <p class="dv-desc">分析ごとの情報源の列挙: どの動画が見つかり、そのチャンネルの普段 (再生中央値) がいくつで、対象動画が何倍だったか。docs/ の分析 doc が commit されると次の cron で自動追加。</p>
     ${cards || '<p class="dv-sub">（まだ分析ドキュメントなし）</p>'}`;
 }
 
