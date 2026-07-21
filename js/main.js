@@ -73,6 +73,7 @@ async function load() {
   // 広告混ざり枠 (boosted) は真似元候補ではないので横断急伸ウォッチから除外
   renderRisingWatch(data.channels.filter((c) => !c.boosted));
   renderDiscovery(data.discovery || {});
+  renderPool(data.pool || []);
   buildTabs(data.channels);
 }
 
@@ -100,6 +101,7 @@ function renderQuotaMeter(q) {
 function panelEl(id) {
   if (id === "rising-watch") return document.getElementById("rising-watch-panel");
   if (id === "discovery") return document.getElementById("discovery-panel");
+  if (id === "pool") return document.getElementById("pool-panel");
   return document.getElementById("ch-" + id);
 }
 
@@ -134,7 +136,48 @@ function buildTabs(channels) {
   tabs.push({ id: "discovery", btn: dvBtn });
   nav.appendChild(dvBtn);
 
+  const poolBtn = document.createElement("button");
+  poolBtn.className = "nav-discovery";
+  poolBtn.textContent = "🗂 発見済みch";
+  poolBtn.onclick = () => activateTab("pool", tabs);
+  tabs.push({ id: "pool", btn: poolBtn });
+  nav.appendChild(poolBtn);
+
   activateTab("rising-watch", tabs);
+}
+
+// === 🗂 発見済みチャンネル一覧 (RSS 巡回プール = 注目には入れていない競合候補全員) ===
+
+function renderPool(pool) {
+  const panel = document.getElementById("pool-panel");
+  if (!panel) return;
+  const rows = pool.map((p) => {
+    const mom = p.subs_mom;
+    const momTxt = mom == null ? "—"
+      : mom > 0 ? `+${fmtN(mom)}` : fmtN(mom);
+    const momCls = mom == null ? "pl-na" : mom > 0 ? "pl-up" : mom < 0 ? "pl-down" : "pl-na";
+    return `
+    <tr>
+      <td class="pl-ch">${p.icon ? `<img class="ch-icon" src="${p.icon}" alt="" loading="lazy">` : ""}<a href="https://www.youtube.com/channel/${encodeURIComponent(p.channel_id)}" target="_blank" rel="noopener">${escapeHtml(p.title)}</a></td>
+      <td class="pl-num">${p.subs != null ? fmtN(p.subs) : "—"}</td>
+      <td class="pl-num ${momCls}" title="直近の登録者数 − 28日以上前の登録者数 (subs_log 由来。観測が28日に満たない間は —)">${momTxt}</td>
+      <td class="pl-num" title="RSS 最新15本 (公開7日超) の views 中央値 = そのchの普段">${p.median_views != null ? fmtN(p.median_views) : "—"}</td>
+      <td class="pl-date">${escapeHtml(p.latest_video_at || "—")}</td>
+      <td class="pl-date" title="発見経路: ${escapeHtml(p.source || "?")}">${escapeHtml(p.added || "—")}</td>
+    </tr>`;
+  }).join("");
+
+  panel.innerHTML = `
+    <h2>🗂 発見済みチャンネル (${pool.length}件) — 注目 (priority) には入れていない競合候補プール</h2>
+    <p class="dv-desc">discovery の検索・市場検証・外部コーパスで一度でも視界に入った ch を全員ここに貯め、
+    毎朝 <strong>RSS フィードで巡回 (quota ゼロ)</strong>。跳ねた動画が出た瞬間に 📡 Slack 通知で再浮上する —
+    「一度 gate に落ちたら二度と見ない」を無くす層。並びは前月比の登録者の伸び順。全競合を洗い出す方針で増やし続ける。</p>
+    <div class="dv-table-wrap">
+      <table class="dv-table">
+        <thead><tr><th>チャンネル</th><th>登録者</th><th>前月比</th><th>再生中央値</th><th>最新投稿</th><th>発見日</th></tr></thead>
+        <tbody>${rows || '<tr><td colspan="6">（まだプールが空 — 今夜の discovery / rss patrol から貯まり始めます）</td></tr>'}</tbody>
+      </table>
+    </div>`;
 }
 
 // === 🧭 新規発見タブ (discovery loop の検索キーワード + 評価済み ch 台帳) ===

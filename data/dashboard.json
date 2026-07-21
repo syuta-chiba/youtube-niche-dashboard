@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T03:30:49Z",
+  "generated_at": "2026-07-21T04:13:50Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -98850,7 +98850,92 @@
       "source_title": "【記憶を持て】Agent Memoryを三層比較"
     }
   },
-  "external_hits": [],
+  "external_hits": [
+    {
+      "video_id": "WDpVpv0jS80",
+      "title": "商用利用可能な国産アニメ特化動画生成AIのAnimeGenが無償公開！アニメ制作会社や個人開発者は今すぐ導入するべき？【ずんだもん&四国めたん解説】",
+      "channel": "海外のAIエージェント最新トレンド",
+      "channel_id": "UCcsyQTTNQLwYQHS4T9kCr-Q",
+      "views": 1495,
+      "subs": 615,
+      "score": 2.43,
+      "published_at": "2026-07-14T07:04:08+00:00",
+      "url": "https://www.youtube.com/watch?v=WDpVpv0jS80",
+      "source": "rss_patrol"
+    },
+    {
+      "video_id": "3UbS-sWWoiM",
+      "title": "ついに来た！Ollamaが凄すぎる。PC1台で最新AIを動かす「ローカル完結型」の衝撃",
+      "channel": "10 minutes seminar",
+      "channel_id": "UC1gd9cPD_AotroKyBsvwPaQ",
+      "views": 7001,
+      "subs": 967,
+      "score": 7.24,
+      "published_at": "2026-05-02T02:23:17+00:00",
+      "url": "https://www.youtube.com/watch?v=3UbS-sWWoiM",
+      "source": "rss_patrol"
+    },
+    {
+      "video_id": "7k_4C0YLdX8",
+      "title": "【朗報】Hermes Agentにデスクトップ版（GUI）が登場！CLI不要で使えるようになった導入方法を解説",
+      "channel": "10 minutes seminar",
+      "channel_id": "UC1gd9cPD_AotroKyBsvwPaQ",
+      "views": 887,
+      "subs": 967,
+      "score": 0.92,
+      "published_at": "2026-06-09T08:40:23+00:00",
+      "url": "https://www.youtube.com/watch?v=7k_4C0YLdX8",
+      "source": "rss_patrol"
+    },
+    {
+      "video_id": "G8ZfaW40tqw",
+      "title": "速報Claude Fable 5が7月20日で激変！Maxは標準Proは従量課金へ",
+      "channel": "AIで自動で動画を作る工場",
+      "channel_id": "UCnIjsbHegQj9ydrdcWlvUyQ",
+      "views": 1985,
+      "subs": 1730,
+      "score": 1.15,
+      "published_at": "2026-07-18T09:54:03+00:00",
+      "url": "https://www.youtube.com/watch?v=G8ZfaW40tqw",
+      "source": "rss_patrol"
+    },
+    {
+      "video_id": "IB-sO9pcmKc",
+      "title": "【自律型AI】Hermes Agentの「スキルシステム」が凄すぎる！海外AIニュースの収集・翻訳・ブログ投稿まで完全自動化するワークフローを公開",
+      "channel": "10 minutes seminar",
+      "channel_id": "UC1gd9cPD_AotroKyBsvwPaQ",
+      "views": 851,
+      "subs": 967,
+      "score": 0.88,
+      "published_at": "2026-05-29T23:19:32+00:00",
+      "url": "https://www.youtube.com/watch?v=IB-sO9pcmKc",
+      "source": "rss_patrol"
+    },
+    {
+      "video_id": "e5wSrZCuo04",
+      "title": "AIスライド作成6社ガチ比較【ChatGPT/Claude/Gemini/NotebookLM/GenSpark/Manus】",
+      "channel": "マイケル@プログラミング学習チャンネル",
+      "channel_id": "UCGq2Y94R8nXkJw0m2YFO4fA",
+      "views": 1341,
+      "subs": 1230,
+      "score": 1.09,
+      "published_at": "2026-05-26T09:00:39+00:00",
+      "url": "https://www.youtube.com/watch?v=e5wSrZCuo04",
+      "source": "rss_patrol"
+    },
+    {
+      "video_id": "fMx9N4_BrxU",
+      "title": "【Sakana AI】ついに登場！日本語特化の「サカナチャット」が凄すぎる…使い方と特徴を徹底解説",
+      "channel": "10 minutes seminar",
+      "channel_id": "UC1gd9cPD_AotroKyBsvwPaQ",
+      "views": 1880,
+      "subs": 967,
+      "score": 1.94,
+      "published_at": "2026-03-28T05:48:31+00:00",
+      "url": "https://www.youtube.com/watch?v=fMx9N4_BrxU",
+      "source": "rss_patrol"
+    }
+  ],
   "discovery": {
     "header": "emperor_ch ディスカバリ用キーワード (v4 / 2026-07-21)",
     "keywords": [
@@ -98994,11 +99079,97 @@
       }
     ]
   },
+  "pool": [
+    {
+      "channel_id": "UCnIjsbHegQj9ydrdcWlvUyQ",
+      "title": "AIで自動で動画を作る工場",
+      "icon": "https://yt3.ggpht.com/yYQHkLE0jaPNfrz-Re0LsIb0IV894vXlLJHD6MWeWLumSM-FCPwX3RroZvOP15mmVPpQYFn8Sg=s88-c-k-c0x00ffffff-no-rj",
+      "subs": 1730,
+      "subs_mom": null,
+      "median_views": 139,
+      "latest_video_at": "2026-07-21",
+      "source": "discovery_seen",
+      "added": "2026-06-24"
+    },
+    {
+      "channel_id": "UCGq2Y94R8nXkJw0m2YFO4fA",
+      "title": "マイケル@プログラミング学習チャンネル",
+      "icon": "https://yt3.ggpht.com/iOnRAbaCxQFW-jwBfVevzCou17-w8qS45vtFT1heH21E_a9RdXg-QXEr6Vwsw7PcyrW1vAvS_g=s88-c-k-c0x00ffffff-no-rj",
+      "subs": 1230,
+      "subs_mom": null,
+      "median_views": 217,
+      "latest_video_at": "2026-06-22",
+      "source": "discovery_seen",
+      "added": "2026-07-19"
+    },
+    {
+      "channel_id": "UC1gd9cPD_AotroKyBsvwPaQ",
+      "title": "10 minutes seminar",
+      "icon": "https://yt3.ggpht.com/4S_A4BmaJFSa0qxUicu4fXG3eBLXfaVj-lNdgdhnUM4E_6YKiHhHNpWJdmST7B1laMbuPGQTiA=s88-c-k-c0x00ffffff-no-rj",
+      "subs": 967,
+      "subs_mom": null,
+      "median_views": 165,
+      "latest_video_at": "2026-07-18",
+      "source": "discovery_seen",
+      "added": "2026-06-10"
+    },
+    {
+      "channel_id": "UC9L2--MStX-awWSmXHnBLJg",
+      "title": "🌴Trail Fusion AI🚗",
+      "icon": "https://yt3.ggpht.com/gx2_u8FJpgEWM7wKrb2F3wtTx4zxk6IUy2u4ajgT6NWgdT4pri21hz_om2vOM8ahRbwXHJAf=s88-c-k-c0x00ffffff-no-rj",
+      "subs": 847,
+      "subs_mom": null,
+      "median_views": 269,
+      "latest_video_at": "2026-07-12",
+      "source": "discovery_seen",
+      "added": "2026-06-07"
+    },
+    {
+      "channel_id": "UCcsyQTTNQLwYQHS4T9kCr-Q",
+      "title": "海外のAIエージェント最新トレンド",
+      "icon": "https://yt3.ggpht.com/LKWGghVLs3Zif-YcGmjlrjTGYbDq_N7ZF669AiFNka-NgXaSPGJ6jK2Nbr2XhB7ssPyvWUdTjLM=s88-c-k-c0x00ffffff-no-rj",
+      "subs": 615,
+      "subs_mom": null,
+      "median_views": 89,
+      "latest_video_at": "2026-07-20",
+      "source": "discovery_seen",
+      "added": "2026-07-02"
+    },
+    {
+      "channel_id": "UCR9UPXpzSe8DxFwRfNnuTfQ",
+      "title": "AI実践道場 for エンジニア",
+      "icon": "https://yt3.ggpht.com/cEOhfZJKXv2MeejS6SrJZYSLV8yqA2Kpr6MUXIA_uBkJmlS_7pMzSvZ59JNXNZTVma6F07cJ=s88-c-k-c0x00ffffff-no-rj",
+      "subs": 601,
+      "subs_mom": null,
+      "median_views": null,
+      "latest_video_at": "",
+      "source": "discovery_seen",
+      "added": "2026-06-09"
+    },
+    {
+      "channel_id": "UCOh_82KS_7afbapJzm2CnZg",
+      "title": "ECに特化したAIチャットボット 接客のプロAI",
+      "icon": "https://yt3.ggpht.com/IC5myk_nuc0-OXyGm4_BPrXLc3ewlN1xIVrl9nrBtyHdgO8MyELpSuPTa_9nC1BXCVuapTeUcrU=s88-c-k-c0x00ffffff-no-rj",
+      "subs": 282,
+      "subs_mom": null,
+      "median_views": 126,
+      "latest_video_at": "2025-12-09",
+      "source": "discovery_seen",
+      "added": "2026-06-07"
+    }
+  ],
   "quota": {
     "date_pt": "2026-07-20",
-    "today_units": 0,
+    "today_units": 6,
     "limit": 10000,
-    "by_source": {},
-    "daily": []
+    "by_source": {
+      "rss_patrol": 6
+    },
+    "daily": [
+      {
+        "date": "2026-07-20",
+        "units": 6
+      }
+    ]
   }
 }

@@ -841,3 +841,11 @@ nav button.nav-discovery { font-weight: 600; }
 .dv-badge.dv-queue { color: #bf8700; border-color: rgba(191, 135, 0, 0.45); background: rgba(191, 135, 0, 0.07); }
 .dv-badge.dv-ng { color: #cf222e; border-color: rgba(207, 34, 46, 0.4); background: rgba(207, 34, 46, 0.06); }
 .dv-badge.dv-na { color: var(--text-dim); }
+
+/* 🗂 発見済みch プール */
+.pl-ch a { color: inherit; font-weight: 600; }
+.pl-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pl-date { white-space: nowrap; color: var(--text-dim); }
+.pl-up { color: #1a7f37; font-weight: 600; }
+.pl-down { color: #cf222e; }
+.pl-na { color: var(--text-dim); }
