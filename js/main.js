@@ -9,21 +9,25 @@ const COL_NEG_BG = "#cf222e66";
 
 const fmtN = (n) => n.toLocaleString("ja-JP");
 
-// 広告判定バッジ (build_pages_data.py が like率から算出した ad_check を表示)
-// chAvg = チャンネル平均 like率 (views>=500 の動画の平均)。判定対象動画が平均未満なら
-// 「▼平均以下」を出す — HIT なのに平均以下 = 広告/購入 views で伸びて見えているだけの疑い。
-function adBadge(v, chAvg) {
-  const avgTxt = chAvg != null && v.like_pct != null ? ` (ch平均 ${chAvg}%)` : "";
-  const below =
-    chAvg != null && v.like_pct != null && v.like_pct < chAvg &&
-    (v.ad_check === "ok" || v.ad_check === "suspect");
-  const belowMark = below
-    ? `<span class="ad-flag ad-below" title="この動画の like率 ${v.like_pct}% はチャンネル平均 ${chAvg}% より低い。HIT なのに平均以下なら広告/購入 views を疑うサイン">▼平均以下</span>`
+// 広告判定バッジ (build_pages_data.py が like数基準線から算出した ad_check を表示)
+// base = ch.like_baseline: 非HIT動画への Theil-Sen 回帰 {fan_likes, slope_pct, n}。
+//   期待like数 = fan_likes(固定ファン分) + slope×views(一見視聴者のlike率)。
+// 実測likeが期待値の50%未満 (または like率0.4%未満) なら suspect = 購入views疑い。
+// 仕組みの解説: docs/ad_check_methodology.md
+function adBadge(v, base) {
+  const expTxt = v.likes_vs_exp_pct != null ? ` (期待比${v.likes_vs_exp_pct}%)` : "";
+  const baseTxt = base
+    ? `基準線 (非HIT ${base.n}本から回帰): 期待like ≒ ファン分${base.fan_likes}個 + ${base.slope_pct}% × views`
+    : "基準線データ不足のため絶対 0.4% のみで判定";
+  const low =
+    v.likes_vs_exp_pct != null && v.likes_vs_exp_pct < 100 && v.ad_check === "ok";
+  const lowMark = low
+    ? `<span class="ad-flag ad-below" title="実測 like ${v.likes ?? "?"}個は基準線の期待 ${v.exp_likes}個 の ${v.likes_vs_exp_pct}%。50%以上なので疑いには至らないが、期待値割れは弱いサイン。${baseTxt}">▼期待割れ</span>`
     : "";
   if (v.ad_check === "suspect")
-    return `<span class="ad-flag ad-suspect" title="like率 ${v.like_pct}%${avgTxt} (like ${v.likes ?? "?"}個) — 500再生以上で like率 0.4% 未満は広告/購入views疑い">⚠️広告疑 like ${v.like_pct}%${avgTxt}</span>${belowMark}`;
+    return `<span class="ad-flag ad-suspect" title="like率 ${v.like_pct}% / 実測 like ${v.likes ?? "?"}個${v.exp_likes != null ? ` (期待 ${v.exp_likes}個)` : ""} — like率0.4%未満 または 期待like数の50%未満は広告/購入views疑い。${baseTxt}">⚠️広告疑 like ${v.like_pct}%${expTxt}</span>`;
   if (v.ad_check === "ok")
-    return `<span class="ad-flag ad-ok" title="like率 ${v.like_pct}%${avgTxt} — 健全域 (0.4% 以上)">like ${v.like_pct}%${avgTxt}</span>${belowMark}`;
+    return `<span class="ad-flag ad-ok" title="like率 ${v.like_pct}% / 実測 like ${v.likes ?? "?"}個${v.exp_likes != null ? ` (期待 ${v.exp_likes}個)` : ""} — 健全域。${baseTxt}">like ${v.like_pct}%${expTxt}</span>${lowMark}`;
   if (v.ad_check === "na")
     return `<span class="ad-flag ad-na" title="500再生未満のため広告判定の対象外">like ${v.like_pct}%</span>`;
   if (v.ad_check === "unknown")
@@ -603,7 +607,7 @@ function renderHits(containerId, hits, ch) {
         ${h.baseline_mult != null ? `<span title="チャンネルの普段（中央値）の何倍か">普段の${h.baseline_mult}倍</span>` : ""}
         <span>score ${h.score.toFixed(2)}</span>
         <span>${h.age_days}d ago</span>
-        ${adBadge(h, ch ? ch.avg_like_pct : null)}
+        ${adBadge(h, ch ? ch.like_baseline : null)}
       </div>
     </a>
   `).join("");
@@ -692,7 +696,7 @@ function renderVideoHistory(ch) {
           ${metric}
           <span>${e.published_at}</span>
           ${accel}
-          ${adBadge(e, ch.avg_like_pct)}
+          ${adBadge(e, ch.like_baseline)}
         </div>
       </div>`;
   };
@@ -1089,7 +1093,9 @@ function collectRising(channels, cfg = RISING_DEFAULT) {
         ad_check: v.ad_check,
         like_pct: v.like_pct,
         likes: v.likes,
-        avgLikePct: ch.avg_like_pct,
+        exp_likes: v.exp_likes,
+        likes_vs_exp_pct: v.likes_vs_exp_pct,
+        likeBaseline: ch.like_baseline,
       });
     }
   });
@@ -1325,7 +1331,7 @@ function renderRisingRow(r, recentTs) {
           ${xa ? `<span class="xa-timing-icon" title="${xa.timing.label}">${xa.timing.icon}</span>` : ""}
           ${xa ? xaBadge(xa) : ""}
           ${MARKET[r.vid] ? '<span class="xa-badge xa-badge-market" title="全YouTube横断の市場検証データあり — クリックで展開">🌍 市場検証</span>' : ""}
-          ${adBadge(r, r.avgLikePct)}
+          ${adBadge(r, r.likeBaseline)}
         </div>
       </td>
       <td class="rw-num">${fmtN(r.latest)}</td>

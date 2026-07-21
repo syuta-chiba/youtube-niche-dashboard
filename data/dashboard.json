@@ -1,10 +1,14 @@
 {
-  "generated_at": "2026-07-20T19:24:09Z",
+  "generated_at": "2026-07-20T23:58:08Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
       "title": "戒くんのIT力高めるチャンネル",
-      "avg_like_pct": 1.73,
+      "like_baseline": {
+        "fan_likes": 0.4,
+        "slope_pct": 1.19,
+        "n": 288
+      },
       "baseline_median": 62,
       "hit_threshold": 500,
       "semi_threshold": 500,
@@ -3549,7 +3553,9 @@
           ],
           "likes": 25,
           "like_pct": 0.92,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 32.8,
+          "likes_vs_exp_pct": 76
         },
         "6cr39U4l5iw": {
           "title": "【完全ガイド】Claude DesktopにOllamaを連携させる方法！ローカルLLMを無料で使う",
@@ -4563,7 +4569,9 @@
           ],
           "likes": 114,
           "like_pct": 2.45,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 55.7,
+          "likes_vs_exp_pct": 205
         },
         "GRNA3lHtdfE": {
           "title": "【OpenAI新機能】Codex App Serverで自社製品にAIを組み込む方法！",
@@ -5577,7 +5585,9 @@
           ],
           "likes": 12,
           "like_pct": 1.54,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 9.7,
+          "likes_vs_exp_pct": 124
         },
         "M3i2A0BuvtY": {
           "title": "【神アプデ】OpenAI Codex v0.128.0の新機能「/goal」が凄すぎる！徹底解説",
@@ -6591,7 +6601,9 @@
           ],
           "likes": 53,
           "like_pct": 1.79,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 35.6,
+          "likes_vs_exp_pct": 149
         },
         "SYf4OYcwivw": {
           "title": "【緊急】Linuxカーネル新たな脆弱性「Copy Fail」CVE-2026-31431を解説！全ディストリ影響の権限昇格",
@@ -7605,7 +7617,9 @@
           ],
           "likes": 33,
           "like_pct": 2.65,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 15.2,
+          "likes_vs_exp_pct": 216
         },
         "OoXe5LOuSMs": {
           "title": "【完全解説】Codex Computer Useの使い方！インストールから実践まで",
@@ -8619,7 +8633,9 @@
           ],
           "likes": 8,
           "like_pct": 1.27,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 7.9,
+          "likes_vs_exp_pct": 101
         },
         "AqPJ4P5USEc": {
           "title": "【衝撃】Anthropic料金体系を大改革！AI使用量ベース課金へ転換の裏事情",
@@ -9633,7 +9649,9 @@
           ],
           "likes": 10,
           "like_pct": 0.78,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 15.6,
+          "likes_vs_exp_pct": 64
         },
         "nXqzrXARNSA": {
           "title": "【神機能】Claude Codeの「/ultraplan」が凄すぎた！開発効率が爆上がり",
@@ -10647,7 +10665,9 @@
           ],
           "likes": 25,
           "like_pct": 1.88,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 16.3,
+          "likes_vs_exp_pct": 154
         },
         "88ssjyTFwRs": {
           "title": "【Gemma 4登場】Googleが最強オープンモデルを公開！推論とAI自律型に特化",
@@ -11661,7 +11681,9 @@
           ],
           "likes": 8,
           "like_pct": 0.84,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 11.7,
+          "likes_vs_exp_pct": 68
         },
         "g7VjaMxDS24": {
           "title": "【神ツール】GoogleのCode Wikiが凄すぎる！コード理解が爆速化する新機能を徹底解説",
@@ -12663,7 +12685,9 @@
           ],
           "likes": 21,
           "like_pct": 4.13,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 6.4,
+          "likes_vs_exp_pct": 326
         },
         "QQX7gcsdxtw": {
           "title": "【緊急】Claude拡張機能に脆弱性！GmailやDriveが盗まれる「ClaudeBleed」とは？",
@@ -13657,7 +13681,9 @@
           ],
           "likes": 4,
           "like_pct": 0.53,
-          "ad_check": "ok"
+          "ad_check": "suspect",
+          "exp_likes": 9.4,
+          "likes_vs_exp_pct": 43
         },
         "lL-Dhq8e0kk": {
           "title": "【速報】Anthropic公式CLI「ant」がついに登場！使い方を徹底解説",
@@ -14243,7 +14269,9 @@
           ],
           "likes": 75,
           "like_pct": 1.94,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 46.4,
+          "likes_vs_exp_pct": 162
         },
         "Hv1xJaHyMg8": {
           "title": "【衝撃】NotebookLMの隠れ神アプデ！クラウドPC搭載でリサーチチーム不要に",
@@ -14613,7 +14641,9 @@
           ],
           "likes": 1,
           "like_pct": 0.79,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.9,
+          "likes_vs_exp_pct": 52
         },
         "iE9xT6LvVp0": {
           "title": "【神機能】Codexがローカルとリモート間でスレッド受け渡し可能に！",
@@ -14967,7 +14997,9 @@
           ],
           "likes": 1,
           "like_pct": 2.38,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "8VqvewehewI": {
           "title": "【解決】Codex内蔵ブラウザでExcalidraw操作！復活方法",
@@ -15309,7 +15341,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "113ScC3X1bU": {
           "title": "【神機能】Cloudflare新登場！登録不要60分でAIエージェントが即デプロイ",
@@ -15655,7 +15689,9 @@
           ],
           "likes": 4,
           "like_pct": 3.45,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.8,
+          "likes_vs_exp_pct": 225
         },
         "nVhiFvw8WlE": {
           "title": "【緊急】GitHub Actions checkout v7で権限昇格攻撃を遮断！",
@@ -15981,7 +16017,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "bYaJwePETK0": {
           "title": "【警告】FortiGate狙う「FortiBleed」認証情報窃盗攻撃が進行中！",
@@ -16307,7 +16345,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "8E7dI8ww54E": {
           "title": "【警告】29年前のSquidプロキシ脆弱性「SquidBleed」発覚！",
@@ -16633,7 +16673,9 @@
           ],
           "likes": 1,
           "like_pct": 6.67,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "LtIV6g6P5eM": {
           "title": "【Sakana AI】新登場「Fugu」がヤバい！複数AIを自動連携する次世代マルチエージェント",
@@ -16963,7 +17005,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "5p17ZaNhUiI": {
           "title": "【OpenAI】Codex Securityが進化！脆弱性を自動で発見・修正する新時代へ",
@@ -17293,7 +17337,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "zEPIDciGSRc": {
           "title": "【OpenAI】GPT-5.5-Cyber正式版が登場！CyberGymで85.6%の最高性能達成",
@@ -17623,7 +17669,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 2.0,
+          "likes_vs_exp_pct": 0
         },
         "xEcjL_wBrPE": {
           "title": "【緊急修正】CodexがSSDを破壊していた！v0.142.0で解決",
@@ -17933,7 +17981,9 @@
           ],
           "likes": 1,
           "like_pct": 0.98,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.6,
+          "likes_vs_exp_pct": 62
         },
         "FsbIOVPkKE4": {
           "title": "【速報】ByteDance「Seedance2.5」発表！7月上旬一般公開へ",
@@ -18243,7 +18293,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.0,
+          "likes_vs_exp_pct": 0
         },
         "1_qIFmI94zw": {
           "title": "【Slack革命】Claude Tag登場！@Claudeでチーム業務を自動化、コードの65%をAIが生成",
@@ -18553,7 +18605,9 @@
           ],
           "likes": 1,
           "like_pct": 2.13,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "ah4jbJdJsn8": {
           "title": "【速報】OpenAIが次世代モデル「GPT-5.6 Sol」をプレビュー公開！",
@@ -18815,7 +18869,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.2,
+          "likes_vs_exp_pct": 0
         },
         "0jCNkWcTDyg": {
           "title": "【速報】トランプ政権がOpenAIに警告！GPT-5.6は米政府の個別審査制へ",
@@ -19077,7 +19133,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.2,
+          "likes_vs_exp_pct": 0
         },
         "kbzM5d-Fnhc": {
           "title": "【遂に正式版】ChatGPTからPCを遠隔操作！「Codex Remote」が一般提供開始！",
@@ -19339,7 +19397,9 @@
           ],
           "likes": 1,
           "like_pct": 1.61,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.1,
+          "likes_vs_exp_pct": 88
         },
         "uup3pd_0HZU": {
           "title": "【神アプデ】Gemini 3.5 Flashにコンピュータ操作機能が標準搭載！自律型AIエージェント爆誕",
@@ -19605,7 +19665,9 @@
           ],
           "likes": 2,
           "like_pct": 2.94,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.2,
+          "likes_vs_exp_pct": 165
         },
         "YeqC3SSZEYM": {
           "title": "【AI時代必須】Human in the Loopとは？ループ設計の極意",
@@ -19855,7 +19917,9 @@
           ],
           "likes": 1,
           "like_pct": 2.5,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "1y1GmZAG4GI": {
           "title": "【1.5兆パラメータ】Grok4.5がSpaceX・Teslaで社内テスト開始！",
@@ -20073,7 +20137,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.1,
+          "likes_vs_exp_pct": 0
         },
         "P5287FOWt5k": {
           "title": "【速報】GoogleのNotebookLMが60秒縦型ショート動画を自動生成！資料が一瞬で動画化",
@@ -20275,7 +20341,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "mIuDO0S9WZY": {
           "title": "【ついに登場】OpenClawがiOS・Android対応！AIエージェントをポケットで動かす時代へ",
@@ -20477,7 +20545,9 @@
           ],
           "likes": 1,
           "like_pct": 2.44,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "pFYQ5BkAF00": {
           "title": "【超朗報】Claude CodeがLinuxデスクトップ版で爆速進化！導入手順を完全解説",
@@ -20679,7 +20749,9 @@
           ],
           "likes": 1,
           "like_pct": 1.89,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.0,
+          "likes_vs_exp_pct": 97
         },
         "Yl2yt3CNMZU": {
           "title": "【速報】Cursor公式iOSアプリ登場！スマホからAI開発エージェントを起動・操作",
@@ -20881,7 +20953,9 @@
           ],
           "likes": 1,
           "like_pct": 1.49,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.2,
+          "likes_vs_exp_pct": 83
         },
         "AdJJGur5IkI": {
           "title": "【衝撃】Anthropic新発表！Claude Scienceが科学研究を激変させる5つの理由",
@@ -21083,7 +21157,9 @@
           ],
           "likes": 2,
           "like_pct": 1.98,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.6,
+          "likes_vs_exp_pct": 125
         },
         "hxJqHy8wTUA": {
           "title": "【神アプデ】Claude Sonnet 5が爆誕！Opus級の性能が半額以下で使える衝撃",
@@ -21285,7 +21361,9 @@
           ],
           "likes": 1,
           "like_pct": 6.25,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "hPFoeJA-rKw": {
           "title": "【激震】Claude が Microsoft Foundry に登場！AI業界の勢力図が変わる衝撃発表",
@@ -21487,7 +21565,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "gJLnzT0pHSU": {
           "title": "【緊急速報】Fable 5がついに復活！7/1グローバル再公開、ジェイルブレイク99%防止の新安全機能とは",
@@ -21673,7 +21753,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "KY0PoR2G3IE": {
           "title": "【Mac対応】Gemini SparkがついにmacOS版登場！Canva・Dropbox連携も拡大でAI業務革命へ",
@@ -21859,7 +21941,9 @@
           ],
           "likes": 1,
           "like_pct": 1.85,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.0,
+          "likes_vs_exp_pct": 96
         },
         "UKaM3Ab7HC4": {
           "title": "【衝撃】Gemini Omni Flash登場！720p動画を10秒$0.10で生成",
@@ -22045,7 +22129,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "PaCJKhzpYfg": {
           "title": "【GitHub神アプデ】AIの雑PR地獄を一発解決！メンテナー救済の新機能がヤバい",
@@ -22231,7 +22317,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "R9SR3WeKvNo": {
           "title": "【神アプデ】Microsoft「WSL containers」公開！Docker不要で2倍速の新時代へ",
@@ -22417,7 +22505,9 @@
           ],
           "likes": 2,
           "like_pct": 5.41,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "-pgnhPMuqcg": {
           "title": "【重要】OpenAIがハードウェアパスキー義務化！ChatGPT不正ログイン対策",
@@ -22503,7 +22593,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "4L6f4Xa1cTE": {
           "title": "【衝撃】OpenAI「GPT-Red」発表！AIが自己対戦でプロンプトインジェクションを自動防御する時代へ",
@@ -22589,7 +22681,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "m0VYvCw0ioY": {
           "title": "【7月19日まで】Claude Fable 5が有料ユーザー全員に無料開放！",
@@ -22675,7 +22769,9 @@
           ],
           "likes": 2,
           "like_pct": 4.88,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "c1iGn4bjuAA": {
           "title": "【朗報】Anthropic「Claude Corps」始動！有給12か月で非営利支援",
@@ -22761,7 +22857,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.1,
+          "likes_vs_exp_pct": 0
         },
         "Gnbu1F4LAJQ": {
           "title": "【AI動画革命】Tavusの最新技術がヤバい！リアルタイムAIアバターの衝撃",
@@ -22847,7 +22945,9 @@
           ],
           "likes": 1,
           "like_pct": 4.35,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "sqN5YjYIVOQ": {
           "title": "【神アプデ】Google AI Studioが無料で*.ai.studio独自URL対応！Androidアプリも生成可能に",
@@ -22933,7 +23033,9 @@
           ],
           "likes": 1,
           "like_pct": 3.23,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "_srzrpd2XsM": {
           "title": "【神アプデ】ChatGPTデスクトップでコード編集＆GitHub PR操作可能に！Codex v0.144",
@@ -23019,7 +23121,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "AMpncvXt1_g": {
           "title": "【神アプデ】Claude Codeデスクトップに専用ブラウザ搭載！",
@@ -23105,7 +23209,9 @@
           ],
           "likes": 1,
           "like_pct": 1.52,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.2,
+          "likes_vs_exp_pct": 84
         },
         "dT1oDzm23BM": {
           "title": "【新機能】Claude Reflectベータ版公開！AIとの付き合い方を可視化する神ダッシュボード",
@@ -23191,7 +23297,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "CeESCgpaXVQ": {
           "title": "【衝撃】OpenAI「Atlasブラウザ」8月終了！デスクトップアプリに統合へ",
@@ -23277,7 +23385,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "dYxg2dn7Mhs": {
           "title": "【衝撃】Grok 4.5爆誕！Opus超え性能を激安で提供",
@@ -23363,7 +23473,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "oqV2vbjPC8Q": {
           "title": "【衝撃】Microsoft 365 CopilotがGPT-5を標準採用！業務AIの覇権が決着",
@@ -23449,7 +23561,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "8qdUOp2mzT4": {
           "title": "【完全解説】GPT-5.6 Sol/Terra/Lunaの違いを中学生でもわかるように！",
@@ -23535,7 +23649,9 @@
           ],
           "likes": 1,
           "like_pct": 3.23,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "jE8oOwWy4Tk": {
           "title": "【衝撃】ChatGPT for Workで仕事が激変！OpenAI最新機能を徹底解説",
@@ -23621,7 +23737,9 @@
           ],
           "likes": 1,
           "like_pct": 1.79,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.1,
+          "likes_vs_exp_pct": 94
         },
         "4KASr1bfxUU": {
           "title": "【OpenAI最新】コーディング評価の\"ノイズ\"を排除！本当に使えるAIモデルの見抜き方",
@@ -23707,7 +23825,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "VWk2N01rS9M": {
           "title": "【衝撃】OpenAIが遂に公開！GPT Liveで会話AIが革命的進化へ",
@@ -23793,7 +23913,9 @@
           ],
           "likes": 1,
           "like_pct": 1.19,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.4,
+          "likes_vs_exp_pct": 71
         },
         "iFDOMrqg6OM": {
           "title": "【速報】GPT-5.6 Sol・Terra・Luna今週木曜公開！プレビュー全世界開放へ",
@@ -23879,7 +24001,9 @@
           ],
           "likes": 1,
           "like_pct": 3.85,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "RCNYU1zTz64": {
           "title": "【衝撃】Claudeに「意識」発見！Anthropic最新研究J-spaceの正体",
@@ -23965,7 +24089,9 @@
           ],
           "likes": 1,
           "like_pct": 1.79,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.1,
+          "likes_vs_exp_pct": 94
         },
         "Y62_3cgKmpk": {
           "title": "【神アプデ】Claude Coworkがスマホ対応！Maxプラン限定ベータ開始",
@@ -24051,7 +24177,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.1,
+          "likes_vs_exp_pct": 0
         },
         "GhSEzG7Cwp0": {
           "title": "【Mac狙撃】新型マルウェア「ClickLock」パスワード強奪の巧妙手口！",
@@ -24117,7 +24245,9 @@
           ],
           "likes": 1,
           "like_pct": 3.12,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "4AYzMSAUQaU": {
           "title": "Kimi K3が2.8兆パラメータでOpus 4.8超え！Fable 5に迫る性能を無料公開へ",
@@ -24183,7 +24313,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.0,
+          "likes_vs_exp_pct": 0
         },
         "UcsbJu9Qrxk": {
           "title": "【神連携】1PasswordがClaudeに対応！AIに認証情報を渡さず自動ログイン",
@@ -24249,7 +24381,9 @@
           ],
           "likes": 1,
           "like_pct": 2.04,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         },
         "NTAvIuR1i48": {
           "title": "【衝撃改名】NotebookLMがGemini Notebookに！コード実行機能追加で利用者3000万人突破",
@@ -24315,7 +24449,9 @@
           ],
           "likes": 1,
           "like_pct": 7.69,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         }
       },
       "icon": "https://yt3.ggpht.com/4iqdpiP7OS5Ws2ToxQhNYadu4gGu4TSct_b37aW_jJ3uH9zY2qP7yFiq-hMS4P8Whu_FbloL=s88-c-k-c0x00ffffff-no-rj"
@@ -24323,7 +24459,11 @@
     {
       "id": "UC_dLmVT-fjTCxTVrrVhhoyw",
       "title": "AI時代のテック速報【ずんだもん解説】",
-      "avg_like_pct": 2.42,
+      "like_baseline": {
+        "fan_likes": 0.3,
+        "slope_pct": 1.35,
+        "n": 47
+      },
       "baseline_median": 156,
       "hit_threshold": 780,
       "semi_threshold": 500,
@@ -27718,7 +27858,9 @@
           ],
           "likes": 56,
           "like_pct": 3.67,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 20.9,
+          "likes_vs_exp_pct": 268
         },
         "5nhxH9IB7uw": {
           "title": "Microsoft製ローカルAI「Foundry Local」が完全無償でOllamaを超えた理由",
@@ -28728,7 +28870,9 @@
           ],
           "likes": 200,
           "like_pct": 2.66,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 102.0,
+          "likes_vs_exp_pct": 196
         },
         "eLhc57stNpU": {
           "title": "DiscordコミュニティがGPT-4超えAIエージェントを作った：Hermes Agentの衝撃",
@@ -29738,7 +29882,9 @@
           ],
           "likes": 17,
           "like_pct": 1.89,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 12.5,
+          "likes_vs_exp_pct": 136
         },
         "zHsPwsLe2Jw": {
           "title": "Win11Debloat：Windows 11の隠れた800MBを取り戻す方法",
@@ -30748,7 +30894,9 @@
           ],
           "likes": 35,
           "like_pct": 2.29,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 21.0,
+          "likes_vs_exp_pct": 167
         },
         "lIjItBdODGo": {
           "title": "GitHubスター30,000超：MicrosoftのMarkItDownがRAGパイプラインを変えた",
@@ -31758,7 +31906,9 @@
           ],
           "likes": 71,
           "like_pct": 2.74,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 35.3,
+          "likes_vs_exp_pct": 201
         },
         "uH7zYRzwiuk": {
           "title": "トークン25倍圧縮！agent-browserがAIエージェントのWeb操作を変えた",
@@ -32768,7 +32918,9 @@
           ],
           "likes": 45,
           "like_pct": 2.04,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 30.1,
+          "likes_vs_exp_pct": 149
         },
         "iH0C4jnR_g4": {
           "title": "git addが不要になった：GoogleエンジニアがGitの設計ミスを修正したVCS「Jujutsu」",
@@ -33778,7 +33930,9 @@
           ],
           "likes": 44,
           "like_pct": 1.72,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 34.9,
+          "likes_vs_exp_pct": 126
         },
         "U_070leEyvM": {
           "title": "2MBでOllamaを超えた：Lemonadeがローカルフルスタックを無料で実現する方法",
@@ -34788,7 +34942,9 @@
           ],
           "likes": 265,
           "like_pct": 2.7,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 132.7,
+          "likes_vs_exp_pct": 200
         },
         "7vPTf9F6eYM": {
           "title": "AIが書くために設計されたプログラミング言語「Vera」— 人間向け70年の常識を破壊",
@@ -35798,7 +35954,9 @@
           ],
           "likes": 54,
           "like_pct": 3.38,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 21.9,
+          "likes_vs_exp_pct": 247
         },
         "RRIUSH0n0Xw": {
           "title": "Claude Codeの思考深度が67%削減されていた件",
@@ -36808,7 +36966,9 @@
           ],
           "likes": 78,
           "like_pct": 2.32,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 45.7,
+          "likes_vs_exp_pct": 171
         },
         "NaGAhDWFs60": {
           "title": "国立国会図書館が無料公開したAI OCRが有料サービスを超えた：NDLOCR-Liteの真実",
@@ -37818,7 +37978,9 @@
           ],
           "likes": 3016,
           "like_pct": 4.52,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 902.0,
+          "likes_vs_exp_pct": 334
         },
         "PNrHYaQjG_k": {
           "title": "AIが「考える量」を自分で決める——ClaudeのAdaptive Thinkingで月額APIコストが62%消えた真実",
@@ -38828,7 +38990,9 @@
           ],
           "likes": 9,
           "like_pct": 1.58,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 8.0,
+          "likes_vs_exp_pct": 112
         },
         "LfJaguCzcCU": {
           "title": "タイピングしないエンジニアが最速になる？Claude Code /voiceコマンドの衝撃",
@@ -39838,7 +40002,9 @@
           ],
           "likes": 5,
           "like_pct": 0.99,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 7.1,
+          "likes_vs_exp_pct": 70
         },
         "pWYLyG-Lo_8": {
           "title": "「OllamaはLlama.cppより1.8倍遅い」知らないと損するローカルLLM完全比較2026",
@@ -40848,7 +41014,9 @@
           ],
           "likes": 39,
           "like_pct": 1.38,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 38.4,
+          "likes_vs_exp_pct": 102
         }
       },
       "icon": "https://yt3.ggpht.com/PIhDUsvClHcFt-Vbg6OZhhi-snqWupMJGqkHg69sXNeHZZZBICLJD92gRpAUJW7KUMPGCABoXA=s88-c-k-c0x00ffffff-no-rj"
@@ -40856,7 +41024,11 @@
     {
       "id": "UCuO_HCuBEM6v3wrko3Iu8Hw",
       "title": "Sura×Asura For AI Agent",
-      "avg_like_pct": 3.0,
+      "like_baseline": {
+        "fan_likes": 6.8,
+        "slope_pct": 2.31,
+        "n": 85
+      },
       "baseline_median": 1101,
       "hit_threshold": 5505,
       "semi_threshold": 3303,
@@ -43504,7 +43676,9 @@
           ],
           "likes": 38,
           "like_pct": 2.52,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 41.6,
+          "likes_vs_exp_pct": 91
         },
         "WSl9glffPgE": {
           "title": "Google I/O 2026 徹底解説 — Flashが世界を殴り、アプリの時代が終わった日",
@@ -44282,7 +44456,9 @@
           ],
           "likes": 62,
           "like_pct": 4.41,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 39.2,
+          "likes_vs_exp_pct": 158
         },
         "pOKiy58e-Es": {
           "title": "【徹底解説】Grok hermes連携で常駐エージェントの頭脳になった xAI の本気",
@@ -45060,7 +45236,9 @@
           ],
           "likes": 43,
           "like_pct": 2.82,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 42.0,
+          "likes_vs_exp_pct": 102
         },
         "Gn8KYYvmLww": {
           "title": "【claudecode新機能】 Agent View｜/goal解説　　ちょっぴりメンシプも!?",
@@ -45838,7 +46016,9 @@
           ],
           "likes": 58,
           "like_pct": 2.1,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 70.7,
+          "likes_vs_exp_pct": 82
         },
         "ogmoB6K2Pms": {
           "title": "OpenAI vs Anthropic｜2026年5月 コーディング・エージェント完全決着【52分／22タスク／3結論】",
@@ -46616,7 +46796,9 @@
           ],
           "likes": 31,
           "like_pct": 2.18,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 39.7,
+          "likes_vs_exp_pct": 78
         },
         "iSyXbOaJPV0": {
           "title": "【完全解説】Claude Managed Agents 4本柱でAIが\"チーム化\"する時代",
@@ -47394,7 +47576,9 @@
           ],
           "likes": 25,
           "like_pct": 2.38,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 31.1,
+          "likes_vs_exp_pct": 80
         },
         "tnmyD56X7w4": {
           "title": "【寝ないAI従業員OSS】Hermes Agentとは？",
@@ -48172,7 +48356,9 @@
           ],
           "likes": 84,
           "like_pct": 2.19,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 95.3,
+          "likes_vs_exp_pct": 88
         },
         "sCElmePxY_4": {
           "title": "【保存版】Claude完全攻略：AI・CLI・IDE・Agent SDKまで90分で一気に学ぶ",
@@ -48950,7 +49136,9 @@
           ],
           "likes": 48,
           "like_pct": 2.21,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 57.0,
+          "likes_vs_exp_pct": 84
         },
         "KfpiMIXAC5c": {
           "title": "【Codexマスター完全版】Codexの全てを見る60分がここに！",
@@ -49728,7 +49916,9 @@
           ],
           "likes": 113,
           "like_pct": 1.89,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 144.9,
+          "likes_vs_exp_pct": 78
         },
         "h7VDNxx_MIs": {
           "title": "【徹底比較】GPT-5.5 vs Opus4.7　結局どっちがいいの!?",
@@ -50506,7 +50696,9 @@
           ],
           "likes": 129,
           "like_pct": 2.26,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 138.4,
+          "likes_vs_exp_pct": 93
         },
         "ptlwMQ0yTTg": {
           "title": "【保存必須】Claude Codeこの1ヶ月のアプデ＆実戦Tips、全部調べた",
@@ -51284,7 +51476,9 @@
           ],
           "likes": 44,
           "like_pct": 3.67,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 34.5,
+          "likes_vs_exp_pct": 128
         },
         "F69vVv4y64c": {
           "title": "【徹底比較】OpenAI Codex と Anthropic Claude Design　同日発表の2つを使い分ける",
@@ -52062,7 +52256,9 @@
           ],
           "likes": 22,
           "like_pct": 1.87,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 34.0,
+          "likes_vs_exp_pct": 65
         },
         "KPPAgGfuYL0": {
           "title": "PCを閉じても回る仕組みの作り方【Claude Code Routines解説】",
@@ -52840,7 +53036,9 @@
           ],
           "likes": 26,
           "like_pct": 1.89,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 38.5,
+          "likes_vs_exp_pct": 67
         },
         "tTUkZsWVP3M": {
           "title": "Claude Codeはなぜ強いのか？ Anthropicが考える\"Agentのためのツール設計\"",
@@ -53618,7 +53816,9 @@
           ],
           "likes": 40,
           "like_pct": 2.87,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 39.0,
+          "likes_vs_exp_pct": 102
         },
         "Y2QwSrGBxx4": {
           "title": "【速報・徹底解説】Claude Managed Agents──脳と手の分離が運用常識を書き換える",
@@ -54396,7 +54596,9 @@
           ],
           "likes": 48,
           "like_pct": 2.82,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 46.1,
+          "likes_vs_exp_pct": 104
         },
         "JwLM-JbC4-o": {
           "title": "【徹底解説】Claude Code Ultraplan・Auto mode・Harness──承認疲れを終わらせる運用設計の全貌",
@@ -55174,7 +55376,9 @@
           ],
           "likes": 40,
           "like_pct": 2.89,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 38.8,
+          "likes_vs_exp_pct": 103
         },
         "hbsni-x-q90": {
           "title": "【徹底解説】Claude Codeソースコード流出──512,000行の向こう側に何があるのか",
@@ -55952,7 +56156,9 @@
           ],
           "likes": 41,
           "like_pct": 3.3,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 35.5,
+          "likes_vs_exp_pct": 116
         },
         "UjdkQUhin5s": {
           "title": "【徹底解説】oh-my-claudecode──3ヶ月で15000スター、Claude Codeが運用OSになる全貌",
@@ -56730,7 +56936,9 @@
           ],
           "likes": 49,
           "like_pct": 2.44,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 53.1,
+          "likes_vs_exp_pct": 92
         },
         "ah_1f5WCklw": {
           "title": "【徹底解説】Claude Code Skills設計──Anthropicハーネス思想で品質が落ちない書き方",
@@ -57508,7 +57716,9 @@
           ],
           "likes": 70,
           "like_pct": 3.36,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 55.0,
+          "likes_vs_exp_pct": 127
         },
         "p_zxYc2JG8w": {
           "title": "【徹底解説】Anthropic式ハーネス設計──GAN発想で長時間実行AIが変わる全貌",
@@ -58286,7 +58496,9 @@
           ],
           "likes": 90,
           "like_pct": 3.39,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 68.0,
+          "likes_vs_exp_pct": 132
         },
         "0ch_XtLef7s": {
           "title": "【衝撃】Claude Computer Use──AIがPCを操作する時代、精度5倍の全貌",
@@ -59064,7 +59276,9 @@
           ],
           "likes": 51,
           "like_pct": 2.27,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 58.7,
+          "likes_vs_exp_pct": 87
         },
         "BlH4HxTEJKw": {
           "title": "【永久保存版】Claude Codeの全コマンド、僕が全部調べた",
@@ -59842,7 +60056,9 @@
           ],
           "likes": 43,
           "like_pct": 3.7,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 33.6,
+          "likes_vs_exp_pct": 128
         },
         "_K3okAhfXfg": {
           "title": "Claude Code Channels解説と、業界が同じ方向に収束している話",
@@ -60620,7 +60836,9 @@
           ],
           "likes": 25,
           "like_pct": 1.89,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 37.3,
+          "likes_vs_exp_pct": 67
         },
         "s_V7bi1Nig8": {
           "title": "【徹底解説】Claude Code Agent Teams──なぜこれが本命なのか、全部話す",
@@ -61398,7 +61616,9 @@
           ],
           "likes": 69,
           "like_pct": 2.35,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 74.4,
+          "likes_vs_exp_pct": 93
         },
         "4_nWnnM3jpo": {
           "title": "【完全ガイド】Claude Code Best Practice──16800スターの決定版リポジトリを解剖する",
@@ -62176,7 +62396,9 @@
           ],
           "likes": 73,
           "like_pct": 3.35,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 57.1,
+          "likes_vs_exp_pct": 128
         },
         "PKMt2Au2fP0": {
           "title": "【徹底解説】Codex CLI vs Claude Code──マルチエージェント開発の全貌",
@@ -62954,7 +63176,9 @@
           ],
           "likes": 73,
           "like_pct": 2.73,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 68.6,
+          "likes_vs_exp_pct": 106
         },
         "vGwmmIgxLkA": {
           "title": "AIが寝てる間に働く時代──Claude Codeの自律稼働、公式が本気で推してきた",
@@ -63732,7 +63956,9 @@
           ],
           "likes": 95,
           "like_pct": 2.41,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 97.6,
+          "likes_vs_exp_pct": 97
         },
         "6GqegofaURY": {
           "title": "AIエージェント自作が激変！Claude Codeの新コマンド達",
@@ -64510,7 +64736,9 @@
           ],
           "likes": 35,
           "like_pct": 1.54,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 59.2,
+          "likes_vs_exp_pct": 59
         },
         "uOwpoBD78cY": {
           "title": "Claude Codeのfork機能、使いこなせてる？ ── 会話を分岐する新しい開発スタイル",
@@ -65288,7 +65516,9 @@
           ],
           "likes": 93,
           "like_pct": 3.23,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 73.3,
+          "likes_vs_exp_pct": 127
         },
         "k-ejvosCFAI": {
           "title": "【完全解説】AI・エージェント・マルチエージェントの違いと使い分け：2026年最新ガイド",
@@ -66066,7 +66296,9 @@
           ],
           "likes": 49,
           "like_pct": 3.63,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 38.0,
+          "likes_vs_exp_pct": 129
         },
         "IaU7rkb7M3U": {
           "title": "Codex CLI × Claude × VS Code ── 2週間で3社が同時に「マルチエージェント」へ舵を切った理由",
@@ -66844,7 +67076,9 @@
           ],
           "likes": 343,
           "like_pct": 3.34,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 244.2,
+          "likes_vs_exp_pct": 140
         },
         "5rd_JxfV5r0": {
           "title": "Claude Agent  SDK「SubAgent」徹底解説｜分けたら安定した、AI分業の設計術",
@@ -67622,7 +67856,9 @@
           ],
           "likes": 57,
           "like_pct": 3.78,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 41.6,
+          "likes_vs_exp_pct": 137
         },
         "O_4qCi23mqs": {
           "title": "Claude Agent SDKの機能が凄い—sura制作を支える『ハーネス』の正体",
@@ -68400,7 +68636,9 @@
           ],
           "likes": 92,
           "like_pct": 4.44,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 54.7,
+          "likes_vs_exp_pct": 168
         },
         "bj0X7NF31K8": {
           "title": "【速報】Grok Build CLI 完全解説 — xAI がコーディングエージェント市場に殴り込み",
@@ -69170,7 +69408,9 @@
           ],
           "likes": 26,
           "like_pct": 1.9,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 38.5,
+          "likes_vs_exp_pct": 68
         },
         "6GqQaaGb57w": {
           "title": "【必見】Claude Codeのセキュリティを3段階で自動チェックする方法",
@@ -69912,7 +70152,9 @@
           ],
           "likes": 33,
           "like_pct": 2.91,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 33.0,
+          "likes_vs_exp_pct": 100
         },
         "QMUWk_MENH4": {
           "title": "【Claude Opus 4.8】 本日リリース速報 / GPT-5.5を抑えて首位奪還",
@@ -70634,7 +70876,9 @@
           ],
           "likes": 32,
           "like_pct": 2.8,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 33.2,
+          "likes_vs_exp_pct": 96
         },
         "vEFDNBPvPRs": {
           "title": "AIエージェント四強時代 ― Hermes・Claude Code・Codex・OpenClaw を一気読み",
@@ -71292,7 +71536,9 @@
           ],
           "likes": 39,
           "like_pct": 2.79,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 39.1,
+          "likes_vs_exp_pct": 100
         },
         "jVtNl6-XxLQ": {
           "title": "公式Hermes Desktopが来た！Nous ResearchのGUI版を徹底解説",
@@ -71938,7 +72184,9 @@
           ],
           "likes": 73,
           "like_pct": 2.65,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 70.4,
+          "likes_vs_exp_pct": 104
         },
         "RF4ICxAAPMQ": {
           "title": "【Codex Sites】 がやばい。OpenAI が v0 と Artifacts と BI を同時に殴り始めた話",
@@ -72588,7 +72836,9 @@
           ],
           "likes": 42,
           "like_pct": 2.23,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 50.3,
+          "likes_vs_exp_pct": 83
         },
         "Jy9Dr0OXGjM": {
           "title": "自分で育つAIエージェント｜Hermes×MCPで24時間動くリサーチャーを作る",
@@ -73202,7 +73452,9 @@
           ],
           "likes": 30,
           "like_pct": 2.99,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 30.0,
+          "likes_vs_exp_pct": 100
         },
         "uLEOyrCBdvs": {
           "title": "HermesのMCPは何が違う？ AIを「作業チーム」に変える入口",
@@ -73788,7 +74040,9 @@
           ],
           "likes": 28,
           "like_pct": 2.54,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 32.2,
+          "likes_vs_exp_pct": 87
         },
         "UIOape9cPdE": {
           "title": "Claude Fable 5 vs Codex vs Opus 4.8 ── 実測841円、結局どっちを使う？",
@@ -74322,7 +74576,9 @@
           ],
           "likes": 43,
           "like_pct": 2.35,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 49.1,
+          "likes_vs_exp_pct": 88
         },
         "N5VfI8DUAzo": {
           "title": "Claude Code サブエージェント5階層 vs 1階層 ── 開発はどう変わる？",
@@ -74828,7 +75084,9 @@
           ],
           "likes": 57,
           "like_pct": 3.04,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 50.1,
+          "likes_vs_exp_pct": 114
         },
         "G4myy-bco80": {
           "title": "【徹底解説】Hermes Agent × LLM Wiki──AIリサーチを会社の資産に変える実運用パターン",
@@ -75318,7 +75576,9 @@
           ],
           "likes": 20,
           "like_pct": 1.85,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 31.8,
+          "likes_vs_exp_pct": 63
         },
         "aiQJ98bYoYM": {
           "title": "【もうプロンプトは書くな！】 Loop Engineering 徹底解説",
@@ -75728,7 +75988,9 @@
           ],
           "likes": 358,
           "like_pct": 3.17,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 267.9,
+          "likes_vs_exp_pct": 134
         },
         "LdvWmZEmTz0": {
           "title": "【もうコードは書かない】Claude Artifacts で『AIアプリを作って配る』時代へ",
@@ -76098,7 +76360,9 @@
           ],
           "likes": 29,
           "like_pct": 2.0,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 40.3,
+          "likes_vs_exp_pct": 72
         },
         "E6kbf6tnDOg": {
           "title": "もう手順書は書かない ── Codex Record & Replay 徹底解説｜やって見せるだけでAIがスキルを覚える",
@@ -76456,7 +76720,9 @@
           ],
           "likes": 36,
           "like_pct": 2.64,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 38.3,
+          "likes_vs_exp_pct": 94
         },
         "aeuXGULgc5c": {
           "title": "Sakana Fugu 徹底解説 ── 日本発「モデルを束ねるAI」は本物か？Fable 5・GPT-5.5 と比較",
@@ -76786,7 +77052,9 @@
           ],
           "likes": 61,
           "like_pct": 2.61,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 60.8,
+          "likes_vs_exp_pct": 100
         },
         "_ggPNUW6iQ4": {
           "title": "【衝撃】全部やってくれるAIブラウザ Aside ── 自己申告\"1位\"を疑ってみた",
@@ -77068,7 +77336,9 @@
           ],
           "likes": 18,
           "like_pct": 2.92,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 21.0,
+          "likes_vs_exp_pct": 86
         },
         "hWtvKtSwkKQ": {
           "title": "Even G2 × Claude Code ── グラスで開発する時代、アプリ自作まで【実機レビュー後編】",
@@ -77326,7 +77596,9 @@
           ],
           "likes": 26,
           "like_pct": 1.84,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 39.5,
+          "likes_vs_exp_pct": 66
         },
         "LgaAiNnISG4": {
           "title": "【GPT-5.6 徹底解説】政府が止めた最強モデル ── Codexで先に使えるSol/Terra/Lunaの正体",
@@ -77540,7 +77812,9 @@
           ],
           "likes": 15,
           "like_pct": 3.42,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 16.9,
+          "likes_vs_exp_pct": 89
         },
         "c9buQ7RkCyY": {
           "title": "Orca完全版 ── Claude Code×Codex×Cursor CLIを束ねるAI開発IDE徹底解説",
@@ -77678,7 +77952,9 @@
           ],
           "likes": 31,
           "like_pct": 3.29,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 28.5,
+          "likes_vs_exp_pct": 109
         },
         "7x8QIEJ1W64": {
           "title": "【Fable5最終日】今日 vs 明日 ── 無料枠が消える前にやるべき7選",
@@ -77776,7 +78052,9 @@
           ],
           "likes": 6,
           "like_pct": 1.73,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 14.8,
+          "likes_vs_exp_pct": 41
         },
         "m2akRnvyYtg": {
           "title": "【徹底解説】AgentKey ── Claude Code/Codex/OpenClawが外部データに直結する新プラグイン",
@@ -77862,7 +78140,9 @@
           ],
           "likes": 21,
           "like_pct": 2.44,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 26.6,
+          "likes_vs_exp_pct": 79
         },
         "im8cFVu2sMs": {
           "title": "【記憶を持て】Agent Memoryを三層比較",
@@ -77948,7 +78228,9 @@
           ],
           "likes": 43,
           "like_pct": 4.24,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 30.2,
+          "likes_vs_exp_pct": 142
         },
         "JO5meYVt3Tg": {
           "title": "Codex vs Claude Code vs Grok Build ── 2026年7月AIコーディングCLI徹底比較【完全版】",
@@ -78034,7 +78316,9 @@
           ],
           "likes": 17,
           "like_pct": 2.6,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 21.9,
+          "likes_vs_exp_pct": 78
         },
         "utLOxvErLus": {
           "title": "【徹底解説】Grok 4.5 ── SpaceXAI化とOpus級の真偽",
@@ -78120,7 +78404,9 @@
           ],
           "likes": 9,
           "like_pct": 3.28,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 13.1,
+          "likes_vs_exp_pct": 69
         },
         "9CjJXmiFPxc": {
           "title": "Kimi K3 vs Claude Fable 5──2.8兆モデルの実力差",
@@ -78186,7 +78472,9 @@
           ],
           "likes": 16,
           "like_pct": 2.77,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 20.1,
+          "likes_vs_exp_pct": 79
         },
         "Gmmq2NvBlQM": {
           "title": "【採用】Skillsは便利 vs 危険 ── 17万starの裏で3人に1人が「危険なスキル」だったSnyk調査の話",
@@ -78212,7 +78500,9 @@
           ],
           "likes": 7,
           "like_pct": 3.17,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 11.9,
+          "likes_vs_exp_pct": 59
         }
       },
       "icon": "https://yt3.ggpht.com/BbH3-03Rb2nDzp48-VCaG54E_OePrAPG31g2fP_4NHuqety-eB_whYfeyD_PEvybYdQ4WeaJfaM=s88-c-k-c0x00ffffff-no-rj"
@@ -78220,7 +78510,11 @@
     {
       "id": "UCRT8XWorvslyottP0IOVKaw",
       "title": "AI業界の裏側",
-      "avg_like_pct": 2.04,
+      "like_baseline": {
+        "fan_likes": 0.5,
+        "slope_pct": 2.05,
+        "n": 41
+      },
       "baseline_median": 120,
       "hit_threshold": 600,
       "semi_threshold": 500,
@@ -80378,7 +80672,9 @@
           ],
           "likes": 5,
           "like_pct": 0.62,
-          "ad_check": "ok"
+          "ad_check": "suspect",
+          "exp_likes": 17.0,
+          "likes_vs_exp_pct": 29
         },
         "GRZ-yHCfwoY": {
           "title": "個人開発者の黄金時代、終了のお知らせ【Claude Code 値上げの真相】",
@@ -81036,7 +81332,9 @@
           ],
           "likes": 22,
           "like_pct": 2.54,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 18.3,
+          "likes_vs_exp_pct": 120
         },
         "x3Cv7hL-dig": {
           "title": "イーロンのAI「Grok」がフィルターを外した結果... AI時代に大事なAI倫理とは？【ずんだもん解説】",
@@ -81694,7 +81992,9 @@
           ],
           "likes": 2,
           "like_pct": 0.27,
-          "ad_check": "suspect"
+          "ad_check": "suspect",
+          "exp_likes": 15.9,
+          "likes_vs_exp_pct": 13
         },
         "14MoFXCdKM4": {
           "title": "AIスロップで年収6億を稼いだチャンネルが全削除された理由【ずんだもん解説】",
@@ -82352,7 +82652,9 @@
           ],
           "likes": 239,
           "like_pct": 3.62,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 135.9,
+          "likes_vs_exp_pct": 176
         },
         "IZYFrBAwws8": {
           "title": "【暴露】Claude Codeから見つかったAIの隠し機能がヤバすぎた【ずんだもん解説】",
@@ -83010,7 +83312,9 @@
           ],
           "likes": 38,
           "like_pct": 1.88,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 42.0,
+          "likes_vs_exp_pct": 90
         },
         "Iyhxf1cPPjU": {
           "title": "Paperclipで社員全員AIにした結果...【ずんだもん解説】",
@@ -83668,7 +83972,9 @@
           ],
           "likes": 24,
           "like_pct": 4.21,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 12.2,
+          "likes_vs_exp_pct": 197
         },
         "ozIekxBFpGc": {
           "title": "中国AI「DeepSeek」を使わない日本人だけが損してる理由【ずんだもん解説】",
@@ -84326,7 +84632,9 @@
           ],
           "likes": 14,
           "like_pct": 1.38,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 21.3,
+          "likes_vs_exp_pct": 66
         },
         "BZ06qxcibCI": {
           "title": "動画生成AI「Sora」はなぜ死んだ？次に消えるのは…【ずんだもん解説】",
@@ -84984,7 +85292,9 @@
           ],
           "likes": 10,
           "like_pct": 1.29,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 16.4,
+          "likes_vs_exp_pct": 61
         },
         "P-SVvvNlN0Q": {
           "title": "【GTC 2026】OpenClawが安全になった？NemoClawの真実【ずんだもん解説】",
@@ -85642,7 +85952,9 @@
           ],
           "likes": 20,
           "like_pct": 1.72,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 24.3,
+          "likes_vs_exp_pct": 82
         },
         "5Rs-1iOBcl4": {
           "title": "年収4500万円「ハーネスエンジニア」が爆誕した理由【ずんだもん解説】",
@@ -86300,7 +86612,9 @@
           ],
           "likes": 21,
           "like_pct": 2.9,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 15.3,
+          "likes_vs_exp_pct": 137
         },
         "z8wtr6X4EVE": {
           "title": "キオクシアがトヨタを抜いた本当の理由。AI半導体バブルをエンジニアが解剖【AI業界の裏側】",
@@ -86386,7 +86700,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 1.4,
+          "likes_vs_exp_pct": 0
         },
         "MGSiGkoZmuQ": {
           "title": "年収4700万円「FDE」が日本に上陸した理由【ずんだもん解説】",
@@ -86456,7 +86772,9 @@
           ],
           "likes": 0,
           "like_pct": 0.0,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         }
       },
       "icon": "https://yt3.ggpht.com/yIueR0mMmbA0iB84o0Vbj8Ce6Xk-Zc47lz2hM6eYGhTw4KsAgkRlzkpcp8bvNhfxGpKQc3hA90I=s88-c-k-c0x00ffffff-no-rj"
@@ -86464,7 +86782,11 @@
     {
       "id": "UCU_xbItXTpMZtD0v0O4ph9g",
       "title": "クドクラ@ClaudeCode AI駆動Craft",
-      "avg_like_pct": 1.92,
+      "like_baseline": {
+        "fan_likes": 0.3,
+        "slope_pct": 1.41,
+        "n": 21
+      },
       "baseline_median": 174,
       "hit_threshold": 870,
       "semi_threshold": 522,
@@ -88626,7 +88948,9 @@
           ],
           "likes": 55,
           "like_pct": 2.15,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 36.3,
+          "likes_vs_exp_pct": 151
         },
         "VDeFLcjert8": {
           "title": "【GitHubオープンソース】Claude Code・Codex・Grok・Antigravityを同時に動かすAI開発IDE「Orca」Agent skill オーケストレーション",
@@ -89284,7 +89608,9 @@
           ],
           "likes": 104,
           "like_pct": 2.2,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 66.9,
+          "likes_vs_exp_pct": 155
         },
         "nY2pU4iofQs": {
           "title": "【GitHubオープンソース】あなた専用AI超知能「OpenHuman」が凄すぎる！無料で使えるローカルAIエージェント徹底解説",
@@ -89942,7 +90268,9 @@
           ],
           "likes": 27,
           "like_pct": 2.63,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 14.7,
+          "likes_vs_exp_pct": 183
         },
         "tnjVXZIA_aM": {
           "title": "【OpenClawの進化版！？】Hermes Agentとは？自己改善するAIエージェントをGitHubで徹底解説",
@@ -90600,7 +90928,9 @@
           ],
           "likes": 10,
           "like_pct": 1.12,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 12.8,
+          "likes_vs_exp_pct": 78
         },
         "bJN3fIXurZA": {
           "title": "ClaudeCodeで最強の環境を作れるeverything-claude-code を徹底解説",
@@ -91258,7 +91588,9 @@
           ],
           "likes": 14,
           "like_pct": 1.5,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 13.4,
+          "likes_vs_exp_pct": 104
         }
       },
       "icon": "https://yt3.ggpht.com/32rRYD4GAchBp-FLvnTbV4iamr0hYM-28oKD22LZM-e0OFV7gWWpbvo6akTiN_1FTlNcbr8u=s88-c-k-c0x00ffffff-no-rj"
@@ -91266,7 +91598,7 @@
     {
       "id": "UCMTPVwhn8A_6VuB8Q_g38Nw",
       "title": "☕ Claude Code Cafe",
-      "avg_like_pct": 1.07,
+      "like_baseline": null,
       "baseline_median": 135,
       "hit_threshold": 675,
       "semi_threshold": 500,
@@ -93404,7 +93736,9 @@
           ],
           "likes": 12,
           "like_pct": 1.07,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": null,
+          "likes_vs_exp_pct": null
         }
       },
       "icon": "https://yt3.ggpht.com/xJcoNrnm_MalJVKolVoIUQOo0b1JxgcwRsAFA7ADWBgmHKNqFUTaBBJVIZJHXCXwhLD6HnCL=s88-c-k-c0x00ffffff-no-rj"
@@ -93412,7 +93746,11 @@
     {
       "id": "UCaSJDqA8W5x6ITcWtC5hHvw",
       "title": "HAYAKIのAIラボ",
-      "avg_like_pct": 1.77,
+      "like_baseline": {
+        "fan_likes": 2.8,
+        "slope_pct": 1.7,
+        "n": 39
+      },
       "baseline_median": 308,
       "hit_threshold": 1540,
       "semi_threshold": 924,
@@ -93740,7 +94078,9 @@
           ],
           "likes": 11,
           "like_pct": 3.57,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 8.1,
+          "likes_vs_exp_pct": 137
         },
         "XtXUBtD3RKI": {
           "title": "【ループエンジニアリング】私はもうAIにプロンプトを打ちません。私の仕事はループを設計することです。",
@@ -93830,7 +94170,9 @@
           ],
           "likes": 53,
           "like_pct": 1.55,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 61.0,
+          "likes_vs_exp_pct": 87
         },
         "J67yG9eRG7s": {
           "title": "【サーバー不要】GASで超簡単に勤怠管理システムを作成！ClaudeCodeで爆速内製する全手順",
@@ -93920,7 +94262,9 @@
           ],
           "likes": 5,
           "like_pct": 3.38,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 5.3,
+          "likes_vs_exp_pct": 94
         },
         "AW5NVH-UgAw": {
           "title": "Claude Routines と Typefully を使ったX / Threads自動投稿の実装手順",
@@ -94010,7 +94354,9 @@
           ],
           "likes": 9,
           "like_pct": 5.7,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 5.5,
+          "likes_vs_exp_pct": 164
         },
         "YkYPNRK2uOg": {
           "title": "【入門編】ClaudeCodeは高いし難しい！無料で簡単にアプリを構築できるAntigravityの紹介と実演",
@@ -94100,7 +94446,9 @@
           ],
           "likes": 17,
           "like_pct": 1.69,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 19.9,
+          "likes_vs_exp_pct": 85
         },
         "pq7Ax8k49tE": {
           "title": "【Claude新機能】作業を自動化できる「Routines」の紹介",
@@ -94190,7 +94538,9 @@
           ],
           "likes": 9,
           "like_pct": 0.82,
-          "ad_check": "ok"
+          "ad_check": "suspect",
+          "exp_likes": 21.5,
+          "likes_vs_exp_pct": 42
         },
         "lznHb41P4WM": {
           "title": "【Claude新機能】仕事を丸投げできるClaude Managed Agentsの紹介",
@@ -94280,7 +94630,9 @@
           ],
           "likes": 17,
           "like_pct": 0.98,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 32.3,
+          "likes_vs_exp_pct": 53
         },
         "1uMckwdVyXo": {
           "title": "Buffer × Claude Codeで、SNS自動投稿を完全自動化する方法",
@@ -94370,7 +94722,9 @@
           ],
           "likes": 22,
           "like_pct": 2.02,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 21.4,
+          "likes_vs_exp_pct": 103
         },
         "lua2LYGtqAc": {
           "title": "【最短10分】GitHubとVercelでWebアプリを無料公開する方法！知識0からの完全ガイド",
@@ -94460,7 +94814,9 @@
           ],
           "likes": 65,
           "like_pct": 3.31,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 36.2,
+          "likes_vs_exp_pct": 179
         },
         "N4XBCE6Sv7k": {
           "title": "【24時間働くAI】軽量で安全な自律型AIエージェント、NanoClawを紹介！",
@@ -94550,7 +94906,9 @@
           ],
           "likes": 43,
           "like_pct": 2.06,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 38.3,
+          "likes_vs_exp_pct": 112
         },
         "319sgjEiMdQ": {
           "title": "【AI開発手法】AWSが推奨するAI駆動開発！AI-DLCについて紹介",
@@ -94640,7 +94998,9 @@
           ],
           "likes": 25,
           "like_pct": 1.71,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 27.8,
+          "likes_vs_exp_pct": 90
         },
         "8q5MWnIzE30": {
           "title": "【超入門】Claude Code × CursorでTODOアプリ開発。動画の通りにやるだけで完成します",
@@ -94730,7 +95090,9 @@
           ],
           "likes": 34,
           "like_pct": 1.54,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 40.4,
+          "likes_vs_exp_pct": 84
         },
         "c7-iDBxz_3I": {
           "title": "Claude Code × Remotion 入門｜AIにコードを書かせて動画を作る最新フロー",
@@ -94820,7 +95182,9 @@
           ],
           "likes": 18,
           "like_pct": 1.22,
-          "ad_check": "ok"
+          "ad_check": "ok",
+          "exp_likes": 27.9,
+          "likes_vs_exp_pct": 65
         },
         "eRG2BH3V4hc": {
           "title": "【GoogleLabs 前編】最先端の動画・音楽生成AIが無料で試せる！Flow＆Flow Musicの使い方",
@@ -94874,7 +95238,9 @@
           ],
           "likes": 3,
           "like_pct": 5.17,
-          "ad_check": "na"
+          "ad_check": "na",
+          "exp_likes": 3.8,
+          "likes_vs_exp_pct": 79
         }
       },
       "icon": "https://yt3.ggpht.com/EC_-Cl0jsIU1s4acRJN2U0X6iqwPV0M105jd_UX44WdWayBA3uPJEWwsMfLrlqi1FSPvlaEtYg=s88-c-k-c0x00ffffff-no-rj"
