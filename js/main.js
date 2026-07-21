@@ -183,15 +183,38 @@ function vtAdCell(v) {
   return `<span class="ad-flag ad-na" title="500再生未満は判定対象外">—</span>`;
 }
 
+let VT_MODE = "launch"; // "launch" = 公開N日後の初速 / "recent" = 直近N日での伸び (今から振り返り)
+
 function renderVtBody(ch) {
   const body = document.getElementById("vt-body");
   if (!body) return;
-  const rows = (ch.video_table || []).map((v) => {
+  const recentMode = VT_MODE === "recent";
+  let list = [...(ch.video_table || [])];
+  if (recentMode) {
+    // 逆引きモードは「いま動いている順」— 直近7日の伸び降順 (欠測は後ろ)
+    list.sort((a, b) => (b.r7 ?? -1) - (a.r7 ?? -1) || b.views - a.views);
+  }
+  const rows = list.map((v) => {
     const tier = ch.hit_threshold && v.views >= ch.hit_threshold ? "vt-hit"
       : ch.semi_threshold && v.views >= ch.semi_threshold ? "vt-semi" : "";
     const mult = ch.baseline_median ? (v.views / ch.baseline_median).toFixed(1) : null;
-    const cells = [1, 3, 7, 14, 28].map((n) =>
-      `<td class="pl-num" title="公開${n}日後時点の views (日次観測から復元。— は観測開始前で不明)">${v["d" + n] != null ? fmtN(v["d" + n]) : '<span class="pl-na">—</span>'}</td>`).join("");
+    // 各セル下段: 前の区間からの増分と1日あたり (例 7日セル: 3日→7日で +298・75/日)
+    let prevN = 0, prevVal = 0;
+    const cells = [1, 3, 7, 14, 28].map((n) => {
+      const val = recentMode ? v["r" + n] : v["d" + n];
+      let sub = "";
+      if (val != null) {
+        const inc = val - prevVal, days = n - prevN;
+        if (days > 0 && inc >= 0) sub = `<br><span class="vt-sub">+${fmtN(inc)}・${fmtN(Math.round(inc / days))}/日</span>`;
+        prevN = n; prevVal = val;
+      }
+      const txt = val == null ? '<span class="pl-na">—</span>'
+        : recentMode ? (val > 0 ? "+" + fmtN(val) : "0") : fmtN(val);
+      const tip = recentMode
+        ? `直近${n}日間で増えた views 合計。下段 = 1つ前の区間との差と、その区間の1日あたり`
+        : `公開${n}日後時点の累計 views。下段 = 前の区間からの増分と、その区間の1日あたり`;
+      return `<td class="pl-num" title="${tip}">${txt}${sub}</td>`;
+    }).join("");
     return `
     <tr class="${tier}">
       <td class="pl-date">${escapeHtml(v.published_at || "")}</td>
@@ -203,16 +226,27 @@ function renderVtBody(ch) {
       ${cells}
     </tr>`;
   }).join("");
+  const colHead = recentMode
+    ? "<th>直近1日</th><th>3日</th><th>7日</th><th>14日</th><th>28日</th>"
+    : "<th>1日</th><th>3日</th><th>7日</th><th>14日</th><th>28日</th>";
+  const modeNote = recentMode
+    ? "「直近N日」列 = 今からN日前と比べて増えた views。<strong>いま動いている順</strong> (直近7日の伸び降順) — 古い動画が上位に来ていたら再燃 (資産型/再点火) のシグナル。"
+    : "「N日」列 = 公開N日後時点の累計 views (日次定点観測から復元。観測が無かった期間は —)。新しい順。";
   body.innerHTML = `
-    <p class="dv-sub">全 ${(ch.video_table || []).length} 本 (Shorts除外・新しい順)。普段(中央値) <strong>${fmtN(ch.baseline_median)}v</strong>
-    / 🎯HIT ${fmtN(ch.hit_threshold)}v以上 = 緑行 / 🚀準HIT ${fmtN(ch.semi_threshold)}v以上 = 黄行。
-    「N日」列 = 公開N日後時点の累計 views (日次定点観測から復元。観測開始前に公開された動画は —)。</p>
+    <div class="vt-modes">
+      <button class="vt-chbtn${!recentMode ? " active" : ""}" id="vt-mode-launch">🐣 初速 (公開N日後)</button>
+      <button class="vt-chbtn${recentMode ? " active" : ""}" id="vt-mode-recent">📈 直近の伸び (過去N日)</button>
+    </div>
+    <p class="dv-sub">全 ${(ch.video_table || []).length} 本 (Shorts除外)。普段(中央値) <strong>${fmtN(ch.baseline_median)}v</strong>
+    / 🎯HIT ${fmtN(ch.hit_threshold)}v以上 = 緑行 / 🚀準HIT ${fmtN(ch.semi_threshold)}v以上 = 黄行。${modeNote}</p>
     <div class="dv-table-wrap">
       <table class="dv-table vt-table">
-        <thead><tr><th>投稿日</th><th></th><th>タイトル</th><th>views (普段比)</th><th>like率</th><th>広告</th><th>1日</th><th>3日</th><th>7日</th><th>14日</th><th>28日</th></tr></thead>
+        <thead><tr><th>投稿日</th><th></th><th>タイトル</th><th>views (普段比)</th><th>like率</th><th>広告</th>${colHead}</tr></thead>
         <tbody>${rows || '<tr><td colspan="11">データなし</td></tr>'}</tbody>
       </table>
     </div>`;
+  body.querySelector("#vt-mode-launch").onclick = () => { VT_MODE = "launch"; renderVtBody(ch); };
+  body.querySelector("#vt-mode-recent").onclick = () => { VT_MODE = "recent"; renderVtBody(ch); };
 }
 
 function renderVideoTablePanel(channels) {

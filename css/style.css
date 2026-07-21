@@ -882,6 +882,8 @@ nav button.nav-discovery { font-weight: 600; }
 .vt-table tr.vt-hit { background: rgba(26, 127, 55, 0.07); }
 .vt-table tr.vt-semi { background: rgba(191, 135, 0, 0.06); }
 .vt-thumb img { width: 80px; height: 45px; object-fit: cover; border-radius: 4px; display: block; }
+.vt-modes { display: flex; gap: 0.35rem; margin: 0.5rem 0; }
+.vt-sub { color: var(--text-dim); font-size: 0.7rem; white-space: nowrap; }
 
 /* 📚 分析履歴タブ */
 .an-item {
