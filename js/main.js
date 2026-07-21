@@ -1558,11 +1558,11 @@ function renderRisingRow(r, recentTs) {
       const ex = (m.examples || []).slice(0, 3).map((e) => `
         <div class="xa-sim">・<a href="${e.url}" target="_blank" rel="noopener">${escapeHtml(e.title)}</a>
           <span class="xa-sim-ch">[${escapeHtml(e.channel)}]</span>
-          — ${fmtN(e.views)}v / 登録${fmtN(e.subs)} / score ${e.score} / ${e.age_days}d前</div>`).join("");
+          — ${fmtN(e.views)}v / 登録${fmtN(e.subs)}${e.mult != null ? ` / 普段${fmtN(e.ch_median || 0)}vの${e.mult}倍` : e.score != null ? ` / score ${e.score}` : ""} / ${e.age_days}d前</div>`).join("");
       marketHtml = `
         <div class="xa-market">
           <div class="xa-market-title">🌍 市場検証「${escapeHtml(m.query)}」: ${escapeHtml(m.verdict || "")}</div>
-          <div class="xa-market-stats">監視枠外 ${m.n}本中 HIT率(score≥2.0) ${Math.round((m.hit_rate || 0) * 100)}% ・ 直近90日 ${m.recent90_hits}/${m.recent90_n}本HIT ・ 外部中央値 ${fmtN(m.median_views || 0)}v <span class="xa-market-date">(検証 ${(m.checked_at || "").slice(0, 10)})</span></div>
+          <div class="xa-market-stats">監視枠外 ${m.n}本中 HIT率(そのchの普段の5倍以上) ${Math.round((m.hit_rate || 0) * 100)}% ・ 直近90日 ${m.recent90_hits}/${m.recent90_n}本HIT ・ 外部中央値 ${fmtN(m.median_views || 0)}v <span class="xa-market-date">(検証 ${(m.checked_at || "").slice(0, 10)})</span></div>
           ${ex}
         </div>`;
     }
