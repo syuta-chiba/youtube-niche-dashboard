@@ -238,7 +238,7 @@ function renderMarketPage(market) {
     return `
     <div class="mk-card">
       <h3>「${escapeHtml(m.query || "")}」 <span class="mk-verdict">${escapeHtml(m.verdict || "")}</span></h3>
-      <p class="dv-sub">検証元: ${escapeHtml(m.source_title || vid)} ・ 検証日 ${(m.checked_at || "").slice(0, 10)} ・
+      <p class="dv-sub">検証元: ${escapeHtml(m.source_title || vid)} ・ 検証日 ${(m.checked_at || "").slice(0, 10)}${m.event_date ? ` ・ <strong>📅 イベント起点 ${m.event_date} 以降のみ検索</strong>` : ""} ・
       🇯🇵 ${m.ja_n ?? m.n ?? "?"}本中 HIT率 ${Math.round((m.hit_rate || 0) * 100)}%${m.wave_n != null ? ` ・ 🌊 波(直近${m.wave_days || 7}日) ${m.wave_hits}/${m.wave_n}` : ""}${m.other_n ? ` ・ 🌐 海外 ${m.other_n}本中 ${Math.round((m.other_hit_rate || 0) * 100)}%` : ""}${m.n_shorts_excluded ? ` ・ Shorts ${m.n_shorts_excluded}本除外済` : ""}</p>
       ${legacy}
       ${vids.length ? `<div class="dv-table-wrap"><table class="dv-table">
