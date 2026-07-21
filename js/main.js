@@ -75,6 +75,7 @@ async function load() {
   renderDiscovery(data.discovery || {});
   renderPool(data.pool || []);
   renderMarketPage(data.market || {});
+  renderAnalyses(data.analyses || []);
   buildTabs(data.channels);
 }
 
@@ -104,6 +105,7 @@ function panelEl(id) {
   if (id === "discovery") return document.getElementById("discovery-panel");
   if (id === "pool") return document.getElementById("pool-panel");
   if (id === "market") return document.getElementById("market-panel");
+  if (id === "analyses") return document.getElementById("analyses-panel");
   return document.getElementById("ch-" + id);
 }
 
@@ -152,7 +154,31 @@ function buildTabs(channels) {
   tabs.push({ id: "market", btn: mkBtn });
   nav.appendChild(mkBtn);
 
+  const anBtn = document.createElement("button");
+  anBtn.className = "nav-discovery";
+  anBtn.textContent = "📚 分析履歴";
+  anBtn.onclick = () => activateTab("analyses", tabs);
+  tabs.push({ id: "analyses", btn: anBtn });
+  nav.appendChild(anBtn);
+
   activateTab("rising-watch", tabs);
+}
+
+// === 📚 分析履歴タブ (docs/case_*.md / analysis_*.md を marked.js でレンダリング) ===
+
+function renderAnalyses(analyses) {
+  const panel = document.getElementById("analyses-panel");
+  if (!panel) return;
+  const cards = (analyses || []).map((a, i) => `
+    <details class="an-item"${i === 0 ? " open" : ""}>
+      <summary><span class="an-date">${escapeHtml(a.date)}</span> ${escapeHtml(a.title)}</summary>
+      <div class="an-body">${typeof marked !== "undefined" ? marked.parse(a.content || "") : `<pre>${escapeHtml(a.content || "")}</pre>`}</div>
+    </details>`).join("");
+  panel.innerHTML = `
+    <h2>📚 分析履歴 (${(analyses || []).length}件)</h2>
+    <p class="dv-desc">docs/ に正本化された分析ドキュメント (ケーススタディ・深掘り分析)。
+    新しい分析が commit されると次の cron でここに自動追加される。最新が先頭 (開いた状態)。</p>
+    ${cards || '<p class="dv-sub">（まだ分析ドキュメントなし）</p>'}`;
 }
 
 // === 🌍 外部需要タブ (market_validate の全明細 — このクエリでこの ch が出てきてこうだった) ===

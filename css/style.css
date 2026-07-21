@@ -866,6 +866,41 @@ nav button.nav-discovery { font-weight: 600; }
 .mk-card h3 { margin: 0 0 0.2rem; }
 .mk-verdict { font-size: 0.82rem; font-weight: 500; }
 .mk-title a { color: inherit; }
+
+/* 📚 分析履歴タブ */
+.an-item {
+  margin: 0.6rem 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+}
+.an-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.25rem 0;
+}
+.an-date {
+  color: var(--text-dim);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  margin-right: 0.5rem;
+}
+.an-body {
+  border-top: 1px solid var(--border);
+  margin-top: 0.5rem;
+  padding-top: 0.6rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  overflow-x: auto;
+}
+.an-body h1 { font-size: 1.15rem; margin: 0.8rem 0 0.4rem; }
+.an-body h2 { font-size: 1.02rem; margin: 0.9rem 0 0.35rem; }
+.an-body h3 { font-size: 0.94rem; margin: 0.8rem 0 0.3rem; }
+.an-body table { border-collapse: collapse; margin: 0.5rem 0; }
+.an-body th, .an-body td { border: 1px solid var(--border); padding: 0.3rem 0.55rem; }
+.an-body code { background: rgba(110, 118, 129, 0.15); padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.85em; }
+.an-body pre { background: rgba(110, 118, 129, 0.1); padding: 0.6rem; border-radius: 6px; overflow-x: auto; }
+.an-body blockquote { border-left: 3px solid var(--border); margin: 0.4rem 0; padding-left: 0.8rem; color: var(--text-dim); }
 .pl-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .pl-date { white-space: nowrap; color: var(--text-dim); }
 .pl-up { color: #1a7f37; font-weight: 600; }
