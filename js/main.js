@@ -371,7 +371,8 @@ function renderAnalyses(analyses) {
 // === 🌍 外部需要タブ (market_validate の全明細 — このクエリでこの ch が出てきてこうだった) ===
 
 function marketVideoBadge(v) {
-  if (v.rel_hit) return '<span class="dv-badge dv-ok" title="そのchの普段 (RSS最新15本中央値) の5倍以上・500v以上">🎯 HIT</span>';
+  if (v.ad_suspect) return `<span class="dv-badge dv-ng" title="広告/購入views疑い: like率 ${v.like_pct}% が 絶対0.4%未満 または そのchの普段like率 ${v.ch_like_rate_pct ?? "?"}% の半分未満。HIT集計から除外済み">⚠️盛られ疑い</span>`;
+  if (v.rel_hit) return '<span class="dv-badge dv-ok" title="そのchの普段 (RSS最新15本中央値) の5倍以上・500v以上・広告シロ">🎯 HIT</span>';
   if (v.mult == null) return '<span class="dv-badge dv-na" title="RSSフィードが取れず普段を測定できない (削除ch等)">判定不能</span>';
   if (v.mult < 1) return '<span class="dv-badge dv-ng" title="そのchの普段より回っていない">▼普段未満</span>';
   return '<span class="dv-badge dv-queue" title="普段は超えたが5倍には届かず">中間</span>';
