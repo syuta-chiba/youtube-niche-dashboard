@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T20:39:51Z",
+  "generated_at": "2026-07-23T23:25:55Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -130190,6 +130190,78 @@
       "published_at": "2024-06-17T05:00:35Z",
       "url": "https://www.youtube.com/watch?v=y2D7OzNZK5g",
       "source": "discovery_loop"
+    },
+    {
+      "video_id": "6VL-TKC2J5A",
+      "title": "Day 211 – Vibe Coding an App Until I Make $1,000,000 | ARR: $249,144",
+      "channel": "BridgeMind",
+      "channel_id": "UCwaTGE53GLGC3fDClVl_7TA",
+      "views": 16137,
+      "subs": 96300,
+      "score": 0.17,
+      "published_at": "2026-07-23T18:45:51+00:00",
+      "url": "https://www.youtube.com/watch?v=6VL-TKC2J5A",
+      "source": "rss_patrol"
+    },
+    {
+      "video_id": "7YOqh8qc9lg",
+      "title": "Google I/O Extended Tokyo 2026 - Oki Stage",
+      "channel": "GDG Tokyo",
+      "channel_id": "UCqopF8_oRXuuxBjk_lVB4zQ",
+      "views": 695,
+      "subs": 1040,
+      "score": 0.67,
+      "published_at": "2026-07-11T20:08:22+00:00",
+      "url": "https://www.youtube.com/watch?v=7YOqh8qc9lg",
+      "source": "rss_patrol"
+    },
+    {
+      "video_id": "S6flRYCcS8A",
+      "title": "5 Insane ChatGPT 5.6 Sol Use Cases...",
+      "channel": "Jack Roberts",
+      "channel_id": "UCxVxcTULO9cFU6SB9qVaisQ",
+      "views": 30569,
+      "subs": 243000,
+      "score": 0.13,
+      "published_at": "2026-07-11T19:04:36+00:00",
+      "url": "https://www.youtube.com/watch?v=S6flRYCcS8A",
+      "source": "rss_patrol"
+    },
+    {
+      "video_id": "_2FlJYE4p3Q",
+      "title": "Claude Fable 5 + New Design Skill = Beautiful $10,000 Websites",
+      "channel": "Jack Roberts",
+      "channel_id": "UCxVxcTULO9cFU6SB9qVaisQ",
+      "views": 37805,
+      "subs": 243000,
+      "score": 0.16,
+      "published_at": "2026-07-17T18:51:09+00:00",
+      "url": "https://www.youtube.com/watch?v=_2FlJYE4p3Q",
+      "source": "rss_patrol"
+    },
+    {
+      "video_id": "goU9VIXA8II",
+      "title": "MCP vs Skills: Which Is Right for Your AI Agent and LLMs?",
+      "channel": "IBM Technology",
+      "channel_id": "UCKWaEZ-_VweaEx1j62do_vQ",
+      "views": 82710,
+      "subs": 1750000,
+      "score": 0.05,
+      "published_at": "2026-07-07T11:00:35+00:00",
+      "url": "https://www.youtube.com/watch?v=goU9VIXA8II",
+      "source": "rss_patrol"
+    },
+    {
+      "video_id": "sJt1sQO87sc",
+      "title": "Hermes Agent just got 10X Better... I’m Done",
+      "channel": "Jack Roberts",
+      "channel_id": "UCxVxcTULO9cFU6SB9qVaisQ",
+      "views": 31690,
+      "subs": 243000,
+      "score": 0.13,
+      "published_at": "2026-07-20T16:03:52+00:00",
+      "url": "https://www.youtube.com/watch?v=sJt1sQO87sc",
+      "source": "rss_patrol"
     }
   ],
   "discovery": {
@@ -130811,8 +130883,8 @@
       "icon": "https://yt3.ggpht.com/7qCmNHAsFvD6RSINuJ1WoGZYoKmm7TDnhORKFqLb8QoeOFh2qFXal8brkzoxNrwqmJTuvOLs=s88-c-k-c0x00ffffff-no-rj",
       "subs": 1750000,
       "subs_mom": null,
-      "median_views": 16673,
-      "latest_video_at": "2026-07-22",
+      "median_views": 13931,
+      "latest_video_at": "2026-07-23",
       "source": "market_validate",
       "added": "2026-07-22"
     },
@@ -130822,8 +130894,8 @@
       "icon": "https://yt3.ggpht.com/xRZl5F0FKwBBF4U2S9j8WU92kee-c8kq8D10KMwJAO1cbtW_rEG303qSCBIy1s1cO0pXtwJv=s88-c-k-c0x00ffffff-no-rj",
       "subs": 722000,
       "subs_mom": null,
-      "median_views": 2248,
-      "latest_video_at": "2026-07-22",
+      "median_views": 2472,
+      "latest_video_at": "2026-07-23",
       "source": "market_validate",
       "added": "2026-07-21"
     },
@@ -130833,8 +130905,8 @@
       "icon": "https://yt3.ggpht.com/DNqB1hIwioWT2PYkLGHuFtnfUnx11uE-35XmQqOXJBwyy7sZuBUiTQRySnHoCGP9Wj-0GNGaOQ=s88-c-k-c0x00ffffff-no-rj",
       "subs": 243000,
       "subs_mom": null,
-      "median_views": 8198,
-      "latest_video_at": "2026-07-21",
+      "median_views": 5070,
+      "latest_video_at": "2026-07-23",
       "source": "market_validate",
       "added": "2026-07-21"
     },
@@ -130842,10 +130914,10 @@
       "channel_id": "UCoy6cTJ7Tg0dqS-DI-_REsA",
       "title": "Chase AI",
       "icon": "https://yt3.ggpht.com/o0F_q2m371fwgW87G8R8BA8zvg5-Y5xreztte36ga2xm4uPgwByxhi1OM5UO1P8C-gSpPHzLMg=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 151000,
+      "subs": 152000,
       "subs_mom": null,
-      "median_views": 17672,
-      "latest_video_at": "2026-07-21",
+      "median_views": 18724,
+      "latest_video_at": "2026-07-23",
       "source": "market_validate",
       "added": "2026-07-21"
     },
@@ -130853,10 +130925,10 @@
       "channel_id": "UCwaTGE53GLGC3fDClVl_7TA",
       "title": "BridgeMind",
       "icon": "https://yt3.ggpht.com/Nhub0TMCZUFjPrr7PZDvKuv6O2zICq7Yfi5Ah6P0OdTq_iaoZJ0zM8uMB4pKuEmc7XWpbrxa=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 96000,
+      "subs": 96300,
       "subs_mom": null,
-      "median_views": 2596,
-      "latest_video_at": "2026-07-21",
+      "median_views": 2207,
+      "latest_video_at": "2026-07-23",
       "source": "market_validate",
       "added": "2026-07-21"
     },
@@ -130866,8 +130938,8 @@
       "icon": "https://yt3.ggpht.com/DWuxK-_8M5O-qaqF2vI4tY5afjepFdALOR-M7Ou46HFKu_n6_3vEnOlZTAOdWUn9XNrwNp6lNOo=s88-c-k-c0x00ffffff-no-rj",
       "subs": 23500,
       "subs_mom": null,
-      "median_views": 220,
-      "latest_video_at": "2026-07-22",
+      "median_views": 192,
+      "latest_video_at": "2026-07-23",
       "source": "market_validate",
       "added": "2026-07-21"
     },
@@ -130877,8 +130949,8 @@
       "icon": "https://yt3.ggpht.com/qzStLDAtn6MAZdbSOfmrHrkFid5iRMKxnKQMkmKsZiKULP7iKMSrd7vdB3uiIvJfnXfTw5uTv5Q=s88-c-k-c0x00ffffff-no-rj",
       "subs": 9230,
       "subs_mom": null,
-      "median_views": 703,
-      "latest_video_at": "2026-07-22",
+      "median_views": 885,
+      "latest_video_at": "2026-07-23",
       "source": "market_validate",
       "added": "2026-07-21"
     },
@@ -130886,10 +130958,10 @@
       "channel_id": "UClRQ_q3uE62Ixlx-8gYCsAw",
       "title": "クロノITチャンネル",
       "icon": "https://yt3.ggpht.com/_N2RB-M4Ya5NvgACbwGOQU34YUqg2U9Cno6a6Yqya6qZCWfVYRkRUg8TBrb6kin-uBFrzd5wbA=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 6690,
+      "subs": 6760,
       "subs_mom": null,
-      "median_views": 1994,
-      "latest_video_at": "2026-07-22",
+      "median_views": 2141,
+      "latest_video_at": "2026-07-23",
       "source": "market_validate",
       "added": "2026-07-22"
     },
@@ -130899,7 +130971,7 @@
       "icon": "https://yt3.ggpht.com/YZcl-cyJV_GdOUXPTkDBCHvg4mHwrjsMW7MVYQF8HOqFBfBF_gN_Y7a07IAc3Ow_aKulE6vXWvY=s88-c-k-c0x00ffffff-no-rj",
       "subs": 4270,
       "subs_mom": null,
-      "median_views": 606,
+      "median_views": 601,
       "latest_video_at": "2026-07-20",
       "source": "market_validate",
       "added": "2026-07-22"
@@ -130910,8 +130982,8 @@
       "icon": "https://yt3.ggpht.com/HMqpCAygul0QZOxEnbkeWkPoJ8C_SCRErl-4Ksw_OMg8s1zSaQKbTntZ3wdo0_V98vckl7AqiQ=s88-c-k-c0x00ffffff-no-rj",
       "subs": 3900,
       "subs_mom": null,
-      "median_views": 638,
-      "latest_video_at": "2026-07-16",
+      "median_views": 600,
+      "latest_video_at": "2026-07-23",
       "source": "market_validate",
       "added": "2026-07-22"
     },
@@ -130919,9 +130991,9 @@
       "channel_id": "UCxO54q_znYV9wJgeoh-K5Aw",
       "title": "Victor Lindqvist | AI Systems for Ambitious People",
       "icon": "https://yt3.ggpht.com/mrABDJbkDwYDLQ9DCqt5j9xiDZZULs2BmFfz8iS4Fxtu3XfHcEbQx5HVuTOoxyLpKVAtcTL7yQk=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 2780,
+      "subs": 2820,
       "subs_mom": null,
-      "median_views": 200,
+      "median_views": 204,
       "latest_video_at": "2026-07-20",
       "source": "market_validate",
       "added": "2026-07-21"
@@ -130930,9 +131002,9 @@
       "channel_id": "UCGQ2e-iocKJn9tVEnO_OQbg",
       "title": "Matteo AI",
       "icon": "https://yt3.ggpht.com/6LXgBoQwtynm_KhrlcW4hClnDn4N-egmzMoToAxfeooE_d5uQBRhobuncyI-iG2XC-T7Q1Oy91g=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 1880,
+      "subs": 1890,
       "subs_mom": null,
-      "median_views": 8706,
+      "median_views": 9135,
       "latest_video_at": "2026-07-20",
       "source": "discovery_search",
       "added": "2026-07-22"
@@ -130941,10 +131013,10 @@
       "channel_id": "UCnIjsbHegQj9ydrdcWlvUyQ",
       "title": "AIで自動で動画を作る工場",
       "icon": "https://yt3.ggpht.com/yYQHkLE0jaPNfrz-Re0LsIb0IV894vXlLJHD6MWeWLumSM-FCPwX3RroZvOP15mmVPpQYFn8Sg=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 1750,
+      "subs": 1760,
       "subs_mom": null,
-      "median_views": 113,
-      "latest_video_at": "2026-07-22",
+      "median_views": 42,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_seen",
       "added": "2026-06-24"
     },
@@ -130954,8 +131026,8 @@
       "icon": "https://yt3.ggpht.com/K5W7zaJdt8AHaJR4YhIQZWOuuy58VlxpPstB0hcrEkqmucecshnzV6OBuSGwxdOrllAeGzhx=s88-c-k-c0x00ffffff-no-rj",
       "subs": 1750,
       "subs_mom": null,
-      "median_views": null,
-      "latest_video_at": "",
+      "median_views": 42,
+      "latest_video_at": "2026-07-20",
       "source": "discovery_search",
       "added": "2026-07-23"
     },
@@ -130965,7 +131037,7 @@
       "icon": "https://yt3.ggpht.com/RHKQ1WJEh6K1pSB48MDJRLiztIDO8ZHmbB3O6EtHtUK55X5uZNf_GC3aFSDGaA9gtPr7iCT31g=s88-c-k-c0x00ffffff-no-rj",
       "subs": 1680,
       "subs_mom": null,
-      "median_views": 21,
+      "median_views": 22,
       "latest_video_at": "2026-07-22",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -130985,9 +131057,9 @@
       "channel_id": "UCqSDGVnNvjpz2OtLso3lRMw",
       "title": "Amit Explains Tech",
       "icon": "https://yt3.ggpht.com/M9BUA-Y2OxW33WOqsKhHyR9MlaXNfQ-Sq1bAZlEbpXqFCjl9W1HA0tceVOLy7AYR5Mg_EV_yvA=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 1410,
+      "subs": 1420,
       "subs_mom": null,
-      "median_views": 445,
+      "median_views": 573,
       "latest_video_at": "2026-07-20",
       "source": "market_validate",
       "added": "2026-07-21"
@@ -130998,8 +131070,8 @@
       "icon": "https://yt3.ggpht.com/WE1EZbOoTNCoFbgBOTbCilqt2EBodQ5CYAZeGX1fSAt_nh11rApzJxbpOjR5NRLu7kbVrxEQ=s88-c-k-c0x00ffffff-no-rj",
       "subs": 1390,
       "subs_mom": null,
-      "median_views": 724,
-      "latest_video_at": "2026-07-22",
+      "median_views": 603,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131009,8 +131081,8 @@
       "icon": "https://yt3.ggpht.com/QyVV4GJ2npL5rpMecl17aPSHW22Bhr-UGBgAzygyZ7LRRP3pQepAbVm7UKXuJYpfb7NS5RUD=s88-c-k-c0x00ffffff-no-rj",
       "subs": 1270,
       "subs_mom": null,
-      "median_views": 445,
-      "latest_video_at": "2026-07-20",
+      "median_views": 446,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131018,9 +131090,9 @@
       "channel_id": "UCpuiiq_okgvj5b1s3gcs5lQ",
       "title": "Probably Private",
       "icon": "https://yt3.ggpht.com/-vtVbcdmLGNlpxiY8ZhWa99kkakFuA2qp0s5HL4vfn2zLjwp_WmbsBIcKS-a9ya9TYZSgSPxXg=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 1260,
+      "subs": 1270,
       "subs_mom": null,
-      "median_views": 166,
+      "median_views": 168,
       "latest_video_at": "2026-07-20",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131053,7 +131125,7 @@
       "icon": "https://yt3.ggpht.com/SRtLttSaOwCk9jkNSyKLCJmX6IsvqHAPAlEGeKjniHMZyNA_51W9dpKm6fXp2BqDnYderh8dow=s88-c-k-c0x00ffffff-no-rj",
       "subs": 1120,
       "subs_mom": null,
-      "median_views": 221,
+      "median_views": 222,
       "latest_video_at": "2026-07-01",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131064,7 +131136,7 @@
       "icon": "https://yt3.ggpht.com/AfXg3Ue4dRzpvdfCuZr4gSBxSdr35BzTEdMitl5x4kap9kDQxiH7YxyxCmStTa71wrXuyOhr=s88-c-k-c0x00ffffff-no-rj",
       "subs": 1050,
       "subs_mom": null,
-      "median_views": 717,
+      "median_views": 721,
       "latest_video_at": "2026-03-08",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131075,8 +131147,8 @@
       "icon": "https://yt3.ggpht.com/ytc/AIdro_mT2lE0nKIXBi50kH7-wMuczAd60AD4cGTDWSnnhf2zWw=s88-c-k-c0x00ffffff-no-rj",
       "subs": 1040,
       "subs_mom": null,
-      "median_views": null,
-      "latest_video_at": "",
+      "median_views": 99,
+      "latest_video_at": "2026-07-11",
       "source": "discovery_search",
       "added": "2026-07-23"
     },
@@ -131086,7 +131158,7 @@
       "icon": "https://yt3.ggpht.com/OZLyeOrbfVAEyvK6E7bM-0mLjKIdo1W0X_-Fr9AMIKcfJ8X_bcaHi_ARxV4B-9klzDQTM0uA=s88-c-k-c0x00ffffff-no-rj",
       "subs": 1020,
       "subs_mom": null,
-      "median_views": 1967,
+      "median_views": 1971,
       "latest_video_at": "2026-05-29",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131095,7 +131167,7 @@
       "channel_id": "UC1gd9cPD_AotroKyBsvwPaQ",
       "title": "10 minutes seminar",
       "icon": "https://yt3.ggpht.com/4S_A4BmaJFSa0qxUicu4fXG3eBLXfaVj-lNdgdhnUM4E_6YKiHhHNpWJdmST7B1laMbuPGQTiA=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 972,
+      "subs": 974,
       "subs_mom": null,
       "median_views": 159,
       "latest_video_at": "2026-07-21",
@@ -131106,9 +131178,9 @@
       "channel_id": "UCtnACEczlrZIWGTjuHIumeQ",
       "title": "Rachel noCode",
       "icon": "https://yt3.ggpht.com/iGfhs5g9DZ4T3G9mvhkxp7J7jVQyrBk4i3HE_fdeKlTsNAMXeE3pMQuvwDI0zrQf0SsUFx8eBOc=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 956,
+      "subs": 962,
       "subs_mom": null,
-      "median_views": 120,
+      "median_views": 109,
       "latest_video_at": "2026-07-17",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131117,10 +131189,10 @@
       "channel_id": "UCfNCYKPD-irfnvVeGHxyARQ",
       "title": "Metics Media - 日本語",
       "icon": "https://yt3.ggpht.com/7cd3pJgzKu6Z8iNed7rixPylFTZ4ho9Dci_OizJU0LcqYNy4mGURoB1buzcprIJlBtE2izKEYg=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 942,
+      "subs": 943,
       "subs_mom": null,
-      "median_views": 28,
-      "latest_video_at": "2026-07-17",
+      "median_views": 33,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131128,10 +131200,10 @@
       "channel_id": "UCY16XzzRhK1qHCFOPgibgBg",
       "title": "AI活用伝道師 ",
       "icon": "https://yt3.ggpht.com/zEzpQthQjoApxTDw7H5tDF-2Wv-k1qR1ip6mhvE4EiA3PgN8YtTNFj380HBE3YUCRzdqpq5BOw=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 931,
+      "subs": 932,
       "subs_mom": null,
-      "median_views": 72,
-      "latest_video_at": "2026-07-22",
+      "median_views": 78,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131161,10 +131233,10 @@
       "channel_id": "UCF5_adlZTaoAzxqEh5SSCVA",
       "title": "TechWealth Hub",
       "icon": "https://yt3.ggpht.com/DYBygpU27DPuvkrNNRORvnObqrkR8qlgga6e5Pbt9XpjK6m1Fa-Ooxh06aC2D-lsd5O5vf8q=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 810,
+      "subs": 813,
       "subs_mom": null,
-      "median_views": 42,
-      "latest_video_at": "2026-07-22",
+      "median_views": 53,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131174,8 +131246,8 @@
       "icon": "https://yt3.ggpht.com/KOYZlx_DWmsq0W-CncIErGTRgxjZkx7QIelDmrvHesOygzjg8_tHkxBY159b7zop-48tkyCO=s88-c-k-c0x00ffffff-no-rj",
       "subs": 799,
       "subs_mom": null,
-      "median_views": null,
-      "latest_video_at": "",
+      "median_views": 12,
+      "latest_video_at": "2026-07-14",
       "source": "discovery_search",
       "added": "2026-07-23"
     },
@@ -131185,8 +131257,8 @@
       "icon": "https://yt3.ggpht.com/2oO7h6NkqAFdNxO0FIN2ZMA_zgdfZ-A9IyBN8r7vnlkd6D6-7BMupnYuKxxjHvVq8VsjzTpFEUc=s88-c-k-c0x00ffffff-no-rj",
       "subs": 751,
       "subs_mom": null,
-      "median_views": null,
-      "latest_video_at": "",
+      "median_views": 1176,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-23"
     },
@@ -131194,9 +131266,9 @@
       "channel_id": "UCOVbo9PF0NtY3162utTeIwQ",
       "title": "AI自動化の神",
       "icon": "https://yt3.ggpht.com/OQB-Un7VNYM2T92SdnszeFghHQN8DG2tyNPfmS8QZQGPbvOiLYn9wzbQ5HUfeVWbcR7dVTgX=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 703,
+      "subs": 707,
       "subs_mom": null,
-      "median_views": 139,
+      "median_views": 135,
       "latest_video_at": "2026-07-21",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131205,7 +131277,7 @@
       "channel_id": "UCSnDcvpL6t2Yz85liAd1ARg",
       "title": "AI活用ラボ",
       "icon": "https://yt3.ggpht.com/R2RDdrImeEDceV1dBGm4D40j19hI-gEdk9JHCE7d0F3iZoT30FNJsOTmPBox4KTmmUADUZKq=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 666,
+      "subs": 665,
       "subs_mom": null,
       "median_views": 600,
       "latest_video_at": "2025-06-02",
@@ -131216,7 +131288,7 @@
       "channel_id": "UCpIPzG9y0PxmOT8M5UvVRQQ",
       "title": "チキングダム@技術",
       "icon": "https://yt3.ggpht.com/bP0qIfBcFpyj6y6TgIBRiO54YscDq4wV9AxzqLMrEqcbIDe8hRAHxz5FjoIYd2n1LlNrckwK5g=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 645,
+      "subs": 646,
       "subs_mom": null,
       "median_views": 905,
       "latest_video_at": "2026-07-21",
@@ -131229,8 +131301,8 @@
       "icon": "https://yt3.ggpht.com/VEGimj1oMN8q8dlaHao2cM802n5WO0Q1b-UEsL5rWffkT9V7qMFmu_sS2pzDpKlfWzcGo6qL=s88-c-k-c0x00ffffff-no-rj",
       "subs": 622,
       "subs_mom": null,
-      "median_views": null,
-      "latest_video_at": "",
+      "median_views": 33,
+      "latest_video_at": "2026-07-22",
       "source": "discovery_search",
       "added": "2026-07-23"
     },
@@ -131238,10 +131310,10 @@
       "channel_id": "UCcsyQTTNQLwYQHS4T9kCr-Q",
       "title": "海外のAIエージェント最新トレンド",
       "icon": "https://yt3.ggpht.com/LKWGghVLs3Zif-YcGmjlrjTGYbDq_N7ZF669AiFNka-NgXaSPGJ6jK2Nbr2XhB7ssPyvWUdTjLM=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 620,
+      "subs": 621,
       "subs_mom": null,
-      "median_views": 90,
-      "latest_video_at": "2026-07-22",
+      "median_views": 98,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_seen",
       "added": "2026-07-02"
     },
@@ -131262,7 +131334,7 @@
       "icon": "https://yt3.ggpht.com/1InXd8gKFoUD3YvvD70KFFfYY9j_cfIF8C8WeN_CdbOROQruRoYgNicksdaylY6e_cqqFlft0Q=s88-c-k-c0x00ffffff-no-rj",
       "subs": 599,
       "subs_mom": null,
-      "median_views": 6163,
+      "median_views": 6170,
       "latest_video_at": "2026-04-15",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131284,7 +131356,7 @@
       "icon": "https://yt3.ggpht.com/7Vm6JyrH17XanhFUGjf3jgJznXnqpi7Gk5_9JITLmSfRjmB9emFQ9fV91qpmSKzni2Q1naPiFVM=s88-c-k-c0x00ffffff-no-rj",
       "subs": 594,
       "subs_mom": null,
-      "median_views": 371,
+      "median_views": 372,
       "latest_video_at": "2026-06-15",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131293,10 +131365,10 @@
       "channel_id": "UCbfUZpgeSyNVE38CL86CuBw",
       "title": "リズリス(lizlis)",
       "icon": "https://yt3.ggpht.com/J3BQiENoORhWIqdvPlR8pWbWVexg8KAMQzIDMOHuy2OA4PxTvDy0H3Z37zjaKhBLt2xO5rPz874=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 576,
+      "subs": 580,
       "subs_mom": null,
-      "median_views": 1939,
-      "latest_video_at": "2026-07-22",
+      "median_views": 6949,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-22"
     },
@@ -131307,7 +131379,7 @@
       "subs": 570,
       "subs_mom": null,
       "median_views": 36,
-      "latest_video_at": "2026-07-20",
+      "latest_video_at": "2026-07-21",
       "source": "discovery_search",
       "added": "2026-07-22"
     },
@@ -131315,7 +131387,7 @@
       "channel_id": "UCwhWvP-CTozwEx6son4MLNA",
       "title": "このはな技術室",
       "icon": "https://yt3.ggpht.com/5eJyoUR59IEppTCPTvwnLLSkPJfhs8rZtjD9EIyxPP0_E88azHJv7Rsh9jw67lz8iz4yBCN6=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 486,
+      "subs": 488,
       "subs_mom": null,
       "median_views": 169,
       "latest_video_at": "2026-07-10",
@@ -131328,7 +131400,7 @@
       "icon": "https://yt3.ggpht.com/ytc/AIdro_mEPqVyFEK1nvHBWjQm0RjkDq2BbfdJ1Bero6t_S7rQvS0oav11Yi_E7tGGlbWL3TstlwVk=s88-c-k-c0x00ffffff-no-rj",
       "subs": 480,
       "subs_mom": null,
-      "median_views": 1733,
+      "median_views": 1734,
       "latest_video_at": "2025-08-12",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131337,9 +131409,9 @@
       "channel_id": "UCI7jJcOLi3cntln3nOvhlcA",
       "title": "AI Schoolおおたの「ビジネス変革スイッチ」",
       "icon": "https://yt3.ggpht.com/SkWovKbXhEpZ07xvZtXAZcKxI2q0KBv3W4Qhn37nnjzg4bCU7t7Mf5Iqc9siWAf21FhZ7Av5Q3Q=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 470,
+      "subs": 472,
       "subs_mom": null,
-      "median_views": 218,
+      "median_views": 220,
       "latest_video_at": "2026-07-17",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131348,10 +131420,10 @@
       "channel_id": "UC44kcZEd3Co-LaRheLlVNnw",
       "title": "新しいもの研究所【アタラボ】",
       "icon": "https://yt3.ggpht.com/XEaXkxBV2v9Bh5VwPHN48KjlnGQYYjjGRVsM-1erDi8soir7wUvprtbdznY7M2XsjUzKXHI6oOg=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 469,
+      "subs": 470,
       "subs_mom": null,
-      "median_views": 355,
-      "latest_video_at": "2026-07-21",
+      "median_views": 305,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131359,12 +131431,23 @@
       "channel_id": "UCt8y4QFVWuw0hxIMpbPNgUw",
       "title": "RM Logic",
       "icon": "https://yt3.ggpht.com/Pyin1P_lhA6e6v-JVe0FPmW7nAxircNYB4w6J2BOImcEjIy4R9maYwoKKybAdgUuYtUcVus_=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 401,
+      "subs": 403,
       "subs_mom": null,
-      "median_views": 1065,
+      "median_views": 1066,
       "latest_video_at": "2026-07-09",
       "source": "discovery_search",
       "added": "2026-07-22"
+    },
+    {
+      "channel_id": "UCqGkyrIFMrtzIGDuxG7SPAw",
+      "title": "フレブルと学ぶ「AI」のあれこれ",
+      "icon": "https://yt3.ggpht.com/qFYzPxHgT8QcP1lokRjTP8jR9faLzy32jakfvsdhELPEMSfwzWpZDZu3ufUja5sFEQqs60_w3A=s88-c-k-c0x00ffffff-no-rj",
+      "subs": 398,
+      "subs_mom": null,
+      "median_views": 296,
+      "latest_video_at": "2026-07-20",
+      "source": "discovery_search",
+      "added": "2026-07-21"
     },
     {
       "channel_id": "UCSuM3VHpKSGKSsS4q-8G1-g",
@@ -131372,30 +131455,19 @@
       "icon": "https://yt3.ggpht.com/GRxGaarI6UDsGMUzWzIiELXn4pfV-zRG5JnKerq78rWM3f2lsvgwN5YsALfHJYR-3Yb7t_bkYDI=s88-c-k-c0x00ffffff-no-rj",
       "subs": 389,
       "subs_mom": null,
-      "median_views": null,
-      "latest_video_at": "",
+      "median_views": 167,
+      "latest_video_at": "2025-10-14",
       "source": "discovery_search",
       "added": "2026-07-23"
-    },
-    {
-      "channel_id": "UCqGkyrIFMrtzIGDuxG7SPAw",
-      "title": "フレブルと学ぶ「AI」のあれこれ",
-      "icon": "https://yt3.ggpht.com/qFYzPxHgT8QcP1lokRjTP8jR9faLzy32jakfvsdhELPEMSfwzWpZDZu3ufUja5sFEQqs60_w3A=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 387,
-      "subs_mom": null,
-      "median_views": 293,
-      "latest_video_at": "2026-07-20",
-      "source": "discovery_search",
-      "added": "2026-07-21"
     },
     {
       "channel_id": "UCJsUZ5mAmsQaqcC0j8qxkEQ",
       "title": "AI実践ラボ  【ずんだもん解説】",
       "icon": "https://yt3.ggpht.com/I5DSZBXwrUsjV9zmu8CHWMaBDHyf7E9oW73oNoOGAnNKfnFS6Wu5BGiOrzpz0WeTH0kRZaVi2Q=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 380,
+      "subs": 384,
       "subs_mom": null,
-      "median_views": 332,
-      "latest_video_at": "2026-07-21",
+      "median_views": 532,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-22"
     },
@@ -131405,7 +131477,7 @@
       "icon": "https://yt3.ggpht.com/8fxSiKMsVCgiCh9mXjkctIgay5yzZZgmpxECFZZUKq2IzkMuqPzemdW6GkbQPjtZMZZNTTasmg=s88-c-k-c0x00ffffff-no-rj",
       "subs": 359,
       "subs_mom": null,
-      "median_views": 421,
+      "median_views": 422,
       "latest_video_at": "2026-02-11",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131414,7 +131486,7 @@
       "channel_id": "UCXnJtZXvvLeJjupG25CG4CQ",
       "title": "Techの地平線",
       "icon": "https://yt3.ggpht.com/DnlK0PjnutKxteA7wOGaIKefOBS4lrOjybJKi_edM1ZG3b7poKXwSN2NhB7dD2Cx7Tc-zY-gjng=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 355,
+      "subs": 356,
       "subs_mom": null,
       "median_views": 214,
       "latest_video_at": "2026-05-07",
@@ -131436,7 +131508,7 @@
       "channel_id": "UCFZpHKu8TIDC4B_sOcHFDoA",
       "title": "AI Terminal",
       "icon": "https://yt3.ggpht.com/bG4yBZis_j54rPUR_SdBQSPdiIq_nrI_IcE7_W0mPgJovZBV7zgfhc3ym2t6aAPbCOzHz4RydQ=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 310,
+      "subs": 311,
       "subs_mom": null,
       "median_views": 240,
       "latest_video_at": "2026-06-09",
@@ -131469,7 +131541,7 @@
       "channel_id": "UCOh_82KS_7afbapJzm2CnZg",
       "title": "ECに特化したAIチャットボット 接客のプロAI",
       "icon": "https://yt3.ggpht.com/IC5myk_nuc0-OXyGm4_BPrXLc3ewlN1xIVrl9nrBtyHdgO8MyELpSuPTa_9nC1BXCVuapTeUcrU=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 282,
+      "subs": 283,
       "subs_mom": null,
       "median_views": 126,
       "latest_video_at": "2025-12-09",
@@ -131477,13 +131549,24 @@
       "added": "2026-06-07"
     },
     {
+      "channel_id": "UCJz6K1YAtohGURL6gDFwldw",
+      "title": "AIアップデートラボ",
+      "icon": "",
+      "subs": 256,
+      "subs_mom": null,
+      "median_views": 55,
+      "latest_video_at": "2026-07-02",
+      "source": "market_validate",
+      "added": "2026-07-23"
+    },
+    {
       "channel_id": "UCHczcgOdhsIvYdDL0KHZl1A",
       "title": "だに / AIアプリ開発とクリエイティブ",
       "icon": "https://yt3.ggpht.com/5YEan0kw7WSsws3mKPxa4mfgSePgdvMLa2NSVZK3kvmOgoaQ4JVIXpkHkILstDmJOXzUDU9KnU4=s88-c-k-c0x00ffffff-no-rj",
       "subs": 252,
       "subs_mom": null,
-      "median_views": 173,
-      "latest_video_at": "2026-07-21",
+      "median_views": 132,
+      "latest_video_at": "2026-07-22",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131513,7 +131596,7 @@
       "channel_id": "UCqwyVtnkxeVLepXHA_EsC6w",
       "title": "ソフラボ 🖥️ ソフトウェア開発について幅広く配信",
       "icon": "https://yt3.ggpht.com/B1qcsMY0emlnNzN8ql7AIxhW54rBiI0-B5E523b8jfqu7JpaLBErul0EsUBBObS6u7c_Z0u9=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 188,
+      "subs": 189,
       "subs_mom": null,
       "median_views": 36,
       "latest_video_at": "2026-06-14",
@@ -131528,6 +131611,17 @@
       "subs_mom": null,
       "median_views": 351,
       "latest_video_at": "2026-07-21",
+      "source": "discovery_search",
+      "added": "2026-07-21"
+    },
+    {
+      "channel_id": "UCLvSYGy-1RLGoEb3zv58nJQ",
+      "title": "中小企業のIT参謀 ホンモノのAI DX 田港勝利",
+      "icon": "https://yt3.ggpht.com/JW0oBq9cXk8ovFdoNn5X9Ew0l1GOfS7xuxGZAP0f7XZiBt-s6g3ZxLRcA6_GyrGnV89MTIEFMA=s88-c-k-c0x00ffffff-no-rj",
+      "subs": 182,
+      "subs_mom": null,
+      "median_views": 261,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131576,21 +131670,10 @@
       "added": "2026-07-22"
     },
     {
-      "channel_id": "UCLvSYGy-1RLGoEb3zv58nJQ",
-      "title": "中小企業のIT参謀 ホンモノのAI DX 田港勝利",
-      "icon": "https://yt3.ggpht.com/JW0oBq9cXk8ovFdoNn5X9Ew0l1GOfS7xuxGZAP0f7XZiBt-s6g3ZxLRcA6_GyrGnV89MTIEFMA=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 158,
-      "subs_mom": null,
-      "median_views": 256,
-      "latest_video_at": "2026-07-16",
-      "source": "discovery_search",
-      "added": "2026-07-21"
-    },
-    {
       "channel_id": "UCYrPw9tZ8jtHYk05qN9N6RQ",
       "title": "さぬきうどん店 さぬき一番youtubeチャンネル",
       "icon": "https://yt3.ggpht.com/wqwXjeW3q6mBUl_HTN-rJWnHP704XInxLNThWrUfVhoYJrJgQCkboLQ0WV-y-AFiy2eGG6sJpQ=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 146,
+      "subs": 148,
       "subs_mom": null,
       "median_views": 568,
       "latest_video_at": "2026-07-21",
@@ -131612,7 +131695,7 @@
       "channel_id": "UCG5PakctYGIUJ92Tjl5bslg",
       "title": "生成AIの最新情報まとめマゼンチュア",
       "icon": "https://yt3.ggpht.com/R3ifC3oQcCVn8XTBlTNKNFoDFzi9a0ntpgBoH8xyfFD28QSkJcbNSfOEz4-rB2T01p9cOc7j4g=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 144,
+      "subs": 143,
       "subs_mom": null,
       "median_views": 1071,
       "latest_video_at": "2026-07-21",
@@ -131623,10 +131706,10 @@
       "channel_id": "UCYFvACb9AKgTHGhTUfWA8Mw",
       "title": "AIニュースナビ",
       "icon": "https://yt3.ggpht.com/EFDtK-55Es1yNFhFvgvixup3j7W1Bvqtzccr9uAtykXMQXT8f9KVo_jtsXLifglPIgCNn2qw9Q=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 134,
+      "subs": 135,
       "subs_mom": null,
-      "median_views": 27,
-      "latest_video_at": "2026-07-22",
+      "median_views": 28,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131636,10 +131719,21 @@
       "icon": "https://yt3.ggpht.com/8CzDE5zKqhen8I3DxrAgKpMIBFiIAP2SoTi0c9TfBJamrHY6-Ac0S_kn386hnJoR8vDG8G9yZQ=s88-c-k-c0x00ffffff-no-rj",
       "subs": 127,
       "subs_mom": null,
-      "median_views": 7,
-      "latest_video_at": "2026-07-20",
+      "median_views": 8,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
+    },
+    {
+      "channel_id": "UCPHgy7B1FmJuHIpTsBL6NJQ",
+      "title": "AIの歩き方",
+      "icon": "https://yt3.ggpht.com/PCrX-_SaLW479v5nHs7VzQCzCuHrOFWUKVCcKIAlEZbCVP2cR4KiZZMU4uj5a7WGJDY103vJpQ=s88-c-k-c0x00ffffff-no-rj",
+      "subs": 124,
+      "subs_mom": null,
+      "median_views": 65,
+      "latest_video_at": "2026-07-23",
+      "source": "discovery_search",
+      "added": "2026-07-22"
     },
     {
       "channel_id": "UCzMScrETEyGW1LZkt0jyLKQ",
@@ -131658,29 +131752,18 @@
       "icon": "https://yt3.ggpht.com/rE2gOUuBDoEgg_KuJz-2_VlpKUVpOJdrk7s6giHwynLhdVZqqFo4Gi1cjP6CKwQKV8Cvy7QWVw=s88-c-k-c0x00ffffff-no-rj",
       "subs": 120,
       "subs_mom": null,
-      "median_views": 20,
-      "latest_video_at": "2026-07-22",
+      "median_views": 19,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
-    },
-    {
-      "channel_id": "UCPHgy7B1FmJuHIpTsBL6NJQ",
-      "title": "AIの歩き方",
-      "icon": "https://yt3.ggpht.com/PCrX-_SaLW479v5nHs7VzQCzCuHrOFWUKVCcKIAlEZbCVP2cR4KiZZMU4uj5a7WGJDY103vJpQ=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 119,
-      "subs_mom": null,
-      "median_views": 84,
-      "latest_video_at": "2026-07-22",
-      "source": "discovery_search",
-      "added": "2026-07-22"
     },
     {
       "channel_id": "UCULSGi4jco5gnf5nuUnt3tA",
       "title": "ずんだもん by TechLabs and GOLD ALPHA",
       "icon": "https://yt3.ggpht.com/NFbCKLWSrUW55JHZtqWY1fselGDdQrsP5neN_OOHnag4yB6wJy_bV-J8kEZIMMu9y4gJ_FQEig=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 108,
+      "subs": 111,
       "subs_mom": null,
-      "median_views": 671,
+      "median_views": 674,
       "latest_video_at": "2026-07-18",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131691,8 +131774,8 @@
       "icon": "https://yt3.ggpht.com/UNC-PPruuG4DASTmoBwhD1hWB76oVC1c4PimQFZPmBolbNZhFC8WCfW__5ubW62cBUwOw0UdKA=s88-c-k-c0x00ffffff-no-rj",
       "subs": 106,
       "subs_mom": null,
-      "median_views": 6,
-      "latest_video_at": "2026-07-22",
+      "median_views": 7,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131711,10 +131794,10 @@
       "channel_id": "UCV0Z7zQGqLiw2BxxglemKrA",
       "title": "コンピューターサイエンス勉強ch",
       "icon": "https://yt3.ggpht.com/5fvaX_qBEPZDjgoEMerKdZSnolCGIvxuSwmHEF4RMRduUljtqROKcT686Om6VmunJQc8DjE6Mw=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 91,
+      "subs": 92,
       "subs_mom": null,
-      "median_views": 12,
-      "latest_video_at": "2026-07-22",
+      "median_views": 20,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131724,8 +131807,8 @@
       "icon": "https://yt3.ggpht.com/X2BQ96HTYyf0LZM-spELOpi4wF2AROkjfBzVScW5GRC1nkO9vHOqoCD2gLZSQs6QBaP9COccvg=s88-c-k-c0x00ffffff-no-rj",
       "subs": 86,
       "subs_mom": null,
-      "median_views": 4,
-      "latest_video_at": "2026-07-22",
+      "median_views": 9,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131735,7 +131818,7 @@
       "icon": "https://yt3.ggpht.com/_geZp1vJOsn3mmaxUkQCMg1Gf4FIb4uk7Xad_5C-7W8c5YOD2JNejKVgTvH8HYOoRiRckewWFg=s88-c-k-c0x00ffffff-no-rj",
       "subs": 81,
       "subs_mom": null,
-      "median_views": 1556,
+      "median_views": 1557,
       "latest_video_at": "2025-08-09",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131746,8 +131829,8 @@
       "icon": "https://yt3.ggpht.com/MfEVq8mDXl-zpXDXs9YFt6w2fR4Kf2Cu1aaPaTN6_JS1BKKL2LdjHxAsr4q74d6EitVuun0bUQ=s88-c-k-c0x00ffffff-no-rj",
       "subs": 80,
       "subs_mom": null,
-      "median_views": 13,
-      "latest_video_at": "2026-07-22",
+      "median_views": 12,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131755,10 +131838,10 @@
       "channel_id": "UC7zrHgABD9b2mtUiTVAZOGA",
       "title": "AIをかんたん解説@メリノちゃん",
       "icon": "https://yt3.ggpht.com/chWabSsFlyVJwF6EMKpOBVBrWxQp0UCi2RtES_px8JDCdojPcpZtpOPHO6Ji0W_fMFoj9vmuAaU=s88-c-k-c0x00ffffff-no-rj",
-      "subs": 72,
+      "subs": 73,
       "subs_mom": null,
-      "median_views": 75,
-      "latest_video_at": "2026-07-22",
+      "median_views": 52,
+      "latest_video_at": "2026-07-23",
       "source": "market_validate",
       "added": "2026-07-21"
     },
@@ -131768,7 +131851,7 @@
       "icon": "https://yt3.ggpht.com/ytc/AIdro_nFk88nvy_XCO4rcg0-ta5LBq_a0Jru9y4dnbBjNSSVc5w=s88-c-k-c0x00ffffff-no-rj",
       "subs": 65,
       "subs_mom": null,
-      "median_views": 86,
+      "median_views": 94,
       "latest_video_at": "2026-07-17",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131779,7 +131862,7 @@
       "icon": "https://yt3.ggpht.com/qSmuw8fUbuB0-KHg2N_QYQfF6LDMKRDeUpwZeoO8-ifkjNbjq9n-c5YhhMgRQK7ExPANsnmcI_g=s88-c-k-c0x00ffffff-no-rj",
       "subs": 57,
       "subs_mom": null,
-      "median_views": 8,
+      "median_views": 9,
       "latest_video_at": "2026-07-20",
       "source": "discovery_search",
       "added": "2026-07-21"
@@ -131790,8 +131873,8 @@
       "icon": "https://yt3.ggpht.com/cDiDAO3ut-XDwaxWjAc2p7K-vmr20nYTYtKFd7TVHEC0eF95xg0rl62JGz5urXJhGKzxKFjp2g=s88-c-k-c0x00ffffff-no-rj",
       "subs": 54,
       "subs_mom": null,
-      "median_views": 29,
-      "latest_video_at": "2026-07-21",
+      "median_views": 28,
+      "latest_video_at": "2026-07-23",
       "source": "discovery_search",
       "added": "2026-07-21"
     },
@@ -131808,6 +131891,20 @@
     }
   ],
   "analyses": [
+    {
+      "file": "analysis_hermes_timeline_2026-07-24.md",
+      "title": "Hermes Agent/Desktop 時系列分析 — 「まだ参入できるか」 (2026-07-24)",
+      "date": "2026-07-24",
+      "evidence": [],
+      "content": "# Hermes Agent/Desktop 時系列分析 — 「まだ参入できるか」 (2026-07-24)\n\nユーザー指摘「Hermes Desktop は Sura×Asura が結構前に扱っていた。時系列が気になる、まだ参入できるのか」\n→ 手元全時系列 (20件) + probe (search 200u) で3波構造を確認した。\n\n**probe の読み方に注意**: 88件は「6/1以降の総供給」ではなく **各クエリ新着50件の窓** (search.list の1ページ上限)。\n\n**⚠️ 密度論の撤回 (2026-07-24 対照実験)**: 当初「新着50件が15日しか遡れない=異常な供給密度」と読んだが、\nベースライン計測 (各100u×4) の結果、グローバル検索では **人気キーワードの新着50件は1〜2日で埋まるのが普通**\n(Claude Code=1日 / Ollama=2日 / LangChain=2日)。Hermes の15日はむしろ一段低い密度。\n密度が言えるのは「AutoGPT (97日) 型の死んだテーマではない」ことだけ。\n**教訓: 密度・供給量はベースライン (対照キーワード) なしで語らない。** 波の証拠は下記の普段比 outlier に依る。\n\n## 3波構造 (実測)\n\n| 波 | 時期 | 圏 | 代表 | 規模 |\n|---|---|---|---|---|\n| 第1波: Agent紹介 | 4/14-4/25 | JP | クドクラ 907 / ずんだもん 901 / CC Cafe 1,187 | ~1kv 級 |\n| 第2波: Desktop/GUI・深掘り | 5/4-6/12 | JP | **Sura 3,842 (寝ないAI従業員)** / クドクラ Desktop 2,592 / 公式Desktop解説 (Sura) 2,776 / このはな技術室 3,773 | 2.5-3.8kv 級 |\n| **第3波: 大型更新×モデル連携** | **7/9-現在進行中** | **ほぼ英語圏のみ** | Samin Yasar 44k (**普段比30倍**) / Komputer Mechanic 41k (6.8倍) / Tina Huang 96k (4.1倍) / Moe Lueker 11k (4.8倍) | **テーマ内で過去最大** (普段比 outlier の同時多発で判定・絶対viewsではない) |\n\n- 第3波のドライバ: v0.19 Quicksilver (7/22) 等の**連続大型更新** + 公式 Desktop + **大型モデル連携ネタ\n  (Kimi K3 / GPT-5.6 / Fable 5 / Gemma 4)**。1チャンネル (Julian Goldie) が7日で8本出す過熱ぶり\n\n### 第3波の普段比検証 (2026-07-24 追試・ユーザー指摘「大手が扱ってるだけでは?」を受けて)\n\n絶対 views でなく **チャンネル相対 (普段=RSS直近15本中央値・H-01)** で測り直した:\n\n| 判定 | ch | views | 普段比 |\n|---|---|---|---|\n| ✅ outlier | Samin Yasar (小規模・軸②) | 44,038 | **30.3倍** |\n| ✅ outlier | Komputer Mechanic | 41,775 | **6.8倍** |\n| ✅ outlier | Moe Lueker (GPT-5.6連携) | 11,846 | 4.8倍 |\n| ✅ outlier | Tina Huang | 96,622 | 4.1倍 (公開3日) |\n| ✅ 準 | Fazt (西) | 27,496 | 3.1倍 |\n| ❌ 平常 | Sam Witteveen / Wanderloots / Adrian Twarog | — | 1.1〜1.4倍 |\n| ❌ ch内FLOP | Niklas Steenfatt (独) / Jack Roberts「Fabel 5+Hermes」 | 30,097 / 11,312 | **0.5倍 / 0.8倍** |\n\n- **波は本物** (小規模30倍=軸② + 複数chで5倍級同時多発=軸① + 供給密度)。\n  ただし **0.5〜1.4倍群の存在 = 「Hermesを扱えば当たる」ではない**。当落は切り口次第で、\n  JP参入時も H-11 (実測主語) の規律は必須\n- 教訓: 波の検証は絶対viewsで語らない (H-90 で棄却済みの読み方に自分で戻っていた)。普段比で測る\n- **日本語圏は 6/12 (このはな 3,773) を最後に新作HITが途絶**。probe 88件中、7月の日本語新作は\n  個人小規模 (8v/27v級) のみ = **英語圏が過去最大の波の真っ最中なのに JP レーンが空いている**\n\n## 判定: まだ参入できるか → **できる。ただし第2波の再演ではなく第3波の輸入で**\n\n- JPの先行事例は生存 (H-05クリア): Sura シリーズ9本は 578〜3,842v で全滅なし。\n  クドクラ Desktop は**2ヶ月無減衰 (+14〜25/日)** = 検索需要が残存しているのに JP 新作供給が止まっている\n- 英語圏の第3波は「JPに数週遅れで波及する」パターンの先行指標。**今입れば JP 第3波の early entry**\n  (H-05 の逆側 = まだ誰も出していない)\n- 第2波と同じ「Desktopとは何か」を今出すのは死 (H-11 解説型)。**第3波の実測型で入る**:\n  v0.19 世代 + モデル連携 + 実際に動かす\n\n## 本命候補: 2鉱脈の交点「ローカルLLM × Hermes Agent」\n\nprobe に既に萌芽がある (英語圏: \"Run Hermes Agent + Gemma 4: Private, Fast, Free\" 系が7/23に複数)。\n- **「GPUなしノートPCのローカルLLM (Ollama/Gemma 4) で Hermes Agent を動かす」** =\n  ①今作っている動画の直接続編 (H-04 1段深く) ②Hermes 第3波の JP early entry (H-05)\n  ③ツール名網 Hermes×Gemma4×Ollama (H-12) ④Sura/クドクラ視聴層との回遊\n- 現行動画の結論マトリクスから「エージェント用途ならどのモデルか」で自然につながる\n- タイトルは実測主語 (H-11): 例「GPUなしPCでHermes Agentは動くのか、ローカルLLMで実測した」\n\n## 学び (hypotheses.md へ反映)\n\n- **H-12 補強**: Orca だけでなく Hermes も「連続大型更新が波を再生産する」実例。\n  更新が活発な OSS はテーマ寿命が単発ツールより長い (波が複数回来る)\n- **新仮説 H-13**: 英語圏の波は JP に数週遅れで波及する。英語圏ピーク×JP空白 = JP early entry の窓\n  (今回の Hermes が検証ケース)\n\n## 出典データ\n\n- 手元: time_series 9ch + external_hits (Hermes 20件・4/14〜6/12)\n- probe: search.list \"Hermes Agent\"/\"Hermes Desktop AI\" 6/1以降 date順 88件 (2026-07-24 実行・202u)\n"
+    },
+    {
+      "file": "analysis_kudokura_oss_series_2026-07-24.md",
+      "title": "クドクラ「GitHubオープンソース」シリーズ急伸分析 (2026-07-24)",
+      "date": "2026-07-24",
+      "evidence": [],
+      "content": "# クドクラ「GitHubオープンソース」シリーズ急伸分析 (2026-07-24)\n\nユーザー指摘: Orca 4,758v / Hermes Desktop 2,593v がクドクラ (priority ch) で異常に伸びている → 精査した。\n\n## 実測サマリ (time_series 175観測点 + 最新CSV)\n\n| 動画 | 公開 | views | 普段比 | like率 | 形状 |\n|---|---|---|---|---|---|\n| Orca (Claude Code・Codex・Grok・Antigravity同時) | 5/29 | 4,758 | **27倍** | 2.19% | 初速2,400→停滞→**6/25-7/2 再加速 (+147〜323/日)**→現役+10/日 |\n| Hermes Desktop (Hermes AgentをGUI管理) | 5/30 | 2,593 | **15倍** | 2.12% | 初速1,400→**2ヶ月間 +14〜25/日が一切減衰しない**検索資産型 |\n| (参考) OpenHuman | 5/26 | 1,036 | 6倍 | 2.61% | 同シリーズ3連投の1本目 |\n\n- チャンネル普段 = 中央値 176.5v。**チャンネルtop3が全部この5/26-30の3連投**\n- 広告判定: シロ濃厚。like率 2.1-2.6% はch平常レンジ (1-3%) と一致、期待比の異常なし\n- subs 122 (6/2) → **231 (7/23) = 7週間で+89%**。シリーズが登録転換まで効いている\n\n## なぜ伸びたか (機序)\n\n1. **固有名詞ツール × 複数AI統合の損得**: 「Claude・Codex・Grok を同時に使う」= ツール名の羅列が\n   複数の検索・推薦クラスタに同時接続する「キーワード網」。Orca は実在の熱いOSS\n   ([stablyai/orca](https://github.com/stablyai/orca) — 30+エージェント対応 ADE・MIT) で、\n   ツール自体の話題波 (6月末) に乗って再加速した可能性が高い\n2. **OSS=無料 (広い損得) × 能力アンロック** — フック4階層の最上位型に合致\n3. **分水嶺の同一ch内反証がある**: 同じクドクラでも「Free Claude Code 徹底解説」(ローカルLLM×CC) は\n   196v で死んでいる。**ツール固有名詞+具体機能=生 / 「徹底解説」型の説明主語=死** —\n   video_candidates_2026-07-22 の分水嶺 (実測=HIT/解説=死) と整合\n4. 補助: note.com に同題記事を並走させており ([kudoucraft](https://note.com/kudoucraft))、検索面を二重取り\n\n## emperor_ch への示唆\n\n- **同層 (231subs) で「熱いOSSの具体ツール紹介」が27倍**の追加実証。ローカルLLM鉱脈と並ぶ第2鉱脈候補\n  =「マルチエージェント統合/管理ツール (Orca/Hermes Desktop 系)」\n- 今の動画との接続: ローカルLLM×GUI管理 (Open WebUI 等) はこの2鉱脈の交点 → 次々回候補としてストック\n- 参入するなら分水嶺ルール適用: 「〇〇徹底解説」ではなく「実際に△△してみた/どこまで動くか」の実測主語\n- Orca の再加速 (公開27日後) は「ツールの話題波が後から動画を持ち上げる」実例 —\n  熱いOSSはツール名がタイトルにあるだけで後追いブーストが来る (時間軸の読みが単調減衰でない)\n\n## 出典\n\n- [stablyai/orca (GitHub)](https://github.com/stablyai/orca) / [onorca.dev](https://www.onorca.dev/)\n- [Orca Review 2026 (vibecodinghub)](https://vibecodinghub.org/tools/orca)\n- クドクラ note 併走記事: [note.com/kudoucraft](https://note.com/kudoucraft/n/n96cb7e5b9043)\n"
+    },
     {
       "file": "analysis_local_llm_vein_2026-07-22.md",
       "title": "ローカルLLM比較鉱脈 — 1ページ資料 (2026-07-22)",
@@ -132010,6 +132107,203 @@
     }
   ],
   "daily_reports": [
+    {
+      "date": "2026-07-24",
+      "weekday": "Fri",
+      "subs": 1530,
+      "total_views": 175180,
+      "subs_delta": 0,
+      "views_delta": 98,
+      "movers": [
+        {
+          "video_id": "ztyqRZPQRhI",
+          "title": "【リアルWeb制作！】※パート２もお見せします！営業戦略のブラッシュアップ！失敗前提でどんどんテストをしていきます！",
+          "views": 15,
+          "delta": 8,
+          "published_at": "2026-07-21"
+        },
+        {
+          "video_id": "ncGHITBLY5c",
+          "title": "【Claude Code】VScodeと連携して使う方法！【差分をしっかりみて判断できる！】",
+          "views": 667,
+          "delta": 8,
+          "published_at": "2026-04-19"
+        },
+        {
+          "video_id": "RshRjA12Dus",
+          "title": "【Ollama】Claude Codeを無料で使う2つの方法｜ローカル vs クラウド無料枠",
+          "views": 3799,
+          "delta": 6,
+          "published_at": "2026-05-10"
+        },
+        {
+          "video_id": "UWvy94HpYH8",
+          "title": "【経験談】ノートPCでClaudeをローカル化したら遅すぎた",
+          "views": 995,
+          "delta": 5,
+          "published_at": "2026-05-11"
+        },
+        {
+          "video_id": "npJpXSvDVGA",
+          "title": "【0円継続】Claude Code制限が来ても無料で動かす方法",
+          "views": 1773,
+          "delta": 5,
+          "published_at": "2026-05-10"
+        },
+        {
+          "video_id": "avmLusDxSCY",
+          "title": "【経験談】大学生がプログラミングの勉強したら「完全在宅」で「月13万円」稼げた話【バイト代わり】",
+          "views": 19419,
+          "delta": 4,
+          "published_at": "2024-05-14"
+        },
+        {
+          "video_id": "LqnDlVu18LQ",
+          "title": "【スマホ1台】VPS×Claude Codeで24時間どこでも開発する仕組み",
+          "views": 1017,
+          "delta": 3,
+          "published_at": "2026-05-16"
+        },
+        {
+          "video_id": "lc5e5_7jY1k",
+          "title": "「node.js」をPCにインストールしよう！【Expo,React Native】",
+          "views": 66,
+          "delta": 3,
+          "published_at": "2026-01-28"
+        },
+        {
+          "video_id": "XYWDr5l8sz8",
+          "title": "【CSSの基本編】#19「text-align」プロパティの使い方。【ブロックボックスの中の、コンテンツの配置。】【start,end,left,right,center,justify】",
+          "views": 439,
+          "delta": 3,
+          "published_at": "2023-05-08"
+        },
+        {
+          "video_id": "5xIhQD-u5UM",
+          "title": "【vps不要！】スマホとAIだけでスマホアプリ開発ができる仕組みを構築できたので共有します！【隙間時間が開発時間に！】「claude on the web」「GitHub」「Expo Go」３つだけ！",
+          "views": 66,
+          "delta": 2,
+          "published_at": "2026-07-15"
+        },
+        {
+          "video_id": "h56gYKmpyUs",
+          "title": "【意外と知らない】Claude 5時間制限の本当の理由 #Shorts",
+          "views": 1026,
+          "delta": 2,
+          "published_at": "2026-05-09"
+        },
+        {
+          "video_id": "60azALrCjqw",
+          "title": "【写真→Excel自動入力】Claudeアドインが神すぎる #ai #claude #excel",
+          "views": 2331,
+          "delta": 2,
+          "published_at": "2026-05-05"
+        },
+        {
+          "video_id": "JbsIdjNVIks",
+          "title": "【バズの共通点をデータから取得！】ライバルのバズリールをApifyで全部抜き取る方法がエグすぎた件について。",
+          "views": 88,
+          "delta": 2,
+          "published_at": "2026-04-28"
+        },
+        {
+          "video_id": "tjcgM1cZsxA",
+          "title": "【CSSの基本編】#20「vertical-align」プロパティの使い方。【インラインボックスの配置。】【baseline,super,sub,text-top,text-bottom,%,px】",
+          "views": 928,
+          "delta": 2,
+          "published_at": "2023-05-13"
+        },
+        {
+          "video_id": "cC15SjoNdis",
+          "title": "【HTMLの基本編】#9 imgタグの使い方とalt属性をつける理由とは？相対URLと絶対URLについても解説。",
+          "views": 647,
+          "delta": 2,
+          "published_at": "2022-11-21"
+        }
+      ],
+      "recent": [
+        {
+          "video_id": "ztyqRZPQRhI",
+          "title": "【リアルWeb制作！】※パート２もお見せします！営業戦略のブラッシュアップ！失敗前提でどんどんテストをしていきます！",
+          "views": 15,
+          "published_at": "2026-07-21"
+        }
+      ],
+      "priority": [
+        {
+          "video_id": "d2256mBkb8Y",
+          "title": "ローカルAI（ローカルLLM）を強化する！無課金AI生活２～知識拡張で最新情報や社内・個人情報をAIで回答可能にする～",
+          "channel": "デジタルの時間",
+          "views": 5076,
+          "delta": 2926
+        },
+        {
+          "video_id": "HSf7rcaSOjU",
+          "title": "ローカルAI（ローカルLLM）で実現!?無課金AI生活～自分専用のAI環境つくってみた",
+          "channel": "デジタルの時間",
+          "views": 30324,
+          "delta": 1027
+        },
+        {
+          "video_id": "veTHJ4NMDMU",
+          "title": "【99%が知らないCodexの使い方】毎回同じプロンプトを書くのは終わり。過去の修正を引き継ぐ「Skills」完全ガイド#chatgpt  #claude",
+          "channel": "reckの知識の森",
+          "views": 1319,
+          "delta": 371
+        },
+        {
+          "video_id": "_ouIO7yNOtE",
+          "title": "Claude Codeを開発チームに変える4本柱 ── CLAUDE.md×Skills×Hooks×Subagents",
+          "channel": "Sura×Asura For AI Agent",
+          "views": 187,
+          "delta": 164
+        },
+        {
+          "video_id": "9GHcy64Avbg",
+          "title": "【始動】99%が知らない「ローカルLLM」の世界。Google最新Gemma 3を無料で構築する方法【ローカルLLM構築計画#1】#Ollama",
+          "channel": "reckの知識の森",
+          "views": 44999,
+          "delta": 111
+        },
+        {
+          "video_id": "vnODbLAqV3k",
+          "title": "【99%が知らない】「API vs ローカルLLM」どっちが正解？9割が知らないAI学習の真実と、ファインチューニングで作る\"最強の専属AI\"【ローカルLLM構築計画#3】 #Unsloth",
+          "channel": "reckの知識の森",
+          "views": 25920,
+          "delta": 63
+        },
+        {
+          "video_id": "dDeXhBnZF98",
+          "title": "AIエージェントの定義が理解できないのでFX為替エージェントを作ってみた",
+          "channel": "デジタルの時間",
+          "views": 613,
+          "delta": 44
+        },
+        {
+          "video_id": "miwoy9UD5gg",
+          "title": "【Modelfile】99%が知らない「AIの性格」を改造する方法。一人デスゲームから無限論破まで、Gemma 3の禁断の遊び方【ローカルLLM構築計画#2】",
+          "channel": "reckの知識の森",
+          "views": 14677,
+          "delta": 36
+        },
+        {
+          "video_id": "Gmmq2NvBlQM",
+          "title": "【採用】Skillsは便利 vs 危険 ── 17万starの裏で3人に1人が「危険なスキル」だったSnyk調査の話",
+          "channel": "Sura×Asura For AI Agent",
+          "views": 345,
+          "delta": 31
+        },
+        {
+          "video_id": "MqVu7DPRc88",
+          "title": "【完全初心者向け】高価なGPUなしでも画像1枚から動画をローカルで作る方法 | FramePack 導入からプロンプトまで全部見せます #AI動画 #動画生成ai",
+          "channel": "reckの知識の森",
+          "views": 2409,
+          "delta": 26
+        }
+      ],
+      "discovery": "2026-07-23: 深掘り評価: 6 ch / AUTO 追加: 0 / queue: 6",
+      "quota_yesterday": 2493
+    },
     {
       "date": "2026-07-23",
       "weekday": "Thu",
@@ -132518,11 +132812,13 @@
   ],
   "quota": {
     "date_pt": "2026-07-23",
-    "today_units": 2510,
+    "today_units": 2527,
     "limit": 10000,
     "by_source": {
       "priority": 295,
-      "discovery": 2215
+      "discovery": 2215,
+      "rss_patrol": 4,
+      "daily_report": 13
     },
     "daily": [
       {
@@ -132539,7 +132835,7 @@
       },
       {
         "date": "2026-07-23",
-        "units": 2510
+        "units": 2527
       }
     ]
   }
