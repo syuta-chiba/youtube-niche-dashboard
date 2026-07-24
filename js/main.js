@@ -524,9 +524,9 @@ function renderDiscovery(dv) {
     <tr>
       <td class="dv-date">${escapeHtml(e.date || "")}</td>
       <td class="dv-ch"><a href="https://www.youtube.com/channel/${encodeURIComponent(e.channel_id)}" target="_blank" rel="noopener">${escapeHtml(e.title)}</a></td>
-      <td><span class="dv-badge ${d.cls}">${d.label}</span></td>
+      <td class="dv-badge-cell"><span class="dv-badge ${d.cls}">${d.label}</span></td>
       <td class="dv-note">${escapeHtml(e.reason || "")}</td>
-      <td>${rejectBtn}</td>
+      <td class="dv-action">${rejectBtn}</td>
     </tr>`;
   }).join("");
 
@@ -548,7 +548,7 @@ function renderDiscovery(dv) {
     <p class="dv-sub">discovery が深掘り評価した候補の台帳 (新しい順)。「✅ 合格・確認待ち」を見て、良ければ priority_channels.txt へ手動追加。
     違うと確定したら「✗違う」で行をコピーし <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a> へ貼って commit。</p>
     <div class="dv-table-wrap">
-      <table class="dv-table">
+      <table class="dv-table dv-eval">
         <thead><tr><th>評価日</th><th>チャンネル</th><th>判定</th><th>理由</th><th></th></tr></thead>
         <tbody>${evRows || '<tr><td colspan="5">（まだ評価履歴なし）</td></tr>'}</tbody>
       </table>
