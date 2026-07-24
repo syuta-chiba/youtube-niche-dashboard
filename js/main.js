@@ -523,7 +523,7 @@ function renderDiscovery(dv) {
     return `
     <tr>
       <td class="dv-date">${escapeHtml(e.date || "")}</td>
-      <td class="dv-ch"><a href="https://www.youtube.com/channel/${encodeURIComponent(e.channel_id)}" target="_blank" rel="noopener">${escapeHtml(e.title)}</a></td>
+      <td class="dv-ch">${e.icon ? `<img class="ch-icon" src="${e.icon}" alt="" loading="lazy">` : ""}<a href="https://www.youtube.com/channel/${encodeURIComponent(e.channel_id)}" target="_blank" rel="noopener">${escapeHtml(e.title)}</a></td>
       <td class="dv-badge-cell"><span class="dv-badge ${d.cls}">${d.label}</span></td>
       <td class="dv-note">${escapeHtml(e.reason || "")}</td>
       <td class="dv-action">${rejectBtn}</td>
