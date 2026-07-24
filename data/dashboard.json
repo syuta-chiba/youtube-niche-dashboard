@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T23:11:24Z",
+  "generated_at": "2026-07-24T23:30:15Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -153369,6 +153369,203 @@
   ],
   "daily_reports": [
     {
+      "date": "2026-07-25",
+      "weekday": "Sat",
+      "subs": 1530,
+      "total_views": 175248,
+      "subs_delta": 0,
+      "views_delta": 68,
+      "movers": [
+        {
+          "video_id": "RshRjA12Dus",
+          "title": "【Ollama】Claude Codeを無料で使う2つの方法｜ローカル vs クラウド無料枠",
+          "views": 3809,
+          "delta": 10,
+          "published_at": "2026-05-10"
+        },
+        {
+          "video_id": "avmLusDxSCY",
+          "title": "【経験談】大学生がプログラミングの勉強したら「完全在宅」で「月13万円」稼げた話【バイト代わり】",
+          "views": 19427,
+          "delta": 8,
+          "published_at": "2024-05-14"
+        },
+        {
+          "video_id": "ncGHITBLY5c",
+          "title": "【Claude Code】VScodeと連携して使う方法！【差分をしっかりみて判断できる！】",
+          "views": 673,
+          "delta": 6,
+          "published_at": "2026-04-19"
+        },
+        {
+          "video_id": "UWvy94HpYH8",
+          "title": "【経験談】ノートPCでClaudeをローカル化したら遅すぎた",
+          "views": 1000,
+          "delta": 5,
+          "published_at": "2026-05-11"
+        },
+        {
+          "video_id": "r_T8MSzUXoA",
+          "title": "【Mac不要】スマホだけでiPhoneアプリをApp Storeに公開した方法",
+          "views": 1076,
+          "delta": 4,
+          "published_at": "2026-05-17"
+        },
+        {
+          "video_id": "npJpXSvDVGA",
+          "title": "【0円継続】Claude Code制限が来ても無料で動かす方法",
+          "views": 1777,
+          "delta": 4,
+          "published_at": "2026-05-10"
+        },
+        {
+          "video_id": "h56gYKmpyUs",
+          "title": "【意外と知らない】Claude 5時間制限の本当の理由 #Shorts",
+          "views": 1030,
+          "delta": 4,
+          "published_at": "2026-05-09"
+        },
+        {
+          "video_id": "ztyqRZPQRhI",
+          "title": "【リアルWeb制作！】※パート２もお見せします！営業戦略のブラッシュアップ！失敗前提でどんどんテストをしていきます！",
+          "views": 18,
+          "delta": 3,
+          "published_at": "2026-07-21"
+        },
+        {
+          "video_id": "LSZonLkKGkk",
+          "title": "【損してるかも】同じClaude Codeなのに人でトークン消費が違う理由",
+          "views": 888,
+          "delta": 3,
+          "published_at": "2026-05-27"
+        },
+        {
+          "video_id": "ABo9nej5tmw",
+          "title": "【賢い節約】設計はMax、検証はLowで使い分けるClaude Code術",
+          "views": 1099,
+          "delta": 2,
+          "published_at": "2026-05-26"
+        },
+        {
+          "video_id": "LqnDlVu18LQ",
+          "title": "【スマホ1台】VPS×Claude Codeで24時間どこでも開発する仕組み",
+          "views": 1019,
+          "delta": 2,
+          "published_at": "2026-05-16"
+        },
+        {
+          "video_id": "NQM4xEGppQI",
+          "title": "【Vscode】「マルチカーソル」を使って複数行の同時編集する方法。【作業効率の大幅UPショートカット】",
+          "views": 329,
+          "delta": 2,
+          "published_at": "2024-11-07"
+        },
+        {
+          "video_id": "XYWDr5l8sz8",
+          "title": "【CSSの基本編】#19「text-align」プロパティの使い方。【ブロックボックスの中の、コンテンツの配置。】【start,end,left,right,center,justify】",
+          "views": 441,
+          "delta": 2,
+          "published_at": "2023-05-08"
+        },
+        {
+          "video_id": "2Ld-rhGbFfI",
+          "title": "【claude code】/effortコマンドで同一モデル内の思考の深さを調節可能！トークンの節約にもなる！【上級者は使っている】",
+          "views": 63,
+          "delta": 1,
+          "published_at": "2026-05-26"
+        },
+        {
+          "video_id": "b0k8nwApO7s",
+          "title": "【知らずに実行】PowerShellの危険コマンドの見分け方",
+          "views": 887,
+          "delta": 1,
+          "published_at": "2026-05-11"
+        }
+      ],
+      "recent": [
+        {
+          "video_id": "ztyqRZPQRhI",
+          "title": "【リアルWeb制作！】※パート２もお見せします！営業戦略のブラッシュアップ！失敗前提でどんどんテストをしていきます！",
+          "views": 18,
+          "published_at": "2026-07-21"
+        }
+      ],
+      "priority": [
+        {
+          "video_id": "d2256mBkb8Y",
+          "title": "ローカルAI（ローカルLLM）を強化する！無課金AI生活２～知識拡張で最新情報や社内・個人情報をAIで回答可能にする～",
+          "channel": "デジタルの時間",
+          "views": 6194,
+          "delta": 908
+        },
+        {
+          "video_id": "HSf7rcaSOjU",
+          "title": "ローカルAI（ローカルLLM）で実現!?無課金AI生活～自分専用のAI環境つくってみた",
+          "channel": "デジタルの時間",
+          "views": 31342,
+          "delta": 885
+        },
+        {
+          "video_id": "NbRaUTuiJek",
+          "title": "Claude Cowork vs RPA｜一度見せれば働くAI、100件超の領収書で止まった",
+          "channel": "Sura×Asura For AI Agent",
+          "views": 164,
+          "delta": 152
+        },
+        {
+          "video_id": "veTHJ4NMDMU",
+          "title": "【99%が知らないCodexの使い方】毎回同じプロンプトを書くのは終わり。過去の修正を引き継ぐ「Skills」完全ガイド#chatgpt  #claude",
+          "channel": "reckの知識の森",
+          "views": 1436,
+          "delta": 97
+        },
+        {
+          "video_id": "vnODbLAqV3k",
+          "title": "【99%が知らない】「API vs ローカルLLM」どっちが正解？9割が知らないAI学習の真実と、ファインチューニングで作る\"最強の専属AI\"【ローカルLLM構築計画#3】 #Unsloth",
+          "channel": "reckの知識の森",
+          "views": 26006,
+          "delta": 75
+        },
+        {
+          "video_id": "9GHcy64Avbg",
+          "title": "【始動】99%が知らない「ローカルLLM」の世界。Google最新Gemma 3を無料で構築する方法【ローカルLLM構築計画#1】#Ollama",
+          "channel": "reckの知識の森",
+          "views": 45075,
+          "delta": 71
+        },
+        {
+          "video_id": "miwoy9UD5gg",
+          "title": "【Modelfile】99%が知らない「AIの性格」を改造する方法。一人デスゲームから無限論破まで、Gemma 3の禁断の遊び方【ローカルLLM構築計画#2】",
+          "channel": "reckの知識の森",
+          "views": 14718,
+          "delta": 36
+        },
+        {
+          "video_id": "MqVu7DPRc88",
+          "title": "【完全初心者向け】高価なGPUなしでも画像1枚から動画をローカルで作る方法 | FramePack 導入からプロンプトまで全部見せます #AI動画 #動画生成ai",
+          "channel": "reckの知識の森",
+          "views": 2438,
+          "delta": 27
+        },
+        {
+          "video_id": "pWYLyG-Lo_8",
+          "title": "「OllamaはLlama.cppより1.8倍遅い」知らないと損するローカルLLM完全比較2026",
+          "channel": "AI時代のテック速報【ずんだもん解説】",
+          "views": 2902,
+          "delta": 22
+        },
+        {
+          "video_id": "HzPr_H0xjns",
+          "title": "【初心者向け】Codex初期設定ガイド。Memory・MCP・Hooksは入れるな #vscode  #プログラミング #ai",
+          "channel": "reckの知識の森",
+          "views": 5496,
+          "delta": 18
+        }
+      ],
+      "discovery": "2026-07-24: 深掘り評価: 26 ch / AUTO 追加: 0 / queue: 26",
+      "quota_yesterday": 2645
+    },
+    {
       "date": "2026-07-24",
       "weekday": "Fri",
       "subs": 1530,
@@ -154073,12 +154270,13 @@
   ],
   "quota": {
     "date_pt": "2026-07-24",
-    "today_units": 12186,
+    "today_units": 12199,
     "limit": 10000,
     "by_source": {
       "priority": 236,
       "discovery": 11931,
-      "rss_patrol": 19
+      "rss_patrol": 19,
+      "daily_report": 13
     },
     "daily": [
       {
@@ -154099,7 +154297,7 @@
       },
       {
         "date": "2026-07-24",
-        "units": 12186
+        "units": 12199
       }
     ]
   }
