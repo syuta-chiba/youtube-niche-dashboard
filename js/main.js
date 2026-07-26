@@ -72,7 +72,7 @@ async function load() {
   data.channels.forEach((ch, idx) => main.appendChild(renderChannel(ch, idx)));
   // 広告混ざり枠 (boosted) は真似元候補ではないので横断急伸ウォッチから除外
   renderRisingWatch(data.channels.filter((c) => !c.boosted));
-  renderDiscovery(data.discovery || {});
+  renderDiscovery(data.discovery || {}, data.rejected || []);
   renderPool(data.pool || []);
   renderMarketPage(data.market || {});
   renderAnalyses(data.analyses || []);
@@ -460,7 +460,7 @@ function renderPool(pool) {
       <td class="pl-num" title="RSS 最新15本 (公開7日超) の views 中央値 = そのchの普段">${p.median_views != null ? fmtN(p.median_views) : "—"}</td>
       <td class="pl-date">${escapeHtml(p.latest_video_at || "—")}</td>
       <td class="pl-date" title="発見経路: ${escapeHtml(p.source || "?")}">${escapeHtml(p.added || "—")}</td>
-      <td><button class="pl-reject" data-cid="${escapeHtml(p.channel_id)}" data-title="${escapeHtml(p.title)}" title="rejected_channels.txt 用の行をコピー → 上の編集リンクから貼って commit すると、巡回・照合・表示の全部から外れる">✗違う</button></td>
+      <td><button class="pl-reject" data-cid="${escapeHtml(p.channel_id)}" data-title="${escapeHtml(p.title)}" title="rejected_channels.txt 用の行をコピー → 上の編集リンクから貼って commit すると、巡回・照合から外れ 🧭 タブの「🚫 違う確定」台帳へ移動">✗違う</button></td>
     </tr>`;
   }).join("");
 
@@ -469,7 +469,7 @@ function renderPool(pool) {
     <p class="dv-desc">discovery の検索・市場検証・外部コーパスで一度でも視界に入った ch を全員ここに貯め、
     毎朝 <strong>RSS フィードで巡回 (quota ゼロ)</strong>。跳ねた動画が出た瞬間に 📡 Slack 通知で再浮上する —
     「一度 gate に落ちたら二度と見ない」を無くす層。並びは前月比の登録者の伸び順。全競合を洗い出す方針で増やし続ける。</p>
-    <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧の全部から外れる（行削除で復帰）。</p>
+    <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧から外れ、🧭 新規発見タブ下部の「🚫 違う確定」台帳に移動する（行削除で復帰）。</p>
     <div class="dv-table-wrap">
       <table class="dv-table">
         <thead><tr><th>チャンネル</th><th>登録者</th><th>前月比</th><th>再生中央値</th><th>最新投稿</th><th>発見日</th><th></th></tr></thead>
@@ -488,7 +488,6 @@ const DV_DECISION = {
   "queued(cap)": { label: "✅ 合格・確認待ち", cls: "dv-ok" },
   queued: { label: "🔎 queue (見送り)", cls: "dv-queue" },
   rejected: { label: "✗ 不採用 (機械)", cls: "dv-ng" },
-  rejected_human: { label: "🚫 違う確定 (人間)", cls: "dv-ng" },
   skip: { label: "− 取得不可", cls: "dv-na" },
 };
 
@@ -504,11 +503,12 @@ function copyRejectLine(btn, cid, title) {
   });
 }
 
-function renderDiscovery(dv) {
+function renderDiscovery(dv, rejected) {
   const panel = document.getElementById("discovery-panel");
   if (!panel) return;
   const kws = dv.keywords || [];
   const evaluated = dv.evaluated || [];
+  rejected = rejected || [];
 
   const kwRows = kws.map((k) => `
     <tr>
@@ -518,8 +518,7 @@ function renderDiscovery(dv) {
 
   const evRows = evaluated.map((e) => {
     const d = DV_DECISION[e.decision] || { label: escapeHtml(e.decision || "?"), cls: "dv-na" };
-    const rejectBtn = e.decision === "rejected_human" ? ""
-      : `<button class="pl-reject" data-cid="${escapeHtml(e.channel_id)}" data-title="${escapeHtml(e.title)}" title="rejected_channels.txt 用の行をコピー">✗違う</button>`;
+    const rejectBtn = `<button class="pl-reject" data-cid="${escapeHtml(e.channel_id)}" data-title="${escapeHtml(e.title)}" title="rejected_channels.txt 用の行をコピー → 貼って commit すると下の「🚫 違う確定」台帳へ移動">✗違う</button>`;
     return `
     <tr>
       <td class="dv-date">${escapeHtml(e.date || "")}</td>
@@ -529,6 +528,12 @@ function renderDiscovery(dv) {
       <td class="dv-action">${rejectBtn}</td>
     </tr>`;
   }).join("");
+
+  const rejRows = rejected.map((r) => `
+    <tr>
+      <td class="dv-date">${escapeHtml(r.date || "—")}</td>
+      <td class="dv-ch">${r.icon ? `<img class="ch-icon" src="${r.icon}" alt="" loading="lazy">` : ""}<a href="https://www.youtube.com/channel/${encodeURIComponent(r.channel_id)}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a></td>
+    </tr>`).join("");
 
   panel.innerHTML = `
     <h2>🧭 新規発見 — discovery loop (毎朝 JST 4:23)</h2>
@@ -546,13 +551,26 @@ function renderDiscovery(dv) {
 
     <h3>評価済みチャンネル (${evaluated.length}件)</h3>
     <p class="dv-sub">discovery が深掘り評価した候補の台帳 (新しい順)。「✅ 合格・確認待ち」を見て、良ければ priority_channels.txt へ手動追加。
-    違うと確定したら「✗違う」で行をコピーし <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a> へ貼って commit。</p>
+    違うと確定したら「✗違う」で行をコピーし <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a> へ貼って commit
+    — この一覧から外れ、下の「🚫 違う確定」台帳へ移動する。</p>
     <div class="dv-table-wrap">
       <table class="dv-table dv-eval">
         <thead><tr><th>評価日</th><th>チャンネル</th><th>判定</th><th>理由</th><th></th></tr></thead>
         <tbody>${evRows || '<tr><td colspan="5">（まだ評価履歴なし）</td></tr>'}</tbody>
       </table>
-    </div>`;
+    </div>
+
+    <details class="an-item">
+      <summary>🚫 違う確定チャンネル (${rejected.length}件) — rejected_channels.txt の台帳</summary>
+      <p class="dv-sub">「✗違う」で確定した ch はここに移動する。RSS 巡回・discovery 再評価・類似HIT照合・上の各一覧からは外れるが、この台帳でいつでも確認できる。
+      復帰させるには <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a> から該当行を削除して commit（プールに再合流する）。</p>
+      <div class="dv-table-wrap">
+        <table class="dv-table">
+          <thead><tr><th>確定日</th><th>チャンネル</th></tr></thead>
+          <tbody>${rejRows || '<tr><td colspan="2">（まだ違う確定なし）</td></tr>'}</tbody>
+        </table>
+      </div>
+    </details>`;
   panel.querySelectorAll(".pl-reject").forEach((btn) => {
     btn.addEventListener("click", () => copyRejectLine(btn, btn.dataset.cid, btn.dataset.title));
   });
