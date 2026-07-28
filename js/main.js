@@ -72,6 +72,7 @@ async function load() {
   data.channels.forEach((ch, idx) => main.appendChild(renderChannel(ch, idx)));
   // 広告混ざり枠 (boosted) は真似元候補ではないので横断急伸ウォッチから除外
   renderRisingWatch(data.channels.filter((c) => !c.boosted));
+  renderSlowBurn(data.slow_burn || []);
   renderDiscovery(data.discovery || {}, data.rejected || []);
   renderPool(data.pool || []);
   renderMarketPage(data.market || {});
@@ -104,6 +105,7 @@ function renderQuotaMeter(q) {
 
 function panelEl(id) {
   if (id === "rising-watch") return document.getElementById("rising-watch-panel");
+  if (id === "slowburn") return document.getElementById("slowburn-panel");
   if (id === "discovery") return document.getElementById("discovery-panel");
   if (id === "pool") return document.getElementById("pool-panel");
   if (id === "market") return document.getElementById("market-panel");
@@ -123,6 +125,13 @@ function buildTabs(channels) {
   risingBtn.onclick = () => activateTab("rising-watch", tabs);
   tabs.push({ id: "rising-watch", btn: risingBtn });
   nav.appendChild(risingBtn);
+
+  // 🌱 検索資産 (slow-burn) — 急伸ウォッチの逆側 (公開90日超で伸び続ける動画)
+  const sbBtn = document.createElement("button");
+  sbBtn.textContent = "🌱 検索資産";
+  sbBtn.onclick = () => activateTab("slowburn", tabs);
+  tabs.push({ id: "slowburn", btn: sbBtn });
+  nav.appendChild(sbBtn);
 
   // 📰 日次レポート (Slack はリンクだけ、読む場所はここ — 2026-07-21 方針)
   const dailyBtn = document.createElement("button");
@@ -183,6 +192,111 @@ function buildTabs(channels) {
   const hashTab = (location.hash || "").slice(1);
   const known = new Set(tabs.map((t) => t.id));
   activateTab(known.has(hashTab) ? hashTab : "rising-watch", tabs);
+}
+
+// === 🌱 検索資産タブ (slow-burn: 公開90日超で伸び続ける動画 = 検索需要の証拠 H-23/H-24) ===
+// データは build_pages_data.py build_slow_burn() (slow_burn_probe.py と対管理)。
+// 窓比 = 直近30日Δ / その前30日Δ。>=0.8 = 🔎 検索駆動疑い (レコメンド尻尾は減衰する、検索は残る)。
+
+const SB_KLASS = {
+  search: { label: "🔎 検索駆動疑い", cls: "sb-search", hint: "両30日窓+15v以上 × 窓比0.8以上 — 検索・保存の消えない流入" },
+  tail: { label: "📉 減衰中", cls: "sb-tail", hint: "伸びてはいるが減衰 (窓比0.8未満) — レコメンドの尻尾" },
+  weak: { label: "・微動", cls: "sb-weak", hint: "動いているが月+15v未満" },
+};
+const SB_COLS = [
+  { key: "d30", label: "Δ30日", hint: "直近30日で増えた views" },
+  { key: "d30_prev", label: "前30日Δ", hint: "その前の30日 (60→30日前) で増えた views" },
+  { key: "ratio", label: "窓比", hint: "Δ30日 ÷ 前30日Δ。0.8以上=検索駆動疑い、1超=加速中" },
+  { key: "d7", label: "Δ7日", hint: "直近7日で増えた views" },
+  { key: "views", label: "累計", hint: "現在の総 views" },
+  { key: "baseline_mult", label: "普段比", hint: "累計 ÷ chの普段(全動画中央値)。低いほど「flopなのに検索では生きている」" },
+  { key: "age_days", label: "齢", hint: "公開からの日数" },
+];
+let SB_ROWS = [];
+let SB_SORT = { key: "d30", dir: -1 };
+let SB_FILTER = "all";
+
+function sbRenderBody() {
+  const tbody = document.getElementById("sb-tbody");
+  if (!tbody) return;
+  let rows = SB_FILTER === "all" ? [...SB_ROWS] : SB_ROWS.filter((r) => r.klass === SB_FILTER);
+  const { key, dir } = SB_SORT;
+  rows.sort((a, b) => dir * ((a[key] ?? -Infinity) > (b[key] ?? -Infinity) ? 1 : -1) || b.d30 - a.d30);
+  tbody.innerHTML = rows.map((r) => {
+    const k = SB_KLASS[r.klass] || SB_KLASS.weak;
+    return `
+    <tr class="${r.klass === "search" ? "sb-row-search" : ""}">
+      <td class="vt-thumb"><a href="${r.url}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${encodeURIComponent(r.video_id)}/default.jpg" alt="" loading="lazy"></a></td>
+      <td class="rw-col-title"><a class="rw-title" href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>
+        <div class="rw-sub">${escapeHtml(r.channel)} · 公開 ${escapeHtml(r.published_at)}</div></td>
+      <td class="sb-klass ${k.cls}" title="${k.hint}">${k.label}</td>
+      <td class="rw-num">+${fmtN(r.d30)}</td>
+      <td class="rw-num">+${fmtN(r.d30_prev)}</td>
+      <td class="rw-num ${r.ratio >= 1 ? "sb-accel" : ""}" title="${r.ratio >= 1 ? "加速中" : ""}">${r.ratio == null ? "—" : r.ratio.toFixed(2)}</td>
+      <td class="rw-num">${r.d7 == null ? "—" : "+" + fmtN(r.d7)}</td>
+      <td class="rw-total">${fmtN(r.views)}</td>
+      <td class="rw-num">${r.baseline_mult == null ? "—" : r.baseline_mult + "×"}</td>
+      <td class="rw-age">${r.age_days}d</td>
+    </tr>`;
+  }).join("") || `<tr><td colspan="10" class="rw-empty">該当なし</td></tr>`;
+  // ソート中の列見出しを強調
+  document.querySelectorAll("#slowburn-panel th.sb-sortable").forEach((th) => {
+    const active = th.dataset.key === SB_SORT.key;
+    th.classList.toggle("sb-sorted", active);
+    th.textContent = th.dataset.label + (active ? (SB_SORT.dir < 0 ? " ↓" : " ↑") : "");
+  });
+}
+
+function renderSlowBurn(rows) {
+  const panel = document.getElementById("slowburn-panel");
+  if (!panel) return;
+  SB_ROWS = rows;
+  const nSearch = rows.filter((r) => r.klass === "search").length;
+  const nTail = rows.filter((r) => r.klass === "tail").length;
+  if (!rows.length) {
+    panel.innerHTML = `<h2>🌱 検索資産 (slow-burn)</h2><p class="dv-sub">（まだデータなし — 次回のデータ生成から表示されます）</p>`;
+    return;
+  }
+  const ths = SB_COLS.map((c) =>
+    `<th class="sb-sortable" data-key="${c.key}" data-label="${c.label}" title="${c.hint} (クリックでソート)">${c.label}</th>`).join("");
+  panel.innerHTML = `
+    <div class="rw-header">
+      <h2>🌱 検索資産 (slow-burn) — 公開90日超なのに伸び続けている動画</h2>
+      <p class="rw-help">初速のレコメンド波が終わった後も残る伸び = <strong>検索・保存の消えない流入</strong>。
+      <strong>窓比</strong> (直近30日Δ ÷ 前30日Δ) が <strong>0.8以上 = 🔎 検索駆動疑い</strong>・1超は加速中。
+      弱いchの動画が 🔎 で伸び続けている場合、そのキーワードは<strong>需要あり×供給薄 = 検索資産動画の狙い目</strong>。
+      列見出しクリックでソート。詳しい方法論は docs/longtail_keywords 正本 (H-23/H-24)。</p>
+      <div class="rw-filter-group">
+        <span class="rw-filter-label">絞り込み:</span>
+        <div class="rw-filters">
+          <button class="rw-filter sb-filter active" data-k="all">すべて (${rows.length})</button>
+          <button class="rw-filter sb-filter" data-k="search">🔎 検索駆動疑い (${nSearch})</button>
+          <button class="rw-filter sb-filter" data-k="tail">📉 減衰中 (${nTail})</button>
+        </div>
+      </div>
+    </div>
+    <div class="rw-table-wrap">
+      <table class="rw-table">
+        <thead><tr><th></th><th class="rw-col-title">動画</th><th>判定</th>${ths}</tr></thead>
+        <tbody id="sb-tbody"></tbody>
+      </table>
+    </div>`;
+  panel.querySelectorAll(".sb-filter").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      panel.querySelectorAll(".sb-filter").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      SB_FILTER = btn.dataset.k;
+      sbRenderBody();
+    });
+  });
+  panel.querySelectorAll("th.sb-sortable").forEach((th) => {
+    th.addEventListener("click", () => {
+      const key = th.dataset.key;
+      SB_SORT = { key, dir: SB_SORT.key === key ? -SB_SORT.dir : -1 };
+      sbRenderBody();
+    });
+  });
+  sbRenderBody();
 }
 
 // === 📋 動画分析タブ (全動画 × views/普段比/like率/広告判定/公開1・3・7・14・28日後views) ===

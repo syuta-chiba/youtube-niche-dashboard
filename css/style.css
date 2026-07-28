@@ -949,3 +949,14 @@ nav button.nav-discovery { font-weight: 600; }
 .pl-up { color: #1a7f37; font-weight: 600; }
 .pl-down { color: #cf222e; }
 .pl-na { color: var(--text-dim); }
+
+/* === 🌱 検索資産 (slow-burn) タブ === */
+.sb-klass { white-space: nowrap; font-size: 0.78rem; }
+.sb-search { color: #1a7f37; font-weight: 600; }
+.sb-tail { color: var(--text-dim); }
+.sb-weak { color: var(--text-dim); opacity: 0.6; }
+.sb-accel { color: #1a7f37; font-weight: 700; }
+.sb-row-search { background: rgba(26, 127, 55, 0.05); }
+th.sb-sortable { cursor: pointer; user-select: none; white-space: nowrap; }
+th.sb-sortable:hover { color: var(--accent); }
+th.sb-sorted { color: var(--accent); }
