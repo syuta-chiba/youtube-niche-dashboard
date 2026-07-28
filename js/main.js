@@ -205,17 +205,18 @@ function buildTabs(channels) {
 
 // === 🌱 検索資産タブ (slow-burn: 公開90日超で伸び続ける動画 = 検索需要の証拠 H-23/H-24) ===
 // データは build_pages_data.py build_slow_burn() (slow_burn_probe.py と対管理)。
-// 窓比 = 直近30日Δ / その前30日Δ。>=0.8 = 🔎 検索駆動疑い (レコメンド尻尾は減衰する、検索は残る)。
+// 窓比 = 直近30日Δ / その前30日Δ。>=0.8 = 🔎 持続流入 (一過性の初速波は減衰する、持続需要は残る)。
+// 「検索駆動」から改称 (2026-07-28 H-23精密化): 外部からは検索と定常おすすめを分離できない。
 
 const SB_KLASS = {
-  search: { label: "🔎 検索駆動疑い", cls: "sb-search", hint: "両30日窓+15v以上 × 窓比0.8以上 — 検索・保存の消えない流入" },
+  search: { label: "🔎 持続流入", cls: "sb-search", hint: "両30日窓+15v以上 × 窓比0.8以上 — 初速の波でない持続需要 (検索/保存/定常おすすめの混合。経路の分離は外部から不可)" },
   tail: { label: "📉 減衰中", cls: "sb-tail", hint: "伸びてはいるが減衰 (窓比0.8未満) — レコメンドの尻尾" },
   weak: { label: "・微動", cls: "sb-weak", hint: "動いているが月+15v未満" },
 };
 const SB_COLS = [
   { key: "d30", label: "Δ30日", hint: "直近30日で増えた views" },
   { key: "d30_prev", label: "前30日Δ", hint: "その前の30日 (60→30日前) で増えた views" },
-  { key: "ratio", label: "窓比", hint: "Δ30日 ÷ 前30日Δ。0.8以上=検索駆動疑い、1超=加速中" },
+  { key: "ratio", label: "窓比", hint: "Δ30日 ÷ 前30日Δ。0.8以上=持続流入、1超=加速中" },
   { key: "d7", label: "Δ7日", hint: "直近7日で増えた views" },
   { key: "views", label: "累計", hint: "現在の総 views" },
   { key: "baseline_mult", label: "普段比", hint: "累計 ÷ chの普段(全動画中央値)。低いほど「flopなのに検索では生きている」" },
@@ -272,14 +273,14 @@ function renderSlowBurn(rows) {
     <div class="rw-header">
       <h2>🌱 検索資産 (slow-burn) — 公開90日超なのに伸び続けている動画</h2>
       <p class="rw-help">初速のレコメンド波が終わった後も残る伸び = <strong>検索・保存の消えない流入</strong>。
-      <strong>窓比</strong> (直近30日Δ ÷ 前30日Δ) が <strong>0.8以上 = 🔎 検索駆動疑い</strong>・1超は加速中。
+      <strong>窓比</strong> (直近30日Δ ÷ 前30日Δ) が <strong>0.8以上 = 🔎 持続流入</strong>・1超は加速中。
       弱いchの動画が 🔎 で伸び続けている場合、そのキーワードは<strong>需要あり×供給薄 = 検索資産動画の狙い目</strong>。
       列見出しクリックでソート。詳しい方法論は docs/longtail_keywords 正本 (H-23/H-24)。</p>
       <div class="rw-filter-group">
         <span class="rw-filter-label">絞り込み:</span>
         <div class="rw-filters">
           <button class="rw-filter sb-filter active" data-k="all">すべて (${rows.length})</button>
-          <button class="rw-filter sb-filter" data-k="search">🔎 検索駆動疑い (${nSearch})</button>
+          <button class="rw-filter sb-filter" data-k="search">🔎 持続流入 (${nSearch})</button>
           <button class="rw-filter sb-filter" data-k="tail">📉 減衰中 (${nTail})</button>
         </div>
       </div>
@@ -586,10 +587,15 @@ function renderVeinMap(vm) {
   });
   const rows = entries.map((e) => {
     const v = VEIN_VERDICTS[e.verdict] || { badge: e.verdict, cls: "", hint: "" };
+    const multBadge = (s) => {
+      if (s.mult == null) return "";
+      const cls = s.mult >= 5 ? "vein-mult-hit" : s.mult >= 3 ? "vein-mult-semi" : s.mult < 1 ? "vein-mult-under" : "";
+      return ` <span class="vein-mult ${cls}" title="そのchの普段 (直近60本の長尺views中央値 = ${fmtN(s.ch_median)}v) の何倍か。生viewsは規模で比較できないため相対で読む (H-01)">${s.mult}×普段</span>`;
+    };
     const supply = (e.supply || []).map((s) => `
         <div class="vein-supply-row">
           <a href="${s.url}" target="_blank" rel="noopener">${escapeHtml(s.title)}</a>
-          <span class="vein-supply-meta">${escapeHtml(s.channel || "")} ・ ${fmtN(s.views || 0)}v ・ ${escapeHtml(s.age || "")}</span>
+          <span class="vein-supply-meta">${escapeHtml(s.channel || "")} ・ ${fmtN(s.views || 0)}v${multBadge(s)} ・ ${escapeHtml(s.age || "")}</span>
         </div>`).join("")
       || '<span class="dv-sub">供給ゼロ（完全空席 — SERPは汎用動画で代替表示）</span>';
     return `
@@ -607,8 +613,11 @@ function renderVeinMap(vm) {
     <p class="dv-desc">サジェスト鉱脈探索（需要=検索補完ログ / 供給=ゲストモード実SERP目視）の結果台帳。
     判定: <strong>◎チャンス</strong>=空席×需要あり / <strong>○空席寄り</strong> / <strong>△争奪戦・需要小</strong> /
     <strong>🏠自分が現職</strong>（タイトル不可侵・追い足しは自己競合注意） / <strong>✗満席</strong>。
-    需要はサジェスト出現＝順序尺度（絶対量ではない）。手順の正本は docs/suggest_vein_scan.md、
-    データは vein_map.json（調査のたびに追記）。最終更新 ${escapeHtml(vm.updated || "—")}</p>
+    需要はサジェスト出現＝順序尺度（絶対量ではない）。<strong>供給の証拠はすべて「◯×普段」＝そのchの
+    直近60本中央値との相対倍率で読む（H-01 全面適用・生viewsは規模で比較不能）</strong> —
+    小規模chの高倍率＝テーマが運んだ同層実証（H-02）/ 大手の普段割れ＝テーマは運んでいない。
+    手順の正本は docs/suggest_vein_scan.md、データは vein_map.json（調査のたびに追記・
+    倍率は vein_annotate.py が自動付与）。最終更新 ${escapeHtml(vm.updated || "—")}</p>
     <div class="dv-table-wrap"><table class="dv-table vein-table">
       <thead><tr><th>判定</th><th>クエリ / メモ</th><th>需要シグナル</th><th>供給の上位（実SERP・リンク付き）</th><th>確認日</th></tr></thead>
       <tbody>${rows || '<tr><td colspan="5">まだ調査記録なし</td></tr>'}</tbody>

@@ -974,3 +974,7 @@ th.sb-sorted { color: var(--accent); }
 .vein-supply-row { margin: 0.15rem 0; }
 .vein-supply-meta { color: var(--text-dim); font-size: 0.75rem; margin-left: 0.4rem; white-space: nowrap; }
 .vein-table td { vertical-align: top; }
+.vein-mult { font-weight: 700; font-size: 0.75rem; white-space: nowrap; }
+.vein-mult-hit { color: #1a7f37; }
+.vein-mult-semi { color: #9a6700; }
+.vein-mult-under { color: #cf222e; }
