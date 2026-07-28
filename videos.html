@@ -11,6 +11,9 @@
   .vt { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
   .vt th, .vt td { padding: 0.35rem 0.5rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
   .vt th { color: var(--text-dim); font-weight: 600; white-space: nowrap; position: sticky; top: 0; background: var(--bg, #fff); }
+  .vt th[data-sort] { cursor: pointer; user-select: none; }
+  .vt th[data-sort]:hover { color: var(--text); }
+  .vt th.sorted { color: var(--text); }
   .vt .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .vt .date { white-space: nowrap; color: var(--text-dim); }
   .vt .title a { color: inherit; }
@@ -64,11 +67,32 @@ function adCell(v) {
       : `<a href="videos.html?ch=${encodeURIComponent(c.id)}">${esc(c.title)}</a>`).join(" ・ ");
 
   let mode = "launch"; // launch=公開N日後の初速 / recent=直近N日での伸び
+  let sortKey = "published", sortDir = -1; // -1=降順 / 1=昇順
+
+  // ソートキー → 値の取り出し方。c1..c28 はモードに応じて dN / rN を読む
+  const getVal = (v, key, recentMode) => {
+    if (key === "published") return v.published_at || "";
+    if (key === "views") return v.views; // 普段比 = views/中央値 なので順序は views と同一
+    if (key === "like_pct") return v.like_pct;
+    if (key.startsWith("c")) return v[(recentMode ? "r" : "d") + key.slice(1)];
+    return null;
+  };
+
+  function sortList(list, recentMode) {
+    list.sort((a, b) => {
+      const av = getVal(a, sortKey, recentMode), bv = getVal(b, sortKey, recentMode);
+      if (av == null && bv == null) return b.views - a.views;
+      if (av == null) return 1; // null は昇降どちらでも末尾
+      if (bv == null) return -1;
+      const cmp = av < bv ? -1 : av > bv ? 1 : 0;
+      return cmp * sortDir || b.views - a.views;
+    });
+  }
 
   function render() {
     const recentMode = mode === "recent";
     let list = [...(ch.video_table || [])];
-    if (recentMode) list.sort((a, b) => (b.r7 ?? -1) - (a.r7 ?? -1) || b.views - a.views);
+    sortList(list, recentMode);
     const rows = list.map((v) => {
       const tier = ch.hit_threshold && v.views >= ch.hit_threshold ? "tier-hit"
         : ch.semi_threshold && v.views >= ch.semi_threshold ? "tier-semi" : "";
@@ -97,9 +121,13 @@ function adCell(v) {
         ${cells}
       </tr>`;
     }).join("");
+    const th = (key, label) => {
+      const arrow = sortKey === key ? (sortDir === -1 ? " ▼" : " ▲") : "";
+      return `<th data-sort="${key}"${sortKey === key ? ' class="sorted"' : ""} title="クリックでソート (再クリックで昇降切替)">${label}${arrow}</th>`;
+    };
     const modeNote = recentMode
-      ? "「直近N日」列 = 今からN日前と比べて増えた views。<strong>いま動いている順</strong> — 古い動画が上位なら再燃 (資産型) のシグナル。"
-      : "「N日」列 = 公開N日後時点の累計 views を日次定点観測から復元 (観測が無かった期間は —)。新しい順。";
+      ? "「直近N日」列 = 今からN日前と比べて増えた views。古い動画が上位なら再燃 (資産型) のシグナル。"
+      : "「N日」列 = 公開N日後時点の累計 views を日次定点観測から復元 (観測が無かった期間は —)。";
     out.innerHTML = `
       <p class="vt-note">チャンネル切替: ${nav}</p>
       <p class="vt-note">
@@ -108,18 +136,26 @@ function adCell(v) {
       </p>
       <p class="vt-note">全 ${(ch.video_table || []).length} 本 (Shorts除外)。
       普段(中央値) <strong>${fmtN(ch.baseline_median)}v</strong> / 🎯HITしきい ${fmtN(ch.hit_threshold)}v (行が緑) / 🚀準HIT ${fmtN(ch.semi_threshold)}v (行が黄)。
-      ${modeNote} 広告判定 = like数の回帰基準線 (docs/ad_check_methodology.md)。</p>
+      ${modeNote} <strong>列見出しクリックでソート</strong> (views列 = 普段比順)。広告判定 = like数の回帰基準線 (docs/ad_check_methodology.md)。</p>
       <div class="vt-wrap">
         <table class="vt">
           <thead><tr>
-            <th>投稿日</th><th></th><th>タイトル</th><th>views (普段比)</th><th>like率</th><th>広告</th>
-            <th>${recentMode ? "直近1日" : "1日"}</th><th>3日</th><th>7日</th><th>14日</th><th>28日</th>
+            ${th("published", "投稿日")}<th></th><th>タイトル</th>${th("views", "views (普段比)")}${th("like_pct", "like率")}<th>広告</th>
+            ${th("c1", recentMode ? "直近1日" : "1日")}${th("c3", "3日")}${th("c7", "7日")}${th("c14", "14日")}${th("c28", "28日")}
           </tr></thead>
           <tbody>${rows || '<tr><td colspan="11">データなし</td></tr>'}</tbody>
         </table>
       </div>`;
-    out.querySelector("#m-launch").onclick = () => { mode = "launch"; render(); };
-    out.querySelector("#m-recent").onclick = () => { mode = "recent"; render(); };
+    out.querySelector("#m-launch").onclick = () => { mode = "launch"; sortKey = "published"; sortDir = -1; render(); };
+    out.querySelector("#m-recent").onclick = () => { mode = "recent"; sortKey = "c7"; sortDir = -1; render(); };
+    out.querySelectorAll("th[data-sort]").forEach((el) => {
+      el.onclick = () => {
+        const key = el.dataset.sort;
+        if (sortKey === key) sortDir = -sortDir;
+        else { sortKey = key; sortDir = -1; }
+        render();
+      };
+    });
   }
   render();
 })();
