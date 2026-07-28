@@ -960,3 +960,17 @@ nav button.nav-discovery { font-weight: 600; }
 th.sb-sortable { cursor: pointer; user-select: none; white-space: nowrap; }
 th.sb-sortable:hover { color: var(--accent); }
 th.sb-sorted { color: var(--accent); }
+
+/* === 🗺 鉱脈マップ タブ === */
+.vein-verdict { white-space: nowrap; font-weight: 700; font-size: 0.85rem; }
+.vein-opp { color: #1a7f37; }
+.vein-lean { color: #1a7f37; opacity: 0.75; }
+.vein-mid { color: #9a6700; }
+.vein-self { color: #0969da; }
+.vein-occ { color: #cf222e; }
+.vein-query { min-width: 12rem; }
+.vein-note { color: var(--text-dim); font-size: 0.78rem; margin-top: 0.2rem; }
+.vein-demand { font-size: 0.8rem; max-width: 14rem; }
+.vein-supply-row { margin: 0.15rem 0; }
+.vein-supply-meta { color: var(--text-dim); font-size: 0.75rem; margin-left: 0.4rem; white-space: nowrap; }
+.vein-table td { vertical-align: top; }

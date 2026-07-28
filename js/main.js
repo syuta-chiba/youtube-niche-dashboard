@@ -76,6 +76,7 @@ async function load() {
   renderDiscovery(data.discovery || {}, data.rejected || []);
   renderPool(data.pool || []);
   renderMarketPage(data.market || {});
+  renderVeinMap(data.vein_map || {});
   renderAnalyses(data.analyses || []);
   renderVideoTablePanel(data.channels);
   renderDailyReports(data.daily_reports || []);
@@ -109,6 +110,7 @@ function panelEl(id) {
   if (id === "discovery") return document.getElementById("discovery-panel");
   if (id === "pool") return document.getElementById("pool-panel");
   if (id === "market") return document.getElementById("market-panel");
+  if (id === "vein") return document.getElementById("vein-panel");
   if (id === "analyses") return document.getElementById("analyses-panel");
   if (id === "vtable") return document.getElementById("vtable-panel");
   if (id === "daily") return document.getElementById("daily-panel");
@@ -180,6 +182,13 @@ function buildTabs(channels) {
   mkBtn.onclick = () => activateTab("market", tabs);
   tabs.push({ id: "market", btn: mkBtn });
   nav.appendChild(mkBtn);
+
+  const veinBtn = document.createElement("button");
+  veinBtn.className = "nav-discovery";
+  veinBtn.textContent = "🗺 鉱脈マップ";
+  veinBtn.onclick = () => activateTab("vein", tabs);
+  tabs.push({ id: "vein", btn: veinBtn });
+  nav.appendChild(veinBtn);
 
   const anBtn = document.createElement("button");
   anBtn.className = "nav-discovery";
@@ -554,6 +563,56 @@ function renderMarketPage(market) {
     各外部chの<strong>普段 (RSSフィード中央値・quota ゼロ) の5倍以上</strong>を 🎯HIT とする。
     「登録者数比 (score)」は 2026-07-21 に廃止。倍率降順。</p>
     ${cards || '<p class="dv-sub">（まだ検証記録なし — 急伸検知が出た回に自動実行されます）</p>'}`;
+}
+
+// === 🗺 鉱脈マップ (サジェスト鉱脈探索の結果台帳。正本 docs/suggest_vein_scan.md / vein_map.json) ===
+
+const VEIN_VERDICTS = {
+  opportunity:   { badge: "◎ チャンス",   cls: "vein-opp",  rank: 0, hint: "空席 × 需要あり — 参入候補" },
+  lean:          { badge: "○ 空席寄り",   cls: "vein-lean", rank: 1, hint: "供給が薄い/古い。条件付きで狙える" },
+  contested:     { badge: "△ 争奪戦",     cls: "vein-mid",  rank: 2, hint: "参入が始まっている。入るなら急ぎ" },
+  weak_demand:   { badge: "△ 需要小",     cls: "vein-mid",  rank: 3, hint: "空席だが客が少ない" },
+  occupied_self: { badge: "🏠 自分が現職", cls: "vein-self", rank: 4, hint: "自作が上位。追い足しは自己競合に注意" },
+  occupied:      { badge: "✗ 満席",       cls: "vein-occ",  rank: 5, hint: "ピンポイント供給が上位を固定済み" },
+};
+
+function renderVeinMap(vm) {
+  const panel = document.getElementById("vein-panel");
+  if (!panel) return;
+  const entries = [...(vm.entries || [])].sort((a, b) => {
+    const ra = (VEIN_VERDICTS[a.verdict] || { rank: 9 }).rank;
+    const rb = (VEIN_VERDICTS[b.verdict] || { rank: 9 }).rank;
+    return ra - rb || (b.checked || "").localeCompare(a.checked || "");
+  });
+  const rows = entries.map((e) => {
+    const v = VEIN_VERDICTS[e.verdict] || { badge: e.verdict, cls: "", hint: "" };
+    const supply = (e.supply || []).map((s) => `
+        <div class="vein-supply-row">
+          <a href="${s.url}" target="_blank" rel="noopener">${escapeHtml(s.title)}</a>
+          <span class="vein-supply-meta">${escapeHtml(s.channel || "")} ・ ${fmtN(s.views || 0)}v ・ ${escapeHtml(s.age || "")}</span>
+        </div>`).join("")
+      || '<span class="dv-sub">供給ゼロ（完全空席 — SERPは汎用動画で代替表示）</span>';
+    return `
+      <tr>
+        <td class="vein-verdict ${v.cls}" title="${escapeHtml(v.hint)}">${v.badge}</td>
+        <td class="vein-query"><strong>${escapeHtml(e.query)}</strong>
+          ${e.note ? `<div class="vein-note">${escapeHtml(e.note)}</div>` : ""}</td>
+        <td class="vein-demand">${escapeHtml(e.demand || "")}</td>
+        <td class="vein-supply">${supply}</td>
+        <td class="pl-date">${escapeHtml(e.checked || "")}</td>
+      </tr>`;
+  }).join("");
+  panel.innerHTML = `
+    <h2>🗺 鉱脈マップ (${entries.length}クエリ) — どこが寡占で、どこが空いていてチャンスか</h2>
+    <p class="dv-desc">サジェスト鉱脈探索（需要=検索補完ログ / 供給=ゲストモード実SERP目視）の結果台帳。
+    判定: <strong>◎チャンス</strong>=空席×需要あり / <strong>○空席寄り</strong> / <strong>△争奪戦・需要小</strong> /
+    <strong>🏠自分が現職</strong>（タイトル不可侵・追い足しは自己競合注意） / <strong>✗満席</strong>。
+    需要はサジェスト出現＝順序尺度（絶対量ではない）。手順の正本は docs/suggest_vein_scan.md、
+    データは vein_map.json（調査のたびに追記）。最終更新 ${escapeHtml(vm.updated || "—")}</p>
+    <div class="dv-table-wrap"><table class="dv-table vein-table">
+      <thead><tr><th>判定</th><th>クエリ / メモ</th><th>需要シグナル</th><th>供給の上位（実SERP・リンク付き）</th><th>確認日</th></tr></thead>
+      <tbody>${rows || '<tr><td colspan="5">まだ調査記録なし</td></tr>'}</tbody>
+    </table></div>`;
 }
 
 // === 🗂 発見済みチャンネル一覧 (RSS 巡回プール = 注目には入れていない競合候補全員) ===

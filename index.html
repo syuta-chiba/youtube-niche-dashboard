@@ -52,6 +52,9 @@
       <li><strong>動画別 views 推移</strong> — 直近30日に公開された動画＋全HIT動画の観測履歴。↑↓キーで動画切替、←→でソート切替。</li>
     </ul>
 
+    <h4>🗺 鉱脈マップ</h4>
+    <p>サジェスト鉱脈探索（<code>suggest_vein_scan.py</code> + ゲストモード実SERP目視）の結果台帳。キーワードごとに<strong>◎チャンス（空席×需要あり）/ ○空席寄り / △争奪戦・需要小 / 🏠自分が現職 / ✗寡占・満席</strong>を判定し、供給側の証拠動画（リンク付き）と需要シグナルを一覧する。データは <code>vein_map.json</code>（セッションで調査するたびに追記・確認日付き）。判定手順の正本は docs/suggest_vein_scan.md。</p>
+
     <h4>🧭 新規発見（右端のタブ）</h4>
     <p>discovery loop（毎朝 JST 4:23）が使う<strong>検索キーワード一覧</strong>と、<strong>評価済みチャンネルの履歴</strong>（合格・確認待ち / queue / 不採用と理由）。既存の注目チャンネル（左側のタブ群）に「次に加える候補」を検討する場所。HIT 判定はチャンネル相対（普段の5倍・下限500v・偽HIT除外後）。</p>
 
@@ -65,6 +68,7 @@
   <section id="discovery-panel" class="tab-panel"></section>
   <section id="pool-panel" class="tab-panel"></section>
   <section id="market-panel" class="tab-panel"></section>
+  <section id="vein-panel" class="tab-panel"></section>
   <section id="analyses-panel" class="tab-panel"></section>
   <section id="vtable-panel" class="tab-panel"></section>
   <section id="daily-panel" class="tab-panel"></section>
