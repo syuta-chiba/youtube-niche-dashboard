@@ -74,9 +74,49 @@ function adCell(v) {
     if (key === "published") return v.published_at || "";
     if (key === "views") return v.views; // 普段比 = views/中央値 なので順序は views と同一
     if (key === "like_pct") return v.like_pct;
+    if (key === "to1000") return v.to1000;
+    if (key === "traj") return { asset: 4, tail: 3, fresh: 2, stalled: 1 }[v.traj] ?? 0;
     if (key.startsWith("c")) return v[(recentMode ? "r" : "d") + key.slice(1)];
     return null;
   };
+
+  const TRAJ = {
+    asset: ['🌱伸長中', '公開30日以降も直近28日で+15以上 = 資産化 (検索/回遊の尻尾が生きている)'],
+    tail: ['〰️微伸', '直近28日で+5〜14。止まりかけの尻尾'],
+    stalled: ['⏸停止', '直近28日で+5未満 = 0再生連発。初速で出た分が天井'],
+    fresh: ['🐣進行中', '公開30日未満のため判定保留'],
+  };
+  const trajCell = (v) => {
+    const t = TRAJ[v.traj];
+    return t ? `<span title="${t[1]}">${t[0]}</span>` : '<span class="na" title="観測データ不足">—</span>';
+  };
+  const to1000Cell = (v) => {
+    if (v.to1000 == null) return `<span class="na" title="未到達 or 観測開始前に到達済で復元不能">—</span>`;
+    return `<span title="公開から1,000views到達までの日数 (日次観測から復元${v.to1000_lte ? '・初回観測時点で既に超えていたため上限値' : ''})">${v.to1000_lte ? '≤' : ''}${v.to1000}日</span>`;
+  };
+  const median = (a) => {
+    if (!a.length) return null;
+    const s = [...a].sort((x, y) => x - y), m = s.length >> 1;
+    return s.length % 2 ? s[m] : Math.round((s[m - 1] + s[m]) / 2);
+  };
+
+  // 初速分水嶺サマリ: day7観測があり結果の出た動画 (公開28日以上) で 1,000+到達組 vs 未達組の day7 を比較
+  function velocitySummary() {
+    const covered = (ch.video_table || []).filter((v) => v.d7 != null && v.age_days != null && v.age_days >= 28);
+    const hits = covered.filter((v) => v.views >= 1000);
+    const nons = covered.filter((v) => v.views < 1000);
+    if (!covered.length) return "";
+    const hd7 = hits.map((v) => v.d7), nd7 = nons.map((v) => v.d7);
+    const to = hits.filter((v) => v.to1000 != null).map((v) => v.to1000);
+    const assets = hits.filter((v) => v.traj === "asset").length;
+    const stalled = hits.filter((v) => v.traj === "stalled").length;
+    const judged = hits.filter((v) => v.traj && v.traj !== "fresh").length;
+    return `<p class="vt-note">⚡ <strong>初速の分水嶺</strong> (day7観測あり×公開28日以上の ${covered.length}本で集計):
+      1,000+到達 <strong>${hits.length}本</strong> の day7 中央値 <strong>${fmtN(median(hd7))}v</strong>${hd7.length ? ` (最小 ${fmtN(Math.min(...hd7))}v)` : ""} /
+      未達 ${nons.length}本 の day7 中央値 ${fmtN(median(nd7))}v${nd7.length ? ` (最大 ${fmtN(Math.max(...nd7))}v)` : ""}。
+      1,000到達スピード中央値 <strong>${to.length ? median(to) + "日" : "—"}</strong> (跨ぎ観測 ${to.length}本)。
+      到達後の軌跡: 🌱資産化 ${assets}/${judged} ・ ⏸停止 ${stalled}/${judged}。</p>`;
+  }
 
   function sortList(list, recentMode) {
     list.sort((a, b) => {
@@ -119,6 +159,8 @@ function adCell(v) {
         <td class="num">${v.like_pct != null ? v.like_pct + "%" : "—"}</td>
         <td>${adCell(v)}</td>
         ${cells}
+        <td class="num">${to1000Cell(v)}</td>
+        <td>${trajCell(v)}</td>
       </tr>`;
     }).join("");
     const th = (key, label) => {
@@ -137,13 +179,15 @@ function adCell(v) {
       <p class="vt-note">全 ${(ch.video_table || []).length} 本 (Shorts除外)。
       普段(中央値) <strong>${fmtN(ch.baseline_median)}v</strong> / 🎯HITしきい ${fmtN(ch.hit_threshold)}v (行が緑) / 🚀準HIT ${fmtN(ch.semi_threshold)}v (行が黄)。
       ${modeNote} <strong>列見出しクリックでソート</strong> (views列 = 普段比順)。広告判定 = like数の回帰基準線 (docs/ad_check_methodology.md)。</p>
+      ${velocitySummary()}
       <div class="vt-wrap">
         <table class="vt">
           <thead><tr>
             ${th("published", "投稿日")}<th></th><th>タイトル</th>${th("views", "views (普段比)")}${th("like_pct", "like率")}<th>広告</th>
             ${th("c1", recentMode ? "直近1日" : "1日")}${th("c3", "3日")}${th("c7", "7日")}${th("c14", "14日")}${th("c28", "28日")}
+            ${th("to1000", "1,000到達")}${th("traj", "軌跡")}
           </tr></thead>
-          <tbody>${rows || '<tr><td colspan="11">データなし</td></tr>'}</tbody>
+          <tbody>${rows || '<tr><td colspan="13">データなし</td></tr>'}</tbody>
         </table>
       </div>`;
     out.querySelector("#m-launch").onclick = () => { mode = "launch"; sortKey = "published"; sortDir = -1; render(); };
