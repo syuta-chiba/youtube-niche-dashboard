@@ -692,11 +692,25 @@ function renderDiscovery(dv, rejected) {
   const evaluated = dv.evaluated || [];
   rejected = rejected || [];
 
-  const kwRows = kws.map((k) => `
+  // 「## グループ名」で分類されたキーワードをグループ見出し行つきで並べる
+  // (group 未設定の古い dashboard.json はフラット表示のまま)
+  let kwPrevGroup = null;
+  const kwRows = kws.map((k) => {
+    const g = k.group || "";
+    let head = "";
+    if (g !== kwPrevGroup) {
+      kwPrevGroup = g;
+      if (g) {
+        const n = kws.filter((x) => (x.group || "") === g).length;
+        head = `<tr class="dv-kw-group"><td colspan="2">📁 ${escapeHtml(g)} <span class="dv-kw-group-n">(${n}語)</span></td></tr>`;
+      }
+    }
+    return `${head}
     <tr>
       <td class="dv-kw">${escapeHtml(k.kw)}</td>
       <td class="dv-note">${escapeHtml(k.note || "")}</td>
-    </tr>`).join("");
+    </tr>`;
+  }).join("");
 
   const evRows = evaluated.map((e) => {
     const d = DV_DECISION[e.decision] || { label: escapeHtml(e.decision || "?"), cls: "dv-na" };
@@ -705,6 +719,7 @@ function renderDiscovery(dv, rejected) {
     <tr>
       <td class="dv-date">${escapeHtml(e.date || "")}</td>
       <td class="dv-ch">${e.icon ? `<img class="ch-icon" src="${e.icon}" alt="" loading="lazy">` : ""}<a href="https://www.youtube.com/channel/${encodeURIComponent(e.channel_id)}" target="_blank" rel="noopener">${escapeHtml(e.title)}</a></td>
+      <td class="dv-scale">${e.subs != null ? `👥 ${fmtN(e.subs)}` : "—"}${e.median_views != null ? `<span class="dv-scale-med"> / 中央値 ${fmtN(e.median_views)}</span>` : ""}</td>
       <td class="dv-badge-cell"><span class="dv-badge ${d.cls}">${d.label}</span></td>
       <td class="dv-note">${escapeHtml(e.reason || "")}</td>
       <td class="dv-action">${rejectBtn}</td>
@@ -731,14 +746,20 @@ function renderDiscovery(dv, rejected) {
       </table>
     </div>
 
+    <h3>発見推移</h3>
+    <p class="dv-sub">discovery が新規に評価したチャンネル数の推移 (棒 = 日次、線 = 累計)。新KW投入で跳ね、定常は同語で少数 — 発掘ペースの健全性を見る (H-14)。</p>
+    <div class="chart-box">
+      <div class="chart-canvas"><canvas id="dv-trend"></canvas></div>
+    </div>
+
     <h3>評価済みチャンネル (${evaluated.length}件)</h3>
     <p class="dv-sub">discovery が深掘り評価した候補の台帳 (新しい順)。「✅ 合格・確認待ち」を見て、良ければ priority_channels.txt へ手動追加。
     違うと確定したら「✗違う」で行をコピーし <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a> へ貼って commit
-    — この一覧から外れ、下の「🚫 違う確定」台帳へ移動する。</p>
+    — この一覧から外れ、下の「🚫 違う確定」台帳へ移動する。規模 = 👥 登録者 / 全動画views中央値 (RSS プールの最新観測。未収載は —)。</p>
     <div class="dv-table-wrap">
       <table class="dv-table dv-eval">
-        <thead><tr><th>評価日</th><th>チャンネル</th><th>判定</th><th>理由</th><th></th></tr></thead>
-        <tbody>${evRows || '<tr><td colspan="5">（まだ評価履歴なし）</td></tr>'}</tbody>
+        <thead><tr><th>評価日</th><th>チャンネル</th><th>規模</th><th>判定</th><th>理由</th><th></th></tr></thead>
+        <tbody>${evRows || '<tr><td colspan="6">（まだ評価履歴なし）</td></tr>'}</tbody>
       </table>
     </div>
 
@@ -756,6 +777,68 @@ function renderDiscovery(dv, rejected) {
   panel.querySelectorAll(".pl-reject").forEach((btn) => {
     btn.addEventListener("click", () => copyRejectLine(btn, btn.dataset.cid, btn.dataset.title));
   });
+
+  // 発見推移チャート: 評価日ごとの新規評価ch数 (棒) + 累計 (線)
+  const trendCanvas = document.getElementById("dv-trend");
+  if (trendCanvas && evaluated.length) {
+    const byDate = {};
+    evaluated.forEach((e) => {
+      if (e.date) byDate[e.date] = (byDate[e.date] || 0) + 1;
+    });
+    const dates = Object.keys(byDate).sort();
+    let cum = 0;
+    const cumData = dates.map((d) => (cum += byDate[d]));
+    new Chart(trendCanvas, {
+      data: {
+        labels: dates,
+        datasets: [
+          {
+            type: "bar",
+            label: "日次の新規評価ch",
+            data: dates.map((d) => byDate[d]),
+            backgroundColor: COL_POS_BG,
+            borderColor: COL_POS,
+            borderWidth: 1,
+            yAxisID: "y",
+            order: 2,
+          },
+          {
+            type: "line",
+            label: "累計",
+            data: cumData,
+            borderColor: PALETTE[0],
+            backgroundColor: PALETTE[0] + "22",
+            tension: 0.2,
+            pointRadius: 2,
+            borderWidth: 2,
+            yAxisID: "y1",
+            order: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: { legend: { labels: { color: COL_LEGEND } } },
+        scales: {
+          x: { ticks: { color: COL_TICK, maxRotation: 60, autoSkip: true }, grid: { color: COL_GRID } },
+          y: {
+            position: "left", beginAtZero: true,
+            ticks: { color: COL_TICK, precision: 0 },
+            grid: { color: COL_GRID },
+            title: { display: true, text: "日次の新規評価ch", color: COL_TICK },
+          },
+          y1: {
+            position: "right", beginAtZero: true,
+            ticks: { color: COL_TICK, precision: 0 },
+            grid: { drawOnChartArea: false },
+            title: { display: true, text: "累計", color: COL_TICK },
+          },
+        },
+      },
+    });
+  }
 }
 
 function activateTab(id, tabs) {

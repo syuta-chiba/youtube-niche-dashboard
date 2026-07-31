@@ -857,6 +857,15 @@ nav button.nav-discovery { font-weight: 600; }
 }
 .dv-table th { color: var(--text-dim); font-weight: 600; white-space: nowrap; }
 .dv-kw { font-weight: 600; white-space: nowrap; }
+.dv-kw-group td {
+  background: var(--bg);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding-top: 0.7rem;
+}
+.dv-kw-group-n { color: var(--text-dim); font-weight: 500; font-size: 0.78rem; }
+.dv-scale { white-space: nowrap; }
+.dv-scale-med { color: var(--text-dim); }
 .dv-date { white-space: nowrap; color: var(--text-dim); }
 .dv-ch a { color: inherit; font-weight: 600; }
 .dv-note { color: var(--text-dim); }
