@@ -791,7 +791,8 @@ function renderChannel(ch, idx) {
   const todayViewsDelta = computeTodayDelta(views, "total_views", todayDate);
   const todayPosts = (ch.daily_posts || []).find((d) => d.date === todayDate)?.count || 0;
 
-  // KPI 期間切替 (今日 / 3日 / 7日 / 28日)
+  // KPI 期間切替 (今日 / 2日 / 3日 / 7日 / 28日)。デフォルトは 2日
+  // (「今日」は JST 0時起点で朝は数時間分しか含まず過小に見えるため)
   const dateMinus = (dstr, days) => new Date(Date.UTC(
     Number(dstr.slice(0, 4)), Number(dstr.slice(5, 7)) - 1, Number(dstr.slice(8, 10))
   ) - days * 86400000).toISOString().slice(0, 10);
@@ -800,10 +801,12 @@ function renderChannel(ch, idx) {
     .reduce((s, p) => s + p.count, 0);
   const kpiPeriods = [
     { key: "today", label: "今日" },
+    { key: "2", label: "2日", days: 2 },
     { key: "3", label: "3日", days: 3 },
     { key: "7", label: "7日", days: 7 },
     { key: "28", label: "28日", days: 28 },
   ];
+  const KPI_DEFAULT_KEY = "2";
   const kpiStats = {};
   kpiPeriods.forEach((p) => {
     if (p.key === "today") {
@@ -817,6 +820,7 @@ function renderChannel(ch, idx) {
       };
     }
   });
+  const kpiInit = kpiStats[KPI_DEFAULT_KEY];
 
   // 急伸ウォッチ条件をこのチャンネルだけに適用
   const risingThisCh = collectRising([ch]);
@@ -830,22 +834,22 @@ function renderChannel(ch, idx) {
   wrap.innerHTML = `
     <h2>${chIcon(ch, "ch-icon ch-icon-lg")}<a class="ch-link" href="https://www.youtube.com/channel/${encodeURIComponent(ch.id)}" target="_blank" rel="noopener" title="YouTube でチャンネルを開く">${escapeHtml(ch.title)}</a> <span class="ch-date">(${todayDate || "—"} JST 時点)</span> <a class="ch-link" href="videos.html?ch=${encodeURIComponent(ch.id)}" title="全動画の時系列一覧 (views/like率/広告判定/公開1・3・7・14・28日後の伸び)">📋 全動画分析</a>${ch.boosted ? ' <span class="boosted-badge">⚠️ 広告混ざり枠 — 過去にブースト形跡あり。views/score は割引で読み、like率を併読</span>' : ""}</h2>
     <div class="kpi-period-tabs" id="kpip-${ch.id}">
-      ${kpiPeriods.map((p, i) => `<button class="kpip${i === 0 ? " active" : ""}" data-p="${p.key}">${p.label}</button>`).join("")}
-      <span class="kpip-span" id="kpipspan-${ch.id}"></span>
+      ${kpiPeriods.map((p) => `<button class="kpip${p.key === KPI_DEFAULT_KEY ? " active" : ""}" data-p="${p.key}">${p.label}</button>`).join("")}
+      <span class="kpip-span" id="kpipspan-${ch.id}">${kpiInit.span}</span>
     </div>
     <div class="kpi-row">
       <div class="kpi">
         <div class="kpi-label">登録者の伸び</div>
-        <div class="kpi-value ${deltaCls(todaySubsDelta)}" id="kpiv-subs-${ch.id}">${fmtDelta(todaySubsDelta)}</div>
+        <div class="kpi-value ${deltaCls(kpiInit.subs)}" id="kpiv-subs-${ch.id}">${fmtDelta(kpiInit.subs)}</div>
         <div class="kpi-sub">累計 ${fmtN(lastSubs)}</div>
       </div>
       <div class="kpi">
         <div class="kpi-label">再生数の伸び</div>
-        <div class="kpi-value ${deltaCls(todayViewsDelta)}" id="kpiv-views-${ch.id}">${fmtDelta(todayViewsDelta)}</div>
+        <div class="kpi-value ${deltaCls(kpiInit.views)}" id="kpiv-views-${ch.id}">${fmtDelta(kpiInit.views)}</div>
       </div>
       <div class="kpi">
         <div class="kpi-label">投稿本数</div>
-        <div class="kpi-value" id="kpiv-posts-${ch.id}">${fmtN(todayPosts)}</div>
+        <div class="kpi-value" id="kpiv-posts-${ch.id}">${fmtN(kpiInit.posts)}</div>
       </div>
       <div class="kpi" title="急伸中だが、まだチャンネルの普段の再生数（中央値）の範囲内">
         <div class="kpi-label">離陸中</div>
