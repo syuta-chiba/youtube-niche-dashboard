@@ -866,6 +866,20 @@ nav button.nav-discovery { font-weight: 600; }
 .dv-kw-group-n { color: var(--text-dim); font-weight: 500; font-size: 0.78rem; }
 .dv-scale { white-space: nowrap; }
 .dv-scale-med { color: var(--text-dim); }
+.dv-num { white-space: nowrap; text-align: right; }
+.dv-sortable { cursor: pointer; user-select: none; }
+.dv-sortable:hover { color: var(--text); }
+.dv-sort-ind { font-size: 0.7em; color: var(--accent); }
+.dv-more td { text-align: center; padding: 0.6rem; }
+.dv-more-btn {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  padding: 0.4rem 1.2rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.dv-more-btn:hover { border-color: var(--accent); color: var(--accent); }
 .dv-date { white-space: nowrap; color: var(--text-dim); }
 .dv-ch a { color: inherit; font-weight: 600; }
 .dv-note { color: var(--text-dim); }

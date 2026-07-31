@@ -626,10 +626,57 @@ function renderVeinMap(vm) {
 
 // === 🗂 発見済みチャンネル一覧 (RSS 巡回プール = 注目には入れていない競合候補全員) ===
 
+// 汎用テーブルソート + 行数制限:
+// - thead の .dv-sortable[data-k] クリックでソート (初回 = 降順、再クリックで昇順。null/空値は常に末尾)
+// - opts.limit 指定時は初期 limit 行のみ描画し「残りを表示」ボタンで展開
+//   (数百行 × アイコン画像を一度に DOM 展開するとページ全体が重くなるため)
+function makeSortable(table, data, rowFn, tbody, opts = {}) {
+  const state = { k: null, dir: -1, expanded: !opts.limit || data.length <= opts.limit };
+  const heads = table.querySelectorAll(".dv-sortable");
+  const apply = () => {
+    let arr = data;
+    if (state.k) {
+      arr = [...data].sort((a, b) => {
+        const av = a[state.k], bv = b[state.k];
+        const an = av == null || av === "", bn = bv == null || bv === "";
+        if (an && bn) return 0;
+        if (an) return 1;
+        if (bn) return -1;
+        const cmp = (typeof av === "number" && typeof bv === "number")
+          ? av - bv
+          : String(av).localeCompare(String(bv));
+        return state.dir * cmp;
+      });
+    }
+    const shown = state.expanded ? arr : arr.slice(0, opts.limit);
+    let html = shown.map(rowFn).join("");
+    if (!state.expanded) {
+      html += `<tr class="dv-more"><td colspan="99"><button class="dv-more-btn">残り ${fmtN(data.length - opts.limit)} 件を表示 (計 ${fmtN(data.length)} 件)</button></td></tr>`;
+    }
+    tbody.innerHTML = html;
+    const moreBtn = tbody.querySelector(".dv-more-btn");
+    if (moreBtn) moreBtn.addEventListener("click", () => { state.expanded = true; apply(); });
+    if (opts.afterRender) opts.afterRender(tbody);
+  };
+  heads.forEach((th) => {
+    th.addEventListener("click", () => {
+      const k = th.dataset.k;
+      if (state.k === k) state.dir *= -1;
+      else { state.k = k; state.dir = -1; }
+      heads.forEach((h) => {
+        const s = h.querySelector(".dv-sort-ind");
+        if (s) s.textContent = h === th ? (state.dir < 0 ? "▼" : "▲") : "";
+      });
+      apply();
+    });
+  });
+  apply();
+}
+
 function renderPool(pool) {
   const panel = document.getElementById("pool-panel");
   if (!panel) return;
-  const rows = pool.map((p) => {
+  const plRow = (p) => {
     const mom = p.subs_mom;
     const momTxt = mom == null ? "—"
       : mom > 0 ? `+${fmtN(mom)}` : fmtN(mom);
@@ -644,23 +691,34 @@ function renderPool(pool) {
       <td class="pl-date" title="発見経路: ${escapeHtml(p.source || "?")}">${escapeHtml(p.added || "—")}</td>
       <td><button class="pl-reject" data-cid="${escapeHtml(p.channel_id)}" data-title="${escapeHtml(p.title)}" title="rejected_channels.txt 用の行をコピー → 上の編集リンクから貼って commit すると、巡回・照合から外れ 🧭 タブの「🚫 違う確定」台帳へ移動">✗違う</button></td>
     </tr>`;
-  }).join("");
+  };
 
   panel.innerHTML = `
     <h2>🗂 発見済みチャンネル (${pool.length}件) — 注目 (priority) には入れていない競合候補プール</h2>
     <p class="dv-desc">discovery の検索・市場検証・外部コーパスで一度でも視界に入った ch を全員ここに貯め、
     毎朝 <strong>RSS フィードで巡回 (quota ゼロ)</strong>。跳ねた動画が出た瞬間に 📡 Slack 通知で再浮上する —
-    「一度 gate に落ちたら二度と見ない」を無くす層。並びは前月比の登録者の伸び順。全競合を洗い出す方針で増やし続ける。</p>
+    「一度 gate に落ちたら二度と見ない」を無くす層。初期並びは前月比の登録者の伸び順。<strong>列見出しクリックでソート切替</strong>。全競合を洗い出す方針で増やし続ける。</p>
     <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧から外れ、🧭 新規発見タブ下部の「🚫 違う確定」台帳に移動する（行削除で復帰）。</p>
     <div class="dv-table-wrap">
       <table class="dv-table">
-        <thead><tr><th>チャンネル</th><th>登録者</th><th>前月比</th><th>再生中央値</th><th>最新投稿</th><th>発見日</th><th></th></tr></thead>
-        <tbody>${rows || '<tr><td colspan="7">（まだプールが空 — 今夜の discovery / rss patrol から貯まり始めます）</td></tr>'}</tbody>
+        <thead><tr>
+          <th>チャンネル</th>
+          <th class="dv-sortable" data-k="subs">登録者 <span class="dv-sort-ind"></span></th>
+          <th class="dv-sortable" data-k="subs_mom">前月比 <span class="dv-sort-ind"></span></th>
+          <th class="dv-sortable" data-k="median_views">再生中央値 <span class="dv-sort-ind"></span></th>
+          <th class="dv-sortable" data-k="latest_video_at">最新投稿 <span class="dv-sort-ind"></span></th>
+          <th class="dv-sortable" data-k="added">発見日 <span class="dv-sort-ind"></span></th>
+          <th></th>
+        </tr></thead>
+        <tbody id="pool-tbody"></tbody>
       </table>
     </div>`;
-  panel.querySelectorAll(".pl-reject").forEach((btn) => {
-    btn.addEventListener("click", () => copyRejectLine(btn, btn.dataset.cid, btn.dataset.title));
-  });
+  const tb = document.getElementById("pool-tbody");
+  if (!pool.length) {
+    tb.innerHTML = '<tr><td colspan="7">（まだプールが空 — 今夜の discovery / rss patrol から貯まり始めます）</td></tr>';
+    return;
+  }
+  makeSortable(panel.querySelector(".dv-table"), pool, plRow, tb, { limit: 100, afterRender: bindRejectButtons });
 }
 
 // === 🧭 新規発見タブ (discovery loop の検索キーワード + 評価済み ch 台帳) ===
@@ -682,6 +740,12 @@ function copyRejectLine(btn, cid, title) {
   navigator.clipboard.writeText(line).then(() => {
     btn.textContent = "📋 コピー済み";
     setTimeout(() => { btn.textContent = "✗違う"; }, 2500);
+  });
+}
+
+function bindRejectButtons(scope) {
+  scope.querySelectorAll(".pl-reject").forEach((btn) => {
+    btn.addEventListener("click", () => copyRejectLine(btn, btn.dataset.cid, btn.dataset.title));
   });
 }
 
@@ -712,19 +776,23 @@ function renderDiscovery(dv, rejected) {
     </tr>`;
   }).join("");
 
-  const evRows = evaluated.map((e) => {
+  const evRow = (e) => {
     const d = DV_DECISION[e.decision] || { label: escapeHtml(e.decision || "?"), cls: "dv-na" };
     const rejectBtn = `<button class="pl-reject" data-cid="${escapeHtml(e.channel_id)}" data-title="${escapeHtml(e.title)}" title="rejected_channels.txt 用の行をコピー → 貼って commit すると下の「🚫 違う確定」台帳へ移動">✗違う</button>`;
+    const medCell = e.median_views != null
+      ? fmtN(e.median_views)
+      : '<span title="RSS 巡回 (毎朝 JST 6時台) がまだ回っていない新規 ch。明朝以降に埋まる">—</span>';
     return `
     <tr>
       <td class="dv-date">${escapeHtml(e.date || "")}</td>
       <td class="dv-ch">${e.icon ? `<img class="ch-icon" src="${e.icon}" alt="" loading="lazy">` : ""}<a href="https://www.youtube.com/channel/${encodeURIComponent(e.channel_id)}" target="_blank" rel="noopener">${escapeHtml(e.title)}</a></td>
-      <td class="dv-scale">${e.subs != null ? `👥 ${fmtN(e.subs)}` : "—"}${e.median_views != null ? `<span class="dv-scale-med"> / 中央値 ${fmtN(e.median_views)}</span>` : ""}</td>
+      <td class="dv-num">${e.subs != null ? fmtN(e.subs) : "—"}</td>
+      <td class="dv-num">${medCell}</td>
       <td class="dv-badge-cell"><span class="dv-badge ${d.cls}">${d.label}</span></td>
       <td class="dv-note">${escapeHtml(e.reason || "")}</td>
       <td class="dv-action">${rejectBtn}</td>
     </tr>`;
-  }).join("");
+  };
 
   const rejRows = rejected.map((r) => `
     <tr>
@@ -755,11 +823,18 @@ function renderDiscovery(dv, rejected) {
     <h3>評価済みチャンネル (${evaluated.length}件)</h3>
     <p class="dv-sub">discovery が深掘り評価した候補の台帳 (新しい順)。「✅ 合格・確認待ち」を見て、良ければ priority_channels.txt へ手動追加。
     違うと確定したら「✗違う」で行をコピーし <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a> へ貼って commit
-    — この一覧から外れ、下の「🚫 違う確定」台帳へ移動する。規模 = 👥 登録者 / 全動画views中央値 (RSS プールの最新観測。未収載は —)。</p>
+    — この一覧から外れ、下の「🚫 違う確定」台帳へ移動する。登録者/再生中央値は RSS プールの最新観測 (中央値の「—」は巡回前の新規 ch。毎朝 JST 6時台の巡回で補完)。
+    <strong>列見出しクリックでソート切替</strong> (同じ列を再クリックで昇順/降順)。</p>
     <div class="dv-table-wrap">
       <table class="dv-table dv-eval">
-        <thead><tr><th>評価日</th><th>チャンネル</th><th>規模</th><th>判定</th><th>理由</th><th></th></tr></thead>
-        <tbody>${evRows || '<tr><td colspan="6">（まだ評価履歴なし）</td></tr>'}</tbody>
+        <thead><tr>
+          <th class="dv-sortable" data-k="date">評価日 <span class="dv-sort-ind">▼</span></th>
+          <th>チャンネル</th>
+          <th class="dv-sortable" data-k="subs">👥 登録者 <span class="dv-sort-ind"></span></th>
+          <th class="dv-sortable" data-k="median_views">再生中央値 <span class="dv-sort-ind"></span></th>
+          <th>判定</th><th>理由</th><th></th>
+        </tr></thead>
+        <tbody id="dv-eval-tbody"></tbody>
       </table>
     </div>
 
@@ -774,9 +849,13 @@ function renderDiscovery(dv, rejected) {
         </table>
       </div>
     </details>`;
-  panel.querySelectorAll(".pl-reject").forEach((btn) => {
-    btn.addEventListener("click", () => copyRejectLine(btn, btn.dataset.cid, btn.dataset.title));
-  });
+  const evTbody = document.getElementById("dv-eval-tbody");
+  if (!evaluated.length) {
+    evTbody.innerHTML = '<tr><td colspan="7">（まだ評価履歴なし）</td></tr>';
+  } else {
+    makeSortable(panel.querySelector(".dv-eval"), evaluated, evRow, evTbody,
+      { limit: 100, afterRender: bindRejectButtons });
+  }
 
   // 発見推移チャート: 評価日ごとの新規評価ch数 (棒) + 累計 (線)
   const trendCanvas = document.getElementById("dv-trend");
