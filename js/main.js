@@ -1746,6 +1746,7 @@ function collectRising(channels, cfg = RISING_DEFAULT) {
         ageDays,
         channelTitle: ch.title,
         channelId: ch.id,
+        channelIcon: ch.icon,
         latest,
         totalDelta,
         todayDelta,
@@ -1886,7 +1887,7 @@ function renderRisingWatch(channels) {
   // チャンネル毎件数（ボタン用ラベル）
   const byChannel = {};
   rows.forEach((r) => {
-    byChannel[r.channelId] = byChannel[r.channelId] || { title: r.channelTitle, count: 0 };
+    byChannel[r.channelId] = byChannel[r.channelId] || { title: r.channelTitle, icon: r.channelIcon, count: 0 };
     byChannel[r.channelId].count += 1;
   });
 
@@ -1916,7 +1917,7 @@ function renderRisingWatch(channels) {
         <div class="rw-filters">
           <button class="rw-filter rw-filter-ch active" data-ch="all">横断 (${rows.length})</button>
           ${Object.entries(byChannel).map(([cid, c]) => `
-            <button class="rw-filter rw-filter-ch" data-ch="${escapeHtml(cid)}">${escapeHtml(c.title)} (${c.count})</button>
+            <button class="rw-filter rw-filter-ch" data-ch="${escapeHtml(cid)}">${c.icon ? `<img class="ch-icon ch-icon-sm" src="${c.icon}" alt="" loading="lazy">` : ""}${escapeHtml(c.title)} (${c.count})</button>
           `).join("")}
         </div>
       </div>
@@ -2026,7 +2027,7 @@ function renderRisingRow(r, recentTs) {
         <a href="${r.url}" target="_blank" rel="noopener" class="rw-title">${escapeHtml(r.title)}</a>
         <div class="rw-sub">
           ${tierLabel}
-          <span class="rw-channel">${escapeHtml(r.channelTitle)}</span>
+          <span class="rw-channel">${r.channelIcon ? `<img class="ch-icon ch-icon-sm" src="${r.channelIcon}" alt="" loading="lazy">` : ""}${escapeHtml(r.channelTitle)}</span>
           ${xa ? `<span class="xa-timing-icon" title="${xa.timing.label}">${xa.timing.icon}</span>` : ""}
           ${xa ? xaBadge(xa) : ""}
           ${MARKET[r.vid] ? '<span class="xa-badge xa-badge-market" title="全YouTube横断の市場検証データあり — クリックで展開">🌍 市場検証</span>' : ""}

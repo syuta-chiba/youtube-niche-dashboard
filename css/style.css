@@ -800,6 +800,7 @@ main {
   margin-right: 0.45rem;
 }
 .ch-icon-lg { width: 26px; height: 26px; vertical-align: -5px; }
+.ch-icon-sm { width: 16px; height: 16px; vertical-align: -3px; margin-right: 0.3rem; }
 
 #quota-meter { cursor: help; }
 #quota-meter.quota-warn { color: #cf222e; font-weight: 700; }
