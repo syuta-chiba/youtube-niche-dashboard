@@ -1894,17 +1894,19 @@ function renderRisingWatch(channels) {
     <div class="rw-header">
       <h2>🔥 急伸ウォッチ — 直近 3 日に伸びている動画</h2>
       <div class="rw-help">
-        <p>HIT はチャンネル相対で判定（普段=中央値の何倍か）。並びは「3日合計伸び」降順。</p>
+        <p>tier = 「累計 views がそのチャンネルの普段（全動画 views の中央値）の何倍か」で決まる<strong>到達度</strong>。並びは「3日合計伸び」降順。</p>
         <ul>
-          <li><span class="rw-tier rw-tier-hit">🎯 HIT</span> = ${HIT.strongMult}倍以上（本物の突出）</li>
-          <li><span class="rw-tier rw-tier-semi">🚀 準HIT</span> = ${HIT.mult}〜${HIT.strongMult}倍（伸びかけ）</li>
-          <li><span class="rw-tier rw-tier-warmup">離陸中</span> = それ未満（動きはあるがまだ普段の範囲）</li>
+          <li><span class="rw-tier rw-tier-hit">🎯 HIT</span> = 普段の <strong>${HIT.strongMult}倍以上</strong>。普段の再生レンジを明確に突き抜けた本物の突出（ブレイク）。</li>
+          <li><span class="rw-tier rw-tier-semi">🚀 準HIT</span> = 普段の <strong>${HIT.mult}〜${HIT.strongMult}倍</strong>。軽い突出。伸び続ければ 🎯 に昇格する伸びかけ。</li>
+          <li><span class="rw-tier rw-tier-warmup">離陸中</span> = 普段の <strong>${HIT.mult}倍未満</strong>。掲載条件（3日合計 +${RISING_DEFAULT.totalDeltaMin} 以上 or 直近観測 +${RISING_DEFAULT.todayDeltaMin} 以上）は満たして再生が付き始めているが、累計はまだ普段のレンジ内。ここから 準HIT → HIT に化けるかを見る早期シグナル枠。</li>
         </ul>
+        <p>勢い = 直近の観測間の伸び（デルタ）を1つ前のデルタと比べた<strong>加速度</strong>。tier（どこまで到達したか）とは独立で、「今も勢いが続いているか」を示す。</p>
         <ul>
-          <li><strong>▲</strong> = 直近で加速</li>
-          <li><strong>▽</strong> = 減速</li>
-          <li><strong>→</strong> = 横ばい</li>
-          <li><strong>■</strong> = 停止</li>
+          <li><strong>▲ 加速</strong> = 直近の伸びが前回の <strong>1.3倍超</strong>。勢いが増している（レコメンドに乗り始めた可能性）。</li>
+          <li><strong>→ 横ばい</strong> = 前回の <strong>0.5〜1.3倍</strong>。ペース維持で安定して伸びている。</li>
+          <li><strong>▽ 減速</strong> = 前回の <strong>半分未満</strong>。まだ伸びてはいるが勢いが落ちてきた（初速波の終わりかけ）。</li>
+          <li><strong>■ 停止</strong> = 直近の観測で伸びが <strong>ゼロ以下</strong>。動きが止まった（3日窓の合計で掲載条件は満たしている）。</li>
+          <li><strong>—</strong> = 観測点がまだ少なく判定不能。</li>
         </ul>
       </div>
       <p class="rw-help"><strong>行クリックで横断分析を展開</strong>（類似HIT・参入タイミング。Slack 急伸通知と同ロジック）。<span class="xa-badge xa-badge-cross">🌐 横展開実証</span> = 同テーマが他チャンネルでもHIT（真似る価値の強シグナル） / <span class="xa-badge xa-badge-same">🔁 自ch実証</span> = 類似HITが自チャンネル内のみ / <span class="xa-badge xa-badge-new">🆕 新規テーマ</span> = 過去履歴に類似HITなし。⏱ 🟢初速ゾーン 🟡伸び継続 🔴ピークアウト気味。</p>
