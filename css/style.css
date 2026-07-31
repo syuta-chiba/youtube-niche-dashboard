@@ -129,6 +129,19 @@ main {
 .kpi-value.semi { color: #1a7f37; }
 .kpi-value.hit { color: var(--hit); }
 
+.ch-scale {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  margin: -0.2rem 0 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.35rem;
+}
+.ch-scale > * { white-space: nowrap; }
+.ch-scale strong { color: var(--text); font-weight: 700; }
+.ch-scale-sep { color: var(--border); }
+
 .kpi-sub {
   font-size: 0.72rem;
   color: var(--text-dim);
@@ -233,8 +246,12 @@ main {
   font-size: 0.78rem;
   color: var(--text-dim);
   display: flex;
-  gap: 0.8rem;
+  flex-wrap: wrap;          /* 幅が足りない時は要素ごと次の行へ */
+  align-items: center;
+  gap: 0.25rem 0.8rem;
 }
+/* 文字単位の縦折り返しを防ぐ (要素の途中では改行しない) */
+.hit-meta > * { white-space: nowrap; flex-shrink: 0; }
 
 .hit-meta .views { color: var(--hit); font-weight: 600; }
 

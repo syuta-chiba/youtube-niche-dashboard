@@ -833,6 +833,13 @@ function renderChannel(ch, idx) {
 
   wrap.innerHTML = `
     <h2>${chIcon(ch, "ch-icon ch-icon-lg")}<a class="ch-link" href="https://www.youtube.com/channel/${encodeURIComponent(ch.id)}" target="_blank" rel="noopener" title="YouTube でチャンネルを開く">${escapeHtml(ch.title)}</a> <span class="ch-date">(${todayDate || "—"} JST 時点)</span> <a class="ch-link" href="videos.html?ch=${encodeURIComponent(ch.id)}" title="全動画の時系列一覧 (views/like率/広告判定/公開1・3・7・14・28日後の伸び)">📋 全動画分析</a>${ch.boosted ? ' <span class="boosted-badge">⚠️ 広告混ざり枠 — 過去にブースト形跡あり。views/score は割引で読み、like率を併読</span>' : ""}</h2>
+    <div class="ch-scale" title="このチャンネルの規模感。普段の再生 = 最新観測の全動画 views の中央値 (HIT 判定の基準値)">
+      <span>👥 登録者 <strong>${fmtN(lastSubs)}</strong></span>
+      <span class="ch-scale-sep">・</span>
+      <span>📊 普段の再生 (全動画中央値) <strong>${channelBaseline(ch) != null ? fmtN(channelBaseline(ch)) : "—"}</strong></span>
+      <span class="ch-scale-sep">・</span>
+      <span>しきい値: 🚀 準HIT <strong>${fmtN(channelSemiThreshold(ch))}</strong> / 🎯 HIT <strong>${fmtN(channelHitThreshold(ch))}</strong></span>
+    </div>
     <div class="kpi-period-tabs" id="kpip-${ch.id}">
       ${kpiPeriods.map((p) => `<button class="kpip${p.key === KPI_DEFAULT_KEY ? " active" : ""}" data-p="${p.key}">${p.label}</button>`).join("")}
       <span class="kpip-span" id="kpipspan-${ch.id}">${kpiInit.span}</span>
