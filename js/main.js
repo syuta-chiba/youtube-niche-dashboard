@@ -39,6 +39,8 @@ function adBadge(v, base) {
 let MARKET = {};
 // 外部HITコーパス (market_validate / discovery_loop が蓄積した監視枠外の HIT。load() で代入)
 let EXTERNAL_HITS = [];
+// channel_id → アイコンURL (priority 観測ch。load() で代入)
+let CH_ICONS = {};
 
 const chIcon = (ch, cls = "ch-icon") =>
   ch.icon ? `<img class="${cls}" src="${ch.icon}" alt="" loading="lazy">` : "";
@@ -65,6 +67,7 @@ async function load() {
   const data = await res.json();
   MARKET = data.market || {}; // market_validate.py の全YouTube横断需要検証キャッシュ
   EXTERNAL_HITS = data.external_hits || [];
+  CH_ICONS = Object.fromEntries((data.channels || []).map((c) => [c.id, c.icon]));
   document.getElementById("generated-at").textContent =
     "updated: " + fmtTs(data.generated_at);
   renderQuotaMeter(data.quota);
@@ -238,7 +241,7 @@ function sbRenderBody() {
     <tr class="${r.klass === "search" ? "sb-row-search" : ""}">
       <td class="vt-thumb"><a href="${r.url}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${encodeURIComponent(r.video_id)}/default.jpg" alt="" loading="lazy"></a></td>
       <td class="rw-col-title"><a class="rw-title" href="${r.url}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>
-        <div class="rw-sub">${escapeHtml(r.channel)} · 公開 ${escapeHtml(r.published_at)}</div></td>
+        <div class="rw-sub">${CH_ICONS[r.channel_id] ? `<img class="ch-icon ch-icon-sm" src="${CH_ICONS[r.channel_id]}" alt="" loading="lazy">` : ""}${escapeHtml(r.channel)} · 公開 ${escapeHtml(r.published_at)}</div></td>
       <td class="sb-klass ${k.cls}" title="${k.hint}">${k.label}</td>
       <td class="rw-num">+${fmtN(r.d30)}</td>
       <td class="rw-num">+${fmtN(r.d30_prev)}</td>
