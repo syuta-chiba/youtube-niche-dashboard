@@ -335,7 +335,7 @@ main {
 /* === 動画選択リスト === */
 .video-section {
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 420px 1fr;
   gap: 1rem;
 }
 
@@ -391,8 +391,12 @@ main {
   font-size: 0.75rem;
   color: var(--text-dim);
   display: flex;
-  gap: 0.6rem;
+  flex-wrap: wrap;          /* 幅が足りない時はバッジごと次の行へ */
+  align-items: center;
+  gap: 0.25rem 0.6rem;
 }
+/* ラベルや数値を文字単位で縦に折り返させない (要素の途中では改行しない) */
+.video-row-meta > * { white-space: nowrap; flex-shrink: 0; }
 
 .video-row-meta .views {
   color: var(--accent);
