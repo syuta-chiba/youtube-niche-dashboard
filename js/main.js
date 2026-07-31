@@ -1474,6 +1474,9 @@ function renderVideoHistory(ch) {
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        // mouseout を外す = カーソルがチャートから離れても最後にホバーした点の
+        // ツールチップ/ハイライトを消さず表示し続ける (次のホバー or 動画切替まで保持)
+        events: ["mousemove", "click", "touchstart", "touchmove"],
         interaction: { mode: "nearest", intersect: false, axis: "x" },
         plugins: {
           legend: { labels: { color: COL_LEGEND } },
