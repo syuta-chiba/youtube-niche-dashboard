@@ -976,7 +976,7 @@ function renderChannel(ch, idx) {
     <div class="section-title">★ 直近 HIT / 準HIT 動画 (age ≤ 14d・ch相対判定: 普段の${HIT.mult}倍で🚀 / ${HIT.strongMult}倍で🎯)</div>
     <div id="hits-${ch.id}"></div>
 
-    <div class="section-title">動画別 views 推移 (↑↓ で動画切替 / ←→ でソート切替)</div>
+    <div class="section-title">動画別 views 推移 (↑↓ で動画切替 / ←→ でチャートの前日/翌日 / h・l でソート切替)</div>
     <div class="video-sort-tabs" id="vsort-${ch.id}">
       <button class="vsort active" data-key="latest">再生数順</button>
       <button class="vsort" data-key="d1">1 日の伸び</button>
@@ -990,7 +990,7 @@ function renderChannel(ch, idx) {
           <div class="video-chart-canvas"><canvas id="vchart-${ch.id}"></canvas></div>
         </div>
         <div class="video-nav">
-          <span class="video-nav-hint">↑↓ 動画切替 / ←→ ソート切替 (チャートにカーソルを載せている間は ←→ で前日/翌日へ)</span>
+          <span class="video-nav-hint">↑↓ 動画切替 / ←→ ツールチップの前日/翌日 (表示中はカーソルを外したままでOK) / h・l ソート切替</span>
           <span id="vpos-${ch.id}" class="video-nav-pos"></span>
         </div>
       </div>
@@ -1658,7 +1658,10 @@ function renderVideoHistory(ch) {
         e.preventDefault();
       }
     } else if (e.key === "ArrowRight" || e.key === "l") {
-      if (chartHover && e.key === "ArrowRight") {
+      // ツールチップが表示されている間 (ホバー中 or 離脱後の固定表示) は ←→ で前日/翌日へ。
+      // ソート切替は h / l キー。
+      const tooltipActive = chartHover || (chart && chart.getActiveElements().length > 0);
+      if (tooltipActive && e.key === "ArrowRight") {
         if (moveTooltip(1)) e.preventDefault();
         return;
       }
@@ -1668,7 +1671,8 @@ function renderVideoHistory(ch) {
         e.preventDefault();
       }
     } else if (e.key === "ArrowLeft" || e.key === "h") {
-      if (chartHover && e.key === "ArrowLeft") {
+      const tooltipActive = chartHover || (chart && chart.getActiveElements().length > 0);
+      if (tooltipActive && e.key === "ArrowLeft") {
         if (moveTooltip(-1)) e.preventDefault();
         return;
       }
