@@ -1889,7 +1889,20 @@ function renderRisingWatch(channels) {
   panel.innerHTML = `
     <div class="rw-header">
       <h2>🔥 急伸ウォッチ — 直近 3 日に伸びている動画</h2>
-      <p class="rw-help">HIT はチャンネル相対で判定（普段=中央値の何倍か）。<span class="rw-tier rw-tier-hit">🎯 HIT</span> = ${HIT.strongMult}倍以上（本物の突出） / <span class="rw-tier rw-tier-semi">🚀 準HIT</span> = ${HIT.mult}〜${HIT.strongMult}倍（伸びかけ） / <span class="rw-tier rw-tier-warmup">離陸中</span> = それ未満。「3日合計伸び」降順。<strong>▲</strong> = 直近で加速、<strong>▽</strong> = 減速、<strong>→</strong> = 横ばい、<strong>■</strong> = 停止。</p>
+      <div class="rw-help">
+        <p>HIT はチャンネル相対で判定（普段=中央値の何倍か）。並びは「3日合計伸び」降順。</p>
+        <ul>
+          <li><span class="rw-tier rw-tier-hit">🎯 HIT</span> = ${HIT.strongMult}倍以上（本物の突出）</li>
+          <li><span class="rw-tier rw-tier-semi">🚀 準HIT</span> = ${HIT.mult}〜${HIT.strongMult}倍（伸びかけ）</li>
+          <li><span class="rw-tier rw-tier-warmup">離陸中</span> = それ未満（動きはあるがまだ普段の範囲）</li>
+        </ul>
+        <ul>
+          <li><strong>▲</strong> = 直近で加速</li>
+          <li><strong>▽</strong> = 減速</li>
+          <li><strong>→</strong> = 横ばい</li>
+          <li><strong>■</strong> = 停止</li>
+        </ul>
+      </div>
       <p class="rw-help"><strong>行クリックで横断分析を展開</strong>（類似HIT・参入タイミング。Slack 急伸通知と同ロジック）。<span class="xa-badge xa-badge-cross">🌐 横展開実証</span> = 同テーマが他チャンネルでもHIT（真似る価値の強シグナル） / <span class="xa-badge xa-badge-same">🔁 自ch実証</span> = 類似HITが自チャンネル内のみ / <span class="xa-badge xa-badge-new">🆕 新規テーマ</span> = 過去履歴に類似HITなし。⏱ 🟢初速ゾーン 🟡伸び継続 🔴ピークアウト気味。</p>
 
       <div class="rw-filter-group">

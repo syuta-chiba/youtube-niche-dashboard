@@ -455,6 +455,14 @@ main {
   line-height: 1.5;
 }
 .rw-help strong { color: var(--text); font-weight: 600; }
+.rw-help p { margin: 0 0 0.35rem; }
+.rw-help ul {
+  margin: 0 0 0.5rem;
+  padding-left: 1.3rem;
+  list-style: disc;
+}
+.rw-help ul:last-child { margin-bottom: 0; }
+.rw-help li { margin: 0.15rem 0; }
 
 .rw-filter-group {
   display: flex;
