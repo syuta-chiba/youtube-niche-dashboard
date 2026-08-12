@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T02:30:27Z",
+  "generated_at": "2026-08-12T03:15:43Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -254787,9 +254787,12 @@
       "date": "2026-08-12",
       "weekday": "Wed",
       "subs": 1550,
-      "total_views": 179942,
+      "total_views": 179992,
       "subs_delta": 0,
-      "views_delta": 0,
+      "views_delta": 50,
+      "views_delta_long": 6,
+      "views_delta_short": 1,
+      "views_delta_sum": 7,
       "movers": [
         {
           "video_id": "RshRjA12Dus",
@@ -254818,6 +254821,13 @@
           "views": 773,
           "delta": 1,
           "published_at": "2024-10-04"
+        },
+        {
+          "video_id": "avmLusDxSCY",
+          "title": "【経験談】大学生がプログラミングの勉強したら「完全在宅」で「月13万円」稼げた話【バイト代わり】",
+          "views": 19565,
+          "delta": 1,
+          "published_at": "2024-05-14"
         }
       ],
       "recent": [],
@@ -255084,7 +255094,10 @@
         }
       ],
       "discovery": "2026-08-10: 深掘り評価: 7 ch / AUTO 追加: 0 / queue: 7",
-      "quota_yesterday": 5496
+      "quota_yesterday": 5496,
+      "views_delta_long": 63,
+      "views_delta_short": 36,
+      "views_delta_sum": 99
     },
     {
       "date": "2026-08-10",
@@ -255274,7 +255287,10 @@
         }
       ],
       "discovery": "2026-08-09: 深掘り評価: 6 ch / AUTO 追加: 0 / queue: 6",
-      "quota_yesterday": 5625
+      "quota_yesterday": 5625,
+      "views_delta_long": 72,
+      "views_delta_short": 30,
+      "views_delta_sum": 102
     },
     {
       "date": "2026-08-09",
@@ -255471,7 +255487,10 @@
         }
       ],
       "discovery": "2026-08-08: 深掘り評価: 7 ch / AUTO 追加: 0 / queue: 7",
-      "quota_yesterday": 5356
+      "quota_yesterday": 5356,
+      "views_delta_long": 49,
+      "views_delta_short": 38,
+      "views_delta_sum": 87
     },
     {
       "date": "2026-08-08",
@@ -255674,7 +255693,10 @@
         }
       ],
       "discovery": "2026-08-07: 深掘り評価: 6 ch / AUTO 追加: 0 / queue: 6",
-      "quota_yesterday": 6625
+      "quota_yesterday": 6625,
+      "views_delta_long": 50,
+      "views_delta_short": 39,
+      "views_delta_sum": 89
     },
     {
       "date": "2026-08-07",
@@ -255883,7 +255905,10 @@
         }
       ],
       "discovery": "2026-08-07: 深掘り評価: 7 ch / AUTO 追加: 0 / queue: 7",
-      "quota_yesterday": 1336
+      "quota_yesterday": 1336,
+      "views_delta_long": 131,
+      "views_delta_short": 55,
+      "views_delta_sum": 186
     },
     {
       "date": "2026-08-06",
@@ -256301,7 +256326,10 @@
         }
       ],
       "discovery": "2026-08-04: 深掘り評価: 10 ch / AUTO 追加: 0 / queue: 10",
-      "quota_yesterday": 5763
+      "quota_yesterday": 5763,
+      "views_delta_long": 55,
+      "views_delta_short": 56,
+      "views_delta_sum": 111
     },
     {
       "date": "2026-08-04",
@@ -256516,7 +256544,10 @@
         }
       ],
       "discovery": "2026-08-03: 深掘り評価: 11 ch / AUTO 追加: 0 / queue: 11",
-      "quota_yesterday": 5641
+      "quota_yesterday": 5641,
+      "views_delta_long": 68,
+      "views_delta_short": 32,
+      "views_delta_sum": 100
     },
     {
       "date": "2026-08-03",
@@ -256731,7 +256762,10 @@
         }
       ],
       "discovery": "2026-08-02: 深掘り評価: 16 ch / AUTO 追加: 0 / queue: 16",
-      "quota_yesterday": 5550
+      "quota_yesterday": 5550,
+      "views_delta_long": 51,
+      "views_delta_short": 42,
+      "views_delta_sum": 93
     },
     {
       "date": "2026-08-02",
@@ -256940,7 +256974,10 @@
         }
       ],
       "discovery": "2026-08-01: 深掘り評価: 12 ch / AUTO 追加: 0 / queue: 12",
-      "quota_yesterday": 5553
+      "quota_yesterday": 5553,
+      "views_delta_long": 80,
+      "views_delta_short": 39,
+      "views_delta_sum": 119
     },
     {
       "date": "2026-08-01",
@@ -257143,7 +257180,10 @@
         }
       ],
       "discovery": "2026-07-31: 深掘り評価: 12 ch / AUTO 追加: 0 / queue: 12",
-      "quota_yesterday": 5830
+      "quota_yesterday": 5830,
+      "views_delta_long": 70,
+      "views_delta_short": 249,
+      "views_delta_sum": 319
     },
     {
       "date": "2026-07-31",
@@ -257340,7 +257380,10 @@
         }
       ],
       "discovery": "2026-07-30: 深掘り評価: 16 ch / AUTO 追加: 0 / queue: 16",
-      "quota_yesterday": 5758
+      "quota_yesterday": 5758,
+      "views_delta_long": 49,
+      "views_delta_short": 16,
+      "views_delta_sum": 65
     },
     {
       "date": "2026-07-30",
@@ -257537,18 +257580,21 @@
         }
       ],
       "discovery": "2026-07-29: 深掘り評価: 23 ch / AUTO 追加: 0 / queue: 23",
-      "quota_yesterday": 5757
+      "quota_yesterday": 5757,
+      "views_delta_long": 148,
+      "views_delta_short": 28,
+      "views_delta_sum": 176
     }
   ],
   "quota": {
     "date_pt": "2026-08-11",
-    "today_units": 4356,
+    "today_units": 4395,
     "limit": 10000,
     "by_source": {
       "priority": 159,
       "discovery": 4146,
       "rss_patrol": 25,
-      "daily_report": 26
+      "daily_report": 65
     },
     "daily": [
       {
@@ -257605,7 +257651,7 @@
       },
       {
         "date": "2026-08-11",
-        "units": 4356
+        "units": 4395
       }
     ]
   }

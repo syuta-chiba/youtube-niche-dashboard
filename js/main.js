@@ -447,7 +447,7 @@ function renderDailyReports(reports) {
   const latest = reports[0];
   const past = reports.slice(1).map((r) => `
     <details class="an-item">
-      <summary><span class="an-date">${escapeHtml(r.date)}</span> 登録者 ${fmtN(r.subs)}${r.subs_delta != null ? ` (${r.subs_delta >= 0 ? "+" : ""}${fmtN(r.subs_delta)})` : ""} ・ 再生 +${fmtN(r.views_delta ?? 0)}</summary>
+      <summary><span class="an-date">${escapeHtml(r.date)}</span> 登録者 ${fmtN(r.subs)}${r.subs_delta != null ? ` (${r.subs_delta >= 0 ? "+" : ""}${fmtN(r.subs_delta)})` : ""} ・ 再生 ${r.views_delta_sum != null ? `+${fmtN(r.views_delta_sum)} <span class="an-split">(長尺 +${fmtN(r.views_delta_long ?? 0)} / short +${fmtN(r.views_delta_short ?? 0)})</span>` : `+${fmtN(r.views_delta ?? 0)}`}</summary>
       <div class="an-body">${renderDailyReportBody(r)}</div>
     </details>`).join("");
   panel.innerHTML = `

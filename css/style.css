@@ -1031,3 +1031,6 @@ th.sb-sorted { color: var(--accent); }
 .vein-mult-hit { color: #1a7f37; }
 .vein-mult-semi { color: #9a6700; }
 .vein-mult-under { color: #cf222e; }
+
+/* 日次レポート: 再生数の長尺/ショート内訳 */
+.an-split { color: var(--text-dim); font-size: 0.85em; font-weight: 400; }
