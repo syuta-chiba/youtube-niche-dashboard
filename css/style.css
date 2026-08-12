@@ -1034,3 +1034,8 @@ th.sb-sorted { color: var(--accent); }
 
 /* 日次レポート: 再生数の長尺/ショート内訳 */
 .an-split { color: var(--text-dim); font-size: 0.85em; font-weight: 400; }
+
+/* 日次タブ: ショート判別バッジ (長尺と混ざると数字を読み違えるため) */
+.fmt-short { display:inline-block; font-size:0.65rem; font-weight:700; letter-spacing:.05em;
+  padding:1px 5px; border-radius:3px; vertical-align:middle;
+  background:rgba(255,140,0,.14); color:#c26a00; border:1px solid rgba(255,140,0,.45); }

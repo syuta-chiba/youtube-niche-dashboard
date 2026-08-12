@@ -413,7 +413,7 @@ function dailyVideoRow(v, extra) {
   return `
     <tr>
       <td class="vt-thumb"><a href="https://www.youtube.com/watch?v=${encodeURIComponent(v.video_id)}" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/${encodeURIComponent(v.video_id)}/default.jpg" alt="" loading="lazy"></a></td>
-      <td class="mk-title"><a href="https://www.youtube.com/watch?v=${encodeURIComponent(v.video_id)}" target="_blank" rel="noopener">${escapeHtml(v.title || "")}</a>${v.channel ? `<br><span class="pl-na">${escapeHtml(v.channel)}</span>` : ""}</td>
+      <td class="mk-title">${v.format === "short" ? `<span class="fmt-short">SHORT</span> ` : ""}<a href="https://www.youtube.com/watch?v=${encodeURIComponent(v.video_id)}" target="_blank" rel="noopener">${escapeHtml(v.title || "")}</a>${v.channel ? `<br><span class="pl-na">${escapeHtml(v.channel)}</span>` : ""}</td>
       <td class="pl-num"><strong>${fmtN(v.views)}</strong>${v.delta != null ? `<br><span class="pl-up">+${fmtN(v.delta)}</span>` : ""}</td>
       <td class="pl-date">${escapeHtml(extra || v.published_at || "")}</td>
     </tr>`;
@@ -421,8 +421,16 @@ function dailyVideoRow(v, extra) {
 
 function renderDailyReportBody(r) {
   const head = `<thead><tr><th></th><th>動画</th><th>views (+昨日)</th><th>公開</th></tr></thead>`;
+  const fmtSplit = (list) => {
+    const L = (list || []).filter((x) => x.format !== "short");
+    const S = (list || []).filter((x) => x.format === "short");
+    const sum = (a) => a.reduce((t, x) => t + (x.delta || 0), 0);
+    return S.length
+      ? ` <span class="dv-sub">— 長尺 ${L.length}本 (+${fmtN(sum(L))}) / SHORT ${S.length}本 (+${fmtN(sum(S))})</span>`
+      : "";
+  };
   const movers = (r.movers || []).length
-    ? `<h4>📈 自ch 昨日伸びた動画</h4><div class="dv-table-wrap"><table class="dv-table">${head}<tbody>${(r.movers || []).map((m) => dailyVideoRow(m)).join("")}</tbody></table></div>`
+    ? `<h4>📈 自ch 昨日伸びた動画${fmtSplit(r.movers)}</h4><div class="dv-table-wrap"><table class="dv-table">${head}<tbody>${(r.movers || []).map((m) => dailyVideoRow(m)).join("")}</tbody></table></div>`
     : "<h4>📈 自ch</h4><p class='dv-sub'>昨日伸びた動画なし</p>";
   const recent = (r.recent || []).length
     ? `<h4>🐣 公開7日以内の初速</h4><div class="dv-table-wrap"><table class="dv-table">${head}<tbody>${(r.recent || []).map((v) => dailyVideoRow(v)).join("")}</tbody></table></div>`
