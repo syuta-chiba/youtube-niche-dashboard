@@ -1095,7 +1095,7 @@ function renderChannel(ch, idx) {
       document.getElementById(`kpipspan-${ch.id}`).textContent = st.span;
     }));
     drawDualSeries(`subs-${ch.id}`, subs, "subs", "登録者数", "+ 登録者 / 日", PALETTE[idx % PALETTE.length]);
-    drawDailyDeltaBar(`vdelta-${ch.id}`, views, "total_views", "+ views / 日", PALETTE[(idx + 1) % PALETTE.length]);
+    drawDailyDeltaBar(`vdelta-${ch.id}`, views, "total_views", "+ views / 日", PALETTE[(idx + 1) % PALETTE.length], "videos");
     drawDailyPosts(`posts-${ch.id}`, ch.daily_posts || []);
     renderRising(`rising-${ch.id}`, ch);
     renderHits(`hits-${ch.id}`, ch.recent_hits || [], ch);
@@ -1139,22 +1139,34 @@ function computeRecentDelta(history, key, days) {
   return { delta: last[key] - base[key], spanLabel };
 }
 
-function aggregateDailyLast(history, key) {
+function aggregateDailyLast(history, key, countKey) {
   const byDate = {};
+  const cntByDate = {};
   // 時系列順に処理（snapshots.jsonl のファイル順が乱れていても日内最終値が取れる）
   const sorted = [...history].sort((a, b) => (a.timestamp || "").localeCompare(b.timestamp || ""));
   sorted.forEach((p) => {
     const d = jstDate(p.timestamp || "");
     if (!d) return;
     byDate[d] = p[key];
+    if (countKey && p[countKey] != null) cntByDate[d] = p[countKey];
   });
-  // 累計値は単調増加を保証（API 取得の動画セット入れ替わりで見かけ上減ることがあるノイズを除去）
+  // 累計値は単調増加を保証（API 取得の動画セット入れ替わりで見かけ上減ることがあるノイズを除去）。
+  //
+  // ただし countKey を渡した場合、母集団（動画本数）が減った日は「チャンネルが動画を
+  // 取り下げた」＝累計が**本当に**下がった日なので、クランプを外してベースラインを張り直す。
+  // 張り直さないと、累計が元の水準に戻るまで日次デルタが全部 0 になり、
+  // グラフが「止まって見える」→ ある日いきなり巨大な棒が1本立つ、という嘘になる。
+  // (2026-08-11 実測: Sura×Asura が 07-17 に 20 本取り下げ → -16,528。以降 26 日間ずっと 0 表示だった)
   const dates = Object.keys(byDate).sort();
   let prev = -Infinity;
+  let prevCnt = null;
   return dates.map((d) => {
-    const v = Math.max(byDate[d], prev);
+    const cnt = countKey ? cntByDate[d] : null;
+    const shrank = cnt != null && prevCnt != null && cnt < prevCnt;
+    const v = shrank ? byDate[d] : Math.max(byDate[d], prev);
     prev = v;
-    return { date: d, value: v };
+    if (cnt != null) prevCnt = cnt;
+    return { date: d, value: v, reset: shrank };
   });
 }
 
@@ -1241,10 +1253,10 @@ function drawDualSeries(canvasId, history, key, cumLabel, deltaLabel, color) {
   });
 }
 
-function drawDailyDeltaBar(canvasId, history, key, label, color) {
+function drawDailyDeltaBar(canvasId, history, key, label, color, countKey) {
   const canvas = document.getElementById(canvasId);
   if (!canvas || !history.length) return;
-  const daily = aggregateDailyLast(history, key);
+  const daily = aggregateDailyLast(history, key, countKey);
   if (daily.length < 2) {
     canvas.parentElement.innerHTML = `<div style="color:var(--text-dim);padding:1rem;font-size:0.85rem">スナップショット 2 日分以降で表示</div>`;
     return;
@@ -1252,7 +1264,8 @@ function drawDailyDeltaBar(canvasId, history, key, label, color) {
   const labels = daily.slice(1).map((d) => d.date);
   const deltas = [];
   for (let i = 1; i < daily.length; i++) {
-    deltas.push(daily[i].value - daily[i - 1].value);
+    // ベースラインを張り直した日（動画取り下げ）は前日と比較できない → 欠測として穴を空ける
+    deltas.push(daily[i].reset ? null : daily[i].value - daily[i - 1].value);
   }
   new Chart(canvas, {
     type: "bar",
@@ -1261,8 +1274,8 @@ function drawDailyDeltaBar(canvasId, history, key, label, color) {
       datasets: [{
         label,
         data: deltas,
-        backgroundColor: deltas.map((v) => v >= 0 ? COL_POS_BG : COL_NEG_BG),
-        borderColor: deltas.map((v) => v >= 0 ? COL_POS : COL_NEG),
+        backgroundColor: deltas.map((v) => (v ?? 0) >= 0 ? COL_POS_BG : COL_NEG_BG),
+        borderColor: deltas.map((v) => (v ?? 0) >= 0 ? COL_POS : COL_NEG),
         borderWidth: 1,
       }],
     },

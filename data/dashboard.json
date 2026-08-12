@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T01:01:37Z",
+  "generated_at": "2026-08-12T02:30:27Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -254789,112 +254789,35 @@
       "subs": 1550,
       "total_views": 179942,
       "subs_delta": 0,
-      "views_delta": 105,
+      "views_delta": 0,
       "movers": [
         {
           "video_id": "RshRjA12Dus",
           "title": "【Ollama】Claude Codeを無料で使う2つの方法｜ローカル vs クラウド無料枠",
-          "views": 4062,
-          "delta": 11,
+          "views": 4064,
+          "delta": 2,
           "published_at": "2026-05-10"
         },
         {
-          "video_id": "npJpXSvDVGA",
-          "title": "【0円継続】Claude Code制限が来ても無料で動かす方法",
-          "views": 1887,
-          "delta": 10,
-          "published_at": "2026-05-10"
-        },
-        {
-          "video_id": "Pqd57DOhde4",
-          "title": "\"最強クラス\"の27Bモデル、GPUなしで動かすと1秒に2文字しか出ない",
-          "views": 341,
-          "delta": 8,
-          "published_at": "2026-08-02"
-        },
-        {
-          "video_id": "avmLusDxSCY",
-          "title": "【経験談】大学生がプログラミングの勉強したら「完全在宅」で「月13万円」稼げた話【バイト代わり】",
-          "views": 19564,
-          "delta": 6,
-          "published_at": "2024-05-14"
-        },
-        {
-          "video_id": "P_Z7uv1YGpo",
-          "title": "GPUなしの普通のノートPCで、最新ローカルLLMがそのまま動く",
-          "views": 1398,
-          "delta": 5,
-          "published_at": "2026-07-31"
-        },
-        {
-          "video_id": "aOBCNjRYE4c",
-          "title": "【実測】GPUなしの13万円ノートPCで、最新ローカルLLM 5本はどこまで動くのか【2026年7月】",
-          "views": 180,
-          "delta": 5,
-          "published_at": "2026-07-28"
-        },
-        {
-          "video_id": "b0k8nwApO7s",
-          "title": "【知らずに実行】PowerShellの危険コマンドの見分け方",
-          "views": 912,
-          "delta": 4,
-          "published_at": "2026-05-11"
-        },
-        {
-          "video_id": "rMn-CB7i8Es",
-          "title": "【パワポ × claude】パワポにアドインでclaude入れたら資料作成が自然言語で爆速に！コンテキスト理解があるから共通ルールで作成可能！【PowerPoint × claude】",
-          "views": 195,
-          "delta": 3,
-          "published_at": "2026-04-22"
-        },
-        {
-          "video_id": "ncGHITBLY5c",
-          "title": "【Claude Code】VScodeと連携して使う方法！【差分をしっかりみて判断できる！】",
-          "views": 814,
-          "delta": 3,
-          "published_at": "2026-04-19"
+          "video_id": "geXueZ_12mk",
+          "title": "【作業時間が1時間→3分】Word×Claudeで作業時間を削減しよう！",
+          "views": 334,
+          "delta": 2,
+          "published_at": "2026-05-02"
         },
         {
           "video_id": "h56gYKmpyUs",
           "title": "【意外と知らない】Claude 5時間制限の本当の理由 #Shorts",
-          "views": 1035,
-          "delta": 2,
+          "views": 1036,
+          "delta": 1,
           "published_at": "2026-05-09"
-        },
-        {
-          "video_id": "d0wYf1SFcrU",
-          "title": "【JavaScriptの入門編】#15 要素のクラス属性の値を操作する方法！【className, classList, add(), remove(), contains(), toggle()】",
-          "views": 144,
-          "delta": 2,
-          "published_at": "2024-12-02"
         },
         {
           "video_id": "Aa_uepaFIBE",
           "title": "【推奨】絶対に「エンジニア」なら「技術ブログ」を書くべき理由。【大学生にもおすすめ！】",
-          "views": 772,
-          "delta": 2,
+          "views": 773,
+          "delta": 1,
           "published_at": "2024-10-04"
-        },
-        {
-          "video_id": "ABo9nej5tmw",
-          "title": "【賢い節約】設計はMax、検証はLowで使い分けるClaude Code術",
-          "views": 1104,
-          "delta": 1,
-          "published_at": "2026-05-26"
-        },
-        {
-          "video_id": "21wZ9DV1m5g",
-          "title": "【月7000円】個人iPhoneアプリ開発のリアルなコスト全部出した",
-          "views": 1225,
-          "delta": 1,
-          "published_at": "2026-05-21"
-        },
-        {
-          "video_id": "bQhxc7PDvv8",
-          "title": "【情報が古くなっています！VPSなしでいける最新の動画を用意しています！】VPSサーバーで24時間claude codeを動かしてそこにremote-controlで接続！【アプリ開発】",
-          "views": 255,
-          "delta": 1,
-          "published_at": "2026-05-14"
         }
       ],
       "recent": [],
@@ -254903,71 +254826,71 @@
           "video_id": "5_7qs65agVk",
           "title": "【Anthropic不参加!?】OpenAI・Cursor・AWS結束 ── Agent Pluginsとは？",
           "channel": "Sura×Asura For AI Agent",
-          "views": 541,
-          "delta": 385
+          "views": 583,
+          "delta": 290
         },
         {
           "video_id": "HSf7rcaSOjU",
           "title": "ローカルAI（ローカルLLM）で実現!?無課金AI生活～自分専用のAI環境つくってみた",
           "channel": "デジタルの時間",
-          "views": 38466,
-          "delta": 171
+          "views": 38480,
+          "delta": 162
         },
         {
           "video_id": "za-663hIhEk",
           "title": "【徹底解説】Cloudflare OS ── Gatekeeper×Gadgetで社内AIを守る新設計",
           "channel": "Sura×Asura For AI Agent",
-          "views": 1655,
-          "delta": 121
+          "views": 1660,
+          "delta": 96
         },
         {
           "video_id": "9GHcy64Avbg",
           "title": "【始動】99%が知らない「ローカルLLM」の世界。Google最新Gemma 3を無料で構築する方法【ローカルLLM構築計画#1】#Ollama",
           "channel": "reckの知識の森",
-          "views": 46936,
-          "delta": 96
+          "views": 46947,
+          "delta": 94
         },
         {
           "video_id": "d2256mBkb8Y",
           "title": "ローカルAI（ローカルLLM）を強化する！無課金AI生活２～知識拡張で最新情報や社内・個人情報をAIで回答可能にする～",
           "channel": "デジタルの時間",
-          "views": 8821,
-          "delta": 82
+          "views": 8841,
+          "delta": 87
         },
         {
           "video_id": "vnODbLAqV3k",
           "title": "【99%が知らない】「API vs ローカルLLM」どっちが正解？9割が知らないAI学習の真実と、ファインチューニングで作る\"最強の専属AI\"【ローカルLLM構築計画#3】 #Unsloth",
           "channel": "reckの知識の森",
-          "views": 27429,
-          "delta": 70
+          "views": 27442,
+          "delta": 74
         },
         {
           "video_id": "lua2LYGtqAc",
           "title": "【最短10分】GitHubとVercelでWebアプリを無料公開する方法！知識0からの完全ガイド",
           "channel": "HAYAKIのAIラボ",
-          "views": 2396,
-          "delta": 41
-        },
-        {
-          "video_id": "miwoy9UD5gg",
-          "title": "【Modelfile】99%が知らない「AIの性格」を改造する方法。一人デスゲームから無限論破まで、Gemma 3の禁断の遊び方【ローカルLLM構築計画#2】",
-          "channel": "reckの知識の森",
-          "views": 15270,
-          "delta": 32
+          "views": 2397,
+          "delta": 38
         },
         {
           "video_id": "MqVu7DPRc88",
           "title": "【完全初心者向け】高価なGPUなしでも画像1枚から動画をローカルで作る方法 | FramePack 導入からプロンプトまで全部見せます #AI動画 #動画生成ai",
           "channel": "reckの知識の森",
-          "views": 2892,
-          "delta": 30
+          "views": 2898,
+          "delta": 35
         },
         {
-          "video_id": "DKQv0ljwTRE",
-          "title": "【グラフエンジニアリング入門】AIエージェント運用を関係性から設計する方法",
-          "channel": "Sura×Asura For AI Agent",
-          "views": 153,
-          "delta": 27
+          "video_id": "miwoy9UD5gg",
+          "title": "【Modelfile】99%が知らない「AIの性格」を改造する方法。一人デスゲームから無限論破まで、Gemma 3の禁断の遊び方【ローカルLLM構築計画#2】",
+          "channel": "reckの知識の森",
+          "views": 15277,
+          "delta": 31
+        },
+        {
+          "video_id": "nY2pU4iofQs",
+          "title": "【GitHubオープンソース】あなた専用AI超知能「OpenHuman」が凄すぎる！無料で使えるローカルAIエージェント徹底解説",
+          "channel": "クドクラ@ClaudeCode AI駆動Craft",
+          "views": 1210,
+          "delta": 28
         }
       ],
       "discovery": "2026-08-11: 深掘り評価: 5 ch / AUTO 追加: 0 / queue: 5",
@@ -257619,13 +257542,13 @@
   ],
   "quota": {
     "date_pt": "2026-08-11",
-    "today_units": 4343,
+    "today_units": 4356,
     "limit": 10000,
     "by_source": {
       "priority": 159,
       "discovery": 4146,
       "rss_patrol": 25,
-      "daily_report": 13
+      "daily_report": 26
     },
     "daily": [
       {
@@ -257682,7 +257605,7 @@
       },
       {
         "date": "2026-08-11",
-        "units": 4343
+        "units": 4356
       }
     ]
   }
