@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T12:43:50Z",
+  "generated_at": "2026-08-13T18:46:40Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -1479,6 +1479,10 @@
         },
         {
           "timestamp": "2026-08-13T12:43:37Z",
+          "subs": 526
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
           "subs": 526
         }
       ],
@@ -3317,6 +3321,11 @@
           "timestamp": "2026-08-13T12:43:37Z",
           "total_views": 57034,
           "videos": 384
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
+          "total_views": 57063,
+          "videos": 384
         }
       ],
       "daily_posts": [
@@ -4823,6 +4832,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2724
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2724
             }
           ],
           "likes": 25,
@@ -6246,6 +6259,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 4819
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 4819
             }
           ],
@@ -7671,10 +7688,14 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 815
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 816
             }
           ],
           "likes": 13,
-          "like_pct": 1.6,
+          "like_pct": 1.59,
           "ad_check": "ok",
           "exp_likes": 9.5,
           "likes_vs_exp_pct": 137
@@ -9094,6 +9115,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 2969
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 2969
             }
           ],
@@ -10519,6 +10544,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1253
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1253
             }
           ],
           "likes": 33,
@@ -11942,6 +11971,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 665
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 665
             }
           ],
@@ -13367,6 +13400,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1285
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1285
             }
           ],
           "likes": 10,
@@ -14790,6 +14827,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 1336
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 1336
             }
           ],
@@ -16215,10 +16256,14 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 958
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 959
             }
           ],
           "likes": 8,
-          "like_pct": 0.84,
+          "like_pct": 0.83,
           "ad_check": "ok",
           "exp_likes": 11.1,
           "likes_vs_exp_pct": 72
@@ -17562,6 +17607,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 643
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 643
             }
           ],
@@ -18911,6 +18960,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 559
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 559
             }
           ],
           "likes": 3,
@@ -20258,6 +20311,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 662
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 662
             }
           ],
@@ -21671,6 +21728,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 510
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 510
             }
           ],
           "likes": 21,
@@ -23079,6 +23140,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 511
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 511
             }
           ],
           "likes": 12,
@@ -24483,6 +24548,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 756
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 756
             }
           ],
           "likes": 4,
@@ -25479,6 +25548,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 3866
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 3866
             }
           ],
           "likes": 75,
@@ -25974,6 +26047,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 24
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 24
             }
           ],
@@ -26471,6 +26548,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 19
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 19
             }
           ],
           "likes": 0,
@@ -26946,6 +27027,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 58
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 58
             }
           ],
@@ -27423,6 +27508,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 72
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 72
             }
           ],
           "likes": 0,
@@ -27898,6 +27987,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 76
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 76
             }
           ],
@@ -28375,6 +28468,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 21
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 21
             }
           ],
           "likes": 1,
@@ -28710,6 +28807,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 25
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 25
             }
           ],
@@ -29047,6 +29148,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 34
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 34
             }
           ],
           "likes": 1,
@@ -29370,6 +29475,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 14
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 14
             }
           ],
@@ -29695,6 +29804,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 33
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 33
             }
           ],
           "likes": 0,
@@ -30019,6 +30132,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 33
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 34
             }
           ],
           "likes": 0,
@@ -30343,6 +30460,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 6
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 6
             }
           ],
           "likes": 0,
@@ -30408,7 +30529,7 @@
           "title": "【神アプデ】ChatGPTデスクトップに音声モード搭載！macOSはAppshotsで画面も見える！",
           "url": "https://www.youtube.com/watch?v=ufPwTFWdjJQ",
           "published_at": "2026-07-25",
-          "views": 33,
+          "views": 34,
           "age_days": 19,
           "to1000": null,
           "to1000_lte": false,
@@ -30423,10 +30544,10 @@
           "d14": 30,
           "d28": null,
           "r1": 0,
-          "r3": 1,
-          "r7": 3,
-          "r14": 9,
-          "r28": 33
+          "r3": 2,
+          "r7": 4,
+          "r14": 10,
+          "r28": 34
         },
         {
           "video_id": "eFlfx7dfk90",
@@ -30783,25 +30904,25 @@
           "title": "【神アプデ】Claude Codeデスクトップに専用ブラウザ搭載！",
           "url": "https://www.youtube.com/watch?v=AMpncvXt1_g",
           "published_at": "2026-07-12",
-          "views": 72,
+          "views": 73,
           "age_days": 32,
           "to1000": null,
           "to1000_lte": false,
           "traj": "tail",
-          "like_pct": 1.39,
+          "like_pct": 1.37,
           "likes": 1,
           "ad_check": "na",
-          "likes_vs_exp_pct": 90,
+          "likes_vs_exp_pct": 89,
           "d1": null,
           "d3": 64,
           "d7": 66,
           "d14": 66,
           "d28": 71,
           "r1": 0,
-          "r3": 0,
-          "r7": 2,
-          "r14": 6,
-          "r28": 7
+          "r3": 1,
+          "r7": 3,
+          "r14": 7,
+          "r28": 8
         },
         {
           "video_id": "dT1oDzm23BM",
@@ -30883,7 +31004,7 @@
           "title": "【衝撃】Microsoft 365 CopilotがGPT-5を標準採用！業務AIの覇権が決着",
           "url": "https://www.youtube.com/watch?v=oqV2vbjPC8Q",
           "published_at": "2026-07-09",
-          "views": 37,
+          "views": 38,
           "age_days": 35,
           "to1000": null,
           "to1000_lte": false,
@@ -30898,10 +31019,10 @@
           "d14": 27,
           "d28": 36,
           "r1": 0,
-          "r3": 0,
-          "r7": 0,
-          "r14": 2,
-          "r28": 13
+          "r3": 1,
+          "r7": 1,
+          "r14": 3,
+          "r28": 14
         },
         {
           "video_id": "8qdUOp2mzT4",
@@ -31783,37 +31904,37 @@
           "title": "【神機能】Cloudflare新登場！登録不要60分でAIエージェントが即デプロイ",
           "url": "https://www.youtube.com/watch?v=113ScC3X1bU",
           "published_at": "2026-06-22",
-          "views": 159,
+          "views": 160,
           "age_days": 52,
           "to1000": null,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 2.52,
+          "like_pct": 2.5,
           "likes": 4,
           "ad_check": "na",
-          "likes_vs_exp_pct": 191,
+          "likes_vs_exp_pct": 190,
           "d1": 43,
           "d3": 50,
           "d7": 60,
           "d14": 86,
           "d28": 116,
           "r1": 0,
-          "r3": 5,
-          "r7": 21,
-          "r14": 31,
-          "r28": 45
+          "r3": 6,
+          "r7": 22,
+          "r14": 32,
+          "r28": 46
         },
         {
           "video_id": "iE9xT6LvVp0",
           "title": "【神機能】Codexがローカルとリモート間でスレッド受け渡し可能に！",
           "url": "https://www.youtube.com/watch?v=iE9xT6LvVp0",
           "published_at": "2026-06-21",
-          "views": 46,
+          "views": 47,
           "age_days": 53,
           "to1000": null,
           "to1000_lte": false,
           "traj": "tail",
-          "like_pct": 2.17,
+          "like_pct": 2.13,
           "likes": 1,
           "ad_check": "na",
           "likes_vs_exp_pct": null,
@@ -31823,10 +31944,10 @@
           "d14": 41,
           "d28": 42,
           "r1": 0,
-          "r3": 0,
-          "r7": 0,
-          "r14": 1,
-          "r28": 5
+          "r3": 1,
+          "r7": 1,
+          "r14": 2,
+          "r28": 6
         },
         {
           "video_id": "Hv1xJaHyMg8",
@@ -32283,7 +32404,7 @@
           "title": "【速報】Gemini大規模障害発生！6月10日に何が起きたのか徹底解説",
           "url": "https://www.youtube.com/watch?v=pT6SW3J9I68",
           "published_at": "2026-06-12",
-          "views": 177,
+          "views": 178,
           "age_days": 62,
           "to1000": null,
           "to1000_lte": false,
@@ -32298,10 +32419,10 @@
           "d14": 161,
           "d28": null,
           "r1": 0,
-          "r3": 0,
-          "r7": 1,
-          "r14": 3,
-          "r28": 7
+          "r3": 1,
+          "r7": 2,
+          "r14": 4,
+          "r28": 8
         },
         {
           "video_id": "X0YpuoOI0_0",
@@ -32833,25 +32954,25 @@
           "title": "【革命】LFM2.5-8B-A1B登場！スマホで動く超軽量AIモデルがヤバすぎる",
           "url": "https://www.youtube.com/watch?v=cMGXEfqmE3U",
           "published_at": "2026-05-30",
-          "views": 181,
+          "views": 183,
           "age_days": 75,
           "to1000": null,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 2.21,
+          "like_pct": 2.19,
           "likes": 4,
           "ad_check": "na",
-          "likes_vs_exp_pct": 171,
+          "likes_vs_exp_pct": 169,
           "d1": 27,
           "d3": 49,
           "d7": 57,
           "d14": 94,
           "d28": 126,
           "r1": 0,
-          "r3": 2,
-          "r7": 5,
-          "r14": 13,
-          "r28": 35
+          "r3": 4,
+          "r7": 7,
+          "r14": 15,
+          "r28": 37
         },
         {
           "video_id": "vezKqh2j3Vk",
@@ -32933,25 +33054,25 @@
           "title": "【新サービス】AIスキル販売マーケット「Capafy」がついに公開！稼げる時代の幕開け",
           "url": "https://www.youtube.com/watch?v=Nas5Sf-XrQk",
           "published_at": "2026-05-27",
-          "views": 113,
+          "views": 114,
           "age_days": 78,
           "to1000": null,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 1.77,
+          "like_pct": 1.75,
           "likes": 2,
           "ad_check": "na",
-          "likes_vs_exp_pct": 127,
+          "likes_vs_exp_pct": 126,
           "d1": 9,
           "d3": 15,
           "d7": 22,
           "d14": 47,
           "d28": 66,
           "r1": 0,
-          "r3": 5,
-          "r7": 11,
-          "r14": 19,
-          "r28": 31
+          "r3": 6,
+          "r7": 12,
+          "r14": 20,
+          "r28": 32
         },
         {
           "video_id": "gmsgtDn761E",
@@ -33658,25 +33779,25 @@
           "title": "【神アプデ】Claude Codeに「/goal」コマンド追加！使い方を徹底解説",
           "url": "https://www.youtube.com/watch?v=14aGFZm9cAM",
           "published_at": "2026-05-13",
-          "views": 101,
+          "views": 102,
           "age_days": 92,
           "to1000": null,
           "to1000_lte": false,
           "traj": "stalled",
-          "like_pct": 1.98,
+          "like_pct": 1.96,
           "likes": 2,
           "ad_check": "na",
-          "likes_vs_exp_pct": 139,
+          "likes_vs_exp_pct": 138,
           "d1": 23,
           "d3": 66,
           "d7": 78,
           "d14": 89,
           "d28": 95,
           "r1": 0,
-          "r3": 1,
-          "r7": 1,
-          "r14": 1,
-          "r28": 1
+          "r3": 2,
+          "r7": 2,
+          "r14": 2,
+          "r28": 2
         },
         {
           "video_id": "EjHUGx0CdrU",
@@ -34708,12 +34829,12 @@
           "title": "【OpenAI新機能】Codex App Serverで自社製品にAIを組み込む方法！",
           "url": "https://www.youtube.com/watch?v=GRNA3lHtdfE",
           "published_at": "2026-05-04",
-          "views": 815,
+          "views": 816,
           "age_days": 101,
           "to1000": null,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 1.6,
+          "like_pct": 1.59,
           "likes": 13,
           "ad_check": "ok",
           "likes_vs_exp_pct": 137,
@@ -34723,10 +34844,10 @@
           "d14": 555,
           "d28": 670,
           "r1": 0,
-          "r3": 0,
-          "r7": 7,
-          "r14": 19,
-          "r28": 47
+          "r3": 1,
+          "r7": 8,
+          "r14": 20,
+          "r28": 48
         },
         {
           "video_id": "TfuCNYadidU",
@@ -35033,12 +35154,12 @@
           "title": "【OpenAI新機能】ChatGPTアカウントを守る高度なセキュリティ機能(AAS)が登場！",
           "url": "https://www.youtube.com/watch?v=1SCFLG-1tiQ",
           "published_at": "2026-05-01",
-          "views": 56,
+          "views": 58,
           "age_days": 104,
           "to1000": null,
           "to1000_lte": false,
           "traj": "tail",
-          "like_pct": 1.79,
+          "like_pct": 1.72,
           "likes": 1,
           "ad_check": "na",
           "likes_vs_exp_pct": null,
@@ -35048,10 +35169,10 @@
           "d14": 27,
           "d28": 37,
           "r1": 0,
-          "r3": 1,
-          "r7": 2,
-          "r14": 4,
-          "r28": 5
+          "r3": 3,
+          "r7": 4,
+          "r14": 6,
+          "r28": 7
         },
         {
           "video_id": "TrwcQ4TzG04",
@@ -35408,25 +35529,25 @@
           "title": "【OpenAI Symphony】全issueにAIエージェントを配置！Codex自動化の未来が凄い",
           "url": "https://www.youtube.com/watch?v=gcjx5QlJiBU",
           "published_at": "2026-04-28",
-          "views": 141,
+          "views": 143,
           "age_days": 107,
           "to1000": null,
           "to1000_lte": false,
           "traj": "tail",
-          "like_pct": 2.84,
+          "like_pct": 2.8,
           "likes": 4,
           "ad_check": "na",
-          "likes_vs_exp_pct": 211,
+          "likes_vs_exp_pct": 209,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": 89,
           "d28": 123,
           "r1": 0,
-          "r3": 2,
-          "r7": 3,
-          "r14": 7,
-          "r28": 9
+          "r3": 4,
+          "r7": 5,
+          "r14": 9,
+          "r28": 11
         },
         {
           "video_id": "gpCqEHKGNv8",
@@ -35483,7 +35604,7 @@
           "title": "【衝撃】UbuntuにAI機能搭載へ！Canonicalが発表した計画がすごい",
           "url": "https://www.youtube.com/watch?v=CeMThJ8v98w",
           "published_at": "2026-04-28",
-          "views": 406,
+          "views": 407,
           "age_days": 107,
           "to1000": null,
           "to1000_lte": false,
@@ -35491,17 +35612,17 @@
           "like_pct": 2.46,
           "likes": 10,
           "ad_check": "na",
-          "likes_vs_exp_pct": 205,
+          "likes_vs_exp_pct": 204,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": 238,
           "d28": 261,
           "r1": 0,
-          "r3": 3,
-          "r7": 9,
-          "r14": 21,
-          "r28": 53
+          "r3": 4,
+          "r7": 10,
+          "r14": 22,
+          "r28": 54
         },
         {
           "video_id": "5DaOX7pdvYw",
@@ -35858,25 +35979,25 @@
           "title": "【衝撃】デジタル庁がAI「源内」をOSS公開！日本の行政が変わる",
           "url": "https://www.youtube.com/watch?v=nhxOo4u_EtM",
           "published_at": "2026-04-26",
-          "views": 403,
+          "views": 404,
           "age_days": 109,
           "to1000": null,
           "to1000_lte": false,
           "traj": "tail",
-          "like_pct": 2.73,
+          "like_pct": 2.72,
           "likes": 11,
           "ad_check": "na",
-          "likes_vs_exp_pct": 227,
+          "likes_vs_exp_pct": 226,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": 192,
           "d28": 334,
           "r1": 0,
-          "r3": 1,
-          "r7": 5,
-          "r14": 8,
-          "r28": 12
+          "r3": 2,
+          "r7": 6,
+          "r14": 9,
+          "r28": 13
         },
         {
           "video_id": "3BCZ0cBjJ9s",
@@ -37333,25 +37454,25 @@
           "title": "【DeepTutor】論文もPDFもAIが個別指導！香港大学発の無料AI家庭教師がすごい",
           "url": "https://www.youtube.com/watch?v=PM3_KPa0KSk",
           "published_at": "2026-04-08",
-          "views": 119,
+          "views": 120,
           "age_days": 127,
           "to1000": null,
           "to1000_lte": false,
           "traj": "tail",
-          "like_pct": 1.68,
+          "like_pct": 1.67,
           "likes": 2,
           "ad_check": "na",
-          "likes_vs_exp_pct": 122,
+          "likes_vs_exp_pct": 121,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": 85,
           "r1": 0,
-          "r3": 2,
-          "r7": 4,
-          "r14": 9,
-          "r28": 13
+          "r3": 3,
+          "r7": 5,
+          "r14": 10,
+          "r28": 14
         },
         {
           "video_id": "vkctLBVewfk",
@@ -37983,12 +38104,12 @@
           "title": "【Gemma 4登場】Googleが最強オープンモデルを公開！推論とAI自律型に特化",
           "url": "https://www.youtube.com/watch?v=88ssjyTFwRs",
           "published_at": "2026-04-02",
-          "views": 958,
+          "views": 959,
           "age_days": 133,
           "to1000": null,
           "to1000_lte": false,
           "traj": "tail",
-          "like_pct": 0.84,
+          "like_pct": 0.83,
           "likes": 8,
           "ad_check": "ok",
           "likes_vs_exp_pct": 72,
@@ -37998,35 +38119,35 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 0,
-          "r7": 0,
-          "r14": 4,
-          "r28": 10
+          "r3": 1,
+          "r7": 1,
+          "r14": 5,
+          "r28": 11
         },
         {
           "video_id": "TS8OcpwzTv8",
           "title": "【Google Analytics×AI】MCPサーバーでGeminiと直接連携！手動レポート不要の神機能",
           "url": "https://www.youtube.com/watch?v=TS8OcpwzTv8",
           "published_at": "2026-04-02",
-          "views": 120,
+          "views": 122,
           "age_days": 133,
           "to1000": null,
           "to1000_lte": false,
           "traj": "tail",
-          "like_pct": 2.5,
+          "like_pct": 2.46,
           "likes": 3,
           "ad_check": "na",
-          "likes_vs_exp_pct": 181,
+          "likes_vs_exp_pct": 179,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 1,
-          "r7": 1,
-          "r14": 4,
-          "r28": 11
+          "r3": 3,
+          "r7": 3,
+          "r14": 6,
+          "r28": 13
         },
         {
           "video_id": "tyXm5G72Kf0",
@@ -38058,12 +38179,12 @@
           "title": "Claude code のpluginにcodexが？　/plugin marketplace add openai/codex-plugin-cc",
           "url": "https://www.youtube.com/watch?v=a_HOBnIxrVw",
           "published_at": "2026-04-02",
-          "views": 34,
+          "views": 35,
           "age_days": 133,
           "to1000": null,
           "to1000_lte": false,
           "traj": "stalled",
-          "like_pct": 2.94,
+          "like_pct": 2.86,
           "likes": 1,
           "ad_check": "na",
           "likes_vs_exp_pct": null,
@@ -38073,10 +38194,10 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 0,
-          "r7": 0,
-          "r14": 0,
-          "r28": 1
+          "r3": 1,
+          "r7": 1,
+          "r14": 1,
+          "r28": 2
         },
         {
           "video_id": "PKRSm13OLVU",
@@ -38108,24 +38229,24 @@
           "title": "【Cloudflare新CMS】WordPressの後継「EmDash」がベータ公開！Astro 6.0搭載の実力とは",
           "url": "https://www.youtube.com/watch?v=lXCWjjVtMG0",
           "published_at": "2026-04-02",
-          "views": 132,
+          "views": 133,
           "age_days": 133,
           "to1000": null,
           "to1000_lte": false,
           "traj": null,
-          "like_pct": 4.55,
+          "like_pct": 4.51,
           "likes": 6,
           "ad_check": "na",
-          "likes_vs_exp_pct": 335,
+          "likes_vs_exp_pct": 333,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 1,
-          "r7": 1,
-          "r14": 2,
+          "r3": 2,
+          "r7": 2,
+          "r14": 3,
           "r28": null
         },
         {
@@ -38183,24 +38304,24 @@
           "title": "【革命】Google Chromeに待望の縦タブが遂に来た！もう横タブには戻れない",
           "url": "https://www.youtube.com/watch?v=GhyEq89eupk",
           "published_at": "2026-03-31",
-          "views": 321,
+          "views": 324,
           "age_days": 135,
           "to1000": null,
           "to1000_lte": false,
           "traj": null,
-          "like_pct": 1.25,
+          "like_pct": 1.23,
           "likes": 4,
           "ad_check": "na",
-          "likes_vs_exp_pct": 102,
+          "likes_vs_exp_pct": 101,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 1,
-          "r7": 4,
-          "r14": 13,
+          "r3": 4,
+          "r7": 7,
+          "r14": 16,
           "r28": null
         },
         {
@@ -38858,12 +38979,12 @@
           "title": "【OSEE完全攻略】最難関セキュリティ資格の全貌を徹底解説！",
           "url": "https://www.youtube.com/watch?v=2If6zE398bM",
           "published_at": "2026-03-25",
-          "views": 47,
+          "views": 48,
           "age_days": 141,
           "to1000": null,
           "to1000_lte": false,
           "traj": null,
-          "like_pct": 2.13,
+          "like_pct": 2.08,
           "likes": 1,
           "ad_check": "na",
           "likes_vs_exp_pct": null,
@@ -38873,9 +38994,9 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 0,
-          "r7": 0,
-          "r14": 1,
+          "r3": 1,
+          "r7": 1,
+          "r14": 2,
           "r28": null
         },
         {
@@ -39583,7 +39704,7 @@
           "title": "【完全解説】【Python3.14】知らないとヤバい！破壊的変更点まとめ",
           "url": "https://www.youtube.com/watch?v=HvYQWRNSzQU",
           "published_at": "2026-03-23",
-          "views": 24,
+          "views": 25,
           "age_days": 143,
           "to1000": null,
           "to1000_lte": false,
@@ -39598,9 +39719,9 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 0,
-          "r7": 0,
-          "r14": 0,
+          "r3": 1,
+          "r7": 1,
+          "r14": 1,
           "r28": null
         },
         {
@@ -39608,7 +39729,7 @@
           "title": "【完全解説】【革命】Claude Code同士が会話する！claude-peers-MCPが凄すぎる",
           "url": "https://www.youtube.com/watch?v=Mzn0P1W1hTc",
           "published_at": "2026-03-23",
-          "views": 182,
+          "views": 183,
           "age_days": 143,
           "to1000": null,
           "to1000_lte": false,
@@ -39623,9 +39744,9 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 3,
-          "r7": 4,
-          "r14": 8,
+          "r3": 4,
+          "r7": 5,
+          "r14": 9,
           "r28": null
         },
         {
@@ -59677,8 +59798,8 @@
       "id": "UCuO_HCuBEM6v3wrko3Iu8Hw",
       "title": "Sura×Asura For AI Agent",
       "like_baseline": {
-        "fan_likes": 4.5,
-        "slope_pct": 2.39,
+        "fan_likes": 4.4,
+        "slope_pct": 2.4,
         "n": 101
       },
       "baseline_median": 1013,
@@ -60859,6 +60980,10 @@
         },
         {
           "timestamp": "2026-08-13T12:43:37Z",
+          "subs": 2720
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
           "subs": 2720
         }
       ],
@@ -62332,6 +62457,11 @@
           "timestamp": "2026-08-13T12:43:37Z",
           "total_views": 154562,
           "videos": 107
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
+          "total_views": 154669,
+          "videos": 107
         }
       ],
       "daily_posts": [
@@ -63646,12 +63776,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1561
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1566
             }
           ],
           "likes": 38,
           "like_pct": 2.43,
           "ad_check": "ok",
-          "exp_likes": 41.8,
+          "exp_likes": 42.0,
           "likes_vs_exp_pct": 91
         },
         "WSl9glffPgE": {
@@ -64833,6 +64967,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 1407
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 1407
             }
           ],
@@ -66022,13 +66160,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1564
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1564
             }
           ],
           "likes": 45,
           "like_pct": 2.88,
           "ad_check": "ok",
           "exp_likes": 41.9,
-          "likes_vs_exp_pct": 108
+          "likes_vs_exp_pct": 107
         },
         "Gn8KYYvmLww": {
           "title": "【claudecode新機能】 Agent View｜/goal解説　　ちょっぴりメンシプも!?",
@@ -67210,12 +67352,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2780
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2780
             }
           ],
           "likes": 58,
           "like_pct": 2.09,
           "ad_check": "ok",
-          "exp_likes": 70.9,
+          "exp_likes": 71.1,
           "likes_vs_exp_pct": 82
         },
         "ogmoB6K2Pms": {
@@ -68397,6 +68543,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 1426
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 1426
             }
           ],
@@ -69586,6 +69736,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1055
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1055
             }
           ],
           "likes": 25,
@@ -70774,12 +70928,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 3929
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 3934
             }
           ],
           "likes": 85,
           "like_pct": 2.16,
           "ad_check": "ok",
-          "exp_likes": 98.3,
+          "exp_likes": 98.7,
           "likes_vs_exp_pct": 86
         },
         "sCElmePxY_4": {
@@ -71962,12 +72120,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2193
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2193
             }
           ],
           "likes": 48,
           "like_pct": 2.19,
           "ad_check": "ok",
-          "exp_likes": 56.9,
+          "exp_likes": 57.0,
           "likes_vs_exp_pct": 84
         },
         "KfpiMIXAC5c": {
@@ -73150,12 +73312,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 6009
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 6010
             }
           ],
           "likes": 114,
           "like_pct": 1.9,
           "ad_check": "ok",
-          "exp_likes": 148.0,
+          "exp_likes": 148.5,
           "likes_vs_exp_pct": 77
         },
         "h7VDNxx_MIs": {
@@ -74338,13 +74504,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 5705
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 5705
             }
           ],
           "likes": 129,
           "like_pct": 2.26,
           "ad_check": "ok",
-          "exp_likes": 140.8,
-          "likes_vs_exp_pct": 92
+          "exp_likes": 141.2,
+          "likes_vs_exp_pct": 91
         },
         "ptlwMQ0yTTg": {
           "title": "【保存必須】Claude Codeこの1ヶ月のアプデ＆実戦Tips、全部調べた",
@@ -75525,6 +75695,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 1200
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 1200
             }
           ],
@@ -76714,6 +76888,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1177
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1177
             }
           ],
           "likes": 22,
@@ -77902,12 +78080,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1395
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1395
             }
           ],
           "likes": 26,
           "like_pct": 1.86,
           "ad_check": "ok",
-          "exp_likes": 37.8,
+          "exp_likes": 37.9,
           "likes_vs_exp_pct": 69
         },
         "tTUkZsWVP3M": {
@@ -79090,13 +79272,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1398
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1398
             }
           ],
           "likes": 40,
           "like_pct": 2.86,
           "ad_check": "ok",
           "exp_likes": 37.9,
-          "likes_vs_exp_pct": 106
+          "likes_vs_exp_pct": 105
         },
         "Y2QwSrGBxx4": {
           "title": "【速報・徹底解説】Claude Managed Agents──脳と手の分離が運用常識を書き換える",
@@ -80278,12 +80464,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1712
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1712
             }
           ],
           "likes": 48,
           "like_pct": 2.8,
           "ad_check": "ok",
-          "exp_likes": 45.4,
+          "exp_likes": 45.5,
           "likes_vs_exp_pct": 106
         },
         "JwLM-JbC4-o": {
@@ -81466,12 +81656,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1387
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1387
             }
           ],
           "likes": 40,
           "like_pct": 2.88,
           "ad_check": "ok",
-          "exp_likes": 37.6,
+          "exp_likes": 37.7,
           "likes_vs_exp_pct": 106
         },
         "hbsni-x-q90": {
@@ -82653,6 +82847,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 1249
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 1249
             }
           ],
@@ -83842,12 +84040,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2022
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2022
             }
           ],
           "likes": 49,
           "like_pct": 2.42,
           "ad_check": "ok",
-          "exp_likes": 52.8,
+          "exp_likes": 52.9,
           "likes_vs_exp_pct": 93
         },
         "ah_1f5WCklw": {
@@ -85030,13 +85232,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2090
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2090
             }
           ],
           "likes": 70,
           "like_pct": 3.35,
           "ad_check": "ok",
-          "exp_likes": 54.4,
-          "likes_vs_exp_pct": 129
+          "exp_likes": 54.5,
+          "likes_vs_exp_pct": 128
         },
         "p_zxYc2JG8w": {
           "title": "【徹底解説】Anthropic式ハーネス設計──GAN発想で長時間実行AIが変わる全貌",
@@ -86218,12 +86424,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2665
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2665
             }
           ],
           "likes": 90,
           "like_pct": 3.38,
           "ad_check": "ok",
-          "exp_likes": 68.2,
+          "exp_likes": 68.3,
           "likes_vs_exp_pct": 132
         },
         "0ch_XtLef7s": {
@@ -87406,12 +87616,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2255
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2255
             }
           ],
           "likes": 51,
           "like_pct": 2.26,
           "ad_check": "ok",
-          "exp_likes": 58.4,
+          "exp_likes": 58.5,
           "likes_vs_exp_pct": 87
         },
         "BlH4HxTEJKw": {
@@ -88593,6 +88807,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 1164
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 1164
             }
           ],
@@ -89782,6 +90000,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1327
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1327
             }
           ],
           "likes": 25,
@@ -90970,13 +91192,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2945
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2945
             }
           ],
           "likes": 70,
           "like_pct": 2.38,
           "ad_check": "ok",
-          "exp_likes": 74.8,
-          "likes_vs_exp_pct": 94
+          "exp_likes": 75.0,
+          "likes_vs_exp_pct": 93
         },
         "4_nWnnM3jpo": {
           "title": "【完全ガイド】Claude Code Best Practice──16800スターの決定版リポジトリを解剖する",
@@ -92158,12 +92384,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2185
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2185
             }
           ],
           "likes": 73,
           "like_pct": 3.34,
           "ad_check": "ok",
-          "exp_likes": 56.7,
+          "exp_likes": 56.8,
           "likes_vs_exp_pct": 129
         },
         "PKMt2Au2fP0": {
@@ -93346,13 +93576,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2690
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2690
             }
           ],
           "likes": 72,
           "like_pct": 2.68,
           "ad_check": "ok",
-          "exp_likes": 68.7,
-          "likes_vs_exp_pct": 105
+          "exp_likes": 68.9,
+          "likes_vs_exp_pct": 104
         },
         "vGwmmIgxLkA": {
           "title": "AIが寝てる間に働く時代──Claude Codeの自律稼働、公式が本気で推してきた",
@@ -94534,12 +94768,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 3950
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 3950
             }
           ],
           "likes": 95,
           "like_pct": 2.41,
           "ad_check": "ok",
-          "exp_likes": 98.8,
+          "exp_likes": 99.1,
           "likes_vs_exp_pct": 96
         },
         "6GqegofaURY": {
@@ -95722,13 +95960,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2270
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2270
             }
           ],
           "likes": 35,
           "like_pct": 1.54,
           "ad_check": "ok",
-          "exp_likes": 58.7,
-          "likes_vs_exp_pct": 60
+          "exp_likes": 58.8,
+          "likes_vs_exp_pct": 59
         },
         "uOwpoBD78cY": {
           "title": "Claude Codeのfork機能、使いこなせてる？ ── 会話を分岐する新しい開発スタイル",
@@ -96910,12 +97152,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2898
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2898
             }
           ],
           "likes": 93,
           "like_pct": 3.21,
           "ad_check": "ok",
-          "exp_likes": 73.7,
+          "exp_likes": 73.9,
           "likes_vs_exp_pct": 126
         },
         "k-ejvosCFAI": {
@@ -98098,12 +98344,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1370
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1370
             }
           ],
           "likes": 51,
           "like_pct": 3.72,
           "ad_check": "ok",
-          "exp_likes": 37.2,
+          "exp_likes": 37.3,
           "likes_vs_exp_pct": 137
         },
         "IaU7rkb7M3U": {
@@ -99286,12 +99536,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 10292
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 10292
             }
           ],
           "likes": 343,
           "like_pct": 3.33,
           "ad_check": "ok",
-          "exp_likes": 250.3,
+          "exp_likes": 251.2,
           "likes_vs_exp_pct": 137
         },
         "5rd_JxfV5r0": {
@@ -100474,6 +100728,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1518
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1519
             }
           ],
           "likes": 57,
@@ -101662,13 +101920,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2082
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2082
             }
           ],
           "likes": 92,
           "like_pct": 4.42,
           "ad_check": "ok",
-          "exp_likes": 54.2,
-          "likes_vs_exp_pct": 170
+          "exp_likes": 54.3,
+          "likes_vs_exp_pct": 169
         },
         "bj0X7NF31K8": {
           "title": "【速報】Grok Build CLI 完全解説 — xAI がコーディングエージェント市場に殴り込み",
@@ -102842,6 +103104,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1435
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1435
             }
           ],
           "likes": 27,
@@ -103994,6 +104260,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1136
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1136
             }
           ],
           "likes": 33,
@@ -105126,6 +105396,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1143
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1143
             }
           ],
           "likes": 32,
@@ -106194,6 +106468,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1422
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1422
             }
           ],
           "likes": 39,
@@ -107250,13 +107528,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2882
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2884
             }
           ],
           "likes": 76,
           "like_pct": 2.64,
           "ad_check": "ok",
-          "exp_likes": 73.3,
-          "likes_vs_exp_pct": 104
+          "exp_likes": 73.6,
+          "likes_vs_exp_pct": 103
         },
         "RF4ICxAAPMQ": {
           "title": "【Codex Sites】 がやばい。OpenAI が v0 と Artifacts と BI を同時に殴り始めた話",
@@ -108310,6 +108592,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1899
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1899
             }
           ],
           "likes": 42,
@@ -109334,6 +109620,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1013
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1013
             }
           ],
           "likes": 30,
@@ -110330,6 +110620,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1113
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1113
             }
           ],
           "likes": 28,
@@ -111274,13 +111568,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1842
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1843
             }
           ],
           "likes": 43,
           "like_pct": 2.33,
           "ad_check": "ok",
-          "exp_likes": 48.5,
-          "likes_vs_exp_pct": 89
+          "exp_likes": 48.6,
+          "likes_vs_exp_pct": 88
         },
         "N5VfI8DUAzo": {
           "title": "Claude Code サブエージェント5階層 vs 1階層 ── 開発はどう変わる？",
@@ -112190,13 +112488,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1895
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1895
             }
           ],
           "likes": 57,
           "like_pct": 3.01,
           "ad_check": "ok",
           "exp_likes": 49.8,
-          "likes_vs_exp_pct": 115
+          "likes_vs_exp_pct": 114
         },
         "G4myy-bco80": {
           "title": "【徹底解説】Hermes Agent × LLM Wiki──AIリサーチを会社の資産に変える実運用パターン",
@@ -113090,12 +113392,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1189
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1193
             }
           ],
           "likes": 23,
           "like_pct": 1.93,
           "ad_check": "ok",
-          "exp_likes": 32.9,
+          "exp_likes": 33.0,
           "likes_vs_exp_pct": 70
         },
         "aiQJ98bYoYM": {
@@ -113910,13 +114216,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 11788
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 11792
             }
           ],
           "likes": 365,
           "like_pct": 3.1,
           "ad_check": "ok",
-          "exp_likes": 286.0,
-          "likes_vs_exp_pct": 128
+          "exp_likes": 287.2,
+          "likes_vs_exp_pct": 127
         },
         "LdvWmZEmTz0": {
           "title": "【もうコードは書かない】Claude Artifacts で『AIアプリを作って配る』時代へ",
@@ -114690,12 +115000,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1479
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1479
             }
           ],
           "likes": 30,
           "like_pct": 2.03,
           "ad_check": "ok",
-          "exp_likes": 39.8,
+          "exp_likes": 39.9,
           "likes_vs_exp_pct": 75
         },
         "E6kbf6tnDOg": {
@@ -115458,6 +115772,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1385
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1385
             }
           ],
           "likes": 36,
@@ -116198,12 +116516,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2382
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2383
             }
           ],
           "likes": 61,
           "like_pct": 2.56,
           "ad_check": "ok",
-          "exp_likes": 61.4,
+          "exp_likes": 61.5,
           "likes_vs_exp_pct": 99
         },
         "hWtvKtSwkKQ": {
@@ -116866,12 +117188,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1490
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1491
             }
           ],
           "likes": 26,
           "like_pct": 1.74,
           "ad_check": "ok",
-          "exp_likes": 40.1,
+          "exp_likes": 40.2,
           "likes_vs_exp_pct": 65
         },
         "c9buQ7RkCyY": {
@@ -117414,13 +117740,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1200
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1202
             }
           ],
           "likes": 35,
-          "like_pct": 2.92,
+          "like_pct": 2.91,
           "ad_check": "ok",
           "exp_likes": 33.2,
-          "likes_vs_exp_pct": 106
+          "likes_vs_exp_pct": 105
         },
         "m2akRnvyYtg": {
           "title": "【徹底解説】AgentKey ── Claude Code/Codex/OpenClawが外部データに直結する新プラグイン",
@@ -117909,6 +118239,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 910
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 910
             }
           ],
@@ -118406,13 +118740,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1130
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1131
             }
           ],
           "likes": 43,
-          "like_pct": 3.81,
+          "like_pct": 3.8,
           "ad_check": "ok",
           "exp_likes": 31.5,
-          "likes_vs_exp_pct": 137
+          "likes_vs_exp_pct": 136
         },
         "9CjJXmiFPxc": {
           "title": "Kimi K3 vs Claude Fable 5──2.8兆モデルの実力差",
@@ -118882,6 +119220,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 741
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 741
             }
           ],
           "likes": 19,
@@ -119318,6 +119660,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 404
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 404
             }
           ],
           "likes": 8,
@@ -119706,13 +120052,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 304
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 304
             }
           ],
           "likes": 12,
           "like_pct": 3.95,
           "ad_check": "na",
-          "exp_likes": 11.8,
-          "likes_vs_exp_pct": 102
+          "exp_likes": 11.7,
+          "likes_vs_exp_pct": 103
         },
         "NbRaUTuiJek": {
           "title": "Claude Cowork vs RPA｜一度見せれば働くAI、100件超の領収書で止まった",
@@ -120066,10 +120416,14 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 306
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 307
             }
           ],
           "likes": 12,
-          "like_pct": 3.92,
+          "like_pct": 3.91,
           "ad_check": "na",
           "exp_likes": 11.8,
           "likes_vs_exp_pct": 102
@@ -120382,12 +120736,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2123
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2133
             }
           ],
           "likes": 41,
-          "like_pct": 1.93,
+          "like_pct": 1.92,
           "ad_check": "ok",
-          "exp_likes": 55.2,
+          "exp_likes": 55.5,
           "likes_vs_exp_pct": 74
         },
         "RBLOFrYi-AE": {
@@ -120670,12 +121028,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 664
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 665
             }
           ],
           "likes": 14,
           "like_pct": 2.11,
           "ad_check": "ok",
-          "exp_likes": 20.4,
+          "exp_likes": 20.3,
           "likes_vs_exp_pct": 69
         },
         "epuA6hzkbcs": {
@@ -120926,12 +121288,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 231
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 231
             }
           ],
           "likes": 7,
           "like_pct": 3.03,
           "ad_check": "na",
-          "exp_likes": 10.0,
+          "exp_likes": 9.9,
           "likes_vs_exp_pct": 70
         },
         "TBqbBtwzgCA": {
@@ -121174,13 +121540,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 416
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 416
             }
           ],
           "likes": 8,
           "like_pct": 1.92,
           "ad_check": "na",
           "exp_likes": 14.4,
-          "likes_vs_exp_pct": 55
+          "likes_vs_exp_pct": 56
         },
         "0rSHO_n-qu8": {
           "title": "【速報】MCP発足以来最大の改訂 ── AIの配線が企業インフラになった日",
@@ -121402,12 +121772,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 181
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 181
             }
           ],
           "likes": 3,
           "like_pct": 1.66,
           "ad_check": "na",
-          "exp_likes": 8.8,
+          "exp_likes": 8.7,
           "likes_vs_exp_pct": 34
         },
         "dtM-tFdznQA": {
@@ -121610,13 +121984,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 223
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 223
             }
           ],
           "likes": 7,
           "like_pct": 3.14,
           "ad_check": "na",
-          "exp_likes": 9.8,
-          "likes_vs_exp_pct": 71
+          "exp_likes": 9.7,
+          "likes_vs_exp_pct": 72
         },
         "Zte9PuimHXw": {
           "title": "【Hermes Agent 最新アップデート】v0.19.1で常駐AIエージェントに何が起きたか ── 独自ID(Nostr)・AI動画生成・音声刷新まで全部見る",
@@ -121790,10 +122168,14 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 774
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 777
             }
           ],
           "likes": 27,
-          "like_pct": 3.49,
+          "like_pct": 3.47,
           "ad_check": "ok",
           "exp_likes": 23.0,
           "likes_vs_exp_pct": 117
@@ -121950,12 +122332,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 259
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 260
             }
           ],
           "likes": 8,
-          "like_pct": 3.09,
+          "like_pct": 3.08,
           "ad_check": "na",
-          "exp_likes": 10.7,
+          "exp_likes": 10.6,
           "likes_vs_exp_pct": 75
         },
         "LSDixwuADHw": {
@@ -122086,10 +122472,14 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 941
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 944
             }
           ],
           "likes": 27,
-          "like_pct": 2.87,
+          "like_pct": 2.86,
           "ad_check": "ok",
           "exp_likes": 27.0,
           "likes_vs_exp_pct": 100
@@ -122198,13 +122588,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1722
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1727
             }
           ],
-          "likes": 39,
-          "like_pct": 2.26,
+          "likes": 40,
+          "like_pct": 2.32,
           "ad_check": "ok",
-          "exp_likes": 45.6,
-          "likes_vs_exp_pct": 85
+          "exp_likes": 45.8,
+          "likes_vs_exp_pct": 87
         },
         "DKQv0ljwTRE": {
           "title": "【グラフエンジニアリング入門】AIエージェント運用を関係性から設計する方法",
@@ -122294,10 +122688,14 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 180
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 184
             }
           ],
           "likes": 8,
-          "like_pct": 4.44,
+          "like_pct": 4.35,
           "ad_check": "na",
           "exp_likes": 8.8,
           "likes_vs_exp_pct": 91
@@ -122358,12 +122756,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1044
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1053
             }
           ],
           "likes": 18,
-          "like_pct": 1.72,
+          "like_pct": 1.71,
           "ad_check": "ok",
-          "exp_likes": 29.4,
+          "exp_likes": 29.6,
           "likes_vs_exp_pct": 61
         },
         "S69kOcgFB6o": {
@@ -122390,13 +122792,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 143
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 155
             }
           ],
           "likes": 5,
-          "like_pct": 3.5,
+          "like_pct": 3.23,
           "ad_check": "na",
-          "exp_likes": 7.9,
-          "likes_vs_exp_pct": 63
+          "exp_likes": 8.1,
+          "likes_vs_exp_pct": 62
         },
         "6CbLNEFC2Yk": {
           "title": "OpenAI Daybreak徹底解説｜GPT-5.6-Cyberと防御者の新しい実務",
@@ -122410,13 +122816,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 62
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 85
             }
           ],
           "likes": 3,
-          "like_pct": 4.84,
+          "like_pct": 3.53,
           "ad_check": "na",
-          "exp_likes": 6.0,
-          "likes_vs_exp_pct": 50
+          "exp_likes": 6.4,
+          "likes_vs_exp_pct": 47
         }
       },
       "video_table": [
@@ -122425,87 +122835,87 @@
           "title": "OpenAI Daybreak徹底解説｜GPT-5.6-Cyberと防御者の新しい実務",
           "url": "https://www.youtube.com/watch?v=6CbLNEFC2Yk",
           "published_at": "2026-08-13",
-          "views": 62,
+          "views": 85,
           "age_days": 0,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 4.84,
+          "like_pct": 3.53,
           "likes": 3,
           "ad_check": "na",
-          "likes_vs_exp_pct": 50,
+          "likes_vs_exp_pct": 47,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": null,
-          "r1": 62,
-          "r3": 62,
-          "r7": 62,
-          "r14": 62,
-          "r28": 62
+          "r1": 85,
+          "r3": 85,
+          "r7": 85,
+          "r14": 85,
+          "r28": 85
         },
         {
           "video_id": "S69kOcgFB6o",
           "title": "AIエージェントのブラウザ操作、もうChromiumはいらない？── Cloudflare Kitesurfを検証",
           "url": "https://www.youtube.com/watch?v=S69kOcgFB6o",
           "published_at": "2026-08-12",
-          "views": 143,
+          "views": 155,
           "age_days": 1,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 3.5,
+          "like_pct": 3.23,
           "likes": 5,
           "ad_check": "na",
-          "likes_vs_exp_pct": 63,
-          "d1": 143,
+          "likes_vs_exp_pct": 62,
+          "d1": 155,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 143,
-          "r7": 143,
-          "r14": 143,
-          "r28": 143
+          "r3": 155,
+          "r7": 155,
+          "r14": 155,
+          "r28": 155
         },
         {
           "video_id": "5_7qs65agVk",
           "title": "【Anthropic不参加!?】OpenAI・Cursor・AWS結束 ── Agent Pluginsとは？",
           "url": "https://www.youtube.com/watch?v=5_7qs65agVk",
           "published_at": "2026-08-10",
-          "views": 1044,
+          "views": 1053,
           "age_days": 3,
-          "to1000": 2.4,
+          "to1000": 2.3,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 1.72,
+          "like_pct": 1.71,
           "likes": 18,
           "ad_check": "ok",
           "likes_vs_exp_pct": 61,
           "d1": 541,
-          "d3": 1044,
+          "d3": 1053,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 503,
-          "r7": 1044,
-          "r14": 1044,
-          "r28": 1044
+          "r3": 512,
+          "r7": 1053,
+          "r14": 1053,
+          "r28": 1053
         },
         {
           "video_id": "DKQv0ljwTRE",
           "title": "【グラフエンジニアリング入門】AIエージェント運用を関係性から設計する方法",
           "url": "https://www.youtube.com/watch?v=DKQv0ljwTRE",
           "published_at": "2026-08-08",
-          "views": 180,
+          "views": 184,
           "age_days": 5,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 4.44,
+          "like_pct": 4.35,
           "likes": 8,
           "ad_check": "na",
           "likes_vs_exp_pct": 91,
@@ -122515,47 +122925,47 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 27,
-          "r7": 180,
-          "r14": 180,
-          "r28": 180
+          "r3": 31,
+          "r7": 184,
+          "r14": 184,
+          "r28": 184
         },
         {
           "video_id": "za-663hIhEk",
           "title": "【徹底解説】Cloudflare OS ── Gatekeeper×Gadgetで社内AIを守る新設計",
           "url": "https://www.youtube.com/watch?v=za-663hIhEk",
           "published_at": "2026-08-07",
-          "views": 1722,
+          "views": 1727,
           "age_days": 6,
           "to1000": 1.6,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 2.26,
-          "likes": 39,
+          "like_pct": 2.32,
+          "likes": 40,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 85,
+          "likes_vs_exp_pct": 87,
           "d1": 694,
           "d3": 1534,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 67,
-          "r7": 1722,
-          "r14": 1722,
-          "r28": 1722
+          "r3": 72,
+          "r7": 1727,
+          "r14": 1727,
+          "r28": 1727
         },
         {
           "video_id": "LSDixwuADHw",
           "title": "【グラフエンジニアリング】完全ガイド｜AIエージェントは仕事をどう分ける？",
           "url": "https://www.youtube.com/watch?v=LSDixwuADHw",
           "published_at": "2026-08-05",
-          "views": 941,
+          "views": 944,
           "age_days": 8,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 2.87,
+          "like_pct": 2.86,
           "likes": 27,
           "ad_check": "ok",
           "likes_vs_exp_pct": 100,
@@ -122565,22 +122975,22 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 31,
-          "r7": 227,
-          "r14": 941,
-          "r28": 941
+          "r3": 34,
+          "r7": 230,
+          "r14": 944,
+          "r28": 944
         },
         {
           "video_id": "axMR8L_aDyc",
           "title": "OpenAI『Astra』数学の難問10件を解決か――正体不明AIの衝撃",
           "url": "https://www.youtube.com/watch?v=axMR8L_aDyc",
           "published_at": "2026-08-04",
-          "views": 259,
+          "views": 260,
           "age_days": 9,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 3.09,
+          "like_pct": 3.08,
           "likes": 8,
           "ad_check": "na",
           "likes_vs_exp_pct": 75,
@@ -122590,22 +123000,22 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 6,
-          "r7": 25,
-          "r14": 259,
-          "r28": 259
+          "r3": 7,
+          "r7": 26,
+          "r14": 260,
+          "r28": 260
         },
         {
           "video_id": "Zte9PuimHXw",
           "title": "【Hermes Agent 最新アップデート】v0.19.1で常駐AIエージェントに何が起きたか ── 独自ID(Nostr)・AI動画生成・音声刷新まで全部見る",
           "url": "https://www.youtube.com/watch?v=Zte9PuimHXw",
           "published_at": "2026-08-03",
-          "views": 774,
+          "views": 777,
           "age_days": 10,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 3.49,
+          "like_pct": 3.47,
           "likes": 27,
           "ad_check": "ok",
           "likes_vs_exp_pct": 117,
@@ -122615,10 +123025,10 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 5,
-          "r7": 57,
-          "r14": 774,
-          "r28": 774
+          "r3": 8,
+          "r7": 60,
+          "r14": 777,
+          "r28": 777
         },
         {
           "video_id": "dtM-tFdznQA",
@@ -122633,7 +123043,7 @@
           "like_pct": 3.14,
           "likes": 7,
           "ad_check": "na",
-          "likes_vs_exp_pct": 71,
+          "likes_vs_exp_pct": 72,
           "d1": 136,
           "d3": 196,
           "d7": 214,
@@ -122683,7 +123093,7 @@
           "like_pct": 1.92,
           "likes": 8,
           "ad_check": "na",
-          "likes_vs_exp_pct": 55,
+          "likes_vs_exp_pct": 56,
           "d1": 308,
           "d3": 336,
           "d7": 383,
@@ -122725,7 +123135,7 @@
           "title": "【実例解説】Claude Code×Codex 二役開発フロー ── 書くAIと疑うAIを分けたら開発は変わるのか",
           "url": "https://www.youtube.com/watch?v=RBLOFrYi-AE",
           "published_at": "2026-07-28",
-          "views": 664,
+          "views": 665,
           "age_days": 16,
           "to1000": null,
           "to1000_lte": false,
@@ -122740,22 +123150,22 @@
           "d14": 659,
           "d28": null,
           "r1": 0,
-          "r3": 5,
-          "r7": 18,
-          "r14": 46,
-          "r28": 664
+          "r3": 6,
+          "r7": 19,
+          "r14": 47,
+          "r28": 665
         },
         {
           "video_id": "w2zxqnhvwOQ",
           "title": "【Hermes Agent】万能AIをやめる？海外で始まった「役割別AI常駐」",
           "url": "https://www.youtube.com/watch?v=w2zxqnhvwOQ",
           "published_at": "2026-07-26",
-          "views": 2123,
+          "views": 2133,
           "age_days": 18,
           "to1000": 1.0,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 1.93,
+          "like_pct": 1.92,
           "likes": 41,
           "ad_check": "ok",
           "likes_vs_exp_pct": 74,
@@ -122765,22 +123175,22 @@
           "d14": 2052,
           "d28": null,
           "r1": 0,
-          "r3": 32,
-          "r7": 103,
-          "r14": 434,
-          "r28": 2123
+          "r3": 42,
+          "r7": 113,
+          "r14": 444,
+          "r28": 2133
         },
         {
           "video_id": "NbRaUTuiJek",
           "title": "Claude Cowork vs RPA｜一度見せれば働くAI、100件超の領収書で止まった",
           "url": "https://www.youtube.com/watch?v=NbRaUTuiJek",
           "published_at": "2026-07-24",
-          "views": 306,
+          "views": 307,
           "age_days": 20,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 3.92,
+          "like_pct": 3.91,
           "likes": 12,
           "ad_check": "na",
           "likes_vs_exp_pct": 102,
@@ -122790,10 +123200,10 @@
           "d14": 301,
           "d28": null,
           "r1": 0,
-          "r3": 1,
-          "r7": 5,
-          "r14": 20,
-          "r28": 306
+          "r3": 2,
+          "r7": 6,
+          "r14": 21,
+          "r28": 307
         },
         {
           "video_id": "_ouIO7yNOtE",
@@ -122808,7 +123218,7 @@
           "like_pct": 3.95,
           "likes": 12,
           "ad_check": "na",
-          "likes_vs_exp_pct": 102,
+          "likes_vs_exp_pct": 103,
           "d1": 187,
           "d3": 232,
           "d7": 279,
@@ -122900,25 +123310,25 @@
           "title": "【記憶を持て】Agent Memoryを三層比較",
           "url": "https://www.youtube.com/watch?v=im8cFVu2sMs",
           "published_at": "2026-07-14",
-          "views": 1130,
+          "views": 1131,
           "age_days": 30,
           "to1000": 5.3,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 3.81,
+          "like_pct": 3.8,
           "likes": 43,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 137,
+          "likes_vs_exp_pct": 136,
           "d1": 855,
           "d3": 946,
           "d7": 1025,
           "d14": 1078,
           "d28": 1127,
           "r1": 0,
-          "r3": 3,
-          "r7": 11,
-          "r14": 44,
-          "r28": 184
+          "r3": 4,
+          "r7": 12,
+          "r14": 45,
+          "r28": 185
         },
         {
           "video_id": "JO5meYVt3Tg",
@@ -123000,25 +123410,25 @@
           "title": "Orca完全版 ── Claude Code×Codex×Cursor CLIを束ねるAI開発IDE徹底解説",
           "url": "https://www.youtube.com/watch?v=c9buQ7RkCyY",
           "published_at": "2026-07-04",
-          "views": 1200,
+          "views": 1202,
           "age_days": 40,
           "to1000": 19.9,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 2.92,
+          "like_pct": 2.91,
           "likes": 35,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 106,
+          "likes_vs_exp_pct": 105,
           "d1": 291,
           "d3": 513,
           "d7": null,
           "d14": 900,
           "d28": 1080,
           "r1": 0,
-          "r3": 13,
-          "r7": 49,
-          "r14": 128,
-          "r28": 319
+          "r3": 15,
+          "r7": 51,
+          "r14": 130,
+          "r28": 321
         },
         {
           "video_id": "LgaAiNnISG4",
@@ -123050,7 +123460,7 @@
           "title": "Even G2 × Claude Code ── グラスで開発する時代、アプリ自作まで【実機レビュー後編】",
           "url": "https://www.youtube.com/watch?v=hWtvKtSwkKQ",
           "published_at": "2026-06-27",
-          "views": 1490,
+          "views": 1491,
           "age_days": 47,
           "to1000": 2.8,
           "to1000_lte": false,
@@ -123065,22 +123475,22 @@
           "d14": null,
           "d28": 1433,
           "r1": 0,
-          "r3": 4,
-          "r7": 18,
-          "r14": 42,
-          "r28": 97
+          "r3": 5,
+          "r7": 19,
+          "r14": 43,
+          "r28": 98
         },
         {
           "video_id": "_ggPNUW6iQ4",
           "title": "【衝撃】全部やってくれるAIブラウザ Aside ── 自己申告\"1位\"を疑ってみた",
           "url": "https://www.youtube.com/watch?v=_ggPNUW6iQ4",
           "published_at": "2026-06-25",
-          "views": 628,
+          "views": 629,
           "age_days": 49,
           "to1000": null,
           "to1000_lte": false,
           "traj": "tail",
-          "like_pct": 2.87,
+          "like_pct": 2.86,
           "likes": 18,
           "ad_check": "ok",
           "likes_vs_exp_pct": 92,
@@ -123090,17 +123500,17 @@
           "d14": null,
           "d28": 618,
           "r1": 0,
-          "r3": 2,
-          "r7": 2,
-          "r14": 7,
-          "r28": 11
+          "r3": 3,
+          "r7": 3,
+          "r14": 8,
+          "r28": 12
         },
         {
           "video_id": "aeuXGULgc5c",
           "title": "Sakana Fugu 徹底解説 ── 日本発「モデルを束ねるAI」は本物か？Fable 5・GPT-5.5 と比較",
           "url": "https://www.youtube.com/watch?v=aeuXGULgc5c",
           "published_at": "2026-06-22",
-          "views": 2382,
+          "views": 2383,
           "age_days": 52,
           "to1000": 1,
           "to1000_lte": true,
@@ -123115,10 +123525,10 @@
           "d14": 2299,
           "d28": 2341,
           "r1": 0,
-          "r3": 1,
-          "r7": 7,
-          "r14": 18,
-          "r28": 47
+          "r3": 2,
+          "r7": 8,
+          "r14": 19,
+          "r28": 48
         },
         {
           "video_id": "E6kbf6tnDOg",
@@ -123175,7 +123585,7 @@
           "title": "【もうプロンプトは書くな！】 Loop Engineering 徹底解説",
           "url": "https://www.youtube.com/watch?v=aiQJ98bYoYM",
           "published_at": "2026-06-17",
-          "views": 11788,
+          "views": 11792,
           "age_days": 57,
           "to1000": 1,
           "to1000_lte": true,
@@ -123183,24 +123593,24 @@
           "like_pct": 3.1,
           "likes": 365,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 128,
+          "likes_vs_exp_pct": 127,
           "d1": 2890,
           "d3": 7878,
           "d7": 10159,
           "d14": 10815,
           "d28": 11233,
           "r1": 0,
-          "r3": 20,
-          "r7": 76,
-          "r14": 300,
-          "r28": 544
+          "r3": 24,
+          "r7": 80,
+          "r14": 304,
+          "r28": 548
         },
         {
           "video_id": "VFrJTxTnQ4I",
           "title": "カメラを捨てたスマートグラス、Even G2の正体",
           "url": "https://www.youtube.com/watch?v=VFrJTxTnQ4I",
           "published_at": "2026-06-14",
-          "views": 814,
+          "views": 818,
           "age_days": 60,
           "to1000": null,
           "to1000_lte": false,
@@ -123215,17 +123625,17 @@
           "d14": 594,
           "d28": null,
           "r1": 0,
-          "r3": 5,
-          "r7": 19,
-          "r14": 44,
-          "r28": 110
+          "r3": 9,
+          "r7": 23,
+          "r14": 48,
+          "r28": 114
         },
         {
           "video_id": "G4myy-bco80",
           "title": "【徹底解説】Hermes Agent × LLM Wiki──AIリサーチを会社の資産に変える実運用パターン",
           "url": "https://www.youtube.com/watch?v=G4myy-bco80",
           "published_at": "2026-06-12",
-          "views": 1189,
+          "views": 1193,
           "age_days": 62,
           "to1000": 26.5,
           "to1000_lte": false,
@@ -123240,10 +123650,10 @@
           "d14": 905,
           "d28": null,
           "r1": 0,
-          "r3": 6,
-          "r7": 20,
-          "r14": 45,
-          "r28": 135
+          "r3": 10,
+          "r7": 24,
+          "r14": 49,
+          "r28": 139
         },
         {
           "video_id": "N5VfI8DUAzo",
@@ -123258,7 +123668,7 @@
           "like_pct": 3.01,
           "likes": 57,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 115,
+          "likes_vs_exp_pct": 114,
           "d1": 844,
           "d3": 1512,
           "d7": 1697,
@@ -123275,7 +123685,7 @@
           "title": "Claude Fable 5 vs Codex vs Opus 4.8 ── 実測841円、結局どっちを使う？",
           "url": "https://www.youtube.com/watch?v=UIOape9cPdE",
           "published_at": "2026-06-10",
-          "views": 1842,
+          "views": 1843,
           "age_days": 64,
           "to1000": 0.0,
           "to1000_lte": false,
@@ -123283,24 +123693,24 @@
           "like_pct": 2.33,
           "likes": 43,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 89,
+          "likes_vs_exp_pct": 88,
           "d1": 1602,
           "d3": 1755,
           "d7": 1768,
           "d14": 1788,
           "d28": 1820,
           "r1": 0,
-          "r3": 0,
-          "r7": 0,
-          "r14": 0,
-          "r28": 15
+          "r3": 1,
+          "r7": 1,
+          "r14": 1,
+          "r28": 16
         },
         {
           "video_id": "WCB9hs4l7vY",
           "title": "9つの協調パターンで分かる Hermes Kanban の全貌",
           "url": "https://www.youtube.com/watch?v=WCB9hs4l7vY",
           "published_at": "2026-06-08",
-          "views": 824,
+          "views": 826,
           "age_days": 66,
           "to1000": null,
           "to1000_lte": false,
@@ -123315,10 +123725,10 @@
           "d14": 711,
           "d28": 770,
           "r1": 0,
-          "r3": 2,
-          "r7": 5,
-          "r14": 18,
-          "r28": 35
+          "r3": 4,
+          "r7": 7,
+          "r14": 20,
+          "r28": 37
         },
         {
           "video_id": "uLEOyrCBdvs",
@@ -123400,7 +123810,7 @@
           "title": "公式Hermes Desktopが来た！Nous ResearchのGUI版を徹底解説",
           "url": "https://www.youtube.com/watch?v=jVtNl6-XxLQ",
           "published_at": "2026-06-03",
-          "views": 2882,
+          "views": 2884,
           "age_days": 71,
           "to1000": 0.4,
           "to1000_lte": false,
@@ -123408,17 +123818,17 @@
           "like_pct": 2.64,
           "likes": 76,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 104,
+          "likes_vs_exp_pct": 103,
           "d1": 1383,
           "d3": 1802,
           "d7": 2100,
           "d14": 2362,
           "d28": 2583,
           "r1": 0,
-          "r3": 8,
-          "r7": 31,
-          "r14": 63,
-          "r28": 160
+          "r3": 10,
+          "r7": 33,
+          "r14": 65,
+          "r28": 162
         },
         {
           "video_id": "RF4ICxAAPMQ",
@@ -123633,7 +124043,7 @@
           "like_pct": 2.76,
           "likes": 16,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 87,
+          "likes_vs_exp_pct": 88,
           "d1": 428,
           "d3": 458,
           "d7": 506,
@@ -123650,7 +124060,7 @@
           "title": "【codex公式!?】Open Design が Codex で動くようになった日 — エージェントに「キャンバス」を渡す",
           "url": "https://www.youtube.com/watch?v=07n92bxc5-Q",
           "published_at": "2026-05-22",
-          "views": 1561,
+          "views": 1566,
           "age_days": 83,
           "to1000": 3.8,
           "to1000_lte": false,
@@ -123665,10 +124075,10 @@
           "d14": 1251,
           "d28": 1379,
           "r1": 0,
-          "r3": 12,
-          "r7": 25,
-          "r14": 34,
-          "r28": 58
+          "r3": 17,
+          "r7": 30,
+          "r14": 39,
+          "r28": 63
         },
         {
           "video_id": "HgEFM9SZ_hA",
@@ -123733,7 +124143,7 @@
           "like_pct": 2.88,
           "likes": 45,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 108,
+          "likes_vs_exp_pct": 107,
           "d1": null,
           "d3": null,
           "d7": 967,
@@ -123925,7 +124335,7 @@
           "title": "【寝ないAI従業員OSS】Hermes Agentとは？",
           "url": "https://www.youtube.com/watch?v=tnmyD56X7w4",
           "published_at": "2026-05-04",
-          "views": 3929,
+          "views": 3934,
           "age_days": 101,
           "to1000": null,
           "to1000_lte": false,
@@ -123940,10 +124350,10 @@
           "d14": null,
           "d28": 3385,
           "r1": 0,
-          "r3": 6,
-          "r7": 19,
-          "r14": 52,
-          "r28": 120
+          "r3": 11,
+          "r7": 24,
+          "r14": 57,
+          "r28": 125
         },
         {
           "video_id": "sCElmePxY_4",
@@ -123975,7 +124385,7 @@
           "title": "【Codexマスター完全版】Codexの全てを見る60分がここに！",
           "url": "https://www.youtube.com/watch?v=KfpiMIXAC5c",
           "published_at": "2026-04-30",
-          "views": 6009,
+          "views": 6010,
           "age_days": 105,
           "to1000": null,
           "to1000_lte": false,
@@ -123990,10 +124400,10 @@
           "d14": null,
           "d28": 5703,
           "r1": 0,
-          "r3": 1,
-          "r7": 11,
-          "r14": 17,
-          "r28": 39
+          "r3": 2,
+          "r7": 12,
+          "r14": 18,
+          "r28": 40
         },
         {
           "video_id": "24bSK0UA1uE",
@@ -124058,7 +124468,7 @@
           "like_pct": 2.26,
           "likes": 129,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 92,
+          "likes_vs_exp_pct": 91,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -124233,7 +124643,7 @@
           "like_pct": 2.86,
           "likes": 40,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 106,
+          "likes_vs_exp_pct": 105,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -124408,7 +124818,7 @@
           "like_pct": 3.79,
           "likes": 27,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 125,
+          "likes_vs_exp_pct": 126,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -124458,7 +124868,7 @@
           "like_pct": 3.35,
           "likes": 70,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 129,
+          "likes_vs_exp_pct": 128,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -124583,7 +124993,7 @@
           "like_pct": 2.38,
           "likes": 70,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 94,
+          "likes_vs_exp_pct": 93,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -124658,7 +125068,7 @@
           "like_pct": 2.68,
           "likes": 72,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 105,
+          "likes_vs_exp_pct": 104,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -124708,7 +125118,7 @@
           "like_pct": 5.68,
           "likes": 20,
           "ad_check": "na",
-          "likes_vs_exp_pct": 155,
+          "likes_vs_exp_pct": 156,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -124733,7 +125143,7 @@
           "like_pct": 1.54,
           "likes": 35,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 60,
+          "likes_vs_exp_pct": 59,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -124808,7 +125218,7 @@
           "like_pct": 4.59,
           "likes": 34,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 153,
+          "likes_vs_exp_pct": 154,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -124883,7 +125293,7 @@
           "like_pct": 4.39,
           "likes": 23,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 135,
+          "likes_vs_exp_pct": 136,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -125000,7 +125410,7 @@
           "title": "Claude Agent  SDK「SubAgent」徹底解説｜分けたら安定した、AI分業の設計術",
           "url": "https://www.youtube.com/watch?v=5rd_JxfV5r0",
           "published_at": "2026-02-12",
-          "views": 1518,
+          "views": 1519,
           "age_days": 182,
           "to1000": null,
           "to1000_lte": false,
@@ -125015,10 +125425,10 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 0,
-          "r7": 1,
-          "r14": 3,
-          "r28": 16
+          "r3": 1,
+          "r7": 2,
+          "r14": 4,
+          "r28": 17
         },
         {
           "video_id": "O_4qCi23mqs",
@@ -125033,7 +125443,7 @@
           "like_pct": 4.42,
           "likes": 92,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 170,
+          "likes_vs_exp_pct": 169,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -125058,7 +125468,7 @@
           "like_pct": 5.57,
           "likes": 20,
           "ad_check": "na",
-          "likes_vs_exp_pct": 153,
+          "likes_vs_exp_pct": 154,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -125083,7 +125493,7 @@
           "like_pct": 6.44,
           "likes": 44,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 211,
+          "likes_vs_exp_pct": 212,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -126164,6 +126574,10 @@
         },
         {
           "timestamp": "2026-08-13T12:43:37Z",
+          "subs": 293
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
           "subs": 293
         }
       ],
@@ -127487,6 +127901,11 @@
           "timestamp": "2026-08-13T12:43:37Z",
           "total_views": 20481,
           "videos": 53
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
+          "total_views": 20482,
+          "videos": 53
         }
       ],
       "daily_posts": [
@@ -128573,6 +128992,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 804
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 804
             }
           ],
           "likes": 5,
@@ -129640,6 +130063,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 879
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 879
             }
           ],
@@ -130709,6 +131136,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 783
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 783
             }
           ],
           "likes": 2,
@@ -131776,6 +132207,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 6617
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 6617
             }
           ],
@@ -132845,6 +133280,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2027
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2027
             }
           ],
           "likes": 38,
@@ -133912,6 +134351,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 579
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 579
             }
           ],
@@ -134981,6 +135424,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1044
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1045
             }
           ],
           "likes": 15,
@@ -136048,6 +136495,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 781
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 781
             }
           ],
@@ -137117,6 +137568,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1181
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1181
             }
           ],
           "likes": 21,
@@ -138185,6 +138640,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 734
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 734
             }
           ],
           "likes": 21,
@@ -138681,6 +139140,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 48
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 48
             }
           ],
           "likes": 0,
@@ -139161,6 +139624,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 35
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 35
             }
           ],
           "likes": 0,
@@ -139309,6 +139776,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 4
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 4
             }
           ],
           "likes": 0,
@@ -139356,6 +139827,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 4
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 4
             }
           ],
@@ -139972,7 +140447,7 @@
           "title": "中国AI「DeepSeek」を使わない日本人だけが損してる理由【ずんだもん解説】",
           "url": "https://www.youtube.com/watch?v=ozIekxBFpGc",
           "published_at": "2026-03-27",
-          "views": 1044,
+          "views": 1045,
           "age_days": 139,
           "to1000": 102.0,
           "to1000_lte": false,
@@ -139987,10 +140462,10 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 4,
-          "r7": 6,
-          "r14": 10,
-          "r28": 32
+          "r3": 5,
+          "r7": 7,
+          "r14": 11,
+          "r28": 33
         },
         {
           "video_id": "tw1e9q3HWDc",
@@ -140699,7 +141174,7 @@
       "id": "UCU_xbItXTpMZtD0v0O4ph9g",
       "title": "クドクラ@ClaudeCode AI駆動Craft",
       "like_baseline": {
-        "fan_likes": 0.2,
+        "fan_likes": 0.1,
         "slope_pct": 1.45,
         "n": 21
       },
@@ -141761,6 +142236,10 @@
         },
         {
           "timestamp": "2026-08-13T12:43:37Z",
+          "subs": 248
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
           "subs": 248
         }
       ],
@@ -143084,6 +143563,11 @@
           "timestamp": "2026-08-13T12:43:37Z",
           "total_views": 14389,
           "videos": 26
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
+          "total_views": 14398,
+          "videos": 26
         }
       ],
       "daily_posts": [
@@ -144154,13 +144638,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2813
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2815
             }
           ],
           "likes": 58,
           "like_pct": 2.06,
           "ad_check": "ok",
           "exp_likes": 41.0,
-          "likes_vs_exp_pct": 142
+          "likes_vs_exp_pct": 141
         },
         "VDeFLcjert8": {
           "title": "【GitHubオープンソース】Claude Code・Codex・Grok・Antigravityを同時に動かすAI開発IDE「Orca」Agent skill オーケストレーション",
@@ -145222,13 +145710,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 5254
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 5257
             }
           ],
           "likes": 109,
           "like_pct": 2.07,
           "ad_check": "ok",
-          "exp_likes": 76.3,
-          "likes_vs_exp_pct": 143
+          "exp_likes": 76.6,
+          "likes_vs_exp_pct": 142
         },
         "nY2pU4iofQs": {
           "title": "【GitHubオープンソース】あなた専用AI超知能「OpenHuman」が凄すぎる！無料で使えるローカルAIエージェント徹底解説",
@@ -146290,12 +146782,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1226
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1227
             }
           ],
           "likes": 30,
-          "like_pct": 2.45,
+          "like_pct": 2.44,
           "ad_check": "ok",
-          "exp_likes": 18.0,
+          "exp_likes": 17.9,
           "likes_vs_exp_pct": 167
         },
         "tnjVXZIA_aM": {
@@ -147358,13 +147854,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 927
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 927
             }
           ],
           "likes": 10,
           "like_pct": 1.08,
           "ad_check": "ok",
           "exp_likes": 13.6,
-          "likes_vs_exp_pct": 73
+          "likes_vs_exp_pct": 74
         },
         "bJN3fIXurZA": {
           "title": "ClaudeCodeで最強の環境を作れるeverything-claude-code を徹底解説",
@@ -148426,6 +148926,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 967
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 967
             }
           ],
           "likes": 15,
@@ -148449,7 +148953,7 @@
           "like_pct": 3.23,
           "likes": 2,
           "ad_check": "na",
-          "likes_vs_exp_pct": 182,
+          "likes_vs_exp_pct": 200,
           "d1": 52,
           "d3": 56,
           "d7": 56,
@@ -148466,25 +148970,25 @@
           "title": "OpenAI Codex Sites徹底解説！AIがWebアプリを自動生成する時代へ",
           "url": "https://www.youtube.com/watch?v=KfJQIoDfeH8",
           "published_at": "2026-06-03",
-          "views": 146,
+          "views": 147,
           "age_days": 71,
           "to1000": null,
           "to1000_lte": false,
           "traj": "tail",
-          "like_pct": 2.05,
+          "like_pct": 2.04,
           "likes": 3,
           "ad_check": "na",
-          "likes_vs_exp_pct": 130,
+          "likes_vs_exp_pct": 134,
           "d1": 67,
           "d3": 85,
           "d7": 94,
           "d14": 106,
           "d28": 125,
           "r1": 0,
-          "r3": 1,
-          "r7": 2,
-          "r14": 3,
-          "r28": 12
+          "r3": 2,
+          "r7": 3,
+          "r14": 4,
+          "r28": 13
         },
         {
           "video_id": "bt5FBrgR7w8",
@@ -148499,7 +149003,7 @@
           "like_pct": 2.65,
           "likes": 7,
           "ad_check": "na",
-          "likes_vs_exp_pct": 174,
+          "likes_vs_exp_pct": 178,
           "d1": 67,
           "d3": 77,
           "d7": 120,
@@ -148516,7 +149020,7 @@
           "title": "【GitHubオープンソース】Hermes AgentをGUIで管理できる次世代デスクトップアプリ Hermes Desktop",
           "url": "https://www.youtube.com/watch?v=kZdQ7dsCqk4",
           "published_at": "2026-05-30",
-          "views": 2813,
+          "views": 2815,
           "age_days": 75,
           "to1000": 3,
           "to1000_lte": true,
@@ -148524,24 +149028,24 @@
           "like_pct": 2.06,
           "likes": 58,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 142,
+          "likes_vs_exp_pct": 141,
           "d1": null,
           "d3": 1407,
           "d7": 1793,
           "d14": 1947,
           "d28": 2239,
           "r1": 0,
-          "r3": 16,
-          "r7": 52,
-          "r14": 113,
-          "r28": 274
+          "r3": 18,
+          "r7": 54,
+          "r14": 115,
+          "r28": 276
         },
         {
           "video_id": "VDeFLcjert8",
           "title": "【GitHubオープンソース】Claude Code・Codex・Grok・Antigravityを同時に動かすAI開発IDE「Orca」Agent skill オーケストレーション",
           "url": "https://www.youtube.com/watch?v=VDeFLcjert8",
           "published_at": "2026-05-29",
-          "views": 5254,
+          "views": 5257,
           "age_days": 76,
           "to1000": null,
           "to1000_lte": false,
@@ -148549,17 +149053,17 @@
           "like_pct": 2.07,
           "likes": 109,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 143,
+          "likes_vs_exp_pct": 142,
           "d1": null,
           "d3": 2397,
           "d7": 2528,
           "d14": 2649,
           "d28": 3002,
           "r1": 0,
-          "r3": 55,
-          "r7": 123,
-          "r14": 313,
-          "r28": 575
+          "r3": 58,
+          "r7": 126,
+          "r14": 316,
+          "r28": 578
         },
         {
           "video_id": "lZvXaW8MMpc",
@@ -148574,7 +149078,7 @@
           "like_pct": 3.74,
           "likes": 8,
           "ad_check": "na",
-          "likes_vs_exp_pct": 242,
+          "likes_vs_exp_pct": 249,
           "d1": null,
           "d3": null,
           "d7": 106,
@@ -148591,12 +149095,12 @@
           "title": "【GitHubオープンソース】あなた専用AI超知能「OpenHuman」が凄すぎる！無料で使えるローカルAIエージェント徹底解説",
           "url": "https://www.youtube.com/watch?v=nY2pU4iofQs",
           "published_at": "2026-05-26",
-          "views": 1226,
+          "views": 1227,
           "age_days": 79,
           "to1000": 53.1,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 2.45,
+          "like_pct": 2.44,
           "likes": 30,
           "ad_check": "ok",
           "likes_vs_exp_pct": 167,
@@ -148606,10 +149110,10 @@
           "d14": 460,
           "d28": 572,
           "r1": 0,
-          "r3": 24,
-          "r7": 70,
-          "r14": 139,
-          "r28": 237
+          "r3": 25,
+          "r7": 71,
+          "r14": 140,
+          "r28": 238
         },
         {
           "video_id": "R2CeZNt3FZ0",
@@ -148624,7 +149128,7 @@
           "like_pct": 1.79,
           "likes": 3,
           "ad_check": "na",
-          "likes_vs_exp_pct": 114,
+          "likes_vs_exp_pct": 118,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148641,25 +149145,25 @@
           "title": "Claude Code × /last30daysでネットの声を一瞬で収集 Googleでは検索しきれないReddit・X・YouTube・TikTok・Hacker News・GitHubを並列検索",
           "url": "https://www.youtube.com/watch?v=_D-zKYZ7xSk",
           "published_at": "2026-05-21",
-          "views": 92,
+          "views": 93,
           "age_days": 84,
           "to1000": null,
           "to1000_lte": false,
-          "traj": "tail",
-          "like_pct": 2.17,
+          "traj": "asset",
+          "like_pct": 2.15,
           "likes": 2,
           "ad_check": "na",
-          "likes_vs_exp_pct": 130,
+          "likes_vs_exp_pct": 138,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": 42,
           "d28": 58,
           "r1": 0,
-          "r3": 1,
-          "r7": 4,
-          "r14": 8,
-          "r28": 14
+          "r3": 2,
+          "r7": 5,
+          "r14": 9,
+          "r28": 15
         },
         {
           "video_id": "YbmEvWuCiG4",
@@ -148699,7 +149203,7 @@
           "like_pct": 1.5,
           "likes": 5,
           "ad_check": "na",
-          "likes_vs_exp_pct": 99,
+          "likes_vs_exp_pct": 101,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148724,7 +149228,7 @@
           "like_pct": 2.7,
           "likes": 2,
           "ad_check": "na",
-          "likes_vs_exp_pct": 157,
+          "likes_vs_exp_pct": 170,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148749,7 +149253,7 @@
           "like_pct": 1.05,
           "likes": 2,
           "ad_check": "na",
-          "likes_vs_exp_pct": 68,
+          "likes_vs_exp_pct": 70,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148774,7 +149278,7 @@
           "like_pct": 2.91,
           "likes": 3,
           "ad_check": "na",
-          "likes_vs_exp_pct": 177,
+          "likes_vs_exp_pct": 188,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148799,7 +149303,7 @@
           "like_pct": 1.86,
           "likes": 4,
           "ad_check": "na",
-          "likes_vs_exp_pct": 121,
+          "likes_vs_exp_pct": 124,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148816,25 +149320,25 @@
           "title": "DeepSeek-TUI の無料の教科書　ローカルAIコーディングエージェント",
           "url": "https://www.youtube.com/watch?v=SjU8KUn_i1I",
           "published_at": "2026-05-14",
-          "views": 88,
+          "views": 89,
           "age_days": 91,
           "to1000": null,
           "to1000_lte": false,
           "traj": "tail",
-          "like_pct": 1.14,
+          "like_pct": 1.12,
           "likes": 1,
           "ad_check": "na",
-          "likes_vs_exp_pct": 68,
+          "likes_vs_exp_pct": 72,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": 63,
           "r1": 0,
-          "r3": 0,
-          "r7": 2,
-          "r14": 4,
-          "r28": 10
+          "r3": 1,
+          "r7": 3,
+          "r14": 5,
+          "r28": 11
         },
         {
           "video_id": "i5p9eHNs_cE",
@@ -148849,7 +149353,7 @@
           "like_pct": 1.38,
           "likes": 3,
           "ad_check": "na",
-          "likes_vs_exp_pct": 90,
+          "likes_vs_exp_pct": 92,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148874,7 +149378,7 @@
           "like_pct": 0.89,
           "likes": 1,
           "ad_check": "na",
-          "likes_vs_exp_pct": 55,
+          "likes_vs_exp_pct": 58,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148899,7 +149403,7 @@
           "like_pct": 0.96,
           "likes": 2,
           "ad_check": "na",
-          "likes_vs_exp_pct": 62,
+          "likes_vs_exp_pct": 64,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148924,7 +149428,7 @@
           "like_pct": 1.4,
           "likes": 3,
           "ad_check": "na",
-          "likes_vs_exp_pct": 91,
+          "likes_vs_exp_pct": 93,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148949,7 +149453,7 @@
           "like_pct": 0.53,
           "likes": 1,
           "ad_check": "na",
-          "likes_vs_exp_pct": 34,
+          "likes_vs_exp_pct": 35,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148974,7 +149478,7 @@
           "like_pct": 1.18,
           "likes": 2,
           "ad_check": "na",
-          "likes_vs_exp_pct": 75,
+          "likes_vs_exp_pct": 78,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -148999,7 +149503,7 @@
           "like_pct": 1.69,
           "likes": 1,
           "ad_check": "na",
-          "likes_vs_exp_pct": 95,
+          "likes_vs_exp_pct": null,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -149049,7 +149553,7 @@
           "like_pct": 1.08,
           "likes": 10,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 73,
+          "likes_vs_exp_pct": 74,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -150152,6 +150656,10 @@
         {
           "timestamp": "2026-08-13T12:43:37Z",
           "subs": 742
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
+          "subs": 743
         }
       ],
       "views_history": [
@@ -151474,6 +151982,11 @@
           "timestamp": "2026-08-13T12:43:37Z",
           "total_views": 2097,
           "videos": 5
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
+          "total_views": 2100,
+          "videos": 5
         }
       ],
       "daily_posts": [
@@ -152544,6 +153057,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1393
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1396
             }
           ],
           "likes": 19,
@@ -152634,7 +153151,7 @@
           "title": "☕ ターミナル比較 2026 — AI 時代のターミナル 9選",
           "url": "https://www.youtube.com/watch?v=N74si-luyIg",
           "published_at": "2026-04-01",
-          "views": 1393,
+          "views": 1396,
           "age_days": 134,
           "to1000": 102.9,
           "to1000_lte": false,
@@ -152649,10 +153166,10 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 4,
-          "r7": 31,
-          "r14": 75,
-          "r28": 325
+          "r3": 7,
+          "r7": 34,
+          "r14": 78,
+          "r28": 328
         },
         {
           "video_id": "-Zybc-BepD8",
@@ -152686,13 +153203,13 @@
       "id": "UCaSJDqA8W5x6ITcWtC5hHvw",
       "title": "HAYAKIのAIラボ",
       "like_baseline": {
-        "fan_likes": 3.2,
-        "slope_pct": 1.56,
+        "fan_likes": 3.1,
+        "slope_pct": 1.58,
         "n": 44
       },
-      "baseline_median": 307,
-      "hit_threshold": 1535,
-      "semi_threshold": 921,
+      "baseline_median": 308,
+      "hit_threshold": 1540,
+      "semi_threshold": 924,
       "subs_history": [
         {
           "timestamp": "2026-07-08T02:56:16Z",
@@ -153181,6 +153698,10 @@
         {
           "timestamp": "2026-08-13T12:43:37Z",
           "subs": 498
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
+          "subs": 499
         }
       ],
       "views_history": [
@@ -153793,6 +154314,11 @@
           "timestamp": "2026-08-13T12:43:37Z",
           "total_views": 30929,
           "videos": 54
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
+          "total_views": 30978,
+          "videos": 54
         }
       ],
       "daily_posts": [
@@ -154331,13 +154857,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 3524
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 3526
             }
           ],
           "likes": 57,
           "like_pct": 1.62,
           "ad_check": "ok",
-          "exp_likes": 58.3,
-          "likes_vs_exp_pct": 98
+          "exp_likes": 58.8,
+          "likes_vs_exp_pct": 97
         },
         "YkYPNRK2uOg": {
           "title": "【入門編】ClaudeCodeは高いし難しい！無料で簡単にアプリを構築できるAntigravityの紹介と実演",
@@ -154831,12 +155361,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1035
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1035
             }
           ],
           "likes": 18,
           "like_pct": 1.74,
           "ad_check": "ok",
-          "exp_likes": 19.4,
+          "exp_likes": 19.5,
           "likes_vs_exp_pct": 93
         },
         "pq7Ax8k49tE": {
@@ -155331,12 +155865,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1109
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1109
             }
           ],
           "likes": 9,
           "like_pct": 0.81,
           "ad_check": "suspect",
-          "exp_likes": 20.5,
+          "exp_likes": 20.6,
           "likes_vs_exp_pct": 44
         },
         "lznHb41P4WM": {
@@ -155831,12 +156369,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1734
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1734
             }
           ],
           "likes": 17,
           "like_pct": 0.98,
           "ad_check": "ok",
-          "exp_likes": 30.3,
+          "exp_likes": 30.5,
           "likes_vs_exp_pct": 56
         },
         "1uMckwdVyXo": {
@@ -156331,13 +156873,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1195
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1195
             }
           ],
           "likes": 22,
           "like_pct": 1.84,
           "ad_check": "ok",
-          "exp_likes": 21.9,
-          "likes_vs_exp_pct": 101
+          "exp_likes": 22.0,
+          "likes_vs_exp_pct": 100
         },
         "lua2LYGtqAc": {
           "title": "【最短10分】GitHubとVercelでWebアプリを無料公開する方法！知識0からの完全ガイド",
@@ -156831,13 +157377,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2445
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2459
             }
           ],
           "likes": 70,
-          "like_pct": 2.86,
+          "like_pct": 2.85,
           "ad_check": "ok",
-          "exp_likes": 41.4,
-          "likes_vs_exp_pct": 169
+          "exp_likes": 42.0,
+          "likes_vs_exp_pct": 167
         },
         "N4XBCE6Sv7k": {
           "title": "【24時間働くAI】軽量で安全な自律型AIエージェント、NanoClawを紹介！",
@@ -157331,13 +157881,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2140
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2140
             }
           ],
           "likes": 43,
           "like_pct": 2.01,
           "ad_check": "ok",
-          "exp_likes": 36.6,
-          "likes_vs_exp_pct": 117
+          "exp_likes": 36.9,
+          "likes_vs_exp_pct": 116
         },
         "319sgjEiMdQ": {
           "title": "【AI開発手法】AWSが推奨するAI駆動開発！AI-DLCについて紹介",
@@ -157831,13 +158385,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1682
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1683
             }
           ],
           "likes": 25,
           "like_pct": 1.49,
           "ad_check": "ok",
-          "exp_likes": 29.5,
-          "likes_vs_exp_pct": 85
+          "exp_likes": 29.7,
+          "likes_vs_exp_pct": 84
         },
         "8q5MWnIzE30": {
           "title": "【超入門】Claude Code × CursorでTODOアプリ開発。動画の通りにやるだけで完成します",
@@ -158331,13 +158889,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2326
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2327
             }
           ],
           "likes": 36,
           "like_pct": 1.55,
           "ad_check": "ok",
-          "exp_likes": 39.5,
-          "likes_vs_exp_pct": 91
+          "exp_likes": 39.9,
+          "likes_vs_exp_pct": 90
         },
         "c7-iDBxz_3I": {
           "title": "Claude Code × Remotion 入門｜AIにコードを書かせて動画を作る最新フロー",
@@ -158831,13 +159393,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1627
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1629
             }
           ],
           "likes": 20,
           "like_pct": 1.23,
           "ad_check": "ok",
-          "exp_likes": 28.6,
-          "likes_vs_exp_pct": 70
+          "exp_likes": 28.8,
+          "likes_vs_exp_pct": 69
         },
         "eRG2BH3V4hc": {
           "title": "【GoogleLabs 前編】最先端の動画・音楽生成AIが無料で試せる！Flow＆Flow Musicの使い方",
@@ -159295,13 +159861,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 109
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 109
             }
           ],
           "likes": 6,
           "like_pct": 5.5,
           "ad_check": "na",
-          "exp_likes": 4.9,
-          "likes_vs_exp_pct": 122
+          "exp_likes": 4.8,
+          "likes_vs_exp_pct": 124
         },
         "7grezkcb6fY": {
           "title": "【完全無料】Google最新AIでWEBデザインと広告用画像を爆速自動生成する方法（Pomelli / Stitch）",
@@ -159671,13 +160241,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 74
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 74
             }
           ],
           "likes": 4,
           "like_pct": 5.41,
           "ad_check": "na",
-          "exp_likes": 4.4,
-          "likes_vs_exp_pct": 92
+          "exp_likes": 4.3,
+          "likes_vs_exp_pct": 94
         },
         "O2kq4Y8TiVY": {
           "title": "【稼ぐならこれ一択】AI時代の「勝ち組」職種「FDE」とは？コードを書くだけのエンジニアが淘汰される理由",
@@ -159967,13 +160541,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 64
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 64
             }
           ],
           "likes": 4,
           "like_pct": 6.25,
           "ad_check": "na",
-          "exp_likes": 4.2,
-          "likes_vs_exp_pct": 95
+          "exp_likes": 4.1,
+          "likes_vs_exp_pct": 97
         },
         "bLFEVMGO2GY": {
           "title": "【半日で開発】ClaudeCodeで「公式LINE管理アプリ」を作ったら業務効率が劇変した",
@@ -160179,12 +160757,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 74
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 79
             }
           ],
           "likes": 5,
-          "like_pct": 6.76,
+          "like_pct": 6.33,
           "ad_check": "na",
-          "exp_likes": 4.4,
+          "exp_likes": 4.3,
           "likes_vs_exp_pct": 115
         },
         "rCgVTPHc-xE": {
@@ -160295,13 +160877,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 50
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 52
             }
           ],
           "likes": 5,
-          "like_pct": 10.0,
+          "like_pct": 9.62,
           "ad_check": "na",
-          "exp_likes": 4.0,
-          "likes_vs_exp_pct": 126
+          "exp_likes": 3.9,
+          "likes_vs_exp_pct": 127
         },
         "hsh6Nq6YBXA": {
           "title": "【AI開発の基礎】Playwrightでブラウザ操作を完全自動化！プログラミングで面倒なWebデータ収集（スクレイピング）を自動化",
@@ -160343,12 +160929,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 40
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 48
             }
           ],
           "likes": 3,
-          "like_pct": 7.5,
+          "like_pct": 6.25,
           "ad_check": "na",
-          "exp_likes": 3.8,
+          "exp_likes": 3.9,
           "likes_vs_exp_pct": 78
         }
       },
@@ -160358,12 +160948,12 @@
           "title": "【AI開発の基礎】Playwrightでブラウザ操作を完全自動化！プログラミングで面倒なWebデータ収集（スクレイピング）を自動化",
           "url": "https://www.youtube.com/watch?v=hsh6Nq6YBXA",
           "published_at": "2026-08-11",
-          "views": 40,
+          "views": 48,
           "age_days": 2,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 7.5,
+          "like_pct": 6.25,
           "likes": 3,
           "ad_check": "na",
           "likes_vs_exp_pct": 78,
@@ -160373,47 +160963,47 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 40,
-          "r7": 40,
-          "r14": 40,
-          "r28": 40
+          "r3": 48,
+          "r7": 48,
+          "r14": 48,
+          "r28": 48
         },
         {
           "video_id": "rCgVTPHc-xE",
           "title": "【データ分析を爆速化】Claude×windsor-aiでGA4・SNS・広告など300以上のデータを一括統合・AI分析する方法",
           "url": "https://www.youtube.com/watch?v=rCgVTPHc-xE",
           "published_at": "2026-08-07",
-          "views": 50,
+          "views": 52,
           "age_days": 6,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 10.0,
+          "like_pct": 9.62,
           "likes": 5,
           "ad_check": "na",
-          "likes_vs_exp_pct": 126,
+          "likes_vs_exp_pct": 127,
           "d1": 24,
           "d3": 43,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 4,
-          "r7": 50,
-          "r14": 50,
-          "r28": 50
+          "r3": 6,
+          "r7": 52,
+          "r14": 52,
+          "r28": 52
         },
         {
           "video_id": "bLFEVMGO2GY",
           "title": "【半日で開発】ClaudeCodeで「公式LINE管理アプリ」を作ったら業務効率が劇変した",
           "url": "https://www.youtube.com/watch?v=bLFEVMGO2GY",
           "published_at": "2026-08-01",
-          "views": 74,
+          "views": 79,
           "age_days": 12,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 6.76,
+          "like_pct": 6.33,
           "likes": 5,
           "ad_check": "na",
           "likes_vs_exp_pct": 115,
@@ -160423,10 +161013,10 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 11,
-          "r7": 20,
-          "r14": 74,
-          "r28": 74
+          "r3": 16,
+          "r7": 25,
+          "r14": 79,
+          "r28": 79
         },
         {
           "video_id": "O2kq4Y8TiVY",
@@ -160441,7 +161031,7 @@
           "like_pct": 6.25,
           "likes": 4,
           "ad_check": "na",
-          "likes_vs_exp_pct": 95,
+          "likes_vs_exp_pct": 97,
           "d1": 21,
           "d3": 36,
           "d7": 50,
@@ -160466,7 +161056,7 @@
           "like_pct": 5.41,
           "likes": 4,
           "ad_check": "na",
-          "likes_vs_exp_pct": 92,
+          "likes_vs_exp_pct": 94,
           "d1": 15,
           "d3": 39,
           "d7": 57,
@@ -160491,7 +161081,7 @@
           "like_pct": 5.5,
           "likes": 6,
           "ad_check": "na",
-          "likes_vs_exp_pct": 122,
+          "likes_vs_exp_pct": 124,
           "d1": 27,
           "d3": 68,
           "d7": 95,
@@ -160508,12 +161098,12 @@
           "title": "PC上の操作を見て覚えるCodexの「Record & Replay」が凄い！",
           "url": "https://www.youtube.com/watch?v=KUz3wwQhveY",
           "published_at": "2026-07-04",
-          "views": 341,
+          "views": 343,
           "age_days": 40,
           "to1000": null,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 3.23,
+          "like_pct": 3.21,
           "likes": 11,
           "ad_check": "na",
           "likes_vs_exp_pct": 129,
@@ -160523,17 +161113,17 @@
           "d14": 304,
           "d28": 335,
           "r1": 0,
-          "r3": 0,
-          "r7": 4,
-          "r14": 7,
-          "r28": 38
+          "r3": 2,
+          "r7": 6,
+          "r14": 9,
+          "r28": 40
         },
         {
           "video_id": "XtXUBtD3RKI",
           "title": "【ループエンジニアリング】私はもうAIにプロンプトを打ちません。私の仕事はループを設計することです。",
           "url": "https://www.youtube.com/watch?v=XtXUBtD3RKI",
           "published_at": "2026-06-29",
-          "views": 3524,
+          "views": 3526,
           "age_days": 45,
           "to1000": null,
           "to1000_lte": false,
@@ -160541,17 +161131,17 @@
           "like_pct": 1.62,
           "likes": 57,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 98,
+          "likes_vs_exp_pct": 97,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": 3444,
           "r1": 0,
-          "r3": 10,
-          "r7": 28,
-          "r14": 67,
-          "r28": 126
+          "r3": 12,
+          "r7": 30,
+          "r14": 69,
+          "r28": 128
         },
         {
           "video_id": "J67yG9eRG7s",
@@ -160591,7 +161181,7 @@
           "like_pct": 5.05,
           "likes": 10,
           "ad_check": "na",
-          "likes_vs_exp_pct": 159,
+          "likes_vs_exp_pct": 161,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -160608,25 +161198,25 @@
           "title": "【Supabase×Vercel】ClaudeCodeに指示するだけで公開も認証機能もDBも使える無料インフラ構築方法",
           "url": "https://www.youtube.com/watch?v=7wgoPubZV18",
           "published_at": "2026-06-13",
-          "views": 446,
+          "views": 450,
           "age_days": 61,
           "to1000": null,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 3.36,
+          "like_pct": 3.33,
           "likes": 15,
           "ad_check": "na",
-          "likes_vs_exp_pct": 148,
+          "likes_vs_exp_pct": 147,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 13,
-          "r7": 22,
-          "r14": 53,
-          "r28": 119
+          "r3": 17,
+          "r7": 26,
+          "r14": 57,
+          "r28": 123
         },
         {
           "video_id": "gv7M9eMQFIo",
@@ -160666,7 +161256,7 @@
           "like_pct": 7.28,
           "likes": 11,
           "ad_check": "na",
-          "likes_vs_exp_pct": 198,
+          "likes_vs_exp_pct": 200,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -160733,12 +161323,12 @@
           "title": "Claude Codeで公式LINEのAIチャットボットをゼロから作る実戦ガイド",
           "url": "https://www.youtube.com/watch?v=Z89kjQRe0mw",
           "published_at": "2026-05-24",
-          "views": 319,
+          "views": 322,
           "age_days": 81,
           "to1000": null,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 3.76,
+          "like_pct": 3.73,
           "likes": 12,
           "ad_check": "na",
           "likes_vs_exp_pct": 147,
@@ -160748,10 +161338,10 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 4,
-          "r7": 5,
-          "r14": 18,
-          "r28": 36
+          "r3": 7,
+          "r7": 8,
+          "r14": 21,
+          "r28": 39
         },
         {
           "video_id": "HpGYAUxhs5U",
@@ -160766,7 +161356,7 @@
           "like_pct": 6.17,
           "likes": 5,
           "ad_check": "na",
-          "likes_vs_exp_pct": 112,
+          "likes_vs_exp_pct": 114,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -160791,7 +161381,7 @@
           "like_pct": 3.3,
           "likes": 15,
           "ad_check": "na",
-          "likes_vs_exp_pct": 145,
+          "likes_vs_exp_pct": 146,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -160816,7 +161406,7 @@
           "like_pct": 1.2,
           "likes": 11,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 63,
+          "likes_vs_exp_pct": 62,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -160841,7 +161431,7 @@
           "like_pct": 3.8,
           "likes": 10,
           "ad_check": "na",
-          "likes_vs_exp_pct": 137,
+          "likes_vs_exp_pct": 138,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -160866,7 +161456,7 @@
           "like_pct": 5.16,
           "likes": 8,
           "ad_check": "na",
-          "likes_vs_exp_pct": 142,
+          "likes_vs_exp_pct": 144,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -160941,7 +161531,7 @@
           "like_pct": 10.0,
           "likes": 6,
           "ad_check": "na",
-          "likes_vs_exp_pct": 145,
+          "likes_vs_exp_pct": 148,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161066,7 +161656,7 @@
           "like_pct": 2.63,
           "likes": 3,
           "ad_check": "na",
-          "likes_vs_exp_pct": 60,
+          "likes_vs_exp_pct": 61,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161091,7 +161681,7 @@
           "like_pct": 2.83,
           "likes": 6,
           "ad_check": "na",
-          "likes_vs_exp_pct": 92,
+          "likes_vs_exp_pct": 93,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161116,7 +161706,7 @@
           "like_pct": 1.84,
           "likes": 22,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 101,
+          "likes_vs_exp_pct": 100,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161141,7 +161731,7 @@
           "like_pct": 4.84,
           "likes": 3,
           "ad_check": "na",
-          "likes_vs_exp_pct": 72,
+          "likes_vs_exp_pct": 74,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161166,7 +161756,7 @@
           "like_pct": 4.05,
           "likes": 6,
           "ad_check": "na",
-          "likes_vs_exp_pct": 109,
+          "likes_vs_exp_pct": 110,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161183,25 +161773,25 @@
           "title": "【最短10分】GitHubとVercelでWebアプリを無料公開する方法！知識0からの完全ガイド",
           "url": "https://www.youtube.com/watch?v=lua2LYGtqAc",
           "published_at": "2026-03-25",
-          "views": 2445,
+          "views": 2459,
           "age_days": 141,
           "to1000": null,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 2.86,
+          "like_pct": 2.85,
           "likes": 70,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 169,
+          "likes_vs_exp_pct": 167,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 49,
-          "r7": 138,
-          "r14": 296,
-          "r28": 535
+          "r3": 63,
+          "r7": 152,
+          "r14": 310,
+          "r28": 549
         },
         {
           "video_id": "9-W75IluGOo",
@@ -161241,7 +161831,7 @@
           "like_pct": 2.01,
           "likes": 43,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 117,
+          "likes_vs_exp_pct": 116,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161258,12 +161848,12 @@
           "title": "【脱・AI感】AIホームページ制作で「AIっぽさ」を完全に消す画像活用術！プロ級の仕上がりに変えるデザインの極意",
           "url": "https://www.youtube.com/watch?v=3XSc9Zj8x_M",
           "published_at": "2026-03-16",
-          "views": 308,
+          "views": 311,
           "age_days": 150,
           "to1000": null,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 2.92,
+          "like_pct": 2.89,
           "likes": 9,
           "ad_check": "na",
           "likes_vs_exp_pct": 112,
@@ -161273,17 +161863,17 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 5,
-          "r7": 12,
-          "r14": 32,
-          "r28": 63
+          "r3": 8,
+          "r7": 15,
+          "r14": 35,
+          "r28": 66
         },
         {
           "video_id": "319sgjEiMdQ",
           "title": "【AI開発手法】AWSが推奨するAI駆動開発！AI-DLCについて紹介",
           "url": "https://www.youtube.com/watch?v=319sgjEiMdQ",
           "published_at": "2026-03-15",
-          "views": 1682,
+          "views": 1683,
           "age_days": 151,
           "to1000": null,
           "to1000_lte": false,
@@ -161291,17 +161881,17 @@
           "like_pct": 1.49,
           "likes": 25,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 85,
+          "likes_vs_exp_pct": 84,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 10,
-          "r7": 29,
-          "r14": 98,
-          "r28": 239
+          "r3": 11,
+          "r7": 30,
+          "r14": 99,
+          "r28": 240
         },
         {
           "video_id": "IKB88hwgI0I",
@@ -161316,7 +161906,7 @@
           "like_pct": 2.9,
           "likes": 23,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 148,
+          "likes_vs_exp_pct": 147,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161341,7 +161931,7 @@
           "like_pct": 1.63,
           "likes": 8,
           "ad_check": "na",
-          "likes_vs_exp_pct": 73,
+          "likes_vs_exp_pct": 74,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161358,7 +161948,7 @@
           "title": "【超入門】Claude Code × CursorでTODOアプリ開発。動画の通りにやるだけで完成します",
           "url": "https://www.youtube.com/watch?v=8q5MWnIzE30",
           "published_at": "2026-03-07",
-          "views": 2326,
+          "views": 2327,
           "age_days": 159,
           "to1000": null,
           "to1000_lte": false,
@@ -161366,24 +161956,24 @@
           "like_pct": 1.55,
           "likes": 36,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 91,
+          "likes_vs_exp_pct": 90,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 11,
-          "r7": 39,
-          "r14": 78,
-          "r28": 140
+          "r3": 12,
+          "r7": 40,
+          "r14": 79,
+          "r28": 141
         },
         {
           "video_id": "pxGiyCMk2U0",
           "title": "【徹底解説】Claude Coworkで営業を自動化！情報収集から企画書・見積書作成までAIで完結",
           "url": "https://www.youtube.com/watch?v=pxGiyCMk2U0",
           "published_at": "2026-03-01",
-          "views": 770,
+          "views": 771,
           "age_days": 165,
           "to1000": null,
           "to1000_lte": false,
@@ -161398,17 +161988,17 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 2,
-          "r7": 7,
-          "r14": 21,
-          "r28": 37
+          "r3": 3,
+          "r7": 8,
+          "r14": 22,
+          "r28": 38
         },
         {
           "video_id": "c7-iDBxz_3I",
           "title": "Claude Code × Remotion 入門｜AIにコードを書かせて動画を作る最新フロー",
           "url": "https://www.youtube.com/watch?v=c7-iDBxz_3I",
           "published_at": "2026-02-28",
-          "views": 1627,
+          "views": 1629,
           "age_days": 166,
           "to1000": null,
           "to1000_lte": false,
@@ -161416,29 +162006,29 @@
           "like_pct": 1.23,
           "likes": 20,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 70,
+          "likes_vs_exp_pct": 69,
           "d1": null,
           "d3": null,
           "d7": null,
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 7,
-          "r7": 26,
-          "r14": 62,
-          "r28": 180
+          "r3": 9,
+          "r7": 28,
+          "r14": 64,
+          "r28": 182
         },
         {
           "video_id": "r_CqMm4yJ2I",
           "title": "【最新AIホームページ制作】Nanobanana×Claudeでプロ級のホームページを作る方法",
           "url": "https://www.youtube.com/watch?v=r_CqMm4yJ2I",
           "published_at": "2026-02-23",
-          "views": 296,
+          "views": 297,
           "age_days": 171,
           "to1000": null,
           "to1000_lte": false,
           "traj": "asset",
-          "like_pct": 2.03,
+          "like_pct": 2.02,
           "likes": 6,
           "ad_check": "na",
           "likes_vs_exp_pct": 77,
@@ -161448,10 +162038,10 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 0,
-          "r7": 4,
-          "r14": 16,
-          "r28": 32
+          "r3": 1,
+          "r7": 5,
+          "r14": 17,
+          "r28": 33
         },
         {
           "video_id": "XSFvKxJp9t0",
@@ -161466,7 +162056,7 @@
           "like_pct": 5.8,
           "likes": 4,
           "ad_check": "na",
-          "likes_vs_exp_pct": 93,
+          "likes_vs_exp_pct": 95,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161491,7 +162081,7 @@
           "like_pct": 3.49,
           "likes": 6,
           "ad_check": "na",
-          "likes_vs_exp_pct": 102,
+          "likes_vs_exp_pct": 103,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161516,7 +162106,7 @@
           "like_pct": 3.59,
           "likes": 11,
           "ad_check": "na",
-          "likes_vs_exp_pct": 138,
+          "likes_vs_exp_pct": 139,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161566,7 +162156,7 @@
           "like_pct": 3.16,
           "likes": 3,
           "ad_check": "na",
-          "likes_vs_exp_pct": 64,
+          "likes_vs_exp_pct": 65,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161591,7 +162181,7 @@
           "like_pct": 2.12,
           "likes": 4,
           "ad_check": "na",
-          "likes_vs_exp_pct": 65,
+          "likes_vs_exp_pct": 66,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161616,7 +162206,7 @@
           "like_pct": 3.53,
           "likes": 3,
           "ad_check": "na",
-          "likes_vs_exp_pct": 66,
+          "likes_vs_exp_pct": 68,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161641,7 +162231,7 @@
           "like_pct": 6.85,
           "likes": 5,
           "ad_check": "na",
-          "likes_vs_exp_pct": 115,
+          "likes_vs_exp_pct": 118,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161666,7 +162256,7 @@
           "like_pct": 5.26,
           "likes": 4,
           "ad_check": "na",
-          "likes_vs_exp_pct": 91,
+          "likes_vs_exp_pct": 93,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161691,7 +162281,7 @@
           "like_pct": 4.4,
           "likes": 4,
           "ad_check": "na",
-          "likes_vs_exp_pct": 87,
+          "likes_vs_exp_pct": 88,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -161710,7 +162300,7 @@
       "id": "UCW5fSI0c0Y5kBJzFgZW8aAA",
       "title": "reckの知識の森",
       "like_baseline": {
-        "fan_likes": 16.9,
+        "fan_likes": 17.0,
         "slope_pct": 2.5,
         "n": 85
       },
@@ -162100,6 +162690,10 @@
         },
         {
           "timestamp": "2026-08-13T12:43:37Z",
+          "subs": 4770
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
           "subs": 4770
         }
       ],
@@ -162583,6 +163177,11 @@
           "timestamp": "2026-08-13T12:43:37Z",
           "total_views": 208778,
           "videos": 105
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
+          "total_views": 208872,
+          "videos": 105
         }
       ],
       "daily_posts": [
@@ -163017,6 +163616,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1674
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1674
             }
           ],
           "likes": 49,
@@ -163413,12 +164016,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 291
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 291
             }
           ],
           "likes": 30,
           "like_pct": 10.31,
           "ad_check": "na",
-          "exp_likes": 24.2,
+          "exp_likes": 24.3,
           "likes_vs_exp_pct": 124
         },
         "MqVu7DPRc88": {
@@ -163809,12 +164416,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2933
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2941
             }
           ],
           "likes": 92,
-          "like_pct": 3.14,
+          "like_pct": 3.13,
           "ad_check": "ok",
-          "exp_likes": 90.2,
+          "exp_likes": 90.5,
           "likes_vs_exp_pct": 102
         },
         "HzPr_H0xjns": {
@@ -164205,12 +164816,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 5809
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 5814
             }
           ],
           "likes": 148,
           "like_pct": 2.55,
           "ad_check": "ok",
-          "exp_likes": 162.1,
+          "exp_likes": 162.3,
           "likes_vs_exp_pct": 91
         },
         "BJQ72EQTcuQ": {
@@ -164601,12 +165216,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2352
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2352
             }
           ],
           "likes": 85,
           "like_pct": 3.61,
           "ad_check": "ok",
-          "exp_likes": 75.7,
+          "exp_likes": 75.8,
           "likes_vs_exp_pct": 112
         },
         "QByQhvNEZUs": {
@@ -164997,12 +165616,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1428
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1428
             }
           ],
           "likes": 63,
           "like_pct": 4.41,
           "ad_check": "ok",
-          "exp_likes": 52.6,
+          "exp_likes": 52.7,
           "likes_vs_exp_pct": 120
         },
         "gqwQCGPYE70": {
@@ -165393,12 +166016,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1417
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1417
             }
           ],
           "likes": 64,
           "like_pct": 4.52,
           "ad_check": "ok",
-          "exp_likes": 52.3,
+          "exp_likes": 52.4,
           "likes_vs_exp_pct": 122
         },
         "vnODbLAqV3k": {
@@ -165789,12 +166416,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 27540
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 27559
             }
           ],
           "likes": 706,
           "like_pct": 2.56,
           "ad_check": "ok",
-          "exp_likes": 705.4,
+          "exp_likes": 705.5,
           "likes_vs_exp_pct": 100
         },
         "miwoy9UD5gg": {
@@ -166185,6 +166816,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 15311
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 15316
             }
           ],
           "likes": 573,
@@ -166581,12 +167216,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1690
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1690
             }
           ],
           "likes": 60,
           "like_pct": 3.55,
           "ad_check": "ok",
-          "exp_likes": 59.1,
+          "exp_likes": 59.2,
           "likes_vs_exp_pct": 101
         },
         "J2iyRmxptZI": {
@@ -166977,13 +167616,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1451
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1451
             }
           ],
           "likes": 46,
           "like_pct": 3.17,
           "ad_check": "ok",
-          "exp_likes": 53.2,
-          "likes_vs_exp_pct": 87
+          "exp_likes": 53.3,
+          "likes_vs_exp_pct": 86
         },
         "9GHcy64Avbg": {
           "title": "【始動】99%が知らない「ローカルLLM」の世界。Google最新Gemma 3を無料で構築する方法【ローカルLLM構築計画#1】#Ollama",
@@ -167373,12 +168016,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 47100
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 47148
             }
           ],
           "likes": 1393,
-          "like_pct": 2.96,
+          "like_pct": 2.95,
           "ad_check": "ok",
-          "exp_likes": 1194.4,
+          "exp_likes": 1194.9,
           "likes_vs_exp_pct": 117
         },
         "_gmnGuwmTbg": {
@@ -167769,12 +168416,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1854
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1854
             }
           ],
           "likes": 69,
           "like_pct": 3.72,
           "ad_check": "ok",
-          "exp_likes": 63.2,
+          "exp_likes": 63.3,
           "likes_vs_exp_pct": 109
         },
         "xbuZJI2_x-Q": {
@@ -168165,13 +168816,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1101
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1101
             }
           ],
           "likes": 46,
           "like_pct": 4.18,
           "ad_check": "ok",
-          "exp_likes": 44.4,
-          "likes_vs_exp_pct": 104
+          "exp_likes": 44.5,
+          "likes_vs_exp_pct": 103
         },
         "EKFGQ55PRto": {
           "title": "【悪用厳禁】99%が知らないChatGPTの本当の使い方|AI と一緒に新しい発想を作る方法を教えます！ #gemini",
@@ -168561,12 +169216,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1271
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1271
             }
           ],
           "likes": 56,
           "like_pct": 4.41,
           "ad_check": "ok",
-          "exp_likes": 48.7,
+          "exp_likes": 48.8,
           "likes_vs_exp_pct": 115
         },
         "uJk36UQ-DsA": {
@@ -168957,12 +169616,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1271
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1271
             }
           ],
           "likes": 44,
           "like_pct": 3.46,
           "ad_check": "ok",
-          "exp_likes": 48.7,
+          "exp_likes": 48.8,
           "likes_vs_exp_pct": 90
         },
         "yaPKGY58j4o": {
@@ -169353,12 +170016,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1248
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1248
             }
           ],
           "likes": 53,
           "like_pct": 4.25,
           "ad_check": "ok",
-          "exp_likes": 48.1,
+          "exp_likes": 48.2,
           "likes_vs_exp_pct": 110
         },
         "auOWCfzzMmI": {
@@ -169749,12 +170416,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1209
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1209
             }
           ],
           "likes": 61,
           "like_pct": 5.05,
           "ad_check": "ok",
-          "exp_likes": 47.1,
+          "exp_likes": 47.2,
           "likes_vs_exp_pct": 129
         },
         "3kkdJV7UAfw": {
@@ -170145,13 +170816,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1075
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1075
             }
           ],
           "likes": 48,
           "like_pct": 4.47,
           "ad_check": "ok",
-          "exp_likes": 43.8,
-          "likes_vs_exp_pct": 110
+          "exp_likes": 43.9,
+          "likes_vs_exp_pct": 109
         },
         "5okoUEfBheU": {
           "title": "【9割が知らない】一般入試廃止!? 東北大学の本当の狙い | 日本の教育が犯した「たった一つの間違い」AI時代に必要な力とは #学歴",
@@ -170541,12 +171216,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1371
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1371
             }
           ],
           "likes": 30,
           "like_pct": 2.19,
           "ad_check": "ok",
-          "exp_likes": 51.2,
+          "exp_likes": 51.3,
           "likes_vs_exp_pct": 59
         },
         "JtxSt6_sxG4": {
@@ -170937,12 +171616,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1083
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1083
             }
           ],
           "likes": 36,
           "like_pct": 3.32,
           "ad_check": "ok",
-          "exp_likes": 44.0,
+          "exp_likes": 44.1,
           "likes_vs_exp_pct": 82
         },
         "fo94q3N8zAQ": {
@@ -171333,12 +172016,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2773
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2773
             }
           ],
           "likes": 76,
           "like_pct": 2.74,
           "ad_check": "ok",
-          "exp_likes": 86.2,
+          "exp_likes": 86.3,
           "likes_vs_exp_pct": 88
         },
         "WbfaPgTv1C4": {
@@ -171728,6 +172415,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 3264
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 3264
             }
           ],
@@ -172125,12 +172816,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1005
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1005
             }
           ],
           "likes": 37,
           "like_pct": 3.68,
           "ad_check": "ok",
-          "exp_likes": 42.0,
+          "exp_likes": 42.1,
           "likes_vs_exp_pct": 88
         },
         "-vy2sajGYPM": {
@@ -172521,13 +173216,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1334
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1334
             }
           ],
           "likes": 48,
           "like_pct": 3.6,
           "ad_check": "ok",
-          "exp_likes": 50.2,
-          "likes_vs_exp_pct": 96
+          "exp_likes": 50.3,
+          "likes_vs_exp_pct": 95
         },
         "PT13s6jrwpI": {
           "title": "【悪用厳禁】99%が知らないChatGPTの本当の使い方。一言変えるだけでアイデアが無限に溢れ出す魔法のプロンプトと思考法 | おすすめ書籍紹介 #専門書 #初心者",
@@ -172917,12 +173616,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 2329
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 2329
             }
           ],
           "likes": 70,
           "like_pct": 3.01,
           "ad_check": "ok",
-          "exp_likes": 75.1,
+          "exp_likes": 75.2,
           "likes_vs_exp_pct": 93
         },
         "HqgaRs9kpRw": {
@@ -173313,12 +174016,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1580
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1580
             }
           ],
           "likes": 39,
           "like_pct": 2.47,
           "ad_check": "ok",
-          "exp_likes": 56.4,
+          "exp_likes": 56.5,
           "likes_vs_exp_pct": 69
         },
         "P7mryclyYQk": {
@@ -173708,6 +174415,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 3952
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 3952
             }
           ],
@@ -174105,6 +174816,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1767
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1767
             }
           ],
           "likes": 65,
@@ -174501,12 +175216,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1752
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1752
             }
           ],
           "likes": 67,
           "like_pct": 3.82,
           "ad_check": "ok",
-          "exp_likes": 60.7,
+          "exp_likes": 60.8,
           "likes_vs_exp_pct": 110
         },
         "Y699lRt2p4U": {
@@ -174897,12 +175616,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 15042
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 15042
             }
           ],
           "likes": 255,
           "like_pct": 1.7,
           "ad_check": "ok",
-          "exp_likes": 392.9,
+          "exp_likes": 392.8,
           "likes_vs_exp_pct": 65
         },
         "QKiXXSgffNk": {
@@ -175292,6 +176015,10 @@
             },
             {
               "date": "2026-08-13T12:43:37Z",
+              "views": 4043
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
               "views": 4043
             }
           ],
@@ -175689,6 +176416,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 11228
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 11230
             }
           ],
           "likes": 79,
@@ -176085,12 +176816,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1376
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1376
             }
           ],
           "likes": 15,
           "like_pct": 1.09,
           "ad_check": "suspect",
-          "exp_likes": 51.3,
+          "exp_likes": 51.4,
           "likes_vs_exp_pct": 29
         },
         "dbU7cYtoomA": {
@@ -176481,12 +177216,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1163
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1163
             }
           ],
           "likes": 25,
           "like_pct": 2.15,
           "ad_check": "ok",
-          "exp_likes": 46.0,
+          "exp_likes": 46.1,
           "likes_vs_exp_pct": 54
         },
         "I78yKaqQkxI": {
@@ -176877,6 +177616,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 6826
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 6827
             }
           ],
           "likes": 45,
@@ -177229,12 +177972,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 687
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 687
             }
           ],
           "likes": 30,
           "like_pct": 4.37,
           "ad_check": "ok",
-          "exp_likes": 34.1,
+          "exp_likes": 34.2,
           "likes_vs_exp_pct": 88
         },
         "sgyHGNfovHA": {
@@ -177529,12 +178276,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 781
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 782
             }
           ],
           "likes": 32,
-          "like_pct": 4.1,
+          "like_pct": 4.09,
           "ad_check": "ok",
-          "exp_likes": 36.4,
+          "exp_likes": 36.5,
           "likes_vs_exp_pct": 88
         },
         "UtSY5j_-W7s": {
@@ -177813,12 +178564,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 1252
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 1252
             }
           ],
           "likes": 44,
           "like_pct": 3.51,
           "ad_check": "ok",
-          "exp_likes": 48.2,
+          "exp_likes": 48.3,
           "likes_vs_exp_pct": 91
         },
         "s87gJzVikMA": {
@@ -178037,12 +178792,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 250
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 250
             }
           ],
           "likes": 23,
           "like_pct": 9.2,
           "ad_check": "na",
-          "exp_likes": 23.1,
+          "exp_likes": 23.2,
           "likes_vs_exp_pct": 99
         },
         "TYwv7XIF4TQ": {
@@ -178149,12 +178908,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 188
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 192
             }
           ],
           "likes": 23,
-          "like_pct": 12.23,
+          "like_pct": 11.98,
           "ad_check": "na",
-          "exp_likes": 21.6,
+          "exp_likes": 21.8,
           "likes_vs_exp_pct": 106
         }
       },
@@ -178164,12 +178927,12 @@
           "title": "【99%が誤解】OpenAIのAIがHugging Faceへ侵入。1万7600回の試行が暴いた「暴走より怖いAI」の正体",
           "url": "https://www.youtube.com/watch?v=TYwv7XIF4TQ",
           "published_at": "2026-08-07",
-          "views": 188,
+          "views": 192,
           "age_days": 6,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 12.23,
+          "like_pct": 11.98,
           "likes": 23,
           "ad_check": "na",
           "likes_vs_exp_pct": 106,
@@ -178179,10 +178942,10 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 8,
-          "r7": 188,
-          "r14": 188,
-          "r28": 188
+          "r3": 12,
+          "r7": 192,
+          "r14": 192,
+          "r28": 192
         },
         {
           "video_id": "s87gJzVikMA",
@@ -178239,12 +179002,12 @@
           "title": "【5大AIで検証】ChatGPTの「とりあえず褒める」を減らす設定｜カスタム指示を全文公開#claude #gemini",
           "url": "https://www.youtube.com/watch?v=sgyHGNfovHA",
           "published_at": "2026-07-27",
-          "views": 781,
+          "views": 782,
           "age_days": 17,
           "to1000": null,
           "to1000_lte": false,
           "traj": "fresh",
-          "like_pct": 4.1,
+          "like_pct": 4.09,
           "likes": 32,
           "ad_check": "ok",
           "likes_vs_exp_pct": 88,
@@ -178254,10 +179017,10 @@
           "d14": 765,
           "d28": null,
           "r1": 0,
-          "r3": 4,
-          "r7": 37,
-          "r14": 56,
-          "r28": 781
+          "r3": 5,
+          "r7": 38,
+          "r14": 57,
+          "r28": 782
         },
         {
           "video_id": "33k5yDyA3qs",
@@ -178339,12 +179102,12 @@
           "title": "【完全初心者向け】高価なGPUなしでも画像1枚から動画をローカルで作る方法 | FramePack 導入からプロンプトまで全部見せます #AI動画 #動画生成ai",
           "url": "https://www.youtube.com/watch?v=MqVu7DPRc88",
           "published_at": "2026-07-13",
-          "views": 2933,
+          "views": 2941,
           "age_days": 31,
           "to1000": null,
           "to1000_lte": false,
           "traj": null,
-          "like_pct": 3.14,
+          "like_pct": 3.13,
           "likes": 92,
           "ad_check": "ok",
           "likes_vs_exp_pct": 102,
@@ -178354,9 +179117,9 @@
           "d14": 2530,
           "d28": 2862,
           "r1": 0,
-          "r3": 41,
-          "r7": 120,
-          "r14": 288,
+          "r3": 49,
+          "r7": 128,
+          "r14": 296,
           "r28": null
         },
         {
@@ -178389,12 +179152,12 @@
           "title": "【完全初心者向け】環境構築からアプリ作成までを実際の画面で解説！【ゼロから始めるCodex#2】 #ai #chatgpt",
           "url": "https://www.youtube.com/watch?v=kYbS4vWfQ9E",
           "published_at": "2026-07-05",
-          "views": 742,
+          "views": 743,
           "age_days": 39,
           "to1000": null,
           "to1000_lte": false,
           "traj": null,
-          "like_pct": 5.12,
+          "like_pct": 5.11,
           "likes": 38,
           "ad_check": "ok",
           "likes_vs_exp_pct": 107,
@@ -178404,9 +179167,9 @@
           "d14": null,
           "d28": 713,
           "r1": 0,
-          "r3": 1,
-          "r7": 10,
-          "r14": 34,
+          "r3": 2,
+          "r7": 11,
+          "r14": 35,
           "r28": null
         },
         {
@@ -178414,7 +179177,7 @@
           "title": "【初心者向け】Codex初期設定ガイド。Memory・MCP・Hooksは入れるな #vscode  #プログラミング #ai",
           "url": "https://www.youtube.com/watch?v=HzPr_H0xjns",
           "published_at": "2026-06-03",
-          "views": 5809,
+          "views": 5814,
           "age_days": 71,
           "to1000": null,
           "to1000_lte": false,
@@ -178429,9 +179192,9 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 27,
-          "r7": 91,
-          "r14": 210,
+          "r3": 32,
+          "r7": 96,
+          "r14": 215,
           "r28": null
         },
         {
@@ -178847,7 +179610,7 @@
           "like_pct": 8.06,
           "likes": 30,
           "ad_check": "na",
-          "likes_vs_exp_pct": 115,
+          "likes_vs_exp_pct": 114,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -178889,7 +179652,7 @@
           "title": "【99%が知らない】「API vs ローカルLLM」どっちが正解？9割が知らないAI学習の真実と、ファインチューニングで作る\"最強の専属AI\"【ローカルLLM構築計画#3】 #Unsloth",
           "url": "https://www.youtube.com/watch?v=vnODbLAqV3k",
           "published_at": "2026-01-16",
-          "views": 27540,
+          "views": 27559,
           "age_days": 209,
           "to1000": null,
           "to1000_lte": false,
@@ -178904,9 +179667,9 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 111,
-          "r7": 406,
-          "r14": 871,
+          "r3": 130,
+          "r7": 425,
+          "r14": 890,
           "r28": null
         },
         {
@@ -178964,7 +179727,7 @@
           "title": "【Modelfile】99%が知らない「AIの性格」を改造する方法。一人デスゲームから無限論破まで、Gemma 3の禁断の遊び方【ローカルLLM構築計画#2】",
           "url": "https://www.youtube.com/watch?v=miwoy9UD5gg",
           "published_at": "2026-01-05",
-          "views": 15311,
+          "views": 15316,
           "age_days": 220,
           "to1000": null,
           "to1000_lte": false,
@@ -178979,9 +179742,9 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 41,
-          "r7": 180,
-          "r14": 366,
+          "r3": 46,
+          "r7": 185,
+          "r14": 371,
           "r28": null
         },
         {
@@ -179022,7 +179785,7 @@
           "like_pct": 3.17,
           "likes": 46,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 87,
+          "likes_vs_exp_pct": 86,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -179039,12 +179802,12 @@
           "title": "【始動】99%が知らない「ローカルLLM」の世界。Google最新Gemma 3を無料で構築する方法【ローカルLLM構築計画#1】#Ollama",
           "url": "https://www.youtube.com/watch?v=9GHcy64Avbg",
           "published_at": "2025-12-26",
-          "views": 47100,
+          "views": 47148,
           "age_days": 230,
           "to1000": null,
           "to1000_lte": false,
           "traj": null,
-          "like_pct": 2.96,
+          "like_pct": 2.95,
           "likes": 1393,
           "ad_check": "ok",
           "likes_vs_exp_pct": 117,
@@ -179054,9 +179817,9 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 164,
-          "r7": 577,
-          "r14": 1300,
+          "r3": 212,
+          "r7": 625,
+          "r14": 1348,
           "r28": null
         },
         {
@@ -179147,7 +179910,7 @@
           "like_pct": 15.76,
           "likes": 29,
           "ad_check": "na",
-          "likes_vs_exp_pct": 135,
+          "likes_vs_exp_pct": 134,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -179247,7 +180010,7 @@
           "like_pct": 10.13,
           "likes": 23,
           "ad_check": "na",
-          "likes_vs_exp_pct": 102,
+          "likes_vs_exp_pct": 101,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -179272,7 +180035,7 @@
           "like_pct": 4.18,
           "likes": 46,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 104,
+          "likes_vs_exp_pct": 103,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -179297,7 +180060,7 @@
           "like_pct": 14.91,
           "likes": 24,
           "ad_check": "na",
-          "likes_vs_exp_pct": 115,
+          "likes_vs_exp_pct": 114,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -179397,7 +180160,7 @@
           "like_pct": 15.75,
           "likes": 23,
           "ad_check": "na",
-          "likes_vs_exp_pct": 112,
+          "likes_vs_exp_pct": 111,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -179547,7 +180310,7 @@
           "like_pct": 7.4,
           "likes": 39,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 130,
+          "likes_vs_exp_pct": 129,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -179672,7 +180435,7 @@
           "like_pct": 5.79,
           "likes": 29,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 99,
+          "likes_vs_exp_pct": 98,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -179747,7 +180510,7 @@
           "like_pct": 4.47,
           "likes": 48,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 110,
+          "likes_vs_exp_pct": 109,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -179897,7 +180660,7 @@
           "like_pct": 5.01,
           "likes": 28,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 91,
+          "likes_vs_exp_pct": 90,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -179922,7 +180685,7 @@
           "like_pct": 7.23,
           "likes": 35,
           "ad_check": "na",
-          "likes_vs_exp_pct": 121,
+          "likes_vs_exp_pct": 120,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -180022,7 +180785,7 @@
           "like_pct": 3.6,
           "likes": 48,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 96,
+          "likes_vs_exp_pct": 95,
           "d1": null,
           "d3": null,
           "d7": null,
@@ -180614,7 +181377,7 @@
           "title": "【便利】クッキーや幸運のニュース等を自動クリックしてくれるmod紹介！導入も超簡単！「Cookie Clicker」",
           "url": "https://www.youtube.com/watch?v=qk0fx1UVhqs",
           "published_at": "2021-09-10",
-          "views": 11228,
+          "views": 11230,
           "age_days": 1798,
           "to1000": null,
           "to1000_lte": false,
@@ -180629,9 +181392,9 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 7,
-          "r7": 20,
-          "r14": 43,
+          "r3": 9,
+          "r7": 22,
+          "r14": 45,
           "r28": null
         },
         {
@@ -180714,7 +181477,7 @@
           "title": "【簡単】MODの導入・適応・作成方法を自分なりに調べてみた！「Cookie Clicker」",
           "url": "https://www.youtube.com/watch?v=I78yKaqQkxI",
           "published_at": "2021-09-02",
-          "views": 6826,
+          "views": 6827,
           "age_days": 1806,
           "to1000": null,
           "to1000_lte": false,
@@ -180729,9 +181492,9 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 0,
-          "r7": 2,
-          "r14": 7,
+          "r3": 1,
+          "r7": 3,
+          "r14": 8,
           "r28": null
         },
         {
@@ -181181,6 +181944,10 @@
         },
         {
           "timestamp": "2026-08-13T12:43:37Z",
+          "subs": 1290
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
           "subs": 1290
         }
       ],
@@ -181664,6 +182431,11 @@
           "timestamp": "2026-08-13T12:43:37Z",
           "total_views": 50141,
           "videos": 10
+        },
+        {
+          "timestamp": "2026-08-13T18:46:26Z",
+          "total_views": 50201,
+          "videos": 10
         }
       ],
       "daily_posts": [
@@ -182066,13 +182838,17 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 8979
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 9003
             }
           ],
-          "likes": 293,
-          "like_pct": 3.26,
+          "likes": 294,
+          "like_pct": 3.27,
           "ad_check": "ok",
-          "exp_likes": 92.0,
-          "likes_vs_exp_pct": 318
+          "exp_likes": 92.3,
+          "likes_vs_exp_pct": 319
         },
         "HSf7rcaSOjU": {
           "title": "ローカルAI（ローカルLLM）で実現!?無課金AI生活～自分専用のAI環境つくってみた",
@@ -182462,12 +183238,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 38732
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 38766
             }
           ],
           "likes": 964,
           "like_pct": 2.49,
           "ad_check": "ok",
-          "exp_likes": 378.1,
+          "exp_likes": 378.4,
           "likes_vs_exp_pct": 255
         },
         "dDeXhBnZF98": {
@@ -182858,12 +183638,16 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 721
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 723
             }
           ],
           "likes": 10,
-          "like_pct": 1.39,
+          "like_pct": 1.38,
           "ad_check": "ok",
-          "exp_likes": 12.6,
+          "exp_likes": 12.7,
           "likes_vs_exp_pct": 79
         },
         "Tm-PE1gVmJw": {
@@ -183254,6 +184038,10 @@
             {
               "date": "2026-08-13T12:43:37Z",
               "views": 854
+            },
+            {
+              "date": "2026-08-13T18:46:26Z",
+              "views": 854
             }
           ],
           "likes": 24,
@@ -183269,32 +184057,32 @@
           "title": "ローカルAI（ローカルLLM）を強化する！無課金AI生活２～知識拡張で最新情報や社内・個人情報をAIで回答可能にする～",
           "url": "https://www.youtube.com/watch?v=d2256mBkb8Y",
           "published_at": "2026-07-21",
-          "views": 8979,
+          "views": 9003,
           "age_days": 23,
           "to1000": 1,
           "to1000_lte": true,
           "traj": "fresh",
-          "like_pct": 3.26,
-          "likes": 293,
+          "like_pct": 3.27,
+          "likes": 294,
           "ad_check": "ok",
-          "likes_vs_exp_pct": 318,
+          "likes_vs_exp_pct": 319,
           "d1": 2150,
           "d3": 6194,
           "d7": 7492,
           "d14": 8238,
           "d28": null,
           "r1": 0,
-          "r3": 158,
-          "r7": 476,
-          "r14": 1165,
-          "r28": 8979
+          "r3": 182,
+          "r7": 500,
+          "r14": 1189,
+          "r28": 9003
         },
         {
           "video_id": "HSf7rcaSOjU",
           "title": "ローカルAI（ローカルLLM）で実現!?無課金AI生活～自分専用のAI環境つくってみた",
           "url": "https://www.youtube.com/watch?v=HSf7rcaSOjU",
           "published_at": "2026-06-30",
-          "views": 38732,
+          "views": 38766,
           "age_days": 44,
           "to1000": null,
           "to1000_lte": false,
@@ -183309,9 +184097,9 @@
           "d14": null,
           "d28": 34858,
           "r1": 0,
-          "r3": 266,
-          "r7": 912,
-          "r14": 2830,
+          "r3": 300,
+          "r7": 946,
+          "r14": 2864,
           "r28": null
         },
         {
@@ -183319,12 +184107,12 @@
           "title": "AIエージェントの定義が理解できないのでFX為替エージェントを作ってみた",
           "url": "https://www.youtube.com/watch?v=dDeXhBnZF98",
           "published_at": "2026-06-03",
-          "views": 721,
+          "views": 723,
           "age_days": 71,
           "to1000": null,
           "to1000_lte": false,
           "traj": null,
-          "like_pct": 1.39,
+          "like_pct": 1.38,
           "likes": 10,
           "ad_check": "ok",
           "likes_vs_exp_pct": 79,
@@ -183334,9 +184122,9 @@
           "d14": null,
           "d28": null,
           "r1": 0,
-          "r3": 7,
-          "r7": 17,
-          "r14": 40,
+          "r3": 9,
+          "r7": 19,
+          "r14": 42,
           "r28": null
         },
         {
@@ -183527,12 +184315,12 @@
       "url": "https://www.youtube.com/watch?v=N74si-luyIg",
       "published_at": "2026-04-01",
       "age_days": 134,
-      "views": 1393,
+      "views": 1396,
       "baseline_mult": 9.0,
-      "d7": 34,
-      "d30": 473,
+      "d7": 37,
+      "d30": 476,
       "d30_prev": 262,
-      "ratio": 1.81,
+      "ratio": 1.82,
       "klass": "search"
     },
     {
@@ -183559,12 +184347,12 @@
       "url": "https://www.youtube.com/watch?v=tnmyD56X7w4",
       "published_at": "2026-05-04",
       "age_days": 101,
-      "views": 3929,
+      "views": 3934,
       "baseline_mult": 3.9,
-      "d7": 23,
-      "d30": 161,
+      "d7": 28,
+      "d30": 166,
       "d30_prev": 188,
-      "ratio": 0.86,
+      "ratio": 0.88,
       "klass": "search"
     },
     {
@@ -183607,12 +184395,12 @@
       "url": "https://www.youtube.com/watch?v=GRNA3lHtdfE",
       "published_at": "2026-05-04",
       "age_days": 101,
-      "views": 815,
+      "views": 816,
       "baseline_mult": 13.8,
-      "d7": 7,
-      "d30": 81,
+      "d7": 8,
+      "d30": 82,
       "d30_prev": 40,
-      "ratio": 2.02,
+      "ratio": 2.05,
       "klass": "search"
     },
     {
@@ -183650,6 +184438,22 @@
     {
       "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
       "channel": "戒くんのIT力高めるチャンネル",
+      "video_id": "CeMThJ8v98w",
+      "title": "【衝撃】UbuntuにAI機能搭載へ！Canonicalが発表した計画がすごい",
+      "url": "https://www.youtube.com/watch?v=CeMThJ8v98w",
+      "published_at": "2026-04-28",
+      "age_days": 107,
+      "views": 407,
+      "baseline_mult": 6.9,
+      "d7": 12,
+      "d30": 70,
+      "d30_prev": 40,
+      "ratio": 1.75,
+      "klass": "search"
+    },
+    {
+      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
+      "channel": "戒くんのIT力高めるチャンネル",
       "video_id": "Rnfk7iBn0Fc",
       "title": "【徹底比較】DockerとPodmanの違い5選！乗り換えるべきはどっち？",
       "url": "https://www.youtube.com/watch?v=Rnfk7iBn0Fc",
@@ -183662,22 +184466,6 @@
       "d30_prev": 13,
       "ratio": 5.38,
       "klass": "weak"
-    },
-    {
-      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
-      "channel": "戒くんのIT力高めるチャンネル",
-      "video_id": "CeMThJ8v98w",
-      "title": "【衝撃】UbuntuにAI機能搭載へ！Canonicalが発表した計画がすごい",
-      "url": "https://www.youtube.com/watch?v=CeMThJ8v98w",
-      "published_at": "2026-04-28",
-      "age_days": 107,
-      "views": 406,
-      "baseline_mult": 6.9,
-      "d7": 11,
-      "d30": 69,
-      "d30_prev": 40,
-      "ratio": 1.73,
-      "klass": "search"
     },
     {
       "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -183703,12 +184491,12 @@
       "url": "https://www.youtube.com/watch?v=KfpiMIXAC5c",
       "published_at": "2026-04-30",
       "age_days": 105,
-      "views": 6009,
+      "views": 6010,
       "baseline_mult": 5.9,
-      "d7": 11,
-      "d30": 59,
+      "d7": 12,
+      "d30": 60,
       "d30_prev": 91,
-      "ratio": 0.65,
+      "ratio": 0.66,
       "klass": "tail"
     },
     {
@@ -183840,6 +184628,22 @@
       "klass": "weak"
     },
     {
+      "channel_id": "UCRT8XWorvslyottP0IOVKaw",
+      "channel": "ずんだAI研究所",
+      "video_id": "ozIekxBFpGc",
+      "title": "中国AI「DeepSeek」を使わない日本人だけが損してる理由【ずんだもん解説】",
+      "url": "https://www.youtube.com/watch?v=ozIekxBFpGc",
+      "published_at": "2026-03-27",
+      "age_days": 139,
+      "views": 1045,
+      "baseline_mult": 9.6,
+      "d7": 8,
+      "d30": 45,
+      "d30_prev": 27,
+      "ratio": 1.67,
+      "klass": "search"
+    },
+    {
       "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
       "channel": "戒くんのIT力高めるチャンネル",
       "video_id": "ru8nlFdn11M",
@@ -183853,22 +184657,6 @@
       "d30": 44,
       "d30_prev": 25,
       "ratio": 1.76,
-      "klass": "search"
-    },
-    {
-      "channel_id": "UCRT8XWorvslyottP0IOVKaw",
-      "channel": "ずんだAI研究所",
-      "video_id": "ozIekxBFpGc",
-      "title": "中国AI「DeepSeek」を使わない日本人だけが損してる理由【ずんだもん解説】",
-      "url": "https://www.youtube.com/watch?v=ozIekxBFpGc",
-      "published_at": "2026-03-27",
-      "age_days": 139,
-      "views": 1044,
-      "baseline_mult": 9.6,
-      "d7": 7,
-      "d30": 44,
-      "d30_prev": 27,
-      "ratio": 1.63,
       "klass": "search"
     },
     {
@@ -184208,6 +184996,22 @@
       "klass": "tail"
     },
     {
+      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
+      "channel": "戒くんのIT力高めるチャンネル",
+      "video_id": "GhyEq89eupk",
+      "title": "【革命】Google Chromeに待望の縦タブが遂に来た！もう横タブには戻れない",
+      "url": "https://www.youtube.com/watch?v=GhyEq89eupk",
+      "published_at": "2026-03-31",
+      "age_days": 135,
+      "views": 324,
+      "baseline_mult": 5.5,
+      "d7": 11,
+      "d30": 26,
+      "d30_prev": 9,
+      "ratio": 2.89,
+      "klass": "weak"
+    },
+    {
       "channel_id": "UCRT8XWorvslyottP0IOVKaw",
       "channel": "ずんだAI研究所",
       "video_id": "J8Npjv_eTPk",
@@ -184320,22 +185124,6 @@
       "klass": "weak"
     },
     {
-      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
-      "channel": "戒くんのIT力高めるチャンネル",
-      "video_id": "GhyEq89eupk",
-      "title": "【革命】Google Chromeに待望の縦タブが遂に来た！もう横タブには戻れない",
-      "url": "https://www.youtube.com/watch?v=GhyEq89eupk",
-      "published_at": "2026-03-31",
-      "age_days": 135,
-      "views": 321,
-      "baseline_mult": 5.4,
-      "d7": 8,
-      "d30": 23,
-      "d30_prev": 9,
-      "ratio": 2.56,
-      "klass": "weak"
-    },
-    {
       "channel_id": "UCuO_HCuBEM6v3wrko3Iu8Hw",
       "channel": "Sura×Asura For AI Agent",
       "video_id": "p_zxYc2JG8w",
@@ -184350,6 +185138,22 @@
       "d30_prev": 25,
       "ratio": 0.92,
       "klass": "search"
+    },
+    {
+      "channel_id": "UCuO_HCuBEM6v3wrko3Iu8Hw",
+      "channel": "Sura×Asura For AI Agent",
+      "video_id": "5rd_JxfV5r0",
+      "title": "Claude Agent  SDK「SubAgent」徹底解説｜分けたら安定した、AI分業の設計術",
+      "url": "https://www.youtube.com/watch?v=5rd_JxfV5r0",
+      "published_at": "2026-02-12",
+      "age_days": 182,
+      "views": 1519,
+      "baseline_mult": 1.5,
+      "d7": 2,
+      "d30": 23,
+      "d30_prev": 13,
+      "ratio": 1.77,
+      "klass": "weak"
     },
     {
       "channel_id": "UCRT8XWorvslyottP0IOVKaw",
@@ -184381,22 +185185,6 @@
       "d30": 22,
       "d30_prev": 11,
       "ratio": 2.0,
-      "klass": "weak"
-    },
-    {
-      "channel_id": "UCuO_HCuBEM6v3wrko3Iu8Hw",
-      "channel": "Sura×Asura For AI Agent",
-      "video_id": "5rd_JxfV5r0",
-      "title": "Claude Agent  SDK「SubAgent」徹底解説｜分けたら安定した、AI分業の設計術",
-      "url": "https://www.youtube.com/watch?v=5rd_JxfV5r0",
-      "published_at": "2026-02-12",
-      "age_days": 182,
-      "views": 1518,
-      "baseline_mult": 1.5,
-      "d7": 1,
-      "d30": 22,
-      "d30_prev": 13,
-      "ratio": 1.69,
       "klass": "weak"
     },
     {
@@ -184608,6 +185396,22 @@
       "klass": "weak"
     },
     {
+      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
+      "channel": "戒くんのIT力高めるチャンネル",
+      "video_id": "PM3_KPa0KSk",
+      "title": "【DeepTutor】論文もPDFもAIが個別指導！香港大学発の無料AI家庭教師がすごい",
+      "url": "https://www.youtube.com/watch?v=PM3_KPa0KSk",
+      "published_at": "2026-04-08",
+      "age_days": 127,
+      "views": 120,
+      "baseline_mult": 2.0,
+      "d7": 6,
+      "d30": 17,
+      "d30_prev": 5,
+      "ratio": 3.4,
+      "klass": "weak"
+    },
+    {
       "channel_id": "UCuO_HCuBEM6v3wrko3Iu8Hw",
       "channel": "Sura×Asura For AI Agent",
       "video_id": "ti0tmY_uQWI",
@@ -184621,22 +185425,6 @@
       "d30": 17,
       "d30_prev": 11,
       "ratio": 1.55,
-      "klass": "weak"
-    },
-    {
-      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
-      "channel": "戒くんのIT力高めるチャンネル",
-      "video_id": "PM3_KPa0KSk",
-      "title": "【DeepTutor】論文もPDFもAIが個別指導！香港大学発の無料AI家庭教師がすごい",
-      "url": "https://www.youtube.com/watch?v=PM3_KPa0KSk",
-      "published_at": "2026-04-08",
-      "age_days": 127,
-      "views": 119,
-      "baseline_mult": 2.0,
-      "d7": 5,
-      "d30": 16,
-      "d30_prev": 5,
-      "ratio": 3.2,
       "klass": "weak"
     },
     {
@@ -184672,6 +185460,22 @@
       "klass": "tail"
     },
     {
+      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
+      "channel": "戒くんのIT力高めるチャンネル",
+      "video_id": "nhxOo4u_EtM",
+      "title": "【衝撃】デジタル庁がAI「源内」をOSS公開！日本の行政が変わる",
+      "url": "https://www.youtube.com/watch?v=nhxOo4u_EtM",
+      "published_at": "2026-04-26",
+      "age_days": 109,
+      "views": 404,
+      "baseline_mult": 6.8,
+      "d7": 7,
+      "d30": 15,
+      "d30_prev": 17,
+      "ratio": 0.88,
+      "klass": "search"
+    },
+    {
       "channel_id": "UCuO_HCuBEM6v3wrko3Iu8Hw",
       "channel": "Sura×Asura For AI Agent",
       "video_id": "hbsni-x-q90",
@@ -184685,22 +185489,6 @@
       "d30": 15,
       "d30_prev": 12,
       "ratio": 1.25,
-      "klass": "weak"
-    },
-    {
-      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
-      "channel": "戒くんのIT力高めるチャンネル",
-      "video_id": "nhxOo4u_EtM",
-      "title": "【衝撃】デジタル庁がAI「源内」をOSS公開！日本の行政が変わる",
-      "url": "https://www.youtube.com/watch?v=nhxOo4u_EtM",
-      "published_at": "2026-04-26",
-      "age_days": 109,
-      "views": 403,
-      "baseline_mult": 6.8,
-      "d7": 6,
-      "d30": 14,
-      "d30_prev": 17,
-      "ratio": 0.82,
       "klass": "weak"
     },
     {
@@ -184749,6 +185537,22 @@
       "d30": 14,
       "d30_prev": 5,
       "ratio": 2.8,
+      "klass": "weak"
+    },
+    {
+      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
+      "channel": "戒くんのIT力高めるチャンネル",
+      "video_id": "TS8OcpwzTv8",
+      "title": "【Google Analytics×AI】MCPサーバーでGeminiと直接連携！手動レポート不要の神機能",
+      "url": "https://www.youtube.com/watch?v=TS8OcpwzTv8",
+      "published_at": "2026-04-02",
+      "age_days": 133,
+      "views": 122,
+      "baseline_mult": 2.1,
+      "d7": 3,
+      "d30": 14,
+      "d30_prev": 9,
+      "ratio": 1.56,
       "klass": "weak"
     },
     {
@@ -184816,6 +185620,22 @@
       "klass": "weak"
     },
     {
+      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
+      "channel": "戒くんのIT力高めるチャンネル",
+      "video_id": "88ssjyTFwRs",
+      "title": "【Gemma 4登場】Googleが最強オープンモデルを公開！推論とAI自律型に特化",
+      "url": "https://www.youtube.com/watch?v=88ssjyTFwRs",
+      "published_at": "2026-04-02",
+      "age_days": 133,
+      "views": 959,
+      "baseline_mult": 16.3,
+      "d7": 1,
+      "d30": 13,
+      "d30_prev": 19,
+      "ratio": 0.68,
+      "klass": "weak"
+    },
+    {
       "channel_id": "UCRT8XWorvslyottP0IOVKaw",
       "channel": "ずんだAI研究所",
       "video_id": "Iyhxf1cPPjU",
@@ -184845,6 +185665,22 @@
       "d30": 13,
       "d30_prev": 14,
       "ratio": 0.93,
+      "klass": "weak"
+    },
+    {
+      "channel_id": "UCU_xbItXTpMZtD0v0O4ph9g",
+      "channel": "クドクラ@ClaudeCode AI駆動Craft",
+      "video_id": "SjU8KUn_i1I",
+      "title": "DeepSeek-TUI の無料の教科書　ローカルAIコーディングエージェント",
+      "url": "https://www.youtube.com/watch?v=SjU8KUn_i1I",
+      "published_at": "2026-05-14",
+      "age_days": 91,
+      "views": 89,
+      "baseline_mult": 0.5,
+      "d7": 4,
+      "d30": 13,
+      "d30_prev": 13,
+      "ratio": 1.0,
       "klass": "weak"
     },
     {
@@ -184882,33 +185718,17 @@
     {
       "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
       "channel": "戒くんのIT力高めるチャンネル",
-      "video_id": "88ssjyTFwRs",
-      "title": "【Gemma 4登場】Googleが最強オープンモデルを公開！推論とAI自律型に特化",
-      "url": "https://www.youtube.com/watch?v=88ssjyTFwRs",
-      "published_at": "2026-04-02",
-      "age_days": 133,
-      "views": 958,
-      "baseline_mult": 16.2,
-      "d7": 0,
+      "video_id": "gcjx5QlJiBU",
+      "title": "【OpenAI Symphony】全issueにAIエージェントを配置！Codex自動化の未来が凄い",
+      "url": "https://www.youtube.com/watch?v=gcjx5QlJiBU",
+      "published_at": "2026-04-28",
+      "age_days": 107,
+      "views": 143,
+      "baseline_mult": 2.4,
+      "d7": 5,
       "d30": 12,
-      "d30_prev": 19,
-      "ratio": 0.63,
-      "klass": "weak"
-    },
-    {
-      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
-      "channel": "戒くんのIT力高めるチャンネル",
-      "video_id": "TS8OcpwzTv8",
-      "title": "【Google Analytics×AI】MCPサーバーでGeminiと直接連携！手動レポート不要の神機能",
-      "url": "https://www.youtube.com/watch?v=TS8OcpwzTv8",
-      "published_at": "2026-04-02",
-      "age_days": 133,
-      "views": 120,
-      "baseline_mult": 2.0,
-      "d7": 1,
-      "d30": 12,
-      "d30_prev": 9,
-      "ratio": 1.33,
+      "d30_prev": 5,
+      "ratio": 2.4,
       "klass": "weak"
     },
     {
@@ -184944,22 +185764,6 @@
       "klass": "weak"
     },
     {
-      "channel_id": "UCU_xbItXTpMZtD0v0O4ph9g",
-      "channel": "クドクラ@ClaudeCode AI駆動Craft",
-      "video_id": "SjU8KUn_i1I",
-      "title": "DeepSeek-TUI の無料の教科書　ローカルAIコーディングエージェント",
-      "url": "https://www.youtube.com/watch?v=SjU8KUn_i1I",
-      "published_at": "2026-05-14",
-      "age_days": 91,
-      "views": 88,
-      "baseline_mult": 0.5,
-      "d7": 3,
-      "d30": 12,
-      "d30_prev": 13,
-      "ratio": 0.92,
-      "klass": "weak"
-    },
-    {
       "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
       "channel": "戒くんのIT力高めるチャンネル",
       "video_id": "AqPJ4P5USEc",
@@ -184973,6 +185777,22 @@
       "d30": 11,
       "d30_prev": 7,
       "ratio": 1.57,
+      "klass": "weak"
+    },
+    {
+      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
+      "channel": "戒くんのIT力高めるチャンネル",
+      "video_id": "lXCWjjVtMG0",
+      "title": "【Cloudflare新CMS】WordPressの後継「EmDash」がベータ公開！Astro 6.0搭載の実力とは",
+      "url": "https://www.youtube.com/watch?v=lXCWjjVtMG0",
+      "published_at": "2026-04-02",
+      "age_days": 133,
+      "views": 133,
+      "baseline_mult": 2.3,
+      "d7": 2,
+      "d30": 11,
+      "d30_prev": 13,
+      "ratio": 0.85,
       "klass": "weak"
     },
     {
@@ -184994,22 +185814,6 @@
     {
       "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
       "channel": "戒くんのIT力高めるチャンネル",
-      "video_id": "gcjx5QlJiBU",
-      "title": "【OpenAI Symphony】全issueにAIエージェントを配置！Codex自動化の未来が凄い",
-      "url": "https://www.youtube.com/watch?v=gcjx5QlJiBU",
-      "published_at": "2026-04-28",
-      "age_days": 107,
-      "views": 141,
-      "baseline_mult": 2.4,
-      "d7": 3,
-      "d30": 10,
-      "d30_prev": 5,
-      "ratio": 2.0,
-      "klass": "weak"
-    },
-    {
-      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
-      "channel": "戒くんのIT力高めるチャンネル",
       "video_id": "nXqzrXARNSA",
       "title": "【神機能】Claude Codeの「/ultraplan」が凄すぎた！開発効率が爆上がり",
       "url": "https://www.youtube.com/watch?v=nXqzrXARNSA",
@@ -185021,22 +185825,6 @@
       "d30": 10,
       "d30_prev": 12,
       "ratio": 0.83,
-      "klass": "weak"
-    },
-    {
-      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
-      "channel": "戒くんのIT力高めるチャンネル",
-      "video_id": "lXCWjjVtMG0",
-      "title": "【Cloudflare新CMS】WordPressの後継「EmDash」がベータ公開！Astro 6.0搭載の実力とは",
-      "url": "https://www.youtube.com/watch?v=lXCWjjVtMG0",
-      "published_at": "2026-04-02",
-      "age_days": 133,
-      "views": 132,
-      "baseline_mult": 2.2,
-      "d7": 1,
-      "d30": 10,
-      "d30_prev": 13,
-      "ratio": 0.77,
       "klass": "weak"
     },
     {
@@ -185085,6 +185873,22 @@
       "d30": 9,
       "d30_prev": 14,
       "ratio": 0.64,
+      "klass": "weak"
+    },
+    {
+      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
+      "channel": "戒くんのIT力高めるチャンネル",
+      "video_id": "1SCFLG-1tiQ",
+      "title": "【OpenAI新機能】ChatGPTアカウントを守る高度なセキュリティ機能(AAS)が登場！",
+      "url": "https://www.youtube.com/watch?v=1SCFLG-1tiQ",
+      "published_at": "2026-05-01",
+      "age_days": 104,
+      "views": 58,
+      "baseline_mult": 1.0,
+      "d7": 4,
+      "d30": 9,
+      "d30_prev": 5,
+      "ratio": 1.8,
       "klass": "weak"
     },
     {
@@ -185293,22 +186097,6 @@
       "d30": 8,
       "d30_prev": 5,
       "ratio": 1.6,
-      "klass": "weak"
-    },
-    {
-      "channel_id": "UCe-sQjBOXaOLpRktgavAKmw",
-      "channel": "戒くんのIT力高めるチャンネル",
-      "video_id": "1SCFLG-1tiQ",
-      "title": "【OpenAI新機能】ChatGPTアカウントを守る高度なセキュリティ機能(AAS)が登場！",
-      "url": "https://www.youtube.com/watch?v=1SCFLG-1tiQ",
-      "published_at": "2026-05-01",
-      "age_days": 104,
-      "views": 56,
-      "baseline_mult": 0.9,
-      "d7": 2,
-      "d30": 7,
-      "d30_prev": 5,
-      "ratio": 1.4,
       "klass": "weak"
     },
     {
@@ -263606,10 +264394,10 @@
   ],
   "quota": {
     "date_pt": "2026-08-13",
-    "today_units": 110,
+    "today_units": 165,
     "limit": 10000,
     "by_source": {
-      "priority": 110
+      "priority": 165
     },
     "daily": [
       {
@@ -263666,7 +264454,7 @@
       },
       {
         "date": "2026-08-13",
-        "units": 110
+        "units": 165
       }
     ]
   }
