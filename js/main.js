@@ -57,13 +57,27 @@ const fmtTs = (ts) => {
   return `${d.slice(0, 10)} ${d.slice(11, 16)} JST`;
 };
 
+const setBoot = (msg) => {
+  const el = document.getElementById("boot-status");
+  if (el) el.textContent = msg;
+};
+
 async function load() {
+  // ライブラリが落ちていると以降が全部無言で死ぬので、ここで明示的に止めて理由を出す
+  if (typeof Chart === "undefined") {
+    throw new Error("Chart.js を読み込めませんでした (js/vendor/chart.umd.min.js)");
+  }
   // Chart.js global defaults
   Chart.defaults.color = COL_LEGEND;
   Chart.defaults.borderColor = COL_GRID;
   Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif';
 
-  const res = await fetch("data/dashboard.json", { cache: "no-store" });
+  // no-cache = 毎回サーバに更新確認するが、変わっていなければ 304 で本体を再ダウンロードしない。
+  // 旧 no-store は毎回 dashboard.json (現在 約9MB / gzip 1.3MB) を丸ごと落としていた。
+  setBoot("📡 データ取得中… (dashboard.json)");
+  const res = await fetch("data/dashboard.json", { cache: "no-cache" });
+  if (!res.ok) throw new Error(`dashboard.json を取得できませんでした (HTTP ${res.status})`);
+  setBoot("🧮 描画中…");
   const data = await res.json();
   MARKET = data.market || {}; // market_validate.py の全YouTube横断需要検証キャッシュ
   EXTERNAL_HITS = data.external_hits || [];
@@ -84,6 +98,8 @@ async function load() {
   renderVideoTablePanel(data.channels);
   renderDailyReports(data.daily_reports || []);
   buildTabs(data.channels);
+  const boot = document.getElementById("boot-status");
+  if (boot) boot.remove();
 }
 
 // YouTube Data API quota の推定消費をヘッダに表示 (自己計上ログ quota_log.jsonl 由来。
@@ -2304,5 +2320,9 @@ function escapeHtml(s) {
 
 load().catch((err) => {
   console.error(err);
-  document.body.innerHTML = `<pre style="color:#cf222e;padding:2rem">load error: ${err.message}</pre>`;
+  // body ごと消すと「真っ白」と区別がつかないので、ヘッダーは残してエラーだけ差し替える
+  const boot = document.getElementById("boot-status");
+  const box = boot || document.querySelector("main") || document.body;
+  box.innerHTML = `<div class="boot-error">読み込みに失敗しました: ${escapeHtml(err.message)}`
+    + `<br><small>再読み込みしても直らない場合はブラウザのコンソールを確認してください。</small></div>`;
 });

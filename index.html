@@ -6,9 +6,12 @@
 <title>YouTube Niche Dashboard</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐧</text></svg>">
 <link rel="stylesheet" href="css/style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+<!-- ライブラリは self-host (旧: cdn.jsdelivr.net)。CDN が届かないと <head> の同期 script が
+     body のパースごと止めてしまい、ヘッダーすら出ない完全な白画面になっていたため。
+     defer で描画を止めない。実行順は document 順が保証されるので main.js より先に評価される。 -->
+<script defer src="js/vendor/chart.umd.min.js"></script>
+<script defer src="js/vendor/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script defer src="js/vendor/marked.min.js"></script>
 </head>
 <body>
 <header>
@@ -63,6 +66,8 @@
 </details>
 
 <main>
+  <!-- 描画完了時に main.js が remove する。空白のまま数秒待たされると「壊れた」と区別がつかないため -->
+  <div id="boot-status" class="boot-status">📡 読み込み中…</div>
   <section id="rising-watch-panel" class="tab-panel"></section>
   <section id="slowburn-panel" class="tab-panel"></section>
   <section id="discovery-panel" class="tab-panel"></section>
@@ -75,6 +80,6 @@
   <section id="channels"></section>
 </main>
 
-<script src="js/main.js"></script>
+<script defer src="js/main.js"></script>
 </body>
 </html>
