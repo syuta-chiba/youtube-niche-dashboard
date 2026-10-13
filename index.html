@@ -61,6 +61,12 @@
     <h4>🧭 新規発見（右端のタブ）</h4>
     <p>discovery loop（毎朝 JST 4:23）が使う<strong>検索キーワード一覧</strong>と、<strong>評価済みチャンネルの履歴</strong>（合格・確認待ち / queue / 不採用と理由）。既存の注目チャンネル（左側のタブ群）に「次に加える候補」を検討する場所。HIT 判定はチャンネル相対（普段の5倍・下限500v・偽HIT除外後）。</p>
 
+    <h4>✅ 全条件クリア</h4>
+    <p>discovery の全 AND ゲート（登録者 50-2000 / 本編 8 本以上 / 相対 HIT 2 本以上 / 直近 90 日 HIT 比 20% 以上 / 最新投稿 120 日以内 / 広告疑い過半でない）を通ったのに、<strong>まだ人間が判断していない</strong>チャンネルの棚卸し。自動昇格は確認制で止めているので、ここが「priority に加える候補の在庫」。関連度ゲートは廃止済みなので軸外（株・政治・海外ニュース等）も混ざる — 検索 KW 列と最大 HIT タイトルで目視して、良ければ「📋 priority行」で行をコピーして priority_channels.txt に貼る、違えば「✗違う」。評価指標が「—」の行は、同日 2 回目の discovery 実行がレポートを上書きしていた期間（2026-07-24〜10-12）に指標が失われたもの（2026-10-13 に修正済み・以降は台帳に残る）。</p>
+
+    <h4>📝 メモ</h4>
+    <p>運営者の自由メモ。上段の「クイックメモ」はこのブラウザの localStorage にだけ保存される下書き（端末ごと・非公開）。残したいものは「📋 まとめてコピー」→ <code>docs/memo.md</code> に貼って commit すると下段に公開レンダリングされ、どの端末からも読める。<strong>このダッシュボードは public なので memo.md の内容は公開される</strong>。</p>
+
     <p class="legend-note">views は YouTube 公開値のため、観測間隔（最大6時間）ぶんの遅れがある。データ元 CSV は private repo の time_series/ に蓄積。<strong>⚠️ 付きタブ = 広告混ざり枠</strong>（過去にブースト形跡のあるチャンネル。テーマの動きの参考用で、views/score は割引で読む。横断急伸ウォッチには含めない）。</p>
   </div>
 </details>
@@ -71,6 +77,8 @@
   <section id="rising-watch-panel" class="tab-panel"></section>
   <section id="slowburn-panel" class="tab-panel"></section>
   <section id="discovery-panel" class="tab-panel"></section>
+  <section id="allclear-panel" class="tab-panel"></section>
+  <section id="memo-panel" class="tab-panel"></section>
   <section id="pool-panel" class="tab-panel"></section>
   <section id="market-panel" class="tab-panel"></section>
   <section id="vein-panel" class="tab-panel"></section>

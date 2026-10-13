@@ -91,6 +91,8 @@ async function load() {
   renderRisingWatch(data.channels.filter((c) => !c.boosted));
   renderSlowBurn(data.slow_burn || []);
   renderDiscovery(data.discovery || {}, data.rejected || []);
+  renderAllClear(data.all_clear || []);
+  renderMemo(data.memo || {});
   renderPool(data.pool || []);
   renderMarketPage(data.market || {});
   renderVeinMap(data.vein_map || {});
@@ -127,6 +129,8 @@ function panelEl(id) {
   if (id === "rising-watch") return document.getElementById("rising-watch-panel");
   if (id === "slowburn") return document.getElementById("slowburn-panel");
   if (id === "discovery") return document.getElementById("discovery-panel");
+  if (id === "allclear") return document.getElementById("allclear-panel");
+  if (id === "memo") return document.getElementById("memo-panel");
   if (id === "pool") return document.getElementById("pool-panel");
   if (id === "market") return document.getElementById("market-panel");
   if (id === "vein") return document.getElementById("vein-panel");
@@ -188,6 +192,13 @@ function buildTabs(channels) {
   tabs.push({ id: "discovery", btn: dvBtn });
   nav.appendChild(dvBtn);
 
+  const acBtn = document.createElement("button");
+  acBtn.className = "nav-discovery";
+  acBtn.textContent = "✅ 全条件クリア";
+  acBtn.onclick = () => activateTab("allclear", tabs);
+  tabs.push({ id: "allclear", btn: acBtn });
+  nav.appendChild(acBtn);
+
   const poolBtn = document.createElement("button");
   poolBtn.className = "nav-discovery";
   poolBtn.textContent = "🗂 発見済みch";
@@ -216,10 +227,224 @@ function buildTabs(channels) {
   tabs.push({ id: "analyses", btn: anBtn });
   nav.appendChild(anBtn);
 
+  // 📝 メモ (運営者の自由メモ・アイデア帳)
+  const memoBtn = document.createElement("button");
+  memoBtn.className = "nav-memo";
+  memoBtn.textContent = "📝 メモ";
+  memoBtn.onclick = () => activateTab("memo", tabs);
+  tabs.push({ id: "memo", btn: memoBtn });
+  nav.appendChild(memoBtn);
+
   // Slack のリンク (…/#daily 等) から特定タブを直接開けるようにする
   const hashTab = (location.hash || "").slice(1);
   const known = new Set(tabs.map((t) => t.id));
   activateTab(known.has(hashTab) ? hashTab : "rising-watch", tabs);
+}
+
+// === ✅ 全条件クリアタブ (discovery の全ゲート通過 ch = priority 候補の在庫) ===
+
+const PRIORITY_EDIT_URL = "https://github.com/syuta-chiba/youtube-niche-research/edit/main/priority_channels.txt";
+const AC_STATUS = {
+  pending: { label: "⏳ 未判断", cls: "dv-queue" },
+  priority: { label: "✅ priority 済", cls: "dv-ok" },
+  boosted: { label: "⚠️ boosted 枠", cls: "dv-na" },
+  rejected: { label: "🚫 違う確定", cls: "dv-ng" },
+};
+
+function copyPriorityLine(btn, r) {
+  const parts = [];
+  if (r.subs != null) parts.push(`${fmtN(r.subs)} subs`);
+  if (r.n_videos != null) parts.push(`長尺${r.n_videos}本`);
+  if (r.hits != null) parts.push(`相対HIT ${r.hits}本${r.hit_rate != null ? ` ${Math.round(r.hit_rate * 100)}%` : ""}`);
+  if (r.max_views != null) parts.push(`最大 ${fmtN(r.max_views)}v${r.max_title ? `「${r.max_title}」` : ""}`);
+  if (r.like_rate != null) parts.push(`like率 ${(r.like_rate * 100).toFixed(2)}%`);
+  if (r.timing) parts.push(r.timing);
+  if (r.keywords) parts.push(`KW: ${r.keywords}`);
+  const today = new Date().toISOString().slice(0, 10);
+  parts.push(`discovery 全条件クリア ${r.date} → ${today} 手動昇格`);
+  const line = `${r.channel_id}  # ${r.title} (${parts.join(" / ")})`;
+  navigator.clipboard.writeText(line).then(() => {
+    btn.textContent = "📋 コピー済み";
+    setTimeout(() => { btn.textContent = "📋 priority行"; }, 2500);
+  });
+}
+
+function renderAllClear(rows) {
+  const panel = document.getElementById("allclear-panel");
+  if (!panel) return;
+  const nPending = rows.filter((r) => r.status === "pending").length;
+  const nMetrics = rows.filter((r) => r.has_metrics).length;
+  const state = { pendingOnly: true, metricsOnly: false };
+
+  const row = (r) => {
+    const st = AC_STATUS[r.status] || { label: escapeHtml(r.status || "?"), cls: "dv-na" };
+    const dash = '<span class="ac-lost" title="同日2回目の discovery 実行 (quota-drain) がレポートを上書きしていた期間に指標が失われた行 (2026-10-13 修正済)">—</span>';
+    const pct = (v, digits) => (v == null ? dash : `${(v * 100).toFixed(digits)}%`);
+    const usual = r.median_views != null
+      ? `${fmtN(r.median_views)}${r.recent_median_views != null && r.recent_median_views !== r.median_views ? `→${fmtN(r.recent_median_views)}` : ""}`
+      : dash;
+    const maxCell = r.max_views != null
+      ? `<span title="${escapeHtml(r.max_title || "")}">${fmtN(r.max_views)}</span>`
+      : dash;
+    const actions = r.status === "pending"
+      ? `<button class="ac-promote" data-cid="${escapeHtml(r.channel_id)}" title="priority_channels.txt 用の行をコピー → 貼って commit すると次の cron (JST 3/9/15/21) から定点観測が始まる">📋 priority行</button>
+         <button class="pl-reject" data-cid="${escapeHtml(r.channel_id)}" data-title="${escapeHtml(r.title)}" title="rejected_channels.txt 用の行をコピー → 貼って commit すると巡回・照合から外れる">✗違う</button>`
+      : "";
+    return `
+    <tr class="${r.has_metrics ? "" : "ac-nometrics"}">
+      <td class="dv-date">${escapeHtml(r.date || "")}</td>
+      <td class="dv-ch">${r.icon ? `<img class="ch-icon" src="${r.icon}" alt="" loading="lazy">` : ""}<a href="https://www.youtube.com/channel/${encodeURIComponent(r.channel_id)}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a></td>
+      <td class="dv-num">${r.subs != null ? fmtN(r.subs) : dash}</td>
+      <td class="dv-num">${r.n_videos != null ? fmtN(r.n_videos) : dash}</td>
+      <td class="dv-num">${usual}</td>
+      <td class="dv-num">${r.hits != null ? `${r.hits}${r.momentum_hits ? ` <span class="dv-note">(勢${r.momentum_hits})</span>` : ""}` : dash}</td>
+      <td class="dv-num">${pct(r.hit_rate, 0)}</td>
+      <td class="dv-num">${maxCell}</td>
+      <td class="dv-num">${pct(r.like_rate, 2)}</td>
+      <td class="dv-note ac-timing">${escapeHtml(r.timing || "")}</td>
+      <td class="dv-note ac-kw" title="${escapeHtml(r.keywords || "")}">${escapeHtml(r.keywords || "")}</td>
+      <td class="dv-note ac-maxtitle" title="${escapeHtml(r.max_title || "")}">${escapeHtml(r.max_title || "")}</td>
+      <td class="dv-badge-cell"><span class="dv-badge ${st.cls}">${st.label}</span></td>
+      <td class="dv-action ac-actions">${actions}</td>
+    </tr>`;
+  };
+
+  panel.innerHTML = `
+    <h2>✅ 全条件クリア — priority 候補の在庫 (${fmtN(rows.length)}件・未判断 ${fmtN(nPending)}件)</h2>
+    <p class="dv-desc">discovery loop の全 AND ゲート (subs 50-2000 / 本編≥8 / 相対HIT≥2 / 直近90日 HIT比≥20% / 最新投稿≤120日 / 広告疑い過半でない) を通った ch。
+    AUTO 昇格は確認制で止めているため、ここが「次に priority へ加える候補」の全在庫。これまでは当日の <code>discovery_queue.md</code> と Slack に 1 回出るだけで翌日には視界から消えていた (2026-10-13 にこのタブで棚卸し化)。</p>
+    <p class="dv-sub">関連度ゲートは 2026-07-21 に廃止済みなので軸外 (株・政治・海外ニュース等) も混ざる。<strong>検索KW と 最大HITタイトル</strong>で目視し、
+    良ければ「📋 priority行」でコピー → <a href="${PRIORITY_EDIT_URL}" target="_blank" rel="noopener">priority_channels.txt を編集</a>に貼って commit (次の cron から定点観測開始)。
+    違えば「✗違う」→ <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a>。
+    指標が「—」の ${fmtN(rows.length - nMetrics)} 行は、同日 2 回目の discovery (quota-drain) がレポートを上書きしていた期間に指標が失われたもの (登録者/普段は RSS プールの最新値で補完。再評価は RSS 巡回でスパイクした時)。列見出しクリックでソート。</p>
+    <div class="ac-filters">
+      <label><input type="checkbox" id="ac-pending-only" checked> 未判断だけ表示</label>
+      <label><input type="checkbox" id="ac-metrics-only"> 指標ありだけ表示</label>
+    </div>
+    <div class="dv-table-wrap">
+      <table class="dv-table dv-eval ac-table">
+        <thead><tr>
+          <th class="dv-sortable" data-k="date">クリア日 <span class="dv-sort-ind">▼</span></th>
+          <th>チャンネル</th>
+          <th class="dv-sortable" data-k="subs">👥 登録者 <span class="dv-sort-ind"></span></th>
+          <th class="dv-sortable" data-k="n_videos">本編 <span class="dv-sort-ind"></span></th>
+          <th class="dv-sortable" data-k="median_views">普段 <span class="dv-sort-ind"></span></th>
+          <th class="dv-sortable" data-k="hits">相対HIT <span class="dv-sort-ind"></span></th>
+          <th class="dv-sortable" data-k="hit_rate">HIT率 <span class="dv-sort-ind"></span></th>
+          <th class="dv-sortable" data-k="max_views">最大v <span class="dv-sort-ind"></span></th>
+          <th class="dv-sortable" data-k="like_rate">like率 <span class="dv-sort-ind"></span></th>
+          <th>timing</th>
+          <th>検索KW</th>
+          <th>最大HITタイトル</th>
+          <th class="dv-sortable" data-k="status">状態 <span class="dv-sort-ind"></span></th>
+          <th></th>
+        </tr></thead>
+        <tbody id="ac-tbody"></tbody>
+      </table>
+    </div>`;
+  const tbody = document.getElementById("ac-tbody");
+  const table = panel.querySelector(".ac-table");
+  const bind = (scope) => {
+    bindRejectButtons(scope);
+    scope.querySelectorAll(".ac-promote").forEach((btn) => {
+      const r = rows.find((x) => x.channel_id === btn.dataset.cid);
+      if (r) btn.addEventListener("click", () => copyPriorityLine(btn, r));
+    });
+  };
+  const apply = () => {
+    const filtered = rows.filter((r) =>
+      (!state.pendingOnly || r.status === "pending") && (!state.metricsOnly || r.has_metrics));
+    if (!filtered.length) {
+      tbody.innerHTML = '<tr><td colspan="14">（該当なし）</td></tr>';
+      return;
+    }
+    makeSortable(table, filtered, row, tbody, { limit: 60, afterRender: bind });
+  };
+  document.getElementById("ac-pending-only").addEventListener("change", (e) => { state.pendingOnly = e.target.checked; apply(); });
+  document.getElementById("ac-metrics-only").addEventListener("change", (e) => { state.metricsOnly = e.target.checked; apply(); });
+  apply();
+}
+
+// === 📝 メモタブ (運営者の自由メモ: localStorage の下書き + docs/memo.md の公開レンダリング) ===
+
+const MEMO_EDIT_URL = "https://github.com/syuta-chiba/youtube-niche-research/edit/main/docs/memo.md";
+const MEMO_LS_KEY = "emperor_dashboard_memo_v1";
+
+function loadQuickNotes() {
+  try { return JSON.parse(localStorage.getItem(MEMO_LS_KEY) || "[]"); } catch (_) { return []; }
+}
+function saveQuickNotes(notes) {
+  try { localStorage.setItem(MEMO_LS_KEY, JSON.stringify(notes)); } catch (_) { /* private mode 等 */ }
+}
+function renderMarkdownSafe(md) {
+  if (typeof marked === "undefined") return `<pre>${escapeHtml(md)}</pre>`;
+  // marked はサニタイズしないが、ソースは自分の repo の docs/memo.md と自分の入力のみ (第三者入力ではない)
+  return marked.parse(md);
+}
+
+function renderMemo(memo) {
+  const panel = document.getElementById("memo-panel");
+  if (!panel) return;
+  panel.innerHTML = `
+    <h2>📝 メモ — アイデア・気づき</h2>
+    <p class="dv-desc">上段 = <strong>クイックメモ</strong> (このブラウザの localStorage にだけ保存・端末ごと・非公開)。下段 = <code>docs/memo.md</code> の公開レンダリング (repo に commit した正本・どの端末からも読める)。
+    残したいメモは「📋 まとめてコピー」→ <a href="${MEMO_EDIT_URL}" target="_blank" rel="noopener">docs/memo.md を編集</a>に貼って commit。次の cron (最短 6 時間) で下段に反映。<strong>ダッシュボードは public なので memo.md は公開される</strong>。</p>
+
+    <h3>クイックメモ <span class="dv-note" id="memo-count"></span></h3>
+    <div class="memo-input">
+      <textarea id="memo-text" rows="4" placeholder="アイデア・気づき・やること… (Ctrl+Enter で追加・Markdown 可)"></textarea>
+      <div class="memo-input-actions">
+        <button id="memo-add" class="memo-btn memo-btn-primary">＋ 追加</button>
+        <button id="memo-copy" class="memo-btn" title="全クイックメモを Markdown にしてクリップボードへ (memo.md へ貼る用)">📋 まとめてコピー</button>
+        <a class="memo-btn" href="${MEMO_EDIT_URL}" target="_blank" rel="noopener">✏️ memo.md を GitHub で編集</a>
+      </div>
+    </div>
+    <ul id="memo-list" class="memo-list"></ul>
+
+    <h3>docs/memo.md <span class="dv-note">${memo.updated_at ? `(更新 ${escapeHtml(fmtTs(memo.updated_at))})` : ""}</span></h3>
+    <div class="memo-doc">${memo.text ? renderMarkdownSafe(memo.text) : '<p class="dv-note">（まだ空。上のクイックメモをコピーして docs/memo.md に貼ると、ここに表示されます）</p>'}</div>`;
+
+  const list = document.getElementById("memo-list");
+  const ta = document.getElementById("memo-text");
+  const count = document.getElementById("memo-count");
+  const draw = () => {
+    const notes = loadQuickNotes();
+    count.textContent = notes.length ? `(${notes.length}件・この端末のみ)` : "(この端末のみ)";
+    if (!notes.length) {
+      list.innerHTML = '<li class="memo-empty dv-note">（まだメモなし）</li>';
+      return;
+    }
+    list.innerHTML = notes.slice().reverse().map((n) => `
+      <li class="memo-item" data-id="${n.id}">
+        <div class="memo-item-head"><span class="dv-date">${escapeHtml(fmtTs(n.at))}</span>
+          <button class="memo-del" data-id="${n.id}" title="このメモを削除">🗑</button></div>
+        <div class="memo-item-body">${renderMarkdownSafe(n.text)}</div>
+      </li>`).join("");
+    list.querySelectorAll(".memo-del").forEach((b) => b.addEventListener("click", () => {
+      saveQuickNotes(loadQuickNotes().filter((n) => String(n.id) !== b.dataset.id));
+      draw();
+    }));
+  };
+  const add = () => {
+    const text = ta.value.trim();
+    if (!text) return;
+    const notes = loadQuickNotes();
+    notes.push({ id: Date.now(), at: new Date().toISOString(), text });
+    saveQuickNotes(notes);
+    ta.value = "";
+    draw();
+  };
+  document.getElementById("memo-add").addEventListener("click", add);
+  ta.addEventListener("keydown", (e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) add(); });
+  document.getElementById("memo-copy").addEventListener("click", (e) => {
+    const notes = loadQuickNotes();
+    const md = notes.map((n) => `## ${n.at.slice(0, 16).replace("T", " ")}\n\n${n.text}\n`).join("\n");
+    navigator.clipboard.writeText(md).then(() => {
+      e.target.textContent = "📋 コピー済み";
+      setTimeout(() => { e.target.textContent = "📋 まとめてコピー"; }, 2500);
+    });
+  });
+  draw();
 }
 
 // === 🌱 検索資産タブ (slow-burn: 公開90日超で伸び続ける動画 = 検索需要の証拠 H-23/H-24) ===
@@ -752,7 +977,7 @@ function renderPool(pool) {
 
 const DV_DECISION = {
   promoted: { label: "✅ AUTO追加済み", cls: "dv-ok" },
-  "queued(cap)": { label: "✅ 合格・確認待ち", cls: "dv-ok" },
+  "queued(cap)": { label: "✅ 全条件クリア・確認待ち", cls: "dv-ok" },
   queued: { label: "🔎 queue (見送り)", cls: "dv-queue" },
   rejected: { label: "✗ 不採用 (機械)", cls: "dv-ng" },
   skip: { label: "− 取得不可", cls: "dv-na" },
