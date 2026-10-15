@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T21:05:48Z",
+  "generated_at": "2026-10-15T00:38:51Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -421915,18 +421915,6 @@
       "source": "rss_patrol"
     },
     {
-      "video_id": "3TB2TTLuzqY",
-      "title": "Tori",
-      "channel": "Yu Takahashi - Topic",
-      "channel_id": "UCDpSRvfq8DIUTL2TIK2104Q",
-      "views": 96561,
-      "subs": 830,
-      "score": 116.34,
-      "published_at": "2026-08-20T15:02:01+00:00",
-      "url": "https://www.youtube.com/watch?v=3TB2TTLuzqY",
-      "source": "rss_patrol"
-    },
-    {
       "video_id": "1vdZhi85wAQ",
       "title": "JUMP-BlackPink (Lyrics) (ai clean version )",
       "channel": "BMA Lyrics ",
@@ -481457,6 +481445,18 @@
       "published_at": "2026-08-20T11:53:11Z",
       "url": "https://www.youtube.com/watch?v=yBwfTtTJ0UU",
       "source": "market_validate"
+    },
+    {
+      "video_id": "R5yzRFqEGWE",
+      "title": "AI 구독료 월 60만원 내다가, 내 PC에 로컬 LLM 깔았습니다 (Ollama + Open WebUI · 10분)",
+      "channel": "혼자 굴리는 AI",
+      "channel_id": "UC4-6D9DHTdsyBdPJu6ks4gQ",
+      "views": 6865,
+      "subs": 124,
+      "score": 55.36,
+      "published_at": "2026-09-04T09:23:09Z",
+      "url": "https://www.youtube.com/watch?v=R5yzRFqEGWE",
+      "source": "discovery_loop"
     }
   ],
   "discovery": {
@@ -481634,6 +481634,46 @@
       }
     ],
     "evaluated": [
+      {
+        "channel_id": "UCWwagdu9e585o98JLmKGNdw",
+        "title": "テク株channel",
+        "date": "2026-10-14",
+        "decision": "queued",
+        "reason": "相対HIT不足 (0本 < 2、単発は生存バイアス §1.1)",
+        "subs": 56,
+        "median_views": null,
+        "icon": ""
+      },
+      {
+        "channel_id": "UCtmhYbEf5TzEZXqO0wWWXGQ",
+        "title": "とあるOR学徒",
+        "date": "2026-10-14",
+        "decision": "queued",
+        "reason": "相対HIT不足 (0本 < 2、単発は生存バイアス §1.1)",
+        "subs": 56,
+        "median_views": null,
+        "icon": ""
+      },
+      {
+        "channel_id": "UC4-6D9DHTdsyBdPJu6ks4gQ",
+        "title": "혼자 굴리는 AI",
+        "date": "2026-10-14",
+        "decision": "queued",
+        "reason": "相対HIT不足 (1本 < 2、単発は生存バイアス §1.1、偽HIT 1本除外済み)",
+        "subs": 124,
+        "median_views": null,
+        "icon": ""
+      },
+      {
+        "channel_id": "UCJZNkE0OpUbDB63fSx0yRkA",
+        "title": "Francesco Cozzupoli (Fenice Art)",
+        "date": "2026-10-14",
+        "decision": "queued",
+        "reason": "実績不足 (本編 5本 < 8、track record 不十分)",
+        "subs": 764,
+        "median_views": null,
+        "icon": ""
+      },
       {
         "channel_id": "UCpOMDdi7Q3Q4Awr-5RKj7YA",
         "title": "MM",
@@ -519996,7 +520036,7 @@
   ],
   "memo": {
     "text": "# メモ — アイデア・気づき\n\n> ダッシュボード「📝 メモ」タブに公開レンダリングされる正本。クイックメモ（ブラウザ localStorage）から「📋 まとめてコピー」で貼る。**public repo 経由で公開される**ので、秘匿情報は書かない。\n\n## 2026-10-13\n\n- （ここから自由に書く）\n",
-    "updated_at": "2026-10-14T16:08:44Z"
+    "updated_at": "2026-10-14T22:24:05Z"
   },
   "rejected": [],
   "pool": [
@@ -550185,6 +550225,17 @@
       "added": "2026-09-26"
     },
     {
+      "channel_id": "UCJZNkE0OpUbDB63fSx0yRkA",
+      "title": "Francesco Cozzupoli (Fenice Art)",
+      "icon": "",
+      "subs": 764,
+      "subs_mom": null,
+      "median_views": null,
+      "latest_video_at": "",
+      "source": "discovery_search",
+      "added": "2026-10-14"
+    },
+    {
       "channel_id": "UCESydCRzfna0Geyl6cbcvRA",
       "title": "Larry Larsson",
       "icon": "https://yt3.ggpht.com/PmnfePlglZR8d5Olpv3NJ_-y65Z4uFISNZ4XUf2VLqGL79y4cyIntJ0QEAURleb1AC5h5rdg3w=s88-c-k-c0x00ffffff-no-rj",
@@ -553650,6 +553701,17 @@
       "added": "2026-10-06"
     },
     {
+      "channel_id": "UC4-6D9DHTdsyBdPJu6ks4gQ",
+      "title": "혼자 굴리는 AI",
+      "icon": "",
+      "subs": 124,
+      "subs_mom": null,
+      "median_views": null,
+      "latest_video_at": "",
+      "source": "discovery_search",
+      "added": "2026-10-14"
+    },
+    {
       "channel_id": "UCgLDVw6dsU-4jh2stJpQkGA",
       "title": " 1分AI仕事術",
       "icon": "https://yt3.ggpht.com/v9qABlnvR2IRIrDjXUbII6aLWOq-BIZgf3EJD5oB7e1NsuzGVWdnnYf0EypCXD9Yth1leY1VCQ=s88-c-k-c0x00ffffff-no-rj",
@@ -554607,6 +554669,28 @@
       "added": "2026-09-25"
     },
     {
+      "channel_id": "UCWwagdu9e585o98JLmKGNdw",
+      "title": "テク株channel",
+      "icon": "",
+      "subs": 56,
+      "subs_mom": null,
+      "median_views": null,
+      "latest_video_at": "",
+      "source": "discovery_search",
+      "added": "2026-10-14"
+    },
+    {
+      "channel_id": "UCtmhYbEf5TzEZXqO0wWWXGQ",
+      "title": "とあるOR学徒",
+      "icon": "",
+      "subs": 56,
+      "subs_mom": null,
+      "median_views": null,
+      "latest_video_at": "",
+      "source": "discovery_search",
+      "added": "2026-10-14"
+    },
+    {
       "channel_id": "UCX6UGkFhnX41Cy2fpf8NSHA",
       "title": "つばさ先生のClaude Code教室",
       "icon": "https://yt3.ggpht.com/186RX2wedYPkxe9qmBXhgvJobEBRSG-obaoi6-koXgeJSP3E_unTdOmfsSKJzB6eDRFsS1xQRxg=s88-c-k-c0x00ffffff-no-rj",
@@ -555155,6 +555239,250 @@
     }
   ],
   "daily_reports": [
+    {
+      "date": "2026-10-15",
+      "weekday": "Thu",
+      "subs": 1550,
+      "total_views": 195223,
+      "subs_delta": 0,
+      "views_delta": 133,
+      "views_delta_long": 94,
+      "views_delta_short": 67,
+      "views_delta_sum": 161,
+      "movers": [
+        {
+          "video_id": "P_Z7uv1YGpo",
+          "title": "GPUなしの普通のノートPCで、最新ローカルLLMがそのまま動く",
+          "views": 3453,
+          "delta": 33,
+          "published_at": "2026-07-31",
+          "format": "short"
+        },
+        {
+          "video_id": "hVQ0i9PA_3U",
+          "title": "【PowerShell】 claude codeを1秒で開くコマンド作った！",
+          "views": 111,
+          "delta": 24,
+          "published_at": "2026-10-06",
+          "format": "long"
+        },
+        {
+          "video_id": "avmLusDxSCY",
+          "title": "【経験談】大学生がプログラミングの勉強したら「完全在宅」で「月13万円」稼げた話【バイト代わり】",
+          "views": 20457,
+          "delta": 17,
+          "published_at": "2024-05-14",
+          "format": "long"
+        },
+        {
+          "video_id": "RshRjA12Dus",
+          "title": "【Ollama】Claude Codeを無料で使う2つの方法｜ローカル vs クラウド無料枠",
+          "views": 5512,
+          "delta": 11,
+          "published_at": "2026-05-10",
+          "format": "long"
+        },
+        {
+          "video_id": "ncGHITBLY5c",
+          "title": "【Claude Code】VScodeと連携して使う方法！【差分をしっかりみて判断できる！】",
+          "views": 1608,
+          "delta": 11,
+          "published_at": "2026-04-19",
+          "format": "long"
+        },
+        {
+          "video_id": "aOBCNjRYE4c",
+          "title": "【実測】GPUなしの13万円ノートPCで、最新ローカルLLM 5本はどこまで動くのか【2026年7月】",
+          "views": 577,
+          "delta": 10,
+          "published_at": "2026-07-28",
+          "format": "long"
+        },
+        {
+          "video_id": "b0k8nwApO7s",
+          "title": "【知らずに実行】PowerShellの危険コマンドの見分け方",
+          "views": 1215,
+          "delta": 7,
+          "published_at": "2026-05-11",
+          "format": "short"
+        },
+        {
+          "video_id": "UWvy94HpYH8",
+          "title": "【経験談】ノートPCでClaudeをローカル化したら遅すぎた",
+          "views": 1361,
+          "delta": 7,
+          "published_at": "2026-05-11",
+          "format": "short"
+        },
+        {
+          "video_id": "ESIWaI3nwNc",
+          "title": "【入門】Ollamaって結局何？AIモデルの実行環境を解説",
+          "views": 279,
+          "delta": 6,
+          "published_at": "2026-05-13",
+          "format": "short"
+        },
+        {
+          "video_id": "npJpXSvDVGA",
+          "title": "【0円継続】Claude Code制限が来ても無料で動かす方法",
+          "views": 2298,
+          "delta": 4,
+          "published_at": "2026-05-10",
+          "format": "short"
+        },
+        {
+          "video_id": "qb0JDYl2mII",
+          "title": "まだAIにgrepさせてるの？｜Claude Codeに「コードの地図」を渡すCodeGraphとGraphify",
+          "views": 703,
+          "delta": 3,
+          "published_at": "2026-10-03",
+          "format": "long"
+        },
+        {
+          "video_id": "Pqd57DOhde4",
+          "title": "\"最強クラス\"の27Bモデル、GPUなしで動かすと1秒に2文字しか出ない",
+          "views": 552,
+          "delta": 3,
+          "published_at": "2026-08-02",
+          "format": "short"
+        },
+        {
+          "video_id": "9ClGGinldH4",
+          "title": "【勉強方法】大学生がプログラミングで「完全在宅」で「月10万円」稼ぐための「最短」の「勉強方法」はこれだと思います。【経験談】",
+          "views": 2751,
+          "delta": 3,
+          "published_at": "2024-05-31",
+          "format": "long"
+        },
+        {
+          "video_id": "wgX0JSydqvE",
+          "title": "CodeGraph が効くのは VS Code 級の大きいリポだけ。6ファイルのリポだと効果ほぼゼロ",
+          "views": 1160,
+          "delta": 2,
+          "published_at": "2026-10-12",
+          "format": "short"
+        },
+        {
+          "video_id": "JVAXC30tFbA",
+          "title": "【メンバーシップ新企画】アプリ開発から収益を得る挑戦開始！一緒にその過程全てを経験しませんか？【試行錯誤全て公開！】",
+          "views": 112,
+          "delta": 2,
+          "published_at": "2026-06-02",
+          "format": "long"
+        }
+      ],
+      "recent": [
+        {
+          "video_id": "wgX0JSydqvE",
+          "title": "CodeGraph が効くのは VS Code 級の大きいリポだけ。6ファイルのリポだと効果ほぼゼロ",
+          "views": 1160,
+          "published_at": "2026-10-12",
+          "format": "short"
+        },
+        {
+          "video_id": "T-RLhi40WCA",
+          "title": "Claude Code への指示がアバウトだと全部読まれてトークンが溶ける。ファイルを指定するだけで速くなる",
+          "views": 350,
+          "published_at": "2026-10-11",
+          "format": "short"
+        },
+        {
+          "video_id": "ssfthRiZP3Q",
+          "title": "AIにどれだけトークンを使わせられるかが、そのまま仕事量になる時代",
+          "views": 1204,
+          "published_at": "2026-10-10",
+          "format": "short"
+        },
+        {
+          "video_id": "mdkv6SrEF2I",
+          "title": "CodeGraph を入れて逆に損するケース。最初の地図作りに固定でトークンがかかる",
+          "views": 1278,
+          "published_at": "2026-10-09",
+          "format": "short"
+        },
+        {
+          "video_id": "FTexme3BYpE",
+          "title": "Claude Code の回答が半分の時間で返ると、8時間かかった仕事が4時間で終わる",
+          "views": 10,
+          "published_at": "2026-10-08",
+          "format": "short"
+        }
+      ],
+      "priority": [
+        {
+          "video_id": "u3maffsxBNE",
+          "title": "Claude Codeを125BのローカルAIで動かしたら？ 12GBのPCで、前回できなかった作業に再挑戦【ずんだもん解説】",
+          "channel": "AIの歩き方",
+          "views": 7057,
+          "delta": 3018
+        },
+        {
+          "video_id": "wHRn5D_gDvk",
+          "title": "【Mac mini M4 24GB】買い替えなしで27Bが2倍速に。ただしollamaを更新しただけでは変わらない｜0.40のMLX既定化を新旧並べて実測",
+          "channel": "茶々丸のIT教室",
+          "views": 1586,
+          "delta": 1392
+        },
+        {
+          "video_id": "hSwFKCSGfck",
+          "title": "12GBのPCで125BのAIは使える？ Strataを実機で検証（Gemma 4 12B・Qwen3.5 9Bと比較）【ずんだもん解説】",
+          "channel": "AIの歩き方",
+          "views": 8015,
+          "delta": 574
+        },
+        {
+          "video_id": "UeivBYerbI8",
+          "title": "Claude CodeをローカルAIで動かしたら？ 12GBのPCで本物のClaudeと比べた【ずんだもん解説】",
+          "channel": "AIの歩き方",
+          "views": 24932,
+          "delta": 337
+        },
+        {
+          "video_id": "HSf7rcaSOjU",
+          "title": "ローカルAI（ローカルLLM）で実現!?無課金AI生活～自分専用のAI環境つくってみた",
+          "channel": "デジタルの時間",
+          "views": 63724,
+          "delta": 297
+        },
+        {
+          "video_id": "kgsXprkibg8",
+          "title": "【完全解説】OpenAIの新ツール「Dots」は使うべき？丸投げして放置するだけで、面倒なタスクが勝手に片付く神機能【実演解説】",
+          "channel": "reckの知識の森",
+          "views": 840,
+          "delta": 286
+        },
+        {
+          "video_id": "mLl3uSG1Pnw",
+          "title": "【2026年版】LM StudioとOllama、初心者はどっち？違いと使い方【ずんだもん解説】",
+          "channel": "AIの歩き方",
+          "views": 14653,
+          "delta": 285
+        },
+        {
+          "video_id": "9GHcy64Avbg",
+          "title": "【始動】99%が知らない「ローカルLLM」の世界。Google最新Gemma 3を無料で構築する方法【ローカルLLM構築計画#1】#Ollama",
+          "channel": "reckの知識の森",
+          "views": 63849,
+          "delta": 235
+        },
+        {
+          "video_id": "FoahClJa5f4",
+          "title": "ローカルAI（ローカルLLM）にAIエージェントを追加！無課金AI生活３～Ollama + Hermesで実現してみた～",
+          "channel": "デジタルの時間",
+          "views": 14494,
+          "delta": 152
+        },
+        {
+          "video_id": "6II7EhUYRWQ",
+          "title": "日本語なら国産のローカルAI？ LLM-jp-4.1・ELYZAを、Qwen・Gemmaと12GBのPCで比べた",
+          "channel": "AIの歩き方",
+          "views": 7443,
+          "delta": 152
+        }
+      ],
+      "discovery": "2026-10-14: 深掘り評価: 4 ch / AUTO 追加: 0 / queue: 4",
+      "quota_yesterday": 4805
+    },
     {
       "date": "2026-10-14",
       "weekday": "Wed",
@@ -558212,224 +558540,18 @@
       ],
       "discovery": "2026-10-01: 深掘り評価: 7 ch / AUTO 追加: 0 / queue: 7",
       "quota_yesterday": 6124
-    },
-    {
-      "date": "2026-10-01",
-      "weekday": "Thu",
-      "subs": 1550,
-      "total_views": 187664,
-      "subs_delta": 0,
-      "views_delta": 206,
-      "views_delta_long": 76,
-      "views_delta_short": 51,
-      "views_delta_sum": 127,
-      "movers": [
-        {
-          "video_id": "P_Z7uv1YGpo",
-          "title": "GPUなしの普通のノートPCで、最新ローカルLLMがそのまま動く",
-          "views": 3011,
-          "delta": 25,
-          "published_at": "2026-07-31",
-          "format": "short"
-        },
-        {
-          "video_id": "avmLusDxSCY",
-          "title": "【経験談】大学生がプログラミングの勉強したら「完全在宅」で「月13万円」稼げた話【バイト代わり】",
-          "views": 20238,
-          "delta": 22,
-          "published_at": "2024-05-14",
-          "format": "long"
-        },
-        {
-          "video_id": "ncGHITBLY5c",
-          "title": "【Claude Code】VScodeと連携して使う方法！【差分をしっかりみて判断できる！】",
-          "views": 1457,
-          "delta": 15,
-          "published_at": "2026-04-19",
-          "format": "long"
-        },
-        {
-          "video_id": "aOBCNjRYE4c",
-          "title": "【実測】GPUなしの13万円ノートPCで、最新ローカルLLM 5本はどこまで動くのか【2026年7月】",
-          "views": 498,
-          "delta": 8,
-          "published_at": "2026-07-28",
-          "format": "long"
-        },
-        {
-          "video_id": "r_T8MSzUXoA",
-          "title": "【Mac不要】スマホだけでiPhoneアプリをApp Storeに公開した方法",
-          "views": 1170,
-          "delta": 8,
-          "published_at": "2026-05-17",
-          "format": "short"
-        },
-        {
-          "video_id": "RshRjA12Dus",
-          "title": "【Ollama】Claude Codeを無料で使う2つの方法｜ローカル vs クラウド無料枠",
-          "views": 5285,
-          "delta": 7,
-          "published_at": "2026-05-10",
-          "format": "long"
-        },
-        {
-          "video_id": "b0k8nwApO7s",
-          "title": "【知らずに実行】PowerShellの危険コマンドの見分け方",
-          "views": 1146,
-          "delta": 5,
-          "published_at": "2026-05-11",
-          "format": "short"
-        },
-        {
-          "video_id": "rMn-CB7i8Es",
-          "title": "【パワポ × claude】パワポにアドインでclaude入れたら資料作成が自然言語で爆速に！コンテキスト理解があるから共通ルールで作成可能！【PowerPoint × claude】",
-          "views": 245,
-          "delta": 4,
-          "published_at": "2026-04-22",
-          "format": "long"
-        },
-        {
-          "video_id": "LqnDlVu18LQ",
-          "title": "【スマホ1台】VPS×Claude Codeで24時間どこでも開発する仕組み",
-          "views": 1154,
-          "delta": 3,
-          "published_at": "2026-05-16",
-          "format": "short"
-        },
-        {
-          "video_id": "6h5TVEhThoA",
-          "title": "【経験談】ローカルとCloud Ollamaの速度差を同条件で比較",
-          "views": 1251,
-          "delta": 3,
-          "published_at": "2026-05-12",
-          "format": "short"
-        },
-        {
-          "video_id": "Pqd57DOhde4",
-          "title": "\"最強クラス\"の27Bモデル、GPUなしで動かすと1秒に2文字しか出ない",
-          "views": 525,
-          "delta": 2,
-          "published_at": "2026-08-02",
-          "format": "short"
-        },
-        {
-          "video_id": "OxmurCd_YZY",
-          "title": "【進化】AIが複雑な情報を勝手に階層化してくれる時代になった",
-          "views": 1010,
-          "delta": 2,
-          "published_at": "2026-05-14",
-          "format": "short"
-        },
-        {
-          "video_id": "UWvy94HpYH8",
-          "title": "【経験談】ノートPCでClaudeをローカル化したら遅すぎた",
-          "views": 1264,
-          "delta": 2,
-          "published_at": "2026-05-11",
-          "format": "short"
-        },
-        {
-          "video_id": "geXueZ_12mk",
-          "title": "【作業時間が1時間→3分】Word×Claudeで作業時間を削減しよう！",
-          "views": 389,
-          "delta": 2,
-          "published_at": "2026-05-02",
-          "format": "long"
-        },
-        {
-          "video_id": "Rwd0pk0k2MU",
-          "title": "【WordPress入門編】#12 「カテゴリーページ」の作成方法！【category.php, single_cat_title();, echo category_description();】",
-          "views": 32,
-          "delta": 2,
-          "published_at": "2025-12-31",
-          "format": "long"
-        }
-      ],
-      "recent": [],
-      "priority": [
-        {
-          "video_id": "xXytdNaEKC4",
-          "title": "Claude Code Plan mode は要らない？ ── 計画あり vs なしで同じ課題を実測。速いのは「なし」、でも答えが逆なら1.5倍",
-          "channel": "Sura×Asura For AI Agent",
-          "views": 2568,
-          "delta": 933
-        },
-        {
-          "video_id": "Ktz9Z3waV8A",
-          "title": "Claude Code /doctor prompt-audit ── 自分のCLAUDE.md・skillsを診断して直す前 vs 後を実測。指摘90件、手間は約半分に",
-          "channel": "Sura×Asura For AI Agent",
-          "views": 1430,
-          "delta": 709
-        },
-        {
-          "video_id": "HSf7rcaSOjU",
-          "title": "ローカルAI（ローカルLLM）で実現!?無課金AI生活～自分専用のAI環境つくってみた",
-          "channel": "デジタルの時間",
-          "views": 57558,
-          "delta": 648
-        },
-        {
-          "video_id": "9GHcy64Avbg",
-          "title": "【始動】99%が知らない「ローカルLLM」の世界。Google最新Gemma 3を無料で構築する方法【ローカルLLM構築計画#1】#Ollama",
-          "channel": "reckの知識の森",
-          "views": 60148,
-          "delta": 373
-        },
-        {
-          "video_id": "0D9--KnfQKI",
-          "title": "【公式から学ぶ】9割が知らないClaude Codeの正しい指示の出し方｜精度が上がる10のコツ",
-          "channel": "AIエンジニア HAYAKIのAIラボ",
-          "views": 647,
-          "delta": 262
-        },
-        {
-          "video_id": "FoahClJa5f4",
-          "title": "ローカルAI（ローカルLLM）にAIエージェントを追加！無課金AI生活３～Ollama + Hermesで実現してみた～",
-          "channel": "デジタルの時間",
-          "views": 11062,
-          "delta": 192
-        },
-        {
-          "video_id": "0-FSSC14leQ",
-          "title": "AIにgrepさせるな｜CodeGraphとGraphifyでコードを爆速で理解する",
-          "channel": "ずんだAI研究所",
-          "views": 554,
-          "delta": 169
-        },
-        {
-          "video_id": "vnODbLAqV3k",
-          "title": "【99%が知らない】「API vs ローカルLLM」どっちが正解？9割が知らないAI学習の真実と、ファインチューニングで作る\"最強の専属AI\"【ローカルLLM構築計画#3】 #Unsloth",
-          "channel": "reckの知識の森",
-          "views": 34335,
-          "delta": 145
-        },
-        {
-          "video_id": "VDeFLcjert8",
-          "title": "【GitHubオープンソース】Claude Code・Codex・Grok・Antigravityを同時に動かすAI開発IDE「Orca」Agent skill オーケストレーション",
-          "channel": "クドクラ@ClaudeCode AI駆動Craft",
-          "views": 8076,
-          "delta": 133
-        },
-        {
-          "video_id": "c9buQ7RkCyY",
-          "title": "Orca完全版 ── Claude Code×Codex×Cursor CLIを束ねるAI開発IDE徹底解説",
-          "channel": "Sura×Asura For AI Agent",
-          "views": 3518,
-          "delta": 87
-        }
-      ],
-      "discovery": "2026-09-30: 深掘り評価: 6 ch / AUTO 追加: 0 / queue: 6",
-      "quota_yesterday": 5809
     }
   ],
   "quota": {
     "date_pt": "2026-10-14",
-    "today_units": 367,
+    "today_units": 4602,
     "limit": 10000,
     "by_source": {
       "priority": 243,
       "boosted": 21,
-      "market_validate": 103
+      "market_validate": 103,
+      "discovery": 4222,
+      "daily_report": 13
     },
     "daily": [
       {
@@ -558486,7 +558608,7 @@
       },
       {
         "date": "2026-10-14",
-        "units": 367
+        "units": 4602
       }
     ]
   }
