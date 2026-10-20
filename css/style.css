@@ -1098,3 +1098,27 @@ nav#channel-nav button.nav-memo { border-style: dashed; }
 .memo-doc h1, .memo-doc h2, .memo-doc h3 { margin-top: 1rem; }
 .memo-doc pre { overflow-x: auto; background: var(--panel); padding: 0.5rem; border-radius: 4px; }
 
+
+/* 🏆 当たり事例タブ */
+.hc-count { font-size: 0.85rem; font-weight: 400; color: var(--text-dim); margin-left: 0.5rem; }
+.hc-select { padding: 0.4rem 0.6rem; border: 1px solid var(--border); border-radius: 6px; background: var(--panel); color: var(--text); font-size: 0.85rem; max-width: 100%; }
+.hc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
+.hc-card { display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; text-decoration: none; color: inherit; transition: border-color 0.15s; }
+.hc-card:hover { border-color: var(--accent); }
+.hc-semi { opacity: 0.88; }
+.hc-thumb { position: relative; aspect-ratio: 16 / 9; background: #ddd; }
+.hc-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hc-thumb .rw-tier { position: absolute; left: 6px; top: 6px; }
+.hc-body { padding: 0.55rem 0.7rem 0.7rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.hc-title { font-size: 0.86rem; font-weight: 500; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.hc-ch { font-size: 0.76rem; color: var(--text-dim); display: flex; align-items: center; gap: 0.3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hc-meta { font-size: 0.76rem; color: var(--text-dim); display: flex; flex-wrap: wrap; gap: 0.2rem 0.6rem; align-items: center; }
+.hc-views { color: var(--hit); font-weight: 600; }
+.hc-mult { font-weight: 600; color: #bf8700; }
+.hc-mult-ext { color: var(--text-dim); font-weight: 500; }
+.hc-dim { font-weight: 400; }
+.hc-date { margin-left: auto; }
+.hc-src { border: 1px solid var(--border); border-radius: 999px; padding: 0 0.45rem; font-size: 0.7rem; }
+.hc-src-watch { color: var(--accent); border-color: var(--accent); }
+.hc-more { display: block; margin: 1rem auto 0; }
+@media (max-width: 480px) { .hc-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; } .hc-body { padding: 0.4rem 0.5rem 0.5rem; } .hc-title { font-size: 0.78rem; } }

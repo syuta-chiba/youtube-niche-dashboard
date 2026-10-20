@@ -90,6 +90,7 @@ async function load() {
   // 広告混ざり枠 (boosted) は真似元候補ではないので横断急伸ウォッチから除外
   renderRisingWatch(data.channels.filter((c) => !c.boosted));
   renderSlowBurn(data.slow_burn || []);
+  renderHitCases(data.channels || [], data.external_hits || []);
   renderDiscovery(data.discovery || {}, data.rejected || []);
   renderAllClear(data.all_clear || []);
   renderMemo(data.memo || {});
@@ -128,6 +129,7 @@ function renderQuotaMeter(q) {
 function panelEl(id) {
   if (id === "rising-watch") return document.getElementById("rising-watch-panel");
   if (id === "slowburn") return document.getElementById("slowburn-panel");
+  if (id === "hits") return document.getElementById("hits-panel");
   if (id === "discovery") return document.getElementById("discovery-panel");
   if (id === "allclear") return document.getElementById("allclear-panel");
   if (id === "memo") return document.getElementById("memo-panel");
@@ -157,6 +159,13 @@ function buildTabs(channels) {
   sbBtn.onclick = () => activateTab("slowburn", tabs);
   tabs.push({ id: "slowburn", btn: sbBtn });
   nav.appendChild(sbBtn);
+
+  // 🏆 当たり事例 (観測ch の相対HIT + 外部HITコーパスをサムネ付きで眺める閲覧専用タブ)
+  const hcBtn = document.createElement("button");
+  hcBtn.textContent = "🏆 当たり事例";
+  hcBtn.onclick = () => activateTab("hits", tabs);
+  tabs.push({ id: "hits", btn: hcBtn });
+  nav.appendChild(hcBtn);
 
   // 📰 日次レポート (Slack はリンクだけ、読む場所はここ — 2026-07-21 方針)
   const dailyBtn = document.createElement("button");
@@ -551,6 +560,151 @@ function renderSlowBurn(rows) {
     });
   });
   sbRenderBody();
+}
+
+// === 🏆 当たり事例タブ ===
+// 観測ch (priority / boosted) の video_table から ch相対の HIT/準HIT を、外部HITコーパスから
+// 軸外 (out) 以外を集め、サムネ付きカードで並べる。閲覧専用 (注釈・企画化は Code 画面で行う)。
+let HC_ROWS = [];
+let HC_STATE = { src: "all", tier: "hit", period: 180, ch: "all", axis: "in", boosted: false, q: "", sort: "date", limit: 120 };
+
+function buildHitCases(channels, external) {
+  const rows = [];
+  for (const ch of channels) {
+    const base = ch.baseline_median;
+    for (const v of ch.video_table || []) {
+      if (v.views == null || v.views < ch.semi_threshold) continue;
+      rows.push({
+        src: "watch", tier: v.views >= ch.hit_threshold ? "hit" : "semi",
+        video_id: v.video_id, title: v.title, url: v.url || `https://www.youtube.com/watch?v=${v.video_id}`,
+        ch: ch.title, ch_id: ch.id, icon: ch.icon, boosted: !!ch.boosted,
+        views: v.views, mult: base ? v.views / base : null, published_at: (v.published_at || "").slice(0, 10),
+        age_days: v.age_days, like_pct: v.like_pct, likes: v.likes, ad_check: v.ad_check,
+        likes_vs_exp_pct: v.likes_vs_exp_pct, exp_likes: v.exp_likes, like_base: ch.like_baseline,
+      });
+    }
+  }
+  for (const e of external) {
+    if (!e || !e.video_id || e.axis === "out") continue;
+    rows.push({
+      src: "ext", tier: "hit", axis: e.axis || "unknown", source: e.source || "",
+      video_id: e.video_id, title: e.title || "", url: e.url || `https://www.youtube.com/watch?v=${e.video_id}`,
+      ch: e.channel || "", ch_id: e.channel_id || "", icon: null, boosted: false,
+      views: e.views || 0, subs: e.subs, score: e.score, mult: null, published_at: (e.published_at || "").slice(0, 10),
+    });
+  }
+  return rows;
+}
+
+function hcFiltered() {
+  const st = HC_STATE;
+  const q = st.q.trim().toLowerCase();
+  const cutoff = st.period ? new Date(Date.now() - st.period * 86400000).toISOString().slice(0, 10) : null;
+  const rows = HC_ROWS.filter((r) => {
+    if (st.src !== "all" && r.src !== st.src) return false;
+    if (st.tier === "hit" && r.tier !== "hit") return false;
+    if (!st.boosted && r.boosted) return false;
+    if (r.src === "ext" && st.axis === "in" && r.axis !== "in") return false;
+    if (st.ch !== "all" && r.ch_id !== st.ch) return false;
+    if (cutoff && (!r.published_at || r.published_at < cutoff)) return false;
+    if (q && !(r.title.toLowerCase().includes(q) || r.ch.toLowerCase().includes(q))) return false;
+    return true;
+  });
+  const key = st.sort;
+  rows.sort((a, b) => {
+    if (key === "views") return b.views - a.views;
+    if (key === "mult") return (b.mult ?? b.score ?? 0) - (a.mult ?? a.score ?? 0);
+    return (b.published_at || "").localeCompare(a.published_at || "");
+  });
+  return rows;
+}
+
+function hcCard(r) {
+  const thumb = `https://i.ytimg.com/vi/${r.video_id}/mqdefault.jpg`;
+  let multTxt = "";
+  if (r.src === "watch" && r.mult != null) {
+    multTxt = `<span class="hc-mult" title="そのchの普段 (最新CSV全動画の中央値) の何倍か">普段比 ×${r.mult.toFixed(1)}</span>`;
+  } else if (r.src === "ext" && r.score != null) {
+    const subs = r.subs != null ? ` <span class="hc-dim">(subs ${fmtN(r.subs)})</span>` : "";
+    multTxt = `<span class="hc-mult hc-mult-ext" title="views ÷ 登録者数 (監視枠外は普段が分からないため参考値)">登録比 ×${Number(r.score).toFixed(1)}${subs}</span>`;
+  }
+  const srcBadge = r.src === "watch"
+    ? `<span class="hc-src hc-src-watch">${r.boosted ? "⚠️ boosted枠" : "👀 観測ch"}</span>`
+    : `<span class="hc-src hc-src-ext" title="取得元: ${escapeHtml(r.source)} / 軸判定: ${r.axis}">🌍 外部${r.axis === "unknown" ? " (軸未判定)" : ""}</span>`;
+  const ad = r.src === "watch" && r.ad_check ? adBadge(r, r.like_base) : "";
+  const icon = r.icon ? `<img class="ch-icon-sm" src="${r.icon}" alt="" loading="lazy">` : "";
+  return `<a class="hc-card ${r.tier === "semi" ? "hc-semi" : ""}" href="${r.url}" target="_blank" rel="noopener">
+    <div class="hc-thumb"><img src="${thumb}" alt="" loading="lazy">${tierBadge(r.tier)}</div>
+    <div class="hc-body">
+      <div class="hc-title">${escapeHtml(r.title)}</div>
+      <div class="hc-ch">${icon}${escapeHtml(r.ch)}</div>
+      <div class="hc-meta"><span class="hc-views">${fmtN(r.views)} 回</span>${multTxt}<span class="hc-date">${r.published_at || "—"}</span></div>
+      <div class="hc-meta">${srcBadge}${ad}</div>
+    </div></a>`;
+}
+
+function hcRenderBody() {
+  const panel = document.getElementById("hits-panel");
+  const grid = panel.querySelector("#hc-grid");
+  const rows = hcFiltered();
+  const shown = rows.slice(0, HC_STATE.limit);
+  grid.innerHTML = shown.length ? shown.map(hcCard).join("") : `<p class="empty">条件に合う事例がありません</p>`;
+  const more = panel.querySelector("#hc-more");
+  more.style.display = rows.length > shown.length ? "" : "none";
+  more.textContent = `さらに表示 (${shown.length} / ${rows.length})`;
+  panel.querySelector("#hc-count").textContent = `${rows.length} 件`;
+}
+
+function renderHitCases(channels, external) {
+  const panel = document.getElementById("hits-panel");
+  if (!panel) return;
+  HC_ROWS = buildHitCases(channels, external);
+  const nWatch = HC_ROWS.filter((r) => r.src === "watch" && !r.boosted).length;
+  const nExt = HC_ROWS.filter((r) => r.src === "ext").length;
+  const chOpts = channels.map((c) => `<option value="${c.id}">${c.boosted ? "⚠️ " : ""}${escapeHtml(c.title)}</option>`).join("");
+  const btn = (cls, k, label, on) => `<button class="rw-filter ${cls} ${on ? "active" : ""}" data-k="${k}">${label}</button>`;
+  panel.innerHTML = `
+    <div class="rw-header">
+      <h2>🏆 当たり事例 — 当たった動画をサムネで眺める <span id="hc-count" class="hc-count"></span></h2>
+      <p class="rw-help">観測ch の <strong>ch相対HIT</strong>（普段の5倍・準HITは3倍・下限500v、${nWatch} 本）と、
+      <strong>外部HITコーパス</strong>（discovery / RSS巡回 / 市場検証が拾った監視枠外のHIT・軸外は除外、${nExt} 本）。
+      閲覧専用 — 気になった事例は claude.ai の Code 画面に「この3本を真似る企画を候補化」と投げる。</p>
+      <div class="rw-filter-group"><span class="rw-filter-label">出所:</span><div class="rw-filters">
+        ${btn("hc-f-src", "all", "すべて", true)}${btn("hc-f-src", "watch", "👀 観測ch", false)}${btn("hc-f-src", "ext", "🌍 外部", false)}
+      </div></div>
+      <div class="rw-filter-group"><span class="rw-filter-label">公開:</span><div class="rw-filters">
+        ${btn("hc-f-period", "30", "30日", false)}${btn("hc-f-period", "90", "90日", false)}${btn("hc-f-period", "180", "180日", true)}${btn("hc-f-period", "365", "1年", false)}${btn("hc-f-period", "0", "全期間", false)}
+      </div></div>
+      <div class="rw-filter-group"><span class="rw-filter-label">並び:</span><div class="rw-filters">
+        ${btn("hc-f-sort", "date", "公開日 新しい順", true)}${btn("hc-f-sort", "views", "再生数", false)}${btn("hc-f-sort", "mult", "普段比 / 登録比", false)}
+      </div></div>
+      <div class="rw-filter-group"><span class="rw-filter-label">条件:</span><div class="rw-filters">
+        ${btn("hc-f-tier", "hit", "🎯 HITのみ", true)}${btn("hc-f-tier", "all", "準HITも", false)}
+        ${btn("hc-f-axis", "in", "外部: 軸内のみ", true)}${btn("hc-f-axis", "all", "外部: 軸未判定も", false)}
+        ${btn("hc-f-boosted", "0", "⚠️ boosted枠を隠す", true)}${btn("hc-f-boosted", "1", "boosted枠も見る", false)}
+      </div></div>
+      <div class="rw-filter-group">
+        <select id="hc-ch" class="hc-select"><option value="all">全チャンネル</option>${chOpts}</select>
+        <input id="hc-q" class="sb-search" type="search" placeholder="タイトル / ch 名で絞る">
+      </div>
+    </div>
+    <div id="hc-grid" class="hc-grid"></div>
+    <button id="hc-more" class="rw-filter hc-more">さらに表示</button>`;
+  const groups = { "hc-f-src": "src", "hc-f-period": "period", "hc-f-sort": "sort", "hc-f-tier": "tier", "hc-f-axis": "axis", "hc-f-boosted": "boosted" };
+  for (const [cls, key] of Object.entries(groups)) {
+    panel.querySelectorAll(`.${cls}`).forEach((b) => b.addEventListener("click", () => {
+      panel.querySelectorAll(`.${cls}`).forEach((x) => x.classList.remove("active"));
+      b.classList.add("active");
+      const v = b.dataset.k;
+      HC_STATE[key] = key === "period" ? Number(v) : key === "boosted" ? v === "1" : v;
+      HC_STATE.limit = 120;
+      hcRenderBody();
+    }));
+  }
+  panel.querySelector("#hc-ch").addEventListener("change", (e) => { HC_STATE.ch = e.target.value; HC_STATE.limit = 120; hcRenderBody(); });
+  panel.querySelector("#hc-q").addEventListener("input", (e) => { HC_STATE.q = e.target.value; HC_STATE.limit = 120; hcRenderBody(); });
+  panel.querySelector("#hc-more").addEventListener("click", () => { HC_STATE.limit += 120; hcRenderBody(); });
+  hcRenderBody();
 }
 
 // === 📋 動画分析タブ (全動画 × views/普段比/like率/広告判定/公開1・3・7・14・28日後views) ===
