@@ -835,6 +835,7 @@ main {
   background: var(--border);
 }
 nav button.nav-discovery { font-weight: 600; }
+.lang-filter { margin: 0.6rem 0 0.8rem; }
 /* ウォッチ ch の個別タブはナビに出さない (2026-10-24・#id 直リンク時のみ panel は開く) */
 nav#channel-nav button.nav-ch { display: none; }
 

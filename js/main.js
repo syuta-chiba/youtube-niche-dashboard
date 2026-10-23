@@ -1041,6 +1041,14 @@ function renderVeinMap(vm) {
 //   (数百行 × アイコン画像を一度に DOM 展開するとページ全体が重くなるため)
 function makeSortable(table, data, rowFn, tbody, opts = {}) {
   const state = { k: null, dir: -1, expanded: !opts.limit || data.length <= opts.limit };
+  // 戻り値 { setData(arr) } で表示対象を差し替えられる (言語フィルタ等)。ヘッダの listener は 1 回だけ付く
+  const handle = {
+    setData(arr) {
+      data = arr;
+      state.expanded = !opts.limit || data.length <= opts.limit;
+      apply();
+    },
+  };
   const heads = table.querySelectorAll(".dv-sortable");
   const apply = () => {
     let arr = data;
@@ -1080,6 +1088,45 @@ function makeSortable(table, data, rowFn, tbody, opts = {}) {
     });
   });
   apply();
+  return handle;
+}
+
+// 言語フィルタ (🇯🇵 日本語 / 🌐 海外 / 全部) — lang は build_pages_data が ch名+サンプル題名から判定 (ja/en/other)
+// 「海外」= en + other。選択は localStorage に端末ごと保存 (既定は 🇯🇵)
+function langFilterHtml(key, rows) {
+  const nJa = rows.filter((r) => r.lang === "ja").length;
+  const nFo = rows.length - nJa;
+  return `
+    <div class="rw-filter-group lang-filter" data-key="${key}">
+      <span class="rw-filter-label">言語</span>
+      <div class="rw-filters">
+        <button class="rw-filter" data-lang="ja">🇯🇵 日本語 (${fmtN(nJa)})</button>
+        <button class="rw-filter" data-lang="foreign">🌐 海外 (${fmtN(nFo)})</button>
+        <button class="rw-filter" data-lang="all">全部 (${fmtN(rows.length)})</button>
+      </div>
+    </div>`;
+}
+function bindLangFilter(container, rows, onChange) {
+  const box = container.querySelector(".lang-filter");
+  if (!box) return rows;
+  const key = "langFilter:" + box.dataset.key;
+  let cur = "ja";
+  try { cur = localStorage.getItem(key) || "ja"; } catch (e) { /* private mode 等 */ }
+  const pick = (lang) => {
+    if (lang === "ja") return rows.filter((r) => r.lang === "ja");
+    if (lang === "foreign") return rows.filter((r) => r.lang !== "ja");
+    return rows;
+  };
+  const btns = box.querySelectorAll(".rw-filter");
+  const setActive = () => btns.forEach((b) => b.classList.toggle("active", b.dataset.lang === cur));
+  btns.forEach((b) => b.addEventListener("click", () => {
+    cur = b.dataset.lang;
+    try { localStorage.setItem(key, cur); } catch (e) { /* ignore */ }
+    setActive();
+    onChange(pick(cur));
+  }));
+  setActive();
+  return pick(cur);
 }
 
 function renderPool(pool) {
@@ -1108,6 +1155,7 @@ function renderPool(pool) {
     毎朝 <strong>RSS フィードで巡回 (quota ゼロ)</strong>。跳ねた動画が出た瞬間に 📡 Slack 通知で再浮上する —
     「一度 gate に落ちたら二度と見ない」を無くす層。初期並びは前月比の登録者の伸び順。<strong>列見出しクリックでソート切替</strong>。全競合を洗い出す方針で増やし続ける。</p>
     <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧から外れ、🧭 新規発見タブ下部の「🚫 違う確定」台帳に移動する（行削除で復帰）。</p>
+    ${langFilterHtml("pool", pool)}
     <div class="dv-table-wrap">
       <table class="dv-table">
         <thead><tr>
@@ -1127,7 +1175,8 @@ function renderPool(pool) {
     tb.innerHTML = '<tr><td colspan="7">（まだプールが空 — 今夜の discovery / rss patrol から貯まり始めます）</td></tr>';
     return;
   }
-  makeSortable(panel.querySelector(".dv-table"), pool, plRow, tb, { limit: 100, afterRender: bindRejectButtons });
+  const plSort = makeSortable(panel.querySelector(".dv-table"), pool, plRow, tb, { limit: 100, afterRender: bindRejectButtons });
+  plSort.setData(bindLangFilter(panel, pool, (rows) => plSort.setData(rows)));
 }
 
 // === 🧭 新規発見タブ (discovery loop の検索キーワード + 評価済み ch 台帳) ===
@@ -1234,6 +1283,7 @@ function renderDiscovery(dv, rejected) {
     違うと確定したら「✗違う」で行をコピーし <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a> へ貼って commit
     — この一覧から外れ、下の「🚫 違う確定」台帳へ移動する。登録者/再生中央値は RSS プールの最新観測 (中央値の「—」は巡回前の新規 ch。毎朝 JST 6時台の巡回で補完)。
     <strong>列見出しクリックでソート切替</strong> (同じ列を再クリックで昇順/降順)。</p>
+    ${langFilterHtml("evaluated", evaluated)}
     <div class="dv-table-wrap">
       <table class="dv-table dv-eval">
         <thead><tr>
@@ -1262,8 +1312,9 @@ function renderDiscovery(dv, rejected) {
   if (!evaluated.length) {
     evTbody.innerHTML = '<tr><td colspan="7">（まだ評価履歴なし）</td></tr>';
   } else {
-    makeSortable(panel.querySelector(".dv-eval"), evaluated, evRow, evTbody,
+    const evSort = makeSortable(panel.querySelector(".dv-eval"), evaluated, evRow, evTbody,
       { limit: 100, afterRender: bindRejectButtons });
+    evSort.setData(bindLangFilter(panel, evaluated, (rows) => evSort.setData(rows)));
   }
 
   // 発見推移チャート: 評価日ごとの新規評価ch数 (棒) + 累計 (線)
