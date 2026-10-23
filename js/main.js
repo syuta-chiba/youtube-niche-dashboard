@@ -1120,19 +1120,22 @@ function renderPool(pool) {
     </tr>`;
   };
 
-  // 言語別の束 (lang: ja / en / other)。build_pages_data.load_pool_data が付与。
-  const subsets = {
-    all: pool,
-    ja: pool.filter((p) => p.lang === "ja"),
-    en: pool.filter((p) => p.lang === "en"),
-    other: pool.filter((p) => p.lang === "other"),
+  // フィルタ = 言語 × 登録者レンジ (AND)。件数は相互連動で表示。真似元の sweet spot は 0〜2,000subs。
+  const langFn = {
+    all: () => true,
+    ja: (p) => p.lang === "ja",
+    en: (p) => p.lang === "en",
+    other: (p) => p.lang === "other",
   };
-  const LANGS = [
-    ["all", `すべて (${fmtN(pool.length)})`],
-    ["ja", `🇯🇵 日本語 (${fmtN(subsets.ja.length)})`],
-    ["en", `🇬🇧 英語 (${fmtN(subsets.en.length)})`],
-    ["other", `🌐 その他 (${fmtN(subsets.other.length)})`],
+  const LANGS = [["all", "すべて"], ["ja", "🇯🇵 日本語"], ["en", "🇬🇧 英語"], ["other", "🌐 その他"]];
+  const SUBS = [
+    ["all", "すべて", () => true],
+    ["lte2000", "🎯 2,000以下", (p) => p.subs != null && p.subs <= 2000],
+    ["lte10000", "1万以下", (p) => p.subs != null && p.subs <= 10000],
+    ["lte100000", "10万以下", (p) => p.subs != null && p.subs <= 100000],
   ];
+  const subFnOf = (k) => SUBS.find((r) => r[0] === k)[2];
+  const state = { lang: "all", sub: "all" };
 
   const tableHtml = `
       <table class="dv-table">
@@ -1154,29 +1157,53 @@ function renderPool(pool) {
     毎朝 <strong>RSS フィードで巡回 (quota ゼロ)</strong>。跳ねた動画が出た瞬間に 📡 Slack 通知で再浮上する —
     「一度 gate に落ちたら二度と見ない」を無くす層。初期並びは前月比の登録者の伸び順。<strong>列見出しクリックでソート切替</strong>。全競合を洗い出す方針で増やし続ける。</p>
     <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧から外れ、🧭 新規発見タブ下部の「🚫 違う確定」台帳に移動する（行削除で復帰）。</p>
-    <div class="pl-langbar">${LANGS.map(([k, l]) => `<button type="button" data-lang="${k}">${l}</button>`).join("")}</div>
+    <div class="pl-filters">
+      <div class="pl-filtrow"><span class="pl-flabel">言語</span><div class="pl-langbar" id="pl-lang">${LANGS.map(([k, l]) => `<button type="button" data-k="${k}">${l}</button>`).join("")}</div></div>
+      <div class="pl-filtrow"><span class="pl-flabel">登録者</span><div class="pl-langbar" id="pl-sub">${SUBS.map(([k, l]) => `<button type="button" data-k="${k}">${l}</button>`).join("")}</div></div>
+    </div>
     <div class="dv-table-wrap" id="pool-table-wrap"></div>`;
 
   const wrap = document.getElementById("pool-table-wrap");
-  const draw = (key) => {
-    const list = subsets[key] || pool;
+  const langBtns = [...panel.querySelectorAll("#pl-lang button")];
+  const subBtns = [...panel.querySelectorAll("#pl-sub button")];
+
+  // 件数は相互連動: 言語ボタンの数字は「今の登録者レンジ内での各言語数」、逆も同様。
+  const refreshLabels = () => {
+    const sf = subFnOf(state.sub), lf = langFn[state.lang];
+    langBtns.forEach((b) => {
+      const k = b.dataset.k, lbl = LANGS.find((x) => x[0] === k)[1];
+      b.textContent = `${lbl} (${fmtN(pool.filter((p) => langFn[k](p) && sf(p)).length)})`;
+    });
+    subBtns.forEach((b) => {
+      const k = b.dataset.k, r = SUBS.find((x) => x[0] === k);
+      b.textContent = `${r[1]} (${fmtN(pool.filter((p) => lf(p) && r[2](p)).length)})`;
+    });
+  };
+  const draw = () => {
+    const list = pool.filter((p) => langFn[state.lang](p) && subFnOf(state.sub)(p));
     wrap.innerHTML = tableHtml;   // テーブルを作り直す = 旧ソートリスナーを捨てる
     const tb = document.getElementById("pool-tbody");
     if (!list.length) {
-      tb.innerHTML = '<tr><td colspan="7">（この言語の該当なし — まだ巡回中の可能性があります）</td></tr>';
+      tb.innerHTML = '<tr><td colspan="7">（この条件の該当なし）</td></tr>';
       return;
     }
     makeSortable(wrap.querySelector(".dv-table"), list, plRow, tb, { limit: 100, afterRender: bindRejectButtons });
   };
 
-  const btns = panel.querySelectorAll(".pl-langbar button");
-  btns.forEach((b) => b.addEventListener("click", () => {
-    btns.forEach((x) => x.classList.remove("active"));
-    b.classList.add("active");
-    draw(b.dataset.lang);
+  langBtns.forEach((b) => b.addEventListener("click", () => {
+    state.lang = b.dataset.k;
+    langBtns.forEach((x) => x.classList.toggle("active", x === b));
+    refreshLabels(); draw();
   }));
-  if (btns[0]) btns[0].classList.add("active");
-  draw("all");
+  subBtns.forEach((b) => b.addEventListener("click", () => {
+    state.sub = b.dataset.k;
+    subBtns.forEach((x) => x.classList.toggle("active", x === b));
+    refreshLabels(); draw();
+  }));
+  if (langBtns[0]) langBtns[0].classList.add("active");
+  if (subBtns[0]) subBtns[0].classList.add("active");
+  refreshLabels();
+  draw();
 }
 
 // === 🧭 新規発見タブ (discovery loop の検索キーワード + 評価済み ch 台帳) ===
