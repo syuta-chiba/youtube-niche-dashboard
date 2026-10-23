@@ -174,16 +174,37 @@ function buildTabs(channels) {
   tabs.push({ id: "daily", btn: dailyBtn });
   nav.appendChild(dailyBtn);
 
-  // 既存の注目チャンネル群 (priority 観測対象)
+  // 注目チャンネル群 (priority 観測対象) はセクションタブと混ざらないよう専用メニューに分離。
+  // スマホ: ☰ ハンバーガーに収納 / PC: nav の 2 段目として並べる。
+  const chMenu = document.createElement("div");
+  chMenu.id = "channel-menu";
+  const hamburger = document.createElement("button");
+  hamburger.className = "nav-hamburger";
+  hamburger.textContent = `☰ チャンネル (${channels.length})`;
+  hamburger.setAttribute("aria-expanded", "false");
+  hamburger.onclick = () => {
+    const open = chMenu.classList.toggle("open");
+    hamburger.classList.toggle("open", open);
+    hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+  nav.appendChild(hamburger);
+
   channels.forEach((ch) => {
     const btn = document.createElement("button");
+    btn.className = "nav-channel";
     btn.innerHTML = `${chIcon(ch)}${ch.boosted ? "⚠️ " : ""}${escapeHtml(ch.title)}`;
-    btn.onclick = () => activateTab(ch.id, tabs);
+    btn.onclick = () => {
+      activateTab(ch.id, tabs);
+      chMenu.classList.remove("open");
+      hamburger.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+    };
     tabs.push({ id: ch.id, btn });
-    nav.appendChild(btn);
+    chMenu.appendChild(btn);
   });
+  nav.insertAdjacentElement("afterend", chMenu);
 
-  // 新規発見 (discovery loop) — 既存チャンネル群と区切り線で分ける
+  // 新規発見 (discovery loop) — セクションタブ側の区切り線
   const sep = document.createElement("span");
   sep.className = "nav-sep";
   nav.appendChild(sep);

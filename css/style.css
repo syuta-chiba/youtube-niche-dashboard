@@ -75,6 +75,22 @@ nav button.active {
   border-bottom-color: var(--accent);
 }
 
+/* 注目チャンネルの専用メニュー (セクションタブと分離) */
+.nav-hamburger { display: none; }   /* PC では隠す。チャンネルは下段に出す */
+#channel-menu {
+  display: flex; flex-wrap: wrap; align-items: center;
+  padding: 0 2rem; gap: 0;
+  border-bottom: 1px solid var(--border); background: var(--bg);
+}
+#channel-menu button {
+  background: transparent; border: none; border-bottom: 2px solid transparent;
+  color: var(--text-dim); padding: 0.55rem 1rem; cursor: pointer;
+  font-size: 0.9rem; font-weight: 500; margin-bottom: -1px;
+}
+#channel-menu button:hover { color: var(--text); }
+#channel-menu button.active { color: var(--accent); border-bottom-color: var(--accent); }
+#channel-menu .ch-icon { width: 18px; height: 18px; vertical-align: middle; margin-right: 0.3rem; }
+
 .channel { display: none; }
 .channel.active { display: block; }
 
@@ -653,6 +669,20 @@ main {
   nav::-webkit-scrollbar { display: none; }
   nav button { padding: 0.6rem 0.7rem; font-size: 0.85rem; white-space: nowrap; flex: 0 0 auto; }
   nav button .ch-icon, nav button img { width: 16px; height: 16px; }
+
+  /* スマホ: チャンネルは ☰ に収納 (セクションタブと分ける) */
+  .nav-hamburger { display: inline-block; }
+  nav { position: relative; }
+  #channel-menu { display: none; padding: 0; border-bottom: none; }
+  #channel-menu.open {
+    display: flex; flex-direction: column;
+    border-bottom: 1px solid var(--border); background: var(--bg);
+    max-height: 60vh; overflow-y: auto;
+  }
+  #channel-menu.open button {
+    width: 100%; text-align: left; padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
   main { padding: 1rem; }
   .channel h2 { font-size: 1.05rem; }
   .kpi { min-width: 0; flex: 1 1 calc(50% - 0.5rem); padding: 0.7rem 0.9rem; }
