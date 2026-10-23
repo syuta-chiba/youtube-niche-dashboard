@@ -472,13 +472,13 @@ main {
 .rw-help {
   font-size: 16px;
   color: var(--text-dim);
-  margin: 0 0 2rem;
+  margin: 0 0 40px;
   line-height: 1.5;
 }
 .rw-help strong { color: var(--text); font-weight: 600; }
-.rw-help p { margin: 0 0 1.2rem; }
+.rw-help p { margin: 0 0 40px; }
 .rw-help ul {
-  margin: 0 0 2rem;
+  margin: 0 0 40px;
   padding-left: 1.3rem;
   list-style: disc;
 }
