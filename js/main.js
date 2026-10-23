@@ -174,37 +174,16 @@ function buildTabs(channels) {
   tabs.push({ id: "daily", btn: dailyBtn });
   nav.appendChild(dailyBtn);
 
-  // 注目チャンネル群 (priority 観測対象) はセクションタブと混ざらないよう専用メニューに分離。
-  // スマホ: ☰ ハンバーガーに収納 / PC: nav の 2 段目として並べる。
-  const chMenu = document.createElement("div");
-  chMenu.id = "channel-menu";
-  const hamburger = document.createElement("button");
-  hamburger.className = "nav-hamburger";
-  hamburger.textContent = `☰ チャンネル (${channels.length})`;
-  hamburger.setAttribute("aria-expanded", "false");
-  hamburger.onclick = () => {
-    const open = chMenu.classList.toggle("open");
-    hamburger.classList.toggle("open", open);
-    hamburger.setAttribute("aria-expanded", open ? "true" : "false");
-  };
-  nav.appendChild(hamburger);
-
+  // 既存の注目チャンネル群 (priority 観測対象)
   channels.forEach((ch) => {
     const btn = document.createElement("button");
-    btn.className = "nav-channel";
     btn.innerHTML = `${chIcon(ch)}${ch.boosted ? "⚠️ " : ""}${escapeHtml(ch.title)}`;
-    btn.onclick = () => {
-      activateTab(ch.id, tabs);
-      chMenu.classList.remove("open");
-      hamburger.classList.remove("open");
-      hamburger.setAttribute("aria-expanded", "false");
-    };
+    btn.onclick = () => activateTab(ch.id, tabs);
     tabs.push({ id: ch.id, btn });
-    chMenu.appendChild(btn);
+    nav.appendChild(btn);
   });
-  nav.insertAdjacentElement("afterend", chMenu);
 
-  // 新規発見 (discovery loop) — セクションタブ側の区切り線
+  // 新規発見 (discovery loop) — 既存チャンネル群と区切り線で分ける
   const sep = document.createElement("span");
   sep.className = "nav-sep";
   nav.appendChild(sep);
@@ -1120,36 +1099,13 @@ function renderPool(pool) {
     </tr>`;
   };
 
-  // フィルタ = 言語 × 登録者 × IT関連度 の3軸 (AND)。件数は他2軸の現状態で相互連動。
-  // 関連度は既定で「IT以外を隠す」(out確定だけ非表示・未判定は残す)。真似元 sweet spot は 0〜2,000subs。
-  const DIMS = [
-    { key: "lang", label: "言語", def: "all", opts: [
-      ["all", "すべて", () => true],
-      ["ja", "🇯🇵 日本語", (p) => p.lang === "ja"],
-      ["en", "🇬🇧 英語", (p) => p.lang === "en"],
-      ["other", "🌐 その他", (p) => p.lang === "other"],
-    ] },
-    { key: "sub", label: "登録者", def: "all", opts: [
-      ["all", "すべて", () => true],
-      ["lte2000", "🎯 2,000以下", (p) => p.subs != null && p.subs <= 2000],
-      ["lte10000", "1万以下", (p) => p.subs != null && p.subs <= 10000],
-      ["lte100000", "10万以下", (p) => p.subs != null && p.subs <= 100000],
-    ] },
-    { key: "rel", label: "関連度", def: "clean", opts: [
-      ["clean", "🧹 IT以外を隠す", (p) => p.rel !== "out"],
-      ["all", "すべて", () => true],
-      ["in", "✅ IT関連", (p) => p.rel === "in"],
-      ["unknown", "❓ 未判定", (p) => (p.rel || "unknown") === "unknown"],
-      ["out", "🚫 IT外", (p) => p.rel === "out"],
-    ] },
-  ];
-  const state = {};
-  DIMS.forEach((d) => { state[d.key] = d.def; });
-  const fnOf = (d, k) => d.opts.find((o) => o[0] === k)[2];
-  const matchesExcept = (p, skip) => DIMS.every((d) => d.key === skip || fnOf(d, state[d.key])(p));
-  const matchesAll = (p) => DIMS.every((d) => fnOf(d, state[d.key])(p));
-
-  const tableHtml = `
+  panel.innerHTML = `
+    <h2>🗂 発見済みチャンネル (${pool.length}件) — 注目 (priority) には入れていない競合候補プール</h2>
+    <p class="dv-desc">discovery の検索・市場検証・外部コーパスで一度でも視界に入った ch を全員ここに貯め、
+    毎朝 <strong>RSS フィードで巡回 (quota ゼロ)</strong>。跳ねた動画が出た瞬間に 📡 Slack 通知で再浮上する —
+    「一度 gate に落ちたら二度と見ない」を無くす層。初期並びは前月比の登録者の伸び順。<strong>列見出しクリックでソート切替</strong>。全競合を洗い出す方針で増やし続ける。</p>
+    <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧から外れ、🧭 新規発見タブ下部の「🚫 違う確定」台帳に移動する（行削除で復帰）。</p>
+    <div class="dv-table-wrap">
       <table class="dv-table">
         <thead><tr>
           <th>チャンネル</th>
@@ -1161,55 +1117,14 @@ function renderPool(pool) {
           <th></th>
         </tr></thead>
         <tbody id="pool-tbody"></tbody>
-      </table>`;
-
-  panel.innerHTML = `
-    <h2>🗂 発見済みチャンネル (${fmtN(pool.length)}件) — 注目 (priority) には入れていない競合候補プール</h2>
-    <p class="dv-desc">discovery の検索・市場検証・外部コーパスで一度でも視界に入った ch を全員ここに貯め、
-    毎朝 <strong>RSS フィードで巡回 (quota ゼロ)</strong>。跳ねた動画が出た瞬間に 📡 Slack 通知で再浮上する —
-    「一度 gate に落ちたら二度と見ない」を無くす層。初期並びは前月比の登録者の伸び順。<strong>列見出しクリックでソート切替</strong>。全競合を洗い出す方針で増やし続ける。</p>
-    <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧から外れ、🧭 新規発見タブ下部の「🚫 違う確定」台帳に移動する（行削除で復帰）。</p>
-    <div class="pl-filters">
-      ${DIMS.map((d) => `<div class="pl-filtrow"><span class="pl-flabel">${d.label}</span><div class="pl-langbar" data-dim="${d.key}">${d.opts.map(([k, l]) => `<button type="button" data-k="${k}">${l}</button>`).join("")}</div></div>`).join("")}
-    </div>
-    <div class="dv-table-wrap" id="pool-table-wrap"></div>`;
-
-  const wrap = document.getElementById("pool-table-wrap");
-
-  // 件数は相互連動: 各ボタンの数字は「他の2軸の現在の絞り込み内での該当数」。
-  const refreshLabels = () => {
-    DIMS.forEach((d) => {
-      const bar = panel.querySelector(`.pl-langbar[data-dim="${d.key}"]`);
-      [...bar.querySelectorAll("button")].forEach((b) => {
-        const o = d.opts.find((x) => x[0] === b.dataset.k);
-        b.textContent = `${o[1]} (${fmtN(pool.filter((p) => matchesExcept(p, d.key) && o[2](p)).length)})`;
-      });
-    });
-  };
-  const draw = () => {
-    const list = pool.filter(matchesAll);
-    wrap.innerHTML = tableHtml;   // テーブルを作り直す = 旧ソートリスナーを捨てる
-    const tb = document.getElementById("pool-tbody");
-    if (!list.length) {
-      tb.innerHTML = '<tr><td colspan="7">（この条件の該当なし）</td></tr>';
-      return;
-    }
-    makeSortable(wrap.querySelector(".dv-table"), list, plRow, tb, { limit: 100, afterRender: bindRejectButtons });
-  };
-
-  DIMS.forEach((d) => {
-    const bar = panel.querySelector(`.pl-langbar[data-dim="${d.key}"]`);
-    const btns = [...bar.querySelectorAll("button")];
-    btns.forEach((b) => b.addEventListener("click", () => {
-      state[d.key] = b.dataset.k;
-      btns.forEach((x) => x.classList.toggle("active", x === b));
-      refreshLabels(); draw();
-    }));
-    const active = btns.find((b) => b.dataset.k === d.def) || btns[0];
-    if (active) active.classList.add("active");
-  });
-  refreshLabels();
-  draw();
+      </table>
+    </div>`;
+  const tb = document.getElementById("pool-tbody");
+  if (!pool.length) {
+    tb.innerHTML = '<tr><td colspan="7">（まだプールが空 — 今夜の discovery / rss patrol から貯まり始めます）</td></tr>';
+    return;
+  }
+  makeSortable(panel.querySelector(".dv-table"), pool, plRow, tb, { limit: 100, afterRender: bindRejectButtons });
 }
 
 // === 🧭 新規発見タブ (discovery loop の検索キーワード + 評価済み ch 台帳) ===
