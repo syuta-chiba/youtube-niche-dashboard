@@ -1099,13 +1099,21 @@ function renderPool(pool) {
     </tr>`;
   };
 
-  panel.innerHTML = `
-    <h2>🗂 発見済みチャンネル (${pool.length}件) — 注目 (priority) には入れていない競合候補プール</h2>
-    <p class="dv-desc">discovery の検索・市場検証・外部コーパスで一度でも視界に入った ch を全員ここに貯め、
-    毎朝 <strong>RSS フィードで巡回 (quota ゼロ)</strong>。跳ねた動画が出た瞬間に 📡 Slack 通知で再浮上する —
-    「一度 gate に落ちたら二度と見ない」を無くす層。初期並びは前月比の登録者の伸び順。<strong>列見出しクリックでソート切替</strong>。全競合を洗い出す方針で増やし続ける。</p>
-    <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧から外れ、🧭 新規発見タブ下部の「🚫 違う確定」台帳に移動する（行削除で復帰）。</p>
-    <div class="dv-table-wrap">
+  // 言語別の束 (lang: ja / en / other)。build_pages_data.load_pool_data が付与。
+  const subsets = {
+    all: pool,
+    ja: pool.filter((p) => p.lang === "ja"),
+    en: pool.filter((p) => p.lang === "en"),
+    other: pool.filter((p) => p.lang === "other"),
+  };
+  const LANGS = [
+    ["all", `すべて (${fmtN(pool.length)})`],
+    ["ja", `🇯🇵 日本語 (${fmtN(subsets.ja.length)})`],
+    ["en", `🇬🇧 英語 (${fmtN(subsets.en.length)})`],
+    ["other", `🌐 その他 (${fmtN(subsets.other.length)})`],
+  ];
+
+  const tableHtml = `
       <table class="dv-table">
         <thead><tr>
           <th>チャンネル</th>
@@ -1117,14 +1125,37 @@ function renderPool(pool) {
           <th></th>
         </tr></thead>
         <tbody id="pool-tbody"></tbody>
-      </table>
-    </div>`;
-  const tb = document.getElementById("pool-tbody");
-  if (!pool.length) {
-    tb.innerHTML = '<tr><td colspan="7">（まだプールが空 — 今夜の discovery / rss patrol から貯まり始めます）</td></tr>';
-    return;
-  }
-  makeSortable(panel.querySelector(".dv-table"), pool, plRow, tb, { limit: 100, afterRender: bindRejectButtons });
+      </table>`;
+
+  panel.innerHTML = `
+    <h2>🗂 発見済みチャンネル (${fmtN(pool.length)}件) — 注目 (priority) には入れていない競合候補プール</h2>
+    <p class="dv-desc">discovery の検索・市場検証・外部コーパスで一度でも視界に入った ch を全員ここに貯め、
+    毎朝 <strong>RSS フィードで巡回 (quota ゼロ)</strong>。跳ねた動画が出た瞬間に 📡 Slack 通知で再浮上する —
+    「一度 gate に落ちたら二度と見ない」を無くす層。初期並びは前月比の登録者の伸び順。<strong>列見出しクリックでソート切替</strong>。全競合を洗い出す方針で増やし続ける。</p>
+    <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧から外れ、🧭 新規発見タブ下部の「🚫 違う確定」台帳に移動する（行削除で復帰）。</p>
+    <div class="pl-langbar">${LANGS.map(([k, l]) => `<button type="button" data-lang="${k}">${l}</button>`).join("")}</div>
+    <div class="dv-table-wrap" id="pool-table-wrap"></div>`;
+
+  const wrap = document.getElementById("pool-table-wrap");
+  const draw = (key) => {
+    const list = subsets[key] || pool;
+    wrap.innerHTML = tableHtml;   // テーブルを作り直す = 旧ソートリスナーを捨てる
+    const tb = document.getElementById("pool-tbody");
+    if (!list.length) {
+      tb.innerHTML = '<tr><td colspan="7">（この言語の該当なし — まだ巡回中の可能性があります）</td></tr>';
+      return;
+    }
+    makeSortable(wrap.querySelector(".dv-table"), list, plRow, tb, { limit: 100, afterRender: bindRejectButtons });
+  };
+
+  const btns = panel.querySelectorAll(".pl-langbar button");
+  btns.forEach((b) => b.addEventListener("click", () => {
+    btns.forEach((x) => x.classList.remove("active"));
+    b.classList.add("active");
+    draw(b.dataset.lang);
+  }));
+  if (btns[0]) btns[0].classList.add("active");
+  draw("all");
 }
 
 // === 🧭 新規発見タブ (discovery loop の検索キーワード + 評価済み ch 台帳) ===
