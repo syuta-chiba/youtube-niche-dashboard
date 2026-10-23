@@ -175,8 +175,11 @@ function buildTabs(channels) {
   nav.appendChild(dailyBtn);
 
   // 既存の注目チャンネル群 (priority 観測対象)
+  // 2026-10-24: タブ欄には出さない (ユーザー指示・PC/スマホ共通)。横断の急伸ウォッチ側で
+  // チャンネル絞り込みできるため、個別タブは #<channel id> の直リンク用にだけ残す (CSS で非表示)。
   channels.forEach((ch) => {
     const btn = document.createElement("button");
+    btn.className = "nav-ch";
     btn.innerHTML = `${chIcon(ch)}${ch.boosted ? "⚠️ " : ""}${escapeHtml(ch.title)}`;
     btn.onclick = () => activateTab(ch.id, tabs);
     tabs.push({ id: ch.id, btn });
