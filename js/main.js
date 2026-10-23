@@ -1120,22 +1120,34 @@ function renderPool(pool) {
     </tr>`;
   };
 
-  // フィルタ = 言語 × 登録者レンジ (AND)。件数は相互連動で表示。真似元の sweet spot は 0〜2,000subs。
-  const langFn = {
-    all: () => true,
-    ja: (p) => p.lang === "ja",
-    en: (p) => p.lang === "en",
-    other: (p) => p.lang === "other",
-  };
-  const LANGS = [["all", "すべて"], ["ja", "🇯🇵 日本語"], ["en", "🇬🇧 英語"], ["other", "🌐 その他"]];
-  const SUBS = [
-    ["all", "すべて", () => true],
-    ["lte2000", "🎯 2,000以下", (p) => p.subs != null && p.subs <= 2000],
-    ["lte10000", "1万以下", (p) => p.subs != null && p.subs <= 10000],
-    ["lte100000", "10万以下", (p) => p.subs != null && p.subs <= 100000],
+  // フィルタ = 言語 × 登録者 × IT関連度 の3軸 (AND)。件数は他2軸の現状態で相互連動。
+  // 関連度は既定で「IT以外を隠す」(out確定だけ非表示・未判定は残す)。真似元 sweet spot は 0〜2,000subs。
+  const DIMS = [
+    { key: "lang", label: "言語", def: "all", opts: [
+      ["all", "すべて", () => true],
+      ["ja", "🇯🇵 日本語", (p) => p.lang === "ja"],
+      ["en", "🇬🇧 英語", (p) => p.lang === "en"],
+      ["other", "🌐 その他", (p) => p.lang === "other"],
+    ] },
+    { key: "sub", label: "登録者", def: "all", opts: [
+      ["all", "すべて", () => true],
+      ["lte2000", "🎯 2,000以下", (p) => p.subs != null && p.subs <= 2000],
+      ["lte10000", "1万以下", (p) => p.subs != null && p.subs <= 10000],
+      ["lte100000", "10万以下", (p) => p.subs != null && p.subs <= 100000],
+    ] },
+    { key: "rel", label: "関連度", def: "clean", opts: [
+      ["clean", "🧹 IT以外を隠す", (p) => p.rel !== "out"],
+      ["all", "すべて", () => true],
+      ["in", "✅ IT関連", (p) => p.rel === "in"],
+      ["unknown", "❓ 未判定", (p) => (p.rel || "unknown") === "unknown"],
+      ["out", "🚫 IT外", (p) => p.rel === "out"],
+    ] },
   ];
-  const subFnOf = (k) => SUBS.find((r) => r[0] === k)[2];
-  const state = { lang: "all", sub: "all" };
+  const state = {};
+  DIMS.forEach((d) => { state[d.key] = d.def; });
+  const fnOf = (d, k) => d.opts.find((o) => o[0] === k)[2];
+  const matchesExcept = (p, skip) => DIMS.every((d) => d.key === skip || fnOf(d, state[d.key])(p));
+  const matchesAll = (p) => DIMS.every((d) => fnOf(d, state[d.key])(p));
 
   const tableHtml = `
       <table class="dv-table">
@@ -1158,29 +1170,24 @@ function renderPool(pool) {
     「一度 gate に落ちたら二度と見ない」を無くす層。初期並びは前月比の登録者の伸び順。<strong>列見出しクリックでソート切替</strong>。全競合を洗い出す方針で増やし続ける。</p>
     <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧から外れ、🧭 新規発見タブ下部の「🚫 違う確定」台帳に移動する（行削除で復帰）。</p>
     <div class="pl-filters">
-      <div class="pl-filtrow"><span class="pl-flabel">言語</span><div class="pl-langbar" id="pl-lang">${LANGS.map(([k, l]) => `<button type="button" data-k="${k}">${l}</button>`).join("")}</div></div>
-      <div class="pl-filtrow"><span class="pl-flabel">登録者</span><div class="pl-langbar" id="pl-sub">${SUBS.map(([k, l]) => `<button type="button" data-k="${k}">${l}</button>`).join("")}</div></div>
+      ${DIMS.map((d) => `<div class="pl-filtrow"><span class="pl-flabel">${d.label}</span><div class="pl-langbar" data-dim="${d.key}">${d.opts.map(([k, l]) => `<button type="button" data-k="${k}">${l}</button>`).join("")}</div></div>`).join("")}
     </div>
     <div class="dv-table-wrap" id="pool-table-wrap"></div>`;
 
   const wrap = document.getElementById("pool-table-wrap");
-  const langBtns = [...panel.querySelectorAll("#pl-lang button")];
-  const subBtns = [...panel.querySelectorAll("#pl-sub button")];
 
-  // 件数は相互連動: 言語ボタンの数字は「今の登録者レンジ内での各言語数」、逆も同様。
+  // 件数は相互連動: 各ボタンの数字は「他の2軸の現在の絞り込み内での該当数」。
   const refreshLabels = () => {
-    const sf = subFnOf(state.sub), lf = langFn[state.lang];
-    langBtns.forEach((b) => {
-      const k = b.dataset.k, lbl = LANGS.find((x) => x[0] === k)[1];
-      b.textContent = `${lbl} (${fmtN(pool.filter((p) => langFn[k](p) && sf(p)).length)})`;
-    });
-    subBtns.forEach((b) => {
-      const k = b.dataset.k, r = SUBS.find((x) => x[0] === k);
-      b.textContent = `${r[1]} (${fmtN(pool.filter((p) => lf(p) && r[2](p)).length)})`;
+    DIMS.forEach((d) => {
+      const bar = panel.querySelector(`.pl-langbar[data-dim="${d.key}"]`);
+      [...bar.querySelectorAll("button")].forEach((b) => {
+        const o = d.opts.find((x) => x[0] === b.dataset.k);
+        b.textContent = `${o[1]} (${fmtN(pool.filter((p) => matchesExcept(p, d.key) && o[2](p)).length)})`;
+      });
     });
   };
   const draw = () => {
-    const list = pool.filter((p) => langFn[state.lang](p) && subFnOf(state.sub)(p));
+    const list = pool.filter(matchesAll);
     wrap.innerHTML = tableHtml;   // テーブルを作り直す = 旧ソートリスナーを捨てる
     const tb = document.getElementById("pool-tbody");
     if (!list.length) {
@@ -1190,18 +1197,17 @@ function renderPool(pool) {
     makeSortable(wrap.querySelector(".dv-table"), list, plRow, tb, { limit: 100, afterRender: bindRejectButtons });
   };
 
-  langBtns.forEach((b) => b.addEventListener("click", () => {
-    state.lang = b.dataset.k;
-    langBtns.forEach((x) => x.classList.toggle("active", x === b));
-    refreshLabels(); draw();
-  }));
-  subBtns.forEach((b) => b.addEventListener("click", () => {
-    state.sub = b.dataset.k;
-    subBtns.forEach((x) => x.classList.toggle("active", x === b));
-    refreshLabels(); draw();
-  }));
-  if (langBtns[0]) langBtns[0].classList.add("active");
-  if (subBtns[0]) subBtns[0].classList.add("active");
+  DIMS.forEach((d) => {
+    const bar = panel.querySelector(`.pl-langbar[data-dim="${d.key}"]`);
+    const btns = [...bar.querySelectorAll("button")];
+    btns.forEach((b) => b.addEventListener("click", () => {
+      state[d.key] = b.dataset.k;
+      btns.forEach((x) => x.classList.toggle("active", x === b));
+      refreshLabels(); draw();
+    }));
+    const active = btns.find((b) => b.dataset.k === d.def) || btns[0];
+    if (active) active.classList.add("active");
+  });
   refreshLabels();
   draw();
 }
