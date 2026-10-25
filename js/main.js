@@ -2559,7 +2559,15 @@ function renderRisingWatch(channels) {
           <li><strong>—</strong> = 観測点がまだ少なく判定不能。</li>
         </ul>
       </div>
-      <p class="rw-help"><strong>行クリックで横断分析を展開</strong>（類似HIT・参入タイミング。Slack 急伸通知と同ロジック）。<span class="xa-badge xa-badge-cross">🌐 横展開実証</span> = 同テーマが他チャンネルでもHIT（真似る価値の強シグナル） / <span class="xa-badge xa-badge-same">🔁 自ch実証</span> = 類似HITが自チャンネル内のみ / <span class="xa-badge xa-badge-new">🆕 新規テーマ</span> = 過去履歴に類似HITなし。⏱ 🟢初速ゾーン 🟡伸び継続 🔴ピークアウト気味。</p>
+      <div class="rw-help">
+        <p><strong>行クリックで横断分析を展開</strong>（類似HIT・参入タイミング。Slack 急伸通知と同ロジック）。</p>
+        <ul>
+          <li><span class="xa-badge xa-badge-cross">🌐 横展開実証</span> = 同テーマが他チャンネルでも HIT（真似る価値の強シグナル）。</li>
+          <li><span class="xa-badge xa-badge-same">🔁 自ch実証</span> = 類似 HIT が自チャンネル内のみ。</li>
+          <li><span class="xa-badge xa-badge-new">🆕 新規テーマ</span> = 過去履歴に類似 HIT なし。</li>
+        </ul>
+        <p>⏱ 参入タイミング： 🟢 初速ゾーン ／ 🟡 伸び継続 ／ 🔴 ピークアウト気味。</p>
+      </div>
 
       <div class="rw-filter-group">
         <span class="rw-filter-label">チャンネル</span>

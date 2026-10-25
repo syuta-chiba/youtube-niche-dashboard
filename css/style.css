@@ -473,8 +473,10 @@ main {
   font-size: 16px;
   color: var(--text-dim);
   margin: 0 0 40px;
-  line-height: 1.5;
+  line-height: 1.75;   /* AI回答(Gemini等)風のゆったりした行間で読みやすく */
 }
+/* バッジ入りの項目は行の高さを揃えてガタつきを抑える */
+.rw-help li .xa-badge { margin-right: 0.35rem; }
 .rw-help strong { color: var(--text); font-weight: 600; }
 .rw-help p { margin: 0 0 40px; }
 .rw-help ul {
