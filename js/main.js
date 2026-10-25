@@ -1129,25 +1129,6 @@ function bindLangFilter(container, rows, onChange) {
   return pick(cur);
 }
 
-// 発見済みch 用の登録者レンジフィルタ。真似元 sweet spot (2,000以下) と枠外 (2,000超) を分ける。
-const POOL_SUB_FNS = {
-  all: () => true,
-  lte2000: (r) => r.subs != null && r.subs <= 2000,
-  gt2000: (r) => r.subs != null && r.subs > 2000,
-};
-function poolSubsFilterHtml(rows) {
-  const c = (k) => fmtN(rows.filter(POOL_SUB_FNS[k]).length);
-  return `
-    <div class="rw-filter-group subs-filter">
-      <span class="rw-filter-label">登録者</span>
-      <div class="rw-filters">
-        <button class="rw-filter" data-sub="all">全部 (${c("all")})</button>
-        <button class="rw-filter" data-sub="lte2000">🎯 2,000以下 (${c("lte2000")})</button>
-        <button class="rw-filter" data-sub="gt2000">2,000超・枠外 (${c("gt2000")})</button>
-      </div>
-    </div>`;
-}
-
 function renderPool(pool) {
   const panel = document.getElementById("pool-panel");
   if (!panel) return;
@@ -1174,7 +1155,7 @@ function renderPool(pool) {
     毎朝 <strong>RSS フィードで巡回 (quota ゼロ)</strong>。跳ねた動画が出た瞬間に 📡 Slack 通知で再浮上する —
     「一度 gate に落ちたら二度と見ない」を無くす層。初期並びは前月比の登録者の伸び順。<strong>列見出しクリックでソート切替</strong>。全競合を洗い出す方針で増やし続ける。</p>
     <p class="dv-sub">ノイズ除去: 各行の「✗違う」で行をコピーし、<a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt を編集</a>に貼って commit すると「違う確定」— 巡回・類似HIT照合・この一覧から外れ、🧭 新規発見タブ下部の「🚫 違う確定」台帳に移動する（行削除で復帰）。</p>
-    ${langFilterHtml("pool", pool)}${poolSubsFilterHtml(pool)}
+    ${langFilterHtml("pool", pool)}
     <div class="dv-table-wrap">
       <table class="dv-table">
         <thead><tr>
@@ -1195,26 +1176,7 @@ function renderPool(pool) {
     return;
   }
   const plSort = makeSortable(panel.querySelector(".dv-table"), pool, plRow, tb, { limit: 100, afterRender: bindRejectButtons });
-
-  // 言語 × 登録者レンジ の複合フィルタ (AND)。言語は既存の共有コンポーネント流儀を踏襲。
-  const langFns = { all: () => true, ja: (r) => r.lang === "ja", foreign: (r) => r.lang !== "ja" };
-  let langCur = "ja", subCur = "all";
-  try { langCur = localStorage.getItem("langFilter:pool") || "ja"; } catch (e) { /* private mode */ }
-  try { subCur = localStorage.getItem("subFilter:pool") || "all"; } catch (e) { /* private mode */ }
-  const apply = () => plSort.setData(pool.filter((r) => langFns[langCur](r) && POOL_SUB_FNS[subCur](r)));
-  const wire = (sel, attr, get, set) => {
-    const box = panel.querySelector(sel);
-    if (!box) return;
-    const btns = box.querySelectorAll(".rw-filter");
-    const refresh = () => btns.forEach((b) => b.classList.toggle("active", b.dataset[attr] === get()));
-    btns.forEach((b) => b.addEventListener("click", () => { set(b.dataset[attr]); refresh(); apply(); }));
-    refresh();
-  };
-  wire(".lang-filter", "lang", () => langCur,
-    (v) => { langCur = v; try { localStorage.setItem("langFilter:pool", v); } catch (e) { /* */ } });
-  wire(".subs-filter", "sub", () => subCur,
-    (v) => { subCur = v; try { localStorage.setItem("subFilter:pool", v); } catch (e) { /* */ } });
-  apply();
+  plSort.setData(bindLangFilter(panel, pool, (rows) => plSort.setData(rows)));
 }
 
 // === 🧭 新規発見タブ (discovery loop の検索キーワード + 評価済み ch 台帳) ===
