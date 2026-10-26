@@ -46,6 +46,13 @@ header h1 {
 .meta a { color: var(--accent); text-decoration: none; }
 .meta a:hover { text-decoration: underline; }
 .sep { margin: 0 0.6rem; }
+#cache-refresh {
+  font: inherit; color: var(--accent); background: none;
+  border: 1px solid var(--border); border-radius: 999px;
+  padding: 0.15rem 0.7rem; cursor: pointer;
+}
+#cache-refresh:hover { border-color: var(--accent); }
+#cache-refresh:disabled { opacity: 0.6; cursor: default; }
 
 nav {
   padding: 0 2rem;
@@ -473,8 +480,9 @@ main {
   font-size: 16px;
   color: var(--text-dim);
   margin: 0 0 40px;
-  line-height: 1.5;
+  line-height: 1.75;   /* AI回答(Gemini等)風のゆったりした行間で読みやすく */
 }
+.rw-help li .xa-badge { margin-right: 0.35rem; }
 .rw-help strong { color: var(--text); font-weight: 600; }
 .rw-help p { margin: 0 0 40px; }
 .rw-help ul {
