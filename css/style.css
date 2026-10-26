@@ -933,6 +933,12 @@ nav#channel-nav button.nav-ch { display: none; }
 
 /* 🗂 発見済みch プール */
 .pl-ch a { color: inherit; font-weight: 600; }
+.pl-boost {
+  display: inline-block; margin-left: 0.35rem;
+  font-size: 0.72rem; font-weight: 600; white-space: nowrap;
+  color: #9a6a12; background: #f3e6c9; border-radius: 4px; padding: 0.05rem 0.35rem;
+  cursor: help;
+}
 .pl-reject {
   font-size: 0.72rem;
   padding: 0.1rem 0.45rem;

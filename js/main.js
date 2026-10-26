@@ -1156,9 +1156,14 @@ function renderPool(pool) {
     const momTxt = mom == null ? "—"
       : mom > 0 ? `+${fmtN(mom)}` : fmtN(mom);
     const momCls = mom == null ? "pl-na" : mom > 0 ? "pl-up" : mom < 0 ? "pl-down" : "pl-na";
+    // 直近 like率 < 0.4% = views購入(盛られ)の疑い。簡易指標 (絶対下限であり回帰基準線ではない)。
+    const boosted = p.like_rate != null && p.like_rate < 0.004;
+    const boostBadge = boosted
+      ? ` <span class="pl-boost" title="直近RSS15本の like率 ${(p.like_rate * 100).toFixed(2)}% が 0.4% 未満 — views購入(盛られ)の疑い。簡易指標です(絶対下限であり回帰基準線ではない)">⚠️盛られ疑い</span>`
+      : "";
     return `
     <tr>
-      <td class="pl-ch">${p.icon ? `<img class="ch-icon" src="${p.icon}" alt="" loading="lazy">` : ""}<a href="https://www.youtube.com/channel/${encodeURIComponent(p.channel_id)}" target="_blank" rel="noopener">${escapeHtml(p.title)}</a></td>
+      <td class="pl-ch">${p.icon ? `<img class="ch-icon" src="${p.icon}" alt="" loading="lazy">` : ""}<a href="https://www.youtube.com/channel/${encodeURIComponent(p.channel_id)}" target="_blank" rel="noopener">${escapeHtml(p.title)}</a>${boostBadge}</td>
       <td class="pl-num">${p.subs != null ? fmtN(p.subs) : "—"}</td>
       <td class="pl-num ${momCls}" title="直近の登録者数 − 28日以上前の登録者数 (subs_log 由来。観測が28日に満たない間は —)">${momTxt}</td>
       <td class="pl-num" title="RSS 最新15本 (公開7日超) の views 中央値 = そのchの普段">${p.median_views != null ? fmtN(p.median_views) : "—"}</td>
