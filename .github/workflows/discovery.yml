@@ -1,0 +1,102 @@
+name: discovery loop 当たり企画発掘
+
+on:
+  # schedule: (空の schedule: はワークフロー定義として不正で、push のたびに失敗扱いになるため行ごとコメントアウト)
+    # UTC 19:23 = JST 04:23 (1 日 1 回)。priority-channels の 0/6/12/18 と被らない時刻。
+    # ⏸ 一時停止 (2026-10-26): 広告判定(回帰)に quota を回すため。再開=「schedule:」と次行のコメントを外す。
+    # - cron: "23 19 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "分析のみ (priority/ledger を書き換えない)"
+        type: boolean
+        default: false
+      promote:
+        description: "AUTO 追加を有効にする (既定は確認制: 全候補 queue 止まり)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: discovery-loop
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: discovery_loop.py 実行
+        id: run
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          # 2026-07-21 から確認制: priority_channels.txt への追加は必ず人間レビューを通す。
+          # 合格候補は discovery_queue.md + Slack 通知に出るので、良ければ手動で priority へ。
+          # (workflow_dispatch で promote=true を明示した時だけ旧 AUTO 追加が動く)
+          FLAGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then FLAGS="$FLAGS --dry-run"; fi
+          if [ "${{ inputs.promote }}" != "true" ]; then FLAGS="$FLAGS --no-promote"; fi
+          python discovery_loop.py $FLAGS | tee run.log
+          summary=$(grep "^DISCOVERY_SUMMARY|" run.log | tail -1 || true)
+          echo "summary=$summary" >> $GITHUB_OUTPUT
+          echo "$summary"
+
+      # 新しく入ったコーパス行に軸内/軸外ラベルを付ける（決定論のみ・claude 不要）
+      - name: corpus_filter.py (決定論パス)
+        if: always()
+        run: python corpus_filter.py || true
+
+      - name: Slack 通知 (追加 or queue があった時のみ)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: env.SLACK_WEBHOOK_URL != ''
+        run: |
+          summary="${{ steps.run.outputs.summary }}"
+          # promoted=0|queued=0 なら通知しない
+          if echo "$summary" | grep -q "promoted=0|queued=0"; then
+            echo "通知なし (変化なし)"; exit 0
+          fi
+          promoted_lines=$(grep "^PROMOTED|" run.log || true)
+          body=":satellite: discovery loop\n$summary"
+          if [ -n "$promoted_lines" ]; then
+            while IFS='|' read -r _tag cid title subs hit timing; do
+              body="$body\n• 追加: $title ($subs subs / $hit / $timing)"
+            done <<< "$promoted_lines"
+          fi
+          # 毎日の発掘通知に「いま何chをウォッチ / 何ch発見済み」を必ず添える
+          state=$(python state_summary.py --slack)
+          body="$body"$'\n\n'"$state"
+          payload=$(jq -nc --arg t "$body" '{text: $t}')
+          curl -sS -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_WEBHOOK_URL" || true
+
+      - name: 変更を commit & push
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add priority_channels.txt discovery_seen.json discovery_queue.md discovery_reports/ || true
+          # 外部HITコーパス / quota ログ / RSS プール (無い時に pathspec エラーで全 add が落ちないよう存在チェック)
+          if [ -f time_series/external_hits.jsonl ]; then git add time_series/external_hits.jsonl; fi
+          if [ -d time_series/external_hits_archive ]; then git add time_series/external_hits_archive/; fi
+          if [ -f time_series/quota_log.jsonl ]; then git add time_series/quota_log.jsonl; fi
+          if [ -f rss_pool.json ]; then git add rss_pool.json; fi
+          if git diff --staged --quiet; then
+            echo "no changes"
+          else
+            git commit -m "discovery(auto): 当たり企画発掘 $(date -u +%Y-%m-%dT%H:%MZ)"
+            # priority-channels workflow と push が競合しても落ちないよう rebase リトライ
+            for i in 1 2 3; do
+              git pull --rebase --autostash origin main && git push && break
+              echo "push retry $i"; sleep 5
+            done
+          fi

@@ -1,23 +1,40 @@
-# YouTube Niche Dashboard
+# youtube-niche-dashboard
 
-AI/業務自動化ニッチで観測対象としている YouTube チャンネルの推移を可視化するダッシュボード。
+YouTube の AI・開発系チャンネルの**公開データ**を GitHub Actions で定点観測し、ダッシュボードとして公開するリポジトリ。
 
-- **Live**: https://syuta-chiba.github.io/youtube-niche-dashboard/
-- **更新頻度**: 6 時間ごと（GitHub Actions による自動更新）
-- **データ**: YouTube Data API v3 から取得した公開情報
+- **ダッシュボード**: https://syuta-chiba.github.io/youtube-niche-dashboard/
+- **仕組みの全体図**: https://syuta-chiba.github.io/youtube-niche-dashboard/system.html
 
-## 表示項目
+分析・計画・自チャンネルの非公開データは private repo `youtube-niche-research` 側にあり、ここには置かない。
+データ収集は 2026-10-27 に private repo からここへ移した（public repo は Actions が無料）。
 
-- 各チャンネルの登録者数 / 累計 views の時系列
-- ★直近 HIT / 準HIT 動画一覧（age ≤ 14 日・チャンネル相対判定: 普段=全動画 views 中央値の 5 倍で 🎯HIT / 3 倍で 🚀準HIT）
-- 動画別 views 推移（直近投稿 + 全 HIT 動画）
+## 何が動いているか（JST）
 
-## 観測中チャンネル
+| 時刻 | workflow | 中身 |
+|---|---|---|
+| 3・9・15・21時 | `priority-channels.yml` → `pages.yml` | 注目chの定点観測 → Slack 通知（🚨新作 / ⚡初速 / 🚀急伸 / 🎯本命）→ ダッシュボード生成・Pages 公開 |
+| 04:23 | `discovery.yml` | キーワード検索で新しいchを発見（現在 cron 停止中・手動実行のみ） |
+| 05:03 | `rss-patrol.yml` | 発見済みch全員を RSS で巡回（quota ほぼ 0） |
+| 05:33 | `competitor-db.yml` | 全動画DB（`corpus/`）に新着を追記。初回の全履歴取得は手動実行 |
+| 14:20 | `quota-drain.yml` | 余った quota で試験語検索（検索部分は現在停止中） |
+| 失敗時 | `notify-failure.yml` | 上記が落ちたら Slack に通知 |
 
-- 戒くんのIT力高めるチャンネル
-- AI時代のテック速報【ずんだもん解説】
+## 構成
 
-## スタック
+- `dashboard/` … サイトの静的ファイル。**Pages に公開されるのはこのフォルダだけ**（`pages.yml` が `dashboard.json` を生成して artifact として deploy。Settings → Pages の Source は「GitHub Actions」）
+- `time_series/` `rss_pool.json` `corpus/` など … 観測データ（リポジトリには入るがサイトには出ない）
+- `*.py` … 収集スクリプト。**観測対象リスト（`priority_channels.txt` 等）と収集スクリプトの正本はこのリポジトリ**。private repo には日次で同期される
 
-- Static HTML + [Chart.js](https://www.chartjs.org/)
-- データ JSON はバックエンド側のスクリプトで生成し、本リポジトリに push
+## 必要な secrets
+
+| 名前 | 用途 |
+|---|---|
+| `YOUTUBE_API_KEY` | YouTube Data API v3 |
+| `SLACK_WEBHOOK_URL` | 通知 |
+| `PRIVATE_READ_TOKEN` | private repo の読み取り（ダッシュボードのメモ・分析・日次タブと、AI判定の取り込みに使う。無ければその部分だけ空になる） |
+
+## 注意
+
+- **このリポジトリは public**。データ・コード・Actions のログは誰でも見られる。扱うのは YouTube の公開データだけにする。
+- private repo の入力（`docs/` `own_channel/` `vein_map.json` `shelf_checks.json`）は実行時に取り込むだけで、`.gitignore` 済み。commit しない。
+- `pull_request_target` などの外部トリガーは使わない（secrets を外部から触らせない）。

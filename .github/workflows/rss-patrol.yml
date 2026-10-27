@@ -1,0 +1,58 @@
+name: rss patrol 競合候補巡回
+
+on:
+  schedule:
+    # UTC 20:03 = JST 05:03 (1 日 1 回)。discovery (19:23) の後、priority (0/6/12/18) と被らない。
+    - cron: "3 20 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: rss-patrol
+  cancel-in-progress: false
+
+jobs:
+  patrol:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # rss_patrol.py は stdlib のみで動く (pip install 不要)。
+      # RSS フィード巡回は quota ゼロ、API はスパイク検証 + プール subs 更新の数〜十数 unit のみ。
+      - name: rss_patrol.py 実行
+        id: run
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python rss_patrol.py | tee run.log
+          summary=$(grep "^RSS_SUMMARY|" run.log | tail -1 || true)
+          echo "summary=$summary" >> $GITHUB_OUTPUT
+          echo "$summary"
+
+      # 2026-07-31: 📡 Slack 通知ステップを削除 (毎朝最大15通で過剰と判断・ユーザー指示)。
+      # 巡回・検証・external_hits 蓄積・ダッシュボード反映は継続。結果は 🗂 発見済みch タブで見る。
+      # 復活させる場合は git 履歴の「Slack 通知 (検証通過スパイクがあった時のみ)」ステップを戻す。
+
+      - name: 変更を commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for f in rss_pool.json rss_state.json time_series/external_hits.jsonl time_series/quota_log.jsonl time_series/rss_video_series.jsonl; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          if [ -d rss_reports ]; then git add rss_reports/; fi
+          if [ -d time_series/external_hits_archive ]; then git add time_series/external_hits_archive/; fi
+          if git diff --staged --quiet; then
+            echo "no changes"
+          else
+            git commit -m "rss(auto): 競合候補巡回 $(date -u +%Y-%m-%dT%H:%MZ)"
+            for i in 1 2 3; do
+              git pull --rebase --autostash origin main && git push && break
+              sleep 5
+            done
+          fi

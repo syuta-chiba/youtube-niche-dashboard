@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# Secrets (念のため。実際の API キーは環境変数で渡す方針)
+.env
+.env.local
+*.key
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 一時ファイル / ログ
+*.log
+jdc_only.txt
+tmp_*.txt
+
+# 通知ペイロード（priority_channels_check.py が実行ごとに再生成、workflow が読む）
+hit_alerts.json
+new_video_alerts.json
+prime_alerts.json
+early_alerts.json
+rss_alerts.json
+
+# Dashboard 中間ファイル（実行ごとに再生成、public repo に push される）
+dashboard/data/
+
+# Shorts pipeline: 認証 / 一時ファイル
+shorts_pipeline/token.json
+shorts_pipeline/playwright_state.json
+shorts_pipeline/chrome_profile/
+shorts_pipeline/auto_profile/
+shorts_pipeline/workdir/
+
+# Analytics: OAuth credentials (絶対 commit しない)
+analytics/credentials.json
+
+# Channel transcripts: 音声 DL + 文字起こし (容量大、随時生成)
+transcripts/*/*/audio.*
+transcripts/*/*/transcript.*
+transcripts/*/_all_transcripts_by_views.md
+
+# コメント返信ドラフト（投稿ごとに使い捨て）
+reply_draft.txt
+local_llm_bench/results/_gen_csv.py
+_trial_batch.txt
+
+# research_db: regenerable SQLite (build_db.py で数秒で再生成)
+research_db/research.db
+research_db/*.db-journal
+shorts_pipeline/comment_results.json
+
+# 長尺サムネ案 (gen_thumbnails.py が生成、採用分は set_thumbnail.py で動画へ)
+thumbnails/
+
+# private repo (youtube-niche-research) から実行時だけ取り込む入力。この public repo には commit しない
+docs/
+own_channel/
+vein_map.json
+shelf_checks.json

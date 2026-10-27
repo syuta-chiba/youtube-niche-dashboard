@@ -1,0 +1,26 @@
+﻿# priority_channels.txt ─ 最重要チャンネル（毎セッション初動チェック対象）
+#
+# watchlist.txt が「週次の軽量観測対象」なのに対し、
+# このリストは「**毎セッション開始時に必ずチェック + 時系列ログ蓄積**」する最重要観測対象。
+#
+# 運用:
+#   - Claude Code セッション開始時に必ず最新データ取得（youtube_niche_finder.py --min-age-days 0）
+#   - 登録者数 / 全動画 views のスナップショットを time_series/<channel_id>/<YYYY-MM-DD>.csv として保存
+#   - 直近で 1,000+ views を出した動画があれば即座に企画候補として吟味
+#   - 「★直近 HIT」(age ≤ 14d かつ views ≥ 1000) は時間軸 sweet spot のシグナル
+#
+# 1 行 1 チャンネル ID、# でコメント。
+# 同レベルの観測価値があるチャンネルを今後増やしていく方針。
+
+UCe-sQjBOXaOLpRktgavAKmw  # 戒くんのIT力高めるチャンネル (266 subs / 357 動画 / AI 量産・速報フック型 / HIT 率 1.4% / 5 本の 1000+ views 動画)
+UC_dLmVT-fjTCxTVrrVhhoyw  # AI時代のテック速報【ずんだもん解説】 (1,750 subs / 104 動画 / キャラ × 深掘り型 / HIT 率 16% / 10 本の 1000+ views 動画 / max 61,512 views) ※2026-07-26頃 全公開動画を取り下げ (uploads playlist 404・RSSエントリ0本・ch自体は存続)。以降観測停止 (cron は warn のみで正常継続)。7/26 までの time_series は無傷。復活待ちか RSS 巡回層へ降格かは未決定
+UCuO_HCuBEM6v3wrko3Iu8Hw  # Sura×Asura For AI Agent (1,980 subs / 100 動画 / AI エージェント・Vtuber キャラ型 / メンバーシップ 8 人以上確認済 — メンバー獲得モデルとして観測)
+UCRT8XWorvslyottP0IOVKaw  # ずんだAIラボ (284 subs / 73 動画 / Claude Code・Agent SDK・MCP 直球 / ずんだもん解説型 / 2026-06-02 discover で追加・同層ベンチマーク)
+UCU_xbItXTpMZtD0v0O4ph9g  # クドクラ@ClaudeCode AI駆動Craft (122 subs / 41 動画 / Claude Code ど真ん中 / 2026-06-02 /goal webサーチで発見)
+UCMTPVwhn8A_6VuB8Q_g38Nw  # ☕ Claude Code Cafe (448 subs / 129 動画 / Claude Code 専門 / 2026-06-02 /goal webサーチで発見)
+UCaSJDqA8W5x6ITcWtC5hHvw  # HAYAKIのAIラボ (452 subs / 59本 / Loop Engineering 3,309v オーガニックHIT / 2026-07-08 boosted枠から昇格: 広告判定シロ確認済 (疑い4本は全てShorts、長尺は like率健全))
+UCW5fSI0c0Y5kBJzFgZW8aAA  # reckの知識の森 (4,610 subs / 239本 / ローカルLLM構築計画シリーズ 45k/26k/15k + Codex初期設定 5.4k / 2026-07-22 広告判定シロ確認済 (HIT6本すべて健全・実測like/期待 98〜156%) / ローカルLLM鉱脈の一歩先モデルとして観測・構築計画#2(Unslothファインチューニング)予告済
+UC-pgQlqAWhYIZLzvvU6deUw  # デジタルの時間 (822 subs / 長尺10本 / 無課金AI生活シリーズ: 初弾29,028v=普段の191倍・続編が公開1日で1,765v / 2026-07-22 広告判定シロ確認済 (HIT3本すべて実測like/期待 219〜508%) / 同層(0-2000)×ローカルLLM鉱脈の最強実証サンプル・シリーズ進行中)
+UCPHgy7B1FmJuHIpTsBL6NJQ  # AIの歩き方 (569 subs / 長尺80本 / ローカルLLM×12GB GPU 実機検証・ずんだもん解説型 / 普段276・相対HIT 11本: Claude CodeをローカルAIで動かしたら 19,074v・LM Studio vs Ollama 12,990v・Gemma4 vs Qwen3.5 9,783v / 2026-10-10 広告判定: 500v以上24本中疑い4本(17%)・HIT11本中10本健全・非HIT帯like率中央値1.39%=シロ / 2026-10-21 再判定: 500v以上34本中疑い4本(12%)・HIT20本中19本健全・非HIT帯like率中央値1.06%=シロ・subs 783 / discovery 全条件クリア(2026-07-22)からユーザー指示で手動昇格・同層(0-2000)×ローカルLLM棚の直近実証サンプル)
+UCJ3rSFeKu7ON8XJzhLDoBBQ  # 茶々丸のIT教室 (228 subs / 長尺63本 / 2013開設・2026-05に技術chへ転用 / Mac mini M4 24GB×ローカルLLM 実測シリーズ=検索資産型 / 普段140・相対HIT 9本: M4 24GBでどこまで動く 7,988v・ファインチューニング入門 4,454v・実用になるのか 3,955v・道具を与えたら 3,062v / 2026-10-10 広告判定: 500v以上13本中疑い1本(8%)・HIT9本すべて期待比65〜268%・分布連続・伸びは後伸び型(7/08本が50日後から7倍)=シロ / discovery 全条件クリア(2026-08-26)からユーザー指示で手動昇格 / 自chより小さい登録者で同じ「安い機材で実用か」棚を取る直接比較対象。Linux入門・LazyVim等の軸外は15〜170vで死ぬ=棚依存の実例。尺4〜8分・コメントほぼ無しで転換の参考にはならず棚観測専用)
+UCw-ytk4y6y4MntCyeiSa_-w  # ★自ch 皇帝ペンギンプログラミング (1,540 subs / 2026-08-02 追加=ユーザー指示)。目的=自分の新作の初速をリアルタイム速報(⚡初速/🚀急伸/🎯本命)＋ダッシュボード＋初速分水嶺プールに競合と同一指標で載せる。粒度4回/日 (daily-report.yml の own_channel/ は1回/日で別建て・併存)。★注意: これは"真似元"でなく観測対象=自ch。類似HIT照合で「自ch過去HIT」が出ても"世の中の需要実証"と誤読しない(自ch内の回遊実証に留まる)。自chの日別カーブは公開APIで遡れないがAnalytics所有者権限で後から取得可(analytics/ollama_early_curve.py)

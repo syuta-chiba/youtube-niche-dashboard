@@ -1,0 +1,172 @@
+name: priority_channels 定期取得
+
+on:
+  schedule:
+    # UTC 0,6,12,18 時 = JST 9,15,21,3 時 (1 日 4 回)
+    - cron: "0 0,6,12,18 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: priority-channels
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: priority_channels_check.py 実行
+        id: check
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python priority_channels_check.py | tee check.log
+          # priority_channels_check.py が hit_alerts.json / new_video_alerts.json / prime_alerts.json を生成する
+          hit_count=$(jq 'length' hit_alerts.json 2>/dev/null || echo 0)
+          new_count=$(jq 'length' new_video_alerts.json 2>/dev/null || echo 0)
+          prime_count=$(jq 'length' prime_alerts.json 2>/dev/null || echo 0)
+          early_count=$(jq 'length' early_alerts.json 2>/dev/null || echo 0)
+          echo "hit_count=$hit_count" >> $GITHUB_OUTPUT
+          echo "new_count=$new_count" >> $GITHUB_OUTPUT
+          echo "prime_count=$prime_count" >> $GITHUB_OUTPUT
+          echo "early_count=$early_count" >> $GITHUB_OUTPUT
+          echo "新作検知: $new_count 件 / 急伸検知: $hit_count 件 / 初速検知: $early_count 件 / 本命検知: $prime_count 件"
+
+      - name: boosted_channels (広告混ざり枠) 取得 — 通知なし・別ディレクトリ
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          if [ -s boosted_channels.txt ]; then
+            python priority_channels_check.py -c boosted_channels.txt --out-dir time_series_boosted --no-alert-files || echo "boosted 取得失敗 (継続)"
+          fi
+
+      - name: 市場検証 (急伸/本命検知時のみ、全YouTube横断で企画需要を測定)
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        if: steps.check.outputs.hit_count != '0' || steps.check.outputs.prime_count != '0'
+        run: |
+          # search.list 100 units/本 × 最大3本。結果は time_series/market_checks.json に
+          # キャッシュされ (後段の commit で永続化・dashboard にも表示)、各 alerts.json の
+          # analysis 欄にも追記されるので Slack 通知にそのまま乗る。
+          python market_validate.py --from-alerts prime_alerts.json --from-alerts hit_alerts.json \
+            --update-alerts --max-videos 3 \
+            || echo "市場検証失敗 (継続)"
+
+      - name: Slack 通知 (🎯 本命検知 = 相対HIT×横展開×like健全、SLACK_WEBHOOK_URL 設定時のみ)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: steps.check.outputs.prime_count != '0' && env.SLACK_WEBHOOK_URL != ''
+        run: |
+          jq -c '.[]' prime_alerts.json | while read -r h; do
+            payload=$(jq -nc --argjson h "$h" '{
+              text: ("🎯🎯 *本命候補（相対HIT × 横展開実証 × like健全）*\n"
+                + "*<" + $h.url + "|" + ($h.title | .[0:220]) + ">*\n"
+                + "channel: " + $h.channel
+                + " ・ views: " + ($h.views|tostring)
+                + (if $h.baseline_mult != null then " (普段の" + ($h.baseline_mult|tostring) + "倍)" else "" end)
+                + "\n" + $h.analysis)
+            }')
+            curl -sS -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"
+            sleep 1
+          done
+
+      - name: Slack 通知 (新作検知時のみ、SLACK_WEBHOOK_URL 設定時のみ)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: steps.check.outputs.new_count != '0' && env.SLACK_WEBHOOK_URL != ''
+        run: |
+          jq -c '.[]' new_video_alerts.json | while read -r v; do
+            payload=$(jq -nc --argjson v "$v" '{
+              text: ("🆕 *新作検知: <" + $v.url + "|" + ($v.title | .[0:240]) + ">*\n"
+                + "公開: " + $v.published_at + " ・ 現 views: " + ($v.views|tostring)
+                + " ・ channel: " + $v.channel)
+            }')
+            curl -sS -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"
+            sleep 1
+          done
+
+      - name: Slack 通知 (急伸検知=真似元候補、SLACK_WEBHOOK_URL 設定時のみ)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: steps.check.outputs.hit_count != '0' && env.SLACK_WEBHOOK_URL != ''
+        run: |
+          # 本命通知と同じ動画は二重に送らない
+          [ -f prime_alerts.json ] || echo "[]" > prime_alerts.json
+          jq -c --slurpfile prime prime_alerts.json \
+            '(($prime[0] // []) | map(.video_id)) as $pv | .[] | select(($pv | index(.video_id)) == null)' \
+            hit_alerts.json | while read -r h; do
+            payload=$(jq -nc --argjson h "$h" '{
+              text: ("🚀 *急伸検知（真似元候補）: <" + $h.url + "|" + ($h.title | .[0:230]) + ">*\n"
+                + "channel: " + $h.channel
+                + " ・ views: " + ($h.views|tostring) + (if ($h.delta != null) then " (Δ" + ($h.delta|tostring) + ")" else "" end)
+                + " ・ score: " + ($h.score|tostring) + "\n"
+                + $h.analysis)
+            }')
+            curl -sS -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"
+            sleep 1
+          done
+
+      - name: Slack 通知 (⚡初速検知 = H-33分水嶺・1,000到達前の予告、SLACK_WEBHOOK_URL 設定時のみ)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: steps.check.outputs.early_count != '0' && env.SLACK_WEBHOOK_URL != ''
+        run: |
+          # 同じ実行で急伸/本命が出た動画は二重に送らない
+          [ -f hit_alerts.json ] || echo "[]" > hit_alerts.json
+          [ -f prime_alerts.json ] || echo "[]" > prime_alerts.json
+          jq -c --slurpfile hits hit_alerts.json --slurpfile prime prime_alerts.json \
+            '((($hits[0] // []) + ($prime[0] // [])) | map(.video_id)) as $done | .[] | select(($done | index(.video_id)) == null)' \
+            early_alerts.json | while read -r h; do
+            payload=$(jq -nc --argjson h "$h" '{
+              text: ("⚡ *初速検知（1,000到達コース予告 / H-33: "
+                + (if $h.age_days <= 2 then "day1-2で500超え=94%" else "day7以内に700超え=96%" end)
+                + "が1,000到達）*\n"
+                + "*<" + $h.url + "|" + ($h.title | .[0:230]) + ">*\n"
+                + "channel: " + $h.channel
+                + " ・ views: " + ($h.views|tostring)
+                + " ・ 公開" + ($h.age_days|tostring) + "日目。early entry するなら今")
+            }')
+            curl -sS -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"
+            sleep 1
+          done
+
+      - name: 変更があれば commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # time_series_boosted/ は boosted_channels.txt が空の間は存在しないので、無い時に git add で落ちないようにする
+          git add time_series/
+          # build_pages_data.py が更新した icon キャッシュも永続化 (無いと毎 run 再取得になる)
+          git add channel_icons.json
+          if [ -d time_series_boosted ]; then git add time_series_boosted/; fi
+          if git diff --staged --quiet; then
+            echo "no changes"
+          else
+            git commit -m "data(auto): priority_channels 定期取得 $(date -u +%Y-%m-%dT%H:%MZ)"
+            # ローカルや他 workflow の push とのレースで non-fast-forward になることがある
+            for i in 1 2 3; do
+              git pull --rebase --autostash origin main && git push && break
+              sleep 5
+            done
+          fi
+
+  # 観測データを commit したあとの main からダッシュボードを生成して Pages に公開する
+  pages:
+    needs: fetch
+    if: always()
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages.yml
+    secrets: inherit

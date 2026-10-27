@@ -1,0 +1,81 @@
+name: dashboard 公開 (Pages)
+
+# dashboard/ だけを GitHub Pages に公開する (リポジトリの観測データやスクリプトはサイトに出さない)。
+# 前提: Settings → Pages → Build and deployment → Source = "GitHub Actions"。
+# 呼ばれ方: priority-channels.yml の後段 (1日4回) / dashboard/ の静的ファイル変更の push / 手動実行。
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["dashboard/**", "build_pages_data.py"]
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # 呼び出し元が直前に commit した観測データを含めるため、常に main の最新を取る
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: private repo の公開済み入力を取り込む (メモ・分析・日次・鉱脈・棚)
+        # ダッシュボードに載せる内容だけを runner 上に置く (commit しない・.gitignore 済み)
+        env:
+          PRIVATE_READ_TOKEN: ${{ secrets.PRIVATE_READ_TOKEN }}
+        if: env.PRIVATE_READ_TOKEN != ''
+        run: |
+          P=$(mktemp -d)
+          git clone -q --depth 1 --filter=blob:none --sparse "https://x-access-token:${PRIVATE_READ_TOKEN}@github.com/syuta-chiba/youtube-niche-research.git" "$P"
+          git -C "$P" sparse-checkout set --no-cone '/docs/memo.md' '/docs/analysis_*.md' '/docs/case_*.md' '/own_channel/daily_reports.jsonl' '/vein_map.json' '/shelf_checks.json'
+          mkdir -p docs own_channel
+          cp "$P"/docs/*.md docs/ 2>/dev/null || true
+          cp "$P"/own_channel/daily_reports.jsonl own_channel/ 2>/dev/null || true
+          cp "$P"/vein_map.json "$P"/shelf_checks.json . 2>/dev/null || true
+          rm -rf "$P"
+
+      - name: dashboard JSON 生成
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python build_pages_data.py
+
+      - name: アイコンキャッシュを commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add channel_icons.json
+          if ! git diff --staged --quiet; then
+            git commit -m "data(auto): channel icon キャッシュ $(date -u +%Y-%m-%dT%H:%MZ)"
+            for i in 1 2 3; do git pull --rebase --autostash origin main && git push && break; sleep 5; done
+          fi
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

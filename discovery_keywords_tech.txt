@@ -1,0 +1,92 @@
+# emperor_ch ディスカバリ用キーワード (v6 / 2026-07-31 トピック別グループ化)
+# v5 (2026-07-24) の37語を「## グループ名」でトピック分類 (ダッシュボード表示用)。
+# 語の増減なし。## 行は discovery_loop / keyword_harvest からはコメントとして無視される。
+#
+# 設計方針 (2026-07-21 会話より):
+# - ニッチ技術KWは検索結果の競争が薄く、登録者0〜2000の同層chがそのまま並ぶ
+#   = KWのニッチさ自体が「同規模ch」フィルタとして機能する
+# - KWは鮮度が命 (Claude Code も1年で大手が参入して濁った)。検知したHITタイトル
+#   から新KWを還流させて更新し続けること
+# - v5試験語 (2026-07-24 一括投入) は収穫後に空振り語を引退させる。根拠 = hypotheses H-14
+#   「新規chは新語が連れてくる (定常は同語で月2-3ch)」。注記 (v5試験語) 付きの語が対象。
+
+## Claude Code / Anthropic 系
+#   Claude Code 新機能 … 戒くん Agent View/radio/autoMode / Sura Monitor1873
+#   Claude Code コマンド … Sura /goal・/passes・/teleport・/loop 等のShorts群
+#   Claude Code hooks … 自動化設定の定番機能。実運用層ど真ん中 (v5試験語)
+#   Claude Agent SDK … 戒くん 2690 / Sura 完全攻略2080 / 自ch 219(最大長尺)
+#   Claude Managed Agents … Sura 1016 / 戒くん Auto mode系
+#   (Claude Fable 5 は 2026-10-04 引退: 2ch・確認待ち0。モデル名が古い → trial の「Claude Fable」で再試験)
+Claude Code 新機能
+Claude Code コマンド
+Claude Code hooks
+Claude Agent SDK
+Claude Managed Agents
+
+## コーディングエージェント・AI CLI/IDE
+#   Codex … Sura 完全版5742 / 戒くん /goal2918 ほか多数
+#   コーディングエージェント … Sura OpenAI vs Anthropic1396
+#   Grok CLI … Sura Grok Build988 / 戒くん Grok Build117
+#   Gemini CLI … 戒くん Gemini CLI / Google I/O総まとめ
+#   Hermes Agent … Sura 3377・v0.15解説674
+#   Orca IDE … クドクラ27倍HIT (v5試験語)
+#   OpenClaw … Hermes probe 頻出 (v5試験語)
+#   Antigravity … Hermes probe 頻出 (v5試験語)
+#   Aider … OSSコーディングエージェント (v5試験語)
+#   Cline … OSSコーディングエージェント (v5試験語)
+Codex
+コーディングエージェント
+Grok CLI
+Gemini CLI
+Hermes Agent
+Orca IDE
+OpenClaw
+Antigravity
+Aider
+Cline
+
+## ローカルLLM 実行環境
+#   Ollama … 戒くん 連携4170・脆弱性425 / 自ch 3000+
+#   LM Studio … ローカルLLM実行環境の定番。Ollama と同層の視聴者
+#   llama.cpp … ずんだもん解説「Ollama は llama.cpp より1.8倍遅い」2818 HIT
+#   vLLM … 推論サーバ軸。技術者しか検索しないジャーゴン
+#   Open WebUI … ローカルLLM×GUI交点 (v5試験語)
+#   AnythingLLM … ローカルGUI層 (v5試験語)
+#   Jan AI … ローカルGUI層 (v5試験語)
+#   (GPT4All は 2026-10-04 引退: 15ch 当たったが確認待ち0・日本語ch 0)
+Ollama
+LM Studio
+llama.cpp
+vLLM
+Open WebUI
+AnythingLLM
+Jan AI
+
+## ローカルLLM モデル・比較
+#   ローカルLLM 比較 … 実証鉱脈 (小規模78%HIT / フレブル7,871)。local_llm_comparison_plan
+#   DeepSeek ローカル … V4 が新最強級 (モデル鮮度)。ローカル実行需要
+#   (DeepSeek R1 は 2026-10-04 引退: 世代が古い → trial の「DeepSeek V4.1」で再試験)
+#   Kimi K3 … K2.6 新最強級 (モデル鮮度)。日本語情報が薄い=先行余地
+#   Gemma 4 … 7月世代モデル鮮度 (v5試験語)
+#   Qwen3 … 7月世代モデル鮮度 (v5試験語)
+ローカルLLM 比較
+DeepSeek ローカル
+Kimi K3
+Gemma 4
+Qwen3
+
+## 切り口・需要軸
+#   ローカルLLM GPUなし … 本企画の切り口空白 (v5試験語)
+#   ローカルLLM ノートPC … 本企画の切り口空白 (v5試験語)
+#   無課金 AI … デジタルの時間29k実証 (v5試験語)
+#   自宅AIサーバー … うどん35k (v5試験語)
+#   AIエージェント 自作 … 作ってみた系の需要軸。Agent SDK 層と重なる
+#   AI 脆弱性 … 戒くん CVE・ClaudeBleed745・Ollama脆弱性 等セキュリティ多数
+#   MCP サーバー … Sura Codex自身をMCP化1904
+ローカルLLM GPUなし
+ローカルLLM ノートPC
+無課金 AI
+自宅AIサーバー
+AIエージェント 自作
+AI 脆弱性
+MCP サーバー

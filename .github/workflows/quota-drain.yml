@@ -1,0 +1,173 @@
+name: quota drain 残枠で試験語検索
+
+on:
+  schedule:
+    # UTC 05:20 = JST 14:20。PT リセット (夏 UTC07:00) の前に残 quota を試験語に使う。
+    # 後続は JST15時 priority cron (~60u) のみ — RESERVE で担保。
+    - cron: "20 5 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "語の選定まで表示して実行しない"
+        type: boolean
+        default: false
+
+concurrency:
+  group: discovery-loop   # discovery 本体と同じグループ = 同時実行しない
+  cancel-in-progress: false
+
+jobs:
+  drain:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # AI判定は claude.ai の Routine (クラウドセッション) が JST 13:30 に済ませ、
+      # orphan ブランチ claude/ai-judge に answers.json を置いている。ここでは読んで反映するだけ。
+      # (以前はここで claude -p を呼んでいたが、GitHub シークレットの長期トークンが
+      #  8/05〜10/13 切れたまま放置された。Routine はアカウントで動くのでトークン管理が無い)
+      # 正本: docs/ci_claude_auth.md
+      - name: AI判定 (Routine) の取り込み
+        id: ai
+        env:
+          PRIVATE_READ_TOKEN: ${{ secrets.PRIVATE_READ_TOKEN }}
+        run: |
+          rm -f ai_answers.json
+          # Routine は private repo (youtube-niche-research) の claude/ai-judge に answers.json を置く
+          if [ -n "$PRIVATE_READ_TOKEN" ] && git fetch --depth 1 "https://x-access-token:${PRIVATE_READ_TOKEN}@github.com/syuta-chiba/youtube-niche-research.git" claude/ai-judge 2>/dev/null; then
+            git show FETCH_HEAD:answers.json > ai_answers.json || rm -f ai_answers.json
+          fi
+          FLAGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then FLAGS="--dry-run"; fi
+          python ai_judge.py apply ai_answers.json $FLAGS | tee ai.log
+          # out ラベルを既存の「全条件クリア」にも遡及 (queued(cap)→queued、in に戻れば復帰)。2026-10-24
+          if [ "${{ inputs.dry_run }}" != "true" ]; then python channel_filter.py --apply-seen; fi
+          if grep -q "^LLM_STATUS|ok|" ai.log; then echo "llm=ok" >> $GITHUB_OUTPUT; fi
+
+      - name: keyword_harvest.py — Routine が死んでいる日だけ決定的経路で補充
+        if: steps.ai.outputs.llm != 'ok'
+        run: |
+          FLAGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then FLAGS="--dry-run"; fi
+          python keyword_harvest.py $FLAGS | tee harvest.log
+
+      # 実行前の「発見済みch数」を控える。実行後との差＝この回で新しく見つけた ch 数。
+      - name: 実行前の ch 数を控える
+        id: before
+        run: |
+          n=$(python state_summary.py --count seen)
+          echo "seen=$n" >> $GITHUB_OUTPUT
+          echo "実行前 発見済み ${n} ch"
+
+      - name: quota_drain.py 実行
+        id: run
+        # ⏸ 一時停止 (2026-10-26): 広告判定(回帰)に quota を回すため試験語検索を止める。
+        # AI判定 apply / 関連度ラベリング(上の step・quota 0)は継続。再開=この if 行を消す。
+        if: ${{ false }}
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          FLAGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then FLAGS="$FLAGS --dry-run"; fi
+          python quota_drain.py $FLAGS | tee run.log
+          summary=$(grep "^DRAIN_SUMMARY|" run.log | tail -1 || true)
+          echo "summary=$summary" >> $GITHUB_OUTPUT
+          echo "seen_after=$(python state_summary.py --count seen)" >> $GITHUB_OUTPUT
+
+      # コーパスのラベリング (決定論のみ。グレーは翌日の Routine が判定する)
+      - name: corpus_filter.py (決定論)
+        id: filter
+        if: always()
+        run: |
+          python corpus_filter.py 2>&1 | tee filter.log || true
+          # AI経路 (Routine) の死活。死んでも決定論で正常終了するので、
+          # ここで拾わないと「静かに腐る」(2026-08-05〜10-13 がそれ)
+          st=$(grep -h "^LLM_STATUS|" ai.log 2>/dev/null | grep -c "|ng|" || true)
+          ok=$(grep -h "^LLM_STATUS|" ai.log 2>/dev/null | grep -c "|ok|" || true)
+          if [ "$st" -gt 0 ]; then
+            # 空の理由行は飛ばして最初の中身ありを使う (2026-10-03 も corpus_filter 側が空だった)
+            reason=$(grep -h "^LLM_STATUS|ng|" ai.log 2>/dev/null | sed 's/^LLM_STATUS|ng|reason=//' | grep -v '^$' | head -1)
+            if [ -z "$reason" ]; then reason="(理由なし — ai.log 参照)"; fi
+            echo "llm=ng" >> $GITHUB_OUTPUT
+            echo "llm_reason=${reason:0:160}" >> $GITHUB_OUTPUT
+          elif [ "$ok" -gt 0 ]; then
+            echo "llm=ok" >> $GITHUB_OUTPUT
+          else
+            echo "llm=skip" >> $GITHUB_OUTPUT
+          fi
+
+      # AI経路が死んでいたら、試験語を回したかに関係なく必ず鳴らす
+      - name: Slack 通知 (AI経路の死活アラート)
+        if: always() && steps.filter.outputs.llm == 'ng' && env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          LLM_REASON: ${{ steps.filter.outputs.llm_reason }}
+        run: |
+          # 本文は実改行で組む。以前は "$body\n..." と二重引用符内で書いていたため
+          # bash が展開せず Slack にリテラル \n が出ていた (2026-08-12 修正)。
+          # 理由は env 経由で渡す (shell インジェクション防止)。
+          {
+            printf '%s\n' ':rotating_light: *AI経路が死んでいます（決定論のみで稼働中）*'
+            printf '理由: `%s`\n' "$LLM_REASON"
+            printf '%s\n' '影響: 試験語の選別 / コーパスの軸判定が止まる（パイプライン自体は決定論で動く）'
+            printf '%s\n' '直し方: claude.ai/code の Routines で「AI判定 (youtube-niche-research)」の最終実行を開いて原因を見る → 「今すぐ実行」'
+
+            printf '%s\n' '手順の正本: docs/ci_claude_auth.md'
+          } > ai_alert.txt
+          payload=$(jq -Rsc '{text: .}' ai_alert.txt)
+          curl -sS -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_WEBHOOK_URL" || true
+
+      - name: Slack 通知 (新規発見数 ＋ 観測体制サマリ)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: env.SLACK_WEBHOOK_URL != ''
+        run: |
+          summary="${{ steps.run.outputs.summary }}"
+          if echo "$summary" | grep -qE "words=0"; then
+            echo "通知なし (実行なし)"; exit 0
+          fi
+          disc=$(grep "^DISCOVERY_SUMMARY|" run.log | tail -1 || true)
+          delta=$(( ${{ steps.run.outputs.seen_after }} - ${{ steps.before.outputs.seen }} ))
+          case "${{ steps.filter.outputs.llm }}" in
+            ok)   ai=":white_check_mark: AI経路: 正常" ;;
+            ng)   ai=":rotating_light: AI経路: 死亡（決定論のみ）→ docs/ci_claude_auth.md" ;;
+            *)    ai=":heavy_minus_sign: AI経路: 未実行" ;;
+          esac
+          python state_summary.py --slack \
+            --header ":recycle: *quota drain（余った枠で試験語検索）*" \
+            --line "この回で新しく発見: *${delta} ch*" \
+            --line "内訳: ${disc}" \
+            --line "$ai" > slack_body.txt
+          payload=$(jq -Rsc '{text: .}' slack_body.txt)
+          curl -sS -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_WEBHOOK_URL" || true
+
+      - name: 変更を commit & push
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add discovery_keywords_trial.txt discovery_seen.json discovery_queue.md discovery_reports/ || true
+          if [ -f discovery_keywords_tried.txt ]; then git add discovery_keywords_tried.txt; fi
+          if [ -f time_series/external_hits.jsonl ]; then git add time_series/external_hits.jsonl; fi
+          if [ -d time_series/external_hits_archive ]; then git add time_series/external_hits_archive/; fi
+          if [ -f time_series/quota_log.jsonl ]; then git add time_series/quota_log.jsonl; fi
+          if [ -f rss_pool.json ]; then git add rss_pool.json; fi
+          if [ -f time_series/channel_labels.json ]; then git add time_series/channel_labels.json; fi
+          if git diff --staged --quiet; then
+            echo "no changes"
+          else
+            git commit -m "drain(auto): 残quotaで試験語検索 $(date -u +%Y-%m-%dT%H:%MZ)"
+            for i in 1 2 3; do
+              git pull --rebase --autostash origin main && git push && break
+              echo "push retry $i"; sleep 5
+            done
+          fi

@@ -1,0 +1,6057 @@
+{
+ "67ed187b3116": {
+  "shelf": "ローカルLLM（自分のPCで動かすLLM）で RAG＝検索拡張生成 を構築する",
+  "labels": {
+   "CKEYQCnndsA": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "NoM2JdOnYsA": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "t4q1olpHmUE": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "fe5cR1q9oT8": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "oxC8e_itO5o": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "9gQFFcs-Ifs": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "gA4BLUj6tAI": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "sUr47OS4eK8": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "iOUZcqh0bqI": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": false
+   },
+   "SVlPxqwN69o": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "0Argtx1TkzU": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "KR4aDP0Hyco": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   }
+  }
+ },
+ "d556f4e49acf": {
+  "shelf": "ローカルLLM（自分のPCで動かすLLM）を使って RAG＝検索拡張生成 の仕組みを作る／使う動画",
+  "labels": {
+   "NoM2JdOnYsA": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "CKEYQCnndsA": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "t4q1olpHmUE": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "9gQFFcs-Ifs": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "fe5cR1q9oT8": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "0Argtx1TkzU": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "oxC8e_itO5o": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "SVlPxqwN69o": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "sUr47OS4eK8": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "gA4BLUj6tAI": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "iOUZcqh0bqI": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": false
+   },
+   "6KoqD116Wog": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "azyVCgs47iU": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "obgurUv9ri8": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "JiNWwZmsiuY": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "RKLj5jWwH0E": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "bankdPmQnHU": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "RlHCpJvtKnk": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "KR4aDP0Hyco": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "SfPF5VRJYMw": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "9GHcy64Avbg": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "aw2dIkwUbu4": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "2TJxpyO3ei4": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "d2256mBkb8Y": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "r2uah1f8X5Y": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "UyImx479YKk": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "6_3lfZ_tRss": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vnODbLAqV3k": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vHqEc819V5M": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "AfthMJkjGmg": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": false
+   },
+   "EOo2OEcZrYc": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": false
+   },
+   "UqukzSNPER4": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "_GiQxYpdBK4": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "6ujAuMcnz6g": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "7mP7vdgLFeU": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "ipv9qebGjZA": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "8FmOzkeUvJ8": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "2HRnkdUGgNw": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "EGbLl5AHz88": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "CQqC2L3RfKs": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "zfDRyXsSFJk": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "GHA9szAOaiM": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "Cyp8D_daVmY": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "PiDF-XFGjac": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "AgzTV28lzUI": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "TelMbQzgrqM": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "-WnQs8pyvlE": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "G1MDYlbY-Ak": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "OLoEefg09fE": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "QipcBjvmCYs": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "Ta-HK2CS2Ww": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "X05Tvg0iZVw": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "HsJFWFIdQfc": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "dpeq7vCTRIo": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "2jA3PC5Lb4I": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "cl6bNHu14cw": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "2wHtvQ5hHSE": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "N65tC1iSC0A": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "fFgyOucIFuk": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "RDHvON302CI": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "rK5jL-KNFi0": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "cm140jJiwwc": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "PQyAC3MNzZ4": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "ThEdpUHuxS0": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": false
+   },
+   "8lcJVBKxVIo": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "6X-rPaU3GT8": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vp2D9Bstu88": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "PJBuEsz1IAY": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "WZDs71E_gEc": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "4PhVS4VpEbA": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "sY_ILvqsdzQ": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": false
+   },
+   "CbZ7cV_H84Q": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "TDJhVUI_uM0": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "lshqYZtzePU": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "dyFb1UEl4EM": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "TeHngJx4K-U": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vYm0wwtHPLU": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "fTNVJdcQ0Vc": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "3UbS-sWWoiM": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "oZYlrooPgvs": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ehg0SN8M-20": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "7j5NU9QUIOs": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v_VveCihxLg": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "uEOQBpIv_hk": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "0HrSwtYW8Sk": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "9z70BadzS1c": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "ZPmYIT5y6CA": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": false
+   },
+   "w4OFLJZPcLA": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "fLYi6rlbCaI": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "TnamNTceJ7g": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "HfavF1hHqsc": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "Mo5lwULjA8g": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vwBRNTa6gVY": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "AUCwX1ULM_M": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "IQ8FDwmM3rc": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "_uLvtwHN-oo": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "jakPpsu6Pfw": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "XQRh4dPMoSs": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "Dp6bGdCLjeo": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "RRrGd2zhTU0": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "cMQLgfcWJL0": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "-_WJpUc4FPM": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "gZnavhTQoMw": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "PP2khycrMBI": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "gHWMEZVmKEQ": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "BC50yZgFfcQ": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "I3WUGCn-eJA": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "rK8_EKgoBzg": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "mqKIw_fJhHY": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "8V9pJoO5smY": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "iLlyTsMPWTo": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "Ii3FWuboNgk": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "kAuVcCwqgwQ": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ieuiwMCAHO4": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "eua6pkk5abA": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "4H5aX-ZANGA": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "c5mJg6_uFL0": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "rXbCqVVKP3o": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "KJPmqpCwmZk": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "_T9QJbPPZOg": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "V8hu6IUS7gQ": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "SREtXMeQYrk": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": false
+   },
+   "aPMVUYPMASQ": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "FmEPqK00weo": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "u9MiItZAkZM": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "mOenG1iDCFo": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "P-Fmo_CCIbY": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "B6TRGuehEF4": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "KFeLZp6yh9M": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "7Jlh4MphmO0": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "sKNq4CqWkT4": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "704yAorlvh0": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "fWlgO3XWWWM": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "V3voF9R9ygQ": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "OIhf0wbT-FU": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "ay_sYadoxgk": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "Rvy-Nnpla68": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": false
+   },
+   "2nNIBlefa2E": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "Q4bFgb3FqyU": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "Ugfal7NUFOU": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "YyWxWjk37vI": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "qv5kFQHuG2Y": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": false
+   },
+   "e-WtzEhCQ8A": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "wykPErJ8M-8": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "q3EKvBM9NY4": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "akzhlp7McOo": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": false
+   },
+   "DkClEbyXyq4": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "hxDe1j_IcSQ": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": false
+   },
+   "taoZFYtYOH8": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "jdgy9YUSv0s": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "jzqBtld_iIg": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "4Fc40yt5j4E": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "2qFcbRK1qDE": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "6kVjXoKPV8M": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "i_QrWRAC9NM": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": false
+   },
+   "WOOXXHVrXik": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": false
+   },
+   "oRGo9CC-T2w": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "yaMcm3sQswc": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "5zX-XLikpPk": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "1uypL1oNChI": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "Xdpbuv9Zy3c": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "XdbIv7AE3VA": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "XKgQoZ8bjQk": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "-9_VkRUZPAA": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "5qYuKZ-haYc": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "UuLmduAzkEw": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "1nuqBAtmYhQ": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "DYdvJCxWd6M": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": false
+   },
+   "mrEJu635RQE": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "c9VPDM1TYcs": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": false
+   }
+  }
+ },
+ "e105657fdcbd": {
+  "shelf": "AI・開発ツール系の技術系YouTube動画全般（ローカルLLM / Claude Code / Codex / MCP / AIエージェント など）。on_shelf は全て true でよい。**この判定の主目的は kata（切り口の型）の分類**である。",
+  "labels": {
+   "v22eec5a4e96e": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vf4695fd31211": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v6a6b3625bf6a": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vb7a75dd4cb3b": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v5478b6492dd0": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v9588117188b9": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v351f0386bb48": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v9f439db348e7": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v1e4a65918d5c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vfce38b8af64a": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v4551707c4f06": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v90e8daf55dbd": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb2b35020de9b": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v94bb02763352": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v7b05966971a5": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v94fd5c776e70": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v0dfafbc7a9fd": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf36da40ec02f": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "ve5f92376d0ba": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfe0aa9756440": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v7fe85ccc85b2": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v10c0e5757819": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v20643dda1ebd": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v853dd731cc56": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v075841ad99b0": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "vdaf8c4b5359b": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v07a3ff30de3b": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v69477a23b47c": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v73df694da149": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v63343ded79f5": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4a62f5085ce3": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v35ce090b746d": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v18bfbc06e804": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "va5c7965f0cf2": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v8cc2e52a007b": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v86b7d64c8667": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v2b260035bc93": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v89074dad0fd7": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v82b9f3753fee": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v89bca91317a0": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v3dedd2d74190": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc0b04cdb0d6d": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vc409c8a9cd90": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5a7013a7024d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4705627ddcad": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v48aae2e59174": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v29654375655d": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v94ed2a5d6121": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3b6507b48eb8": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf4eaa4b983e6": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vec63b86f7d18": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v25e857abc450": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vffc3714fde23": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v280b1f0fb7b5": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "va82014e29870": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vc71417cbb071": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vbd46d99799bb": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5ce44ee6ce9d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2ee92fd3a270": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vd1cc92222b8b": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v56413d92aa6a": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v033830b5e8c9": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3f40b47687d9": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb7c60002a527": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5a4fbe685dbf": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vaa91bf7ac086": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vcd1b5c8601bc": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v18d1a128c1a5": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vdaafac2c0a67": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4bdaf7a6e722": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf37ecf18e9af": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4808b5b17ad8": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vdbb296763afb": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v15d683bc0a89": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vf1f018b2f5d2": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vceed0a8ec869": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v704cca996fb9": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc236d943f769": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v08c3af60cb28": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vfdb752e0cc20": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v09c5c7003032": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v67dc685263ad": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v82bde9ec54db": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v872113669b42": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v7282cc46e56a": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v9f4d18bb6c47": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vcf07f6a09be7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v542fa705f990": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v671081a274ef": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va5d491050351": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v0987ee2f59ec": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v7497d9440313": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v211876b9c88f": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve9bf7dc8da5c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v79b352d2255d": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v6cf32e55152a": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v445efdde9c8a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf127aeaabed5": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va1d47241a3c8": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v7d3f29a1eb26": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v532eecc113ae": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc3f267f33043": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5212ca284f1e": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vaf8764301ab7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4d10ce79d14d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v58b9256b66dd": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v15577eef0e41": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v625ee09a0f1a": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v69cc608eb451": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "ve35e610bcd45": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5dc26c51a824": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "vbc35be9ff7ad": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vec9aab06710d": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "va35c182ec13e": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v814b20212c5b": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v6ed9fa0c11ae": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v919b5eba918d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf35903a1c75d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3ecb3b0ab48e": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v3ab4e849ecb7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v7881af3fddf5": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v0ddc03e51402": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf597cfd84008": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v2d62a8eda1e0": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf2e4d6163c8e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v173c62863524": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v0a148bf3d313": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v4278ce2ec2c6": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb734509255f6": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v7737e43f2e03": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v2bf1610cdb5e": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v06db02203e6c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v348d7d55bede": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v0dcb59ea881b": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v28daa275c4cc": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2cd8968a9654": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb3b68b43ff37": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc207141f8f16": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vca184cd90c2c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4e58124991e9": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vcaa2412c0f5e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6ccddc86ede3": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vec1689983430": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v989adcdfa3c7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vd64664c09311": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vacb295bb5a49": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5895661a43cd": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v610e2d6f4d60": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc72a8f07dd40": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va6d205d5cfa8": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v07a3cb175bc1": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf50f0f3e0991": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2f4a464105f3": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v24cea4cf3715": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8f7383bf23d6": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vcce528d24350": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve4a5a0bd43cc": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v65f75b642cf0": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vbf635cc7764c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4b2aa4fa39e0": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v8fbbe7c830b0": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8deebeba947a": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4b0e52b327a6": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf890fd383412": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v22f04ae1589d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vd34f05dd26c2": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v42d820d513b6": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve86a0a1d2c40": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va08a4ac8dbdc": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve24c8ba41cf3": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vb664a36dacda": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v77aba68d4f7b": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v35a194eb12f4": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vdff88298c1f9": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v0c3c16b48d91": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb23fe96844e3": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4d250e50e7ec": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vd5b8e60dfc27": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "veeea982e8924": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v2296a2157989": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vbd01c4b553e9": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "veff2e3f0f3ba": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v9ac040a23915": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "va65efb258015": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vfd96f788ad80": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "va91ba515ffa5": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v07d146e77f7d": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v6e24ad91b490": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v48ab694c488d": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v5d8492ec2434": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vec0b106bbdfc": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v0a4b6ecc6f5d": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v93e15c026667": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v51adf024a93f": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v0d85386ee188": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v68cde68f9093": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v12d574b24e4b": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v52177a4ebf53": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vb60d269ac072": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v2da5d8dd9ed2": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "vdaa6d7b1a198": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v3c22b3cc2529": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "vd82d362214c5": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v4a87711aae3c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v14fde6153bc5": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v191a68b8bf04": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v1d9dbd8b4a1f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v1a6fa0e37a68": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v50452b725220": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vd9b9b56a3db1": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v6e89348a5af8": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v9930e7f2b3f0": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v6fd6160bd801": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vc32ab13d487b": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "ve3af8ab18ddc": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6a3096b65ac1": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc4756bdb5562": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb9829204357e": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v0d2ff3b2b385": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v9676fd164671": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v346e6466fe87": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v364f8eec9d5c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb0868aeb3e1e": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v68426d4e162f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5d5e01693d45": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfe8bd1350dd8": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v675f656f1477": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6722cf1f2f51": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v00f9cb1127c4": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf197540dd0d3": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v85353f4166b4": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v48acd8a75e2a": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v69086cd89263": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v7a23beee2a29": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf432c5cc446f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v3e482fbc3b18": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v09f4b9424c1f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vd11cb05b016d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "va704195e5791": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v1b55a711de79": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vba1c61018986": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vbd421fc1501b": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5678ca11b691": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v55ccf0f22f66": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v672cbfb2804d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5b2987a9f201": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8195e44bf6fc": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v7aebd474b1bd": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v2e3fc2a059ac": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v2f2d07d620b7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v382c174e93a2": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v93c647b3d6da": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v39d49a7a48d6": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "va63096f58b6f": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v1b76eb56920c": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vc0b1ba100411": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v7d36af5875d2": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3df32e354e0c": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v7d8a907ee41b": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vab2c2ca82554": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v25a2879ce50d": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v61e58278b154": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vc12fa588cff4": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb840ebf321db": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf71a203264a0": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v9380b1e26b24": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vbe9290a57224": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb7803c8bb3e8": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v6ec52c4f5b00": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v5bc2217abf8c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3925c83f7057": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vdd05d19c20f0": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v2642f69b8840": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v0fbc14d6d1c7": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v8a51dffa9175": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v33edb30a56be": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v9e0a3f9710a5": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v14e63448984d": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "ve6dd2e946c8e": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v2b21936e4b70": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v2818744cfb3a": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vb95866fa9514": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v83b500d326e1": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vd10197967f92": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v343d0a8e0595": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v56f073cf3f26": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v64d0e7e3ac3c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v9b1c8a3e8c09": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v88a96b5bb1a7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vdec6ab941144": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v7e0371eb153c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v0084b1962c6b": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v2a1a96016b03": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb3b76c94b3ec": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v89a5bc4ef32d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vbd8a1c8c7269": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v4de66e07b846": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v0f5c8cd640c9": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v416a6bb3311b": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vc3f0189ba160": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4cc145fc5680": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v998f7f6e8f7f": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v73d0b133c7e1": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v30067eddbbbb": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "va9c532328736": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v26ba41fc7d31": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "ve4f9684289c0": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vaefa79b13bac": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vfce215c6b09b": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v7cd7de33bf67": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v454259eb6ca5": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vb8e1efc85a03": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v9df69d9af877": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3694271ad710": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8b5a2c253afc": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8d066832831a": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v7acab6dd3557": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va77214130a7c": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v573e35b30188": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v64cdf37a29ab": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v9e844b0603a6": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v58af2bef4c60": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v42ea3820c053": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vf79561ac5b85": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v0b15e736caf6": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v03f67ae73667": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v061c67d239fe": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf225b3abd8c3": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vca3b4d516423": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve346aedd2681": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vfd532fccef3b": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vd1ac4c430e26": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve33309abf96a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6e9f3acf6d6f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vbec15551679b": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vbe3d86b28911": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vec8a6a1e3cfa": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve6450527f240": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve9cc887b596d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vbf22595b307b": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v472b63fdc2a7": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vcc8f9776098b": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v0546548583f1": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vcf6c31fde32d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb047df167463": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v3e8f5c8313db": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve519f36e5d35": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2b0b3023042d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve89b83acba79": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v709e27621d80": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc8f403fc4bc6": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4cbbf618f3fc": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v284555203e50": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v192c8a613c4d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6ccb4d62ffb2": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v454b78767792": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v6019fd2b845b": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vaeeee4263211": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v038780a042a9": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vdd35088bf716": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf38e15410296": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve2658bdd8610": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v014b78bce0f7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v48831bd4e026": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc73ad7b9e009": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v64455a522cd6": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vdbc4b9cd72c5": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5162eed9f967": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vbf939e9cbca2": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v0666d142fba6": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v2e8bb20d065f": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v54582f9a3496": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v0cc2d7ac98d3": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v23dfa2d7a961": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v560c571d2f1c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve1356f2da398": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v0e7f15143fef": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v3d526d96fb30": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v1ea3878ae0bb": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6ca0a67baab3": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc188f216ebe1": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v33b14dc2ddf6": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v50678063b19b": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vffb400827d6c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v67c3f7c46859": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf19613304170": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "va73fba2aa015": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vdca83d6512b9": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9b09d246d9cd": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v3f87f5e076fd": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v56887e538e88": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vde510dac9c29": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9197fd7ea6f8": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2c2d6168c4da": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9c0ce5e06222": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v1acb9dae0e81": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6a725f9089da": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v38847d778504": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9b87a8bf044d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v75c521d6e453": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9487900d4c02": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "va445f23c127d": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v511a633e9063": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf67effa5aea4": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v88b64340497b": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v32956203e8fc": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va4f6850a320e": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v35e4cbebe89f": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8c5ca22687c8": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vbfa00847e172": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vc07f40f98c4a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vec7ce017e0cd": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v824f3425a468": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vd2324f63fab9": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve243d39a03cb": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v40398369fb41": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v45239918d5b7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5e9be60ac632": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v2fec44fc716c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8c9e879d0035": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v7018b05bd254": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v647dc9752a5f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9e05c6ca8276": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v05ab64aedc6f": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v7c1fc2a4d5c5": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v056fb3115dfe": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vb07bc7d0fedb": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v335d9f34c05a": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vdba24e61490a": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vda1e6e0b20bc": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8297ef7351e0": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vb9a346b46ff1": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v0c312149da3d": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v57081fca8e1d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v365b17778988": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v86cb0b9685ed": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8c029b5281a8": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vfd037a12abb7": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v3a9dc093d599": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve2f0219a3f34": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vacf94fe01ca1": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v7f4f350483d6": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf9be051dd08e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v66171c9eb2f4": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v4f368ee523aa": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4740d5f0db31": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfefc13d97d33": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc8a78dad282e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6d645aadebb9": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v0374ee4b0963": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb620e2484b7b": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4ab500fca8a6": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v7ac16a6690c6": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v3696b8b45b5b": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v68f850552141": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v233841ed1852": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v1d717d28bc4c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v38d9dbf08b40": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vaac1a4808575": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve273e67c4652": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfe18aad8dc41": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vaa840b145439": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v8bde5aa965b0": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vd8bd12ad9ed4": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v592f73147924": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vbd5134e279a0": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v2c457d7db57d": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va05f4abd7af6": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v18b50b74f528": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6f4f18a25363": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v822d248d7c0e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v1357022f4f08": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4244af811a26": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v99e5a8d599f3": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve4dcd6b05b3d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v9ea400f40922": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2fc1504acc4c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4dce97ee0ab7": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2ce1027497f3": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb3000f4542b3": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v3519a69ade69": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v913907218926": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v14c0bc788abc": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6e48b08acf93": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v0c7905a9bcd2": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vebb2c759004b": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "va37541ea325c": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v4b6c8025143e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9aae9091a30d": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v9072e633b94c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v951cc27c0ef2": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v93c15f9421d5": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb2868205e23b": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vd0104c81af65": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vf67ee5f7c469": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v28f69db29ee1": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v11be42da2fa8": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3a086100b4a3": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v9bb94daed85d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vbb62b75381c3": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v5aa05003e2bf": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vd41cdff2d0be": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "va7e2b100ec3e": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v88dcc4ecd165": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": false
+   },
+   "v2900060e3379": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v7d2d9ea64cbc": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve8ffbe22b131": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v8608087d00a4": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v581f05a27b68": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2283d022f84a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfefc78f713a5": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve422a80c7a2d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v101bcc6f4605": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "ve0a9ad5d3cc5": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v8714d7c1b39f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v1ee4599892a1": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4d1af240ad80": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v1fe933b05401": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5053f30c00a2": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb843c0ea9373": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "va01baaaff6c9": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v780e42a7e337": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9bdd2dcae6ba": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vef0321cb4457": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v43e3350f3df6": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4dadfd2f6b3e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v67a68e9edfa5": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va88371397827": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v734f014785e8": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve7121a2aa985": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf06871726c30": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve826bedf5f2e": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v12d6f4f3b994": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v28d2b7784cd6": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v17bff445abc1": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4ce916babd3b": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v2fcee7f4c432": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v50f385400916": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf6a8f6cc4182": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb5af32e394ef": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc2730f5d16a3": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v72f08cebec2c": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vec5a6b48d4b3": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v37750029bb42": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vfe263b5ed8ce": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v613372ff57f8": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vdcde198bf6cc": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vce591a61d335": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v4c61ed0680f7": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v03afc36f4d67": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc35e9e9e4458": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vcac4d7a845b3": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v859633893d6a": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v1fef5fba977d": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4752aa905407": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v0879410fc91d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc852bdcfdd75": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve3d908f1fb36": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v2a3a9583c8c9": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8745372734e6": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v09c53d67c7b8": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v04d41ba3ed34": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v32a2a4027b45": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc41f122c5e62": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v64d79d0f70a9": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v63b80e83741a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfdf2ae56a83c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vbd958d7ac0be": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3f98ce75e18f": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ved3f6cc3c0b9": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v21bd0ad76ed9": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "ve8e94bf754fd": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vfeb46f6a8095": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8ce2704fefb1": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va5e8898ace29": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v984b6ec33423": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v8d2a00267cca": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v96fed729ee0a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf3383991e2c9": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v7df3b990cb17": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v726c57b17b29": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vaf4a920f2dcb": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v11a2a85bed99": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2b45b877e2f2": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9b073b3906e1": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v02381c514a55": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfa5d4970bca3": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v09c3899fb99a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "va46e8cfaace6": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v74574b3ad157": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2f3b4f41697a": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc5ea8f2962c8": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v1c0986fa4b53": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vbff0c494283f": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6f71376c089d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vff94b0a73b9f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4ada563bd28a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9a96397bd97c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v13aa4f305433": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v165d92cdf245": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vd30ee0fd3ae9": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vd1ebfc5b8729": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v11b539b2acd8": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6f24513e8d35": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb4fadf0b10f8": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf71c39bcd73e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "va0fc7165e322": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc2f891d58cfe": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5c1c60327a05": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v60cc6c8824af": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb410f7463390": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5b2fd4da63ed": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4b4229ba47aa": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb2dc4af2a120": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v63123d45e47d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb4477ccd43df": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf351883d44e6": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2ab95fbf045e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vcf5f8dd18c8a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfce0e0b86b5c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v104751e2f42b": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9631e529d9f6": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc2f255690397": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2afbbc1cdbc5": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v151b90d53db2": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v151805a9bd55": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v123284901c75": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v546ecd75d385": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb7619b5587e9": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v47506b6b5eea": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vbf5eda7fc24d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v889f0ff43e89": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v08e1074022cb": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v7a6555e0324a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v13ef12d2577b": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vae75a752f75f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v7606b1bca1ff": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2cc151c2d82b": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v7f149f670cb9": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vbc4ae7708f5c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf602a300606e": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf53494392d16": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb9ca90e25f52": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vd6bc6b05e8c3": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v39f95370906c": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfae9049915bb": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vd12d0c636778": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5ac42b457b0d": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v53e968d12115": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc74f5306e0f7": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2b8da2b340b5": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v47586211f4c0": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vdae7dddcc61c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf9eabbfd069a": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vde64e1068cc3": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4e8c9b05a765": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v151483020665": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "va23b391b5af1": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc68d41a3ce85": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9138d529a6cc": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v50f23c93b450": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb5ba114bec65": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v82a146ffe6e6": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb161737ede94": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2e3e77d4108d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v83057f3c7078": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v8ecca43e8e29": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vabe372014998": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb5e18b404a6e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v98e3e8ec0726": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v61dacf7c8c8a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v03185aae05e6": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v368fa4ea7700": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve05feadfb545": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v43fe9a9a5eea": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v884dc1e7ebed": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve254bc29596d": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v62ff8edfe3c2": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v1dfac0cffb59": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v3094354780ba": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vee9175bd9b0a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vd8653f7a5b88": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5437e085a7cb": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "ve550a50a9fe8": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4872a055f89f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v96d2cb118975": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v1da52470f5a6": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "va2df1b20ad95": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v2b9403077ddb": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v0df09fe25ded": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v539e0b050a64": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v10024557e55e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v801135d6a179": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5b1264f5442c": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vd13ad26b46d3": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "veb08d6386695": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v193ea2a2224a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v3c41a99ecae0": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v637f443852e4": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfecf4932c323": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "ve74d7b987afb": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6d138dda02db": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v120e3b1bb732": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v36e9011bef43": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v0956cb99173b": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb768c43eb5b3": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vca1936b3e830": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v20dbe312063c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vcf50751886eb": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vf6ae61f38b21": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v41af546c33ff": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v760cd062f7b3": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfa3da9609777": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vf957370f5400": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vd4af61b4f951": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v774a7d707286": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vcace093c5ce5": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4c171f527314": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vc2d67e0cd83f": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4418fc8d750b": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vd6279c7d3411": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v64ada5cf353e": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc378464c0039": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6983b3540d8d": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v6cb3c9156354": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vb486fd9361e8": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v1f5be2622492": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v05f94342e6c7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vddb3a585f932": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v82ece3098b85": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfc13e8e16c61": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v899a812e02b2": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v619bf7146781": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb784a8d2969d": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v5fe110120177": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v40eecdcd356c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "va8d9334fce2c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf4bb5d40e39e": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v6a22f12fd1db": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "ve7edf1683f06": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vda7eb36e428c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve7d1ca29ab3c": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v17cb0a1542be": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9081c6f1d8da": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": false
+   },
+   "va0eab84eea62": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v705eea93b2ec": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vaf13bdb85fc2": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb36144a27a21": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc3ea83ef46cc": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vd600045356cf": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "veca5cb15b1f2": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v7a72a290e92a": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vbc3bd5f9d3a6": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v01543a74b01a": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v8c6946c34628": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "vbc51067573a7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb6223a350a20": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v702ac452153c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v311abffd3e38": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vced427c5bfef": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v0a72078f97ab": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "va284e6366f2d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v09ae103e4a00": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf7d160ac5029": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v002d21c3f04b": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf1a9cc6f79b1": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5d3329df795c": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v59da7e9b6aa5": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v65c5ebecc965": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v9e5a2b7d9fa0": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vf1c335b77586": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v30acabcc40ca": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "ve86a41dc1c96": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v6cb49249105c": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vc79890cb14ec": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "va28a29c1af4a": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v10b1814e0df1": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb36a0b4d5185": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v09cd38250386": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vbc34e327e45e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v6181e265b7c2": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v6c20f489cd2a": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vdaceb5aac153": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc57d2a34d5a9": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v049e9cf2a58d": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vdd46d9be0b67": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va9120af7dda4": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v08790b504ece": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v03ddfdc123e3": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v560768b9d96c": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vc1b5351f87eb": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vb28202c65e04": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8e9565353faf": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v8cf34904ed09": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf0c9fb18ae35": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v29d33aa23028": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v598cb2dd5abf": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4216e33640c6": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va2e5966778fc": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vcda7002ff310": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v3a9d40d2c719": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v3afba0e0702f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5ec80127dad6": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vac69794dbed0": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "vf499b2445683": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "ve2289a71fbc0": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vc82338bcdc5a": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v97444cc85cbd": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5de481de842f": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "va71725484a04": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v0664423bb82a": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v533174f4eb3e": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v005b7c5eed7f": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vfdcc2e109196": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v916302be3497": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v0b8b9b75df92": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v212ae28e501d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vfbf73c00119f": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vd47491d8dbf0": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v5f2c41834439": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vdfb09418a920": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "ve3ab94ab01e2": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v28ddce2757ee": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc6a577d8f378": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vd0ee30abfe8e": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v237a282b147f": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v9fd51c2108ae": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vb325d5a9bf17": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vb45cc3b84665": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v241479e4521e": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v8c69bbaa950b": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va3d9d1941062": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v08ebf784a9f8": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v0085b5f8f34b": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5418ed36fb8b": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vace16ce49dfa": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v0f40e483ecc7": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vbc81937f1b2f": {
+    "on_shelf": false,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v6b49c49eec59": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v423f2e08d3df": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vb8757a89602c": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v4e18f81663ca": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v909ac191cf98": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4d2ed24f1417": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vac783b492757": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v1990e1c51bdd": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "ve0c764aeda7f": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v7534f68e6345": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vbf2c85b35cbc": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vb8d5e67cd8d3": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vd1310a51598c": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "va210d0e25f1c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb6237ec8ba98": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vab83a45bcdb4": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v83cbf9d99925": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v5c11ab2a74bc": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v83d71a524785": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v8812814cc659": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v1a2f37c98af0": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v8dbda414cb3d": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vda847bbaa576": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v935f19655c8b": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8ee5a969c9cb": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "ve2226f66e9e1": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "ve92ac83ef917": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vd81df831be67": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v464bf1324075": {
+    "on_shelf": false,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4547f99e79cd": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v9e81aa6055c0": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v04824eb9c077": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v571ecb38bedf": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v9e52dff98e3e": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v28929926cefc": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v76a849fdd258": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v7ec6cb5b6f3d": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v88bf820f46f3": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v2a0fa17c2899": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v25dd758d9dfb": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v09a3b9adccce": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v16ed7f2a2ad4": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "va822e4880a55": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vafbb08cce3b2": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vd9a9afb8f98a": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v3a04190196e0": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vdaadf43c3857": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "veeaef2ebba35": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v45cf5d28b03e": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v298554cc49ff": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vdacbfcdd95b7": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "v4fc3cf969224": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v845d59938318": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v2e4d0dd32559": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v5a7b563275e2": {
+    "on_shelf": true,
+    "kata": "速報",
+    "native_ja": true
+   },
+   "vfaa961cc1971": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v4d7347648cf7": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vdc58dcb295cf": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vedb7a9ffd059": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb961d13b104d": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v49bdddc46aba": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v93ec8ca7c5c2": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v0c2d793ed0f2": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vccd033710ad1": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vde077afe754a": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v459e728cf90b": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8ac366f6ae81": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v860eefe61c8b": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vdddd7faabb8b": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve957e66c3f5d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va9a8cba36c3b": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc926b36c84f7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va5a8c4c2a022": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v0464809fed44": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vbeb504ffa825": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc70511d21f53": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5d1b7e913c65": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v16a735cf77be": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v9ef4ad9cedb2": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v5e9cd1b89519": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vec02925ccb0c": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "va7f7af9382a0": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v07ae0f8877c5": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vfde70f119926": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc33c02cad6d4": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v704dc1970d16": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vc2a455a600d0": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v1221a86698ba": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v74b01fce22d1": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vcf6731db9087": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v1e6f5a8c7b8e": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v60b0b0683125": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v5a9669455b61": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v46f41d9cadf2": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "va0ab8b392d48": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vacbc37a1299b": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vb0a2bec3f00d": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb3d600d5fa6b": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vaa966dc4dd0a": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v5468364303cd": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3cca71e4ac60": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vcff68432859c": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va199a7cd2aaf": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf8a8ce5377c9": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v9ccee4067422": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v14de91bb7b76": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v249142ae84d6": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v22a884bb8073": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v52eb44b26dd4": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v42359e5f9afa": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v19ac84c05e63": {
+    "on_shelf": false,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vff2363de75e6": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v77d576d23f3e": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v264aefb8c9aa": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vba0a7c9b0ba4": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va892964abce7": {
+    "on_shelf": false,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v56f42667f34e": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v538cb83063f4": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v009f7d49549f": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v855ec74d4693": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v55e0b48c6c6f": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v932dadb5fe4c": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v697dfe9b6896": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vd71ba5732e00": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v84275373fbae": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v2d3fd3f0829f": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v27bc3516d920": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vad26b8f53446": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve20d38e368fa": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v00943fc79180": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v72ad1a9c5c50": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v55d77c256dd7": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3dfe82e8ffbf": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v68da9bbc9bbc": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v52cc081b6f2a": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va69e97d6cafe": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3a28215ff522": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v89939207b39a": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va1b5db11f2eb": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "ve677789b75f8": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf7db2ef9fd38": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vfc59501759f5": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb959217fe792": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v016283c7d884": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va0f2d6bea1f9": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v15251229c25f": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vd0a672a67ed0": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v072dffc0b2e7": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vcd21c7660b9f": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v182643eadf41": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v33b6c39c9bc3": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v339de42863cc": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vbd9e2b088751": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va97b7b620101": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v97d38ebe6579": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "veea8e6144266": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc976ecd1784c": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v84288690492d": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v36fd4ff54b2f": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf26ceafeaa22": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v1dbb26177353": {
+    "on_shelf": false,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v5ad334735a49": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va25459d8af7b": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf602897ddcd4": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v1b83005b3434": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vb66d822bdc6c": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vf37e837b5e03": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "v775b6e32ded2": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vf7aa80ffbde7": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v722844361e18": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v11d24f24ee61": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "vf998ab66727e": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v8758d2bba13d": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v516b029046fc": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v034d4946e329": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v65bf3bb09d8c": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vfa0bb4c3b66e": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v3e361acba3ef": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "vc5aa371efc41": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "v64844605d798": {
+    "on_shelf": true,
+    "kata": "入門",
+    "native_ja": true
+   },
+   "va3ffee679b7f": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "vbe88ba053b3b": {
+    "on_shelf": true,
+    "kata": "その他",
+    "native_ja": true
+   },
+   "v073440e7daed": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v2eb52662d682": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v526aa39bbd7f": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v6ddc34eb86b3": {
+    "on_shelf": true,
+    "kata": "実演",
+    "native_ja": true
+   },
+   "v984d6417beb8": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   },
+   "vdb40a9c0c11f": {
+    "on_shelf": true,
+    "kata": "決着",
+    "native_ja": true
+   }
+  }
+ }
+}
