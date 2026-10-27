@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>観測の仕組み</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  main.sys { max-width: 960px; padding: 1.5rem 1rem 3rem; }
+  .sys h2 { font-size: 1.15rem; margin: 2.2rem 0 0.6rem; }
+  .sys p, .sys li { font-size: 0.92rem; }
+  .sys .lead { color: var(--text-dim); margin: 0.3rem 0 1rem; }
+
+  .flow { display: grid; grid-template-columns: 1fr; gap: 0.4rem; margin: 1rem 0 0.5rem; }
+  .flow .step { border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 0.9rem; background: var(--panel); }
+  .flow .step b { font-size: 0.98rem; }
+  .flow .step .sub { display: block; color: var(--text-dim); font-size: 0.82rem; margin-top: 0.15rem; }
+  .flow .arrow { text-align: center; color: var(--text-dim); font-size: 0.85rem; line-height: 1; }
+  .flow .arrow.down::after { content: "↓"; }
+  .flow .step.off { border-style: dashed; background: transparent; }
+
+  .card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.1rem; margin: 0.8rem 0 1.2rem; }
+  .card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+  .card .what { color: var(--text-dim); margin: 0 0 0.7rem; font-size: 0.9rem; }
+  .kv { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+  .kv th, .kv td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-top: 1px solid var(--border); }
+  .kv th { width: 7.5em; color: var(--text-dim); font-weight: 600; white-space: nowrap; }
+  .kv code { font-size: 0.82rem; }
+
+  .st { display: inline-block; font-size: 0.78rem; font-weight: 600; padding: 0.05rem 0.55rem; border-radius: 999px; margin-left: 0.4rem; vertical-align: 2px; }
+  .st.on { color: var(--pos); background: rgba(26, 127, 55, 0.1); }
+  .st.pause { color: #9a6700; background: rgba(191, 135, 0, 0.12); }
+  .st.off { color: var(--hit); background: rgba(207, 34, 46, 0.08); }
+
+  .note { border-left: 3px solid var(--accent); background: var(--accent-bg); padding: 0.7rem 0.9rem; margin: 1rem 0; font-size: 0.9rem; }
+  .note.warn { border-left-color: #bf8700; background: rgba(191, 135, 0, 0.08); }
+
+  .wrap { overflow-x: auto; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 0.84rem; min-width: 560px; }
+  .tbl th, .tbl td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .tbl th { color: var(--text-dim); font-weight: 600; white-space: nowrap; }
+  .tbl td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  header .meta a { margin-right: 0.6rem; }
+  @media (min-width: 760px) {
+    main.sys { padding: 2rem; }
+    .flow { grid-template-columns: repeat(9, auto); align-items: stretch; }
+    .flow .arrow { display: flex; align-items: center; }
+    .flow .arrow.down::after { content: "→"; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>⚙️ 観測の仕組み</h1>
+  <div class="meta"><a href="index.html">← ダッシュボードへ戻る</a><span>2026-10-27 時点の構成</span></div>
+</header>
+
+<main class="sys">
+  <p class="lead">YouTube の AI・開発系チャンネルを「見つける → 貯める → 巡回する → 張り付く」の4段で観測している。すべて GitHub Actions の cron で動くので、PC を閉じていても回り続ける。</p>
+
+  <div class="flow">
+    <div class="step"><b>① 見つける</b><span class="sub">キーワード検索で新しいchを拾う</span></div>
+    <div class="arrow down"></div>
+    <div class="step"><b>② 貯める</b><span class="sub">見つけたchを全部プールに残す</span></div>
+    <div class="arrow down"></div>
+    <div class="step"><b>③ 巡回する</b><span class="sub">プール全員を毎朝RSSで見回る</span></div>
+    <div class="arrow down"></div>
+    <div class="step"><b>④ 張り付く</b><span class="sub">注目chを1日4回細かく観測</span></div>
+    <div class="arrow">＋</div>
+    <div class="step off"><b>⑤ 全動画DB</b><span class="sub">外れ込みで全動画を貯める（未稼働）</span></div>
+  </div>
+
+  <h2>各段の集め方</h2>
+
+  <div class="card">
+    <h3>① 見つける（発見）<span class="st pause">一時停止中</span></h3>
+    <p class="what">キーワードで YouTube を検索して、まだ知らない同規模のチャンネルを拾う入口。</p>
+    <table class="kv">
+      <tr><th>いつ</th><td>毎日 JST 04:23（発見ループ）／ JST 14:20（余った quota で試験語検索）</td></tr>
+      <tr><th>どうやって</th><td>
+        <code>discovery_keywords_tech.txt</code> の約34語（Claude Code・Codex・Ollama・LM Studio など）で <code>search.list</code> を叩く → 登録者 50〜2,000 のchを候補に → 各chの直近150本を <code>videos.list</code> で取得 → 広告で盛られた疑いの動画を除外 → 「普段（再生数の中央値）の5倍以上」跳ねた動画が2本以上あり、直近90日にも波があるかを判定。<br>
+        試験語検索は、その日に余った quota で新しい語を1回だけ検索し、使った語は二度と検索しない。
+      </td></tr>
+      <tr><th>コスト</th><td>重い。検索1回 100 unit（1日の無料枠は 10,000）。発見ループだけで1日 約4,700〜5,300 unit 使っていた</td></tr>
+      <tr><th>出口</th><td>全条件を満たしたchは「✅ 全条件クリア」タブに並ぶ。注目chへの追加は人間が決める（自動では追加しない）</td></tr>
+      <tr><th>状態</th><td>2026-10-26 から検索を一時停止（広告判定に quota を回すため）。手動実行はできる</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>② 貯める（候補プール）<span class="st on">稼働中</span></h3>
+    <p class="what">一度でも視界に入ったチャンネルを、合否に関係なく残し続ける場所。</p>
+    <table class="kv">
+      <tr><th>どうやって</th><td>①で評価したch・検索に出たch・外部HITコーパスに出たchを <code>rss_pool.json</code> に追記。消さない</td></tr>
+      <tr><th>規模</th><td><b>3,442 ch</b>（2026-10-27）</td></tr>
+      <tr><th>あわせて貯まるもの</th><td>
+        外部HITコーパス <code>external_hits.jsonl</code>：①③で見つけた「当たった動画」。<b>上限5,000件に達していて、古いものから捨てている</b><br>
+        各chの登録者数の推移（毎日1回、50chで1 unit）
+      </td></tr>
+      <tr><th>出口</th><td>「🗂 発見済みch」タブ（登録者・前月比・再生中央値）、「🏆 当たり事例」タブ</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>③ 巡回する（RSS巡回）<span class="st on">稼働中</span></h3>
+    <p class="what">プールの全員を毎日見回って、跳ねた動画を拾う。一度条件から落ちたchも見続ける。</p>
+    <table class="kv">
+      <tr><th>いつ</th><td>毎朝 JST 05:03</td></tr>
+      <tr><th>どうやって</th><td>各chの RSS フィード（YouTube 公開の XML、最新15本）を読む → フィード中央値の5倍（下限500v）を超えた動画だけ API で確認（長尺か・like率0.4%以上か・登録者数）→ 通過分を外部HITコーパスへ。読んだ15本の再生数は動画ごとの日次系列として <code>rss_video_series.jsonl</code> に残す（伸び方の形で広告を見分ける用）</td></tr>
+      <tr><th>コスト</th><td>ほぼゼロ。RSS は quota を使わない。API確認は跳ねた動画だけ数 unit（1日 約75 unit）</td></tr>
+      <tr><th>限界</th><td>最新15本しか見えない。検索はできない。過去の外れ動画は取れない</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>④ 張り付く（注目chの定点観測）<span class="st on">稼働中</span></h3>
+    <p class="what">真似元・手本として選んだ少数のchを細かく追い、動いた瞬間に知らせる。</p>
+    <table class="kv">
+      <tr><th>いつ</th><td>1日4回（JST 3・9・15・21時ごろ）</td></tr>
+      <tr><th>対象</th><td><code>priority_channels.txt</code> の12ch（戒くん・Sura・AIの歩き方・茶々丸・reck・デジタルの時間 など＋自ch）。広告混ざり枠 <code>boosted_channels.txt</code> の2chは別建てで観測</td></tr>
+      <tr><th>どうやって</th><td>各chの全動画を <code>playlistItems.list</code> + <code>videos.list</code> で取得し、再生数・like・登録者を時系列で <code>time_series/</code> に保存</td></tr>
+      <tr><th>コスト</th><td>1chあたり約10 unit／回（1日 約340 unit）</td></tr>
+      <tr><th>出口</th><td>Slack通知：🚨 新作検知／⚡ 初速検知（公開1〜2日で500v or 7日以内に700v）／🚀 急伸検知（1,000v or 登録者の2倍）／🎯 本命検知（普段の5倍＋広告疑いなし＋他chでも同テーマが当たっている）。急伸時は YouTube 全体で同テーマの当たり率も測る（市場検証・1本100 unit）。<br>ダッシュボード：チャンネル別タブ・🔥 急伸ウォッチ・🌱 検索資産</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>⑤ 競合全動画DB <span class="st off">未稼働</span></h3>
+    <p class="what">プールの各chについて、当たった動画だけでなく外れた動画も含めた全動画を貯める倉庫。</p>
+    <table class="kv">
+      <tr><th>なぜ要るか</th><td>①〜③で貯まるのはほぼ「当たり」だけ。外れの本数が分からないので、「このテーマは何本出て何本当たったか（当たり率）」が出せない</td></tr>
+      <tr><th>どうやって</th><td>初回だけ各chの全履歴を取得（backfill、1ch 約8 unit、全体で約16,000 unit を数日に分割）→ 以後は RSS で新着だけ追記（quota ほぼ0）。保存先は別の private repo <code>youtube-niche-corpus</code></td></tr>
+      <tr><th>できるようになること</th><td>テーマ別の当たり率（外れ込み・95%信頼区間つき）、各chの普段・当たり・外れの全体像</td></tr>
+      <tr><th>止まっている理由</th><td>保存先 repo への push 用 secret <code>CORPUS_PUSH_TOKEN</code> が未登録。毎日 cron は動くが全ステップがスキップされ、中身はゼロ</td></tr>
+    </table>
+  </div>
+
+  <h2>1日の流れ（JST）</h2>
+  <div class="wrap">
+    <table class="tbl">
+      <thead><tr><th>時刻</th><th>何が動くか</th><th>quota</th></tr></thead>
+      <tbody>
+        <tr><td>03:00 頃</td><td>④ 注目chの定点観測</td><td class="num">~85u</td></tr>
+        <tr><td>04:23</td><td>① 発見ループ（⏸ 停止中）</td><td class="num">—</td></tr>
+        <tr><td>05:03</td><td>③ RSS巡回 ＋ プールの登録者更新</td><td class="num">~75u</td></tr>
+        <tr><td>05:33</td><td>⑤ 全動画DB（✗ 空振り中）</td><td class="num">0</td></tr>
+        <tr><td>07:30</td><td>日次レポート（自chの数字）</td><td class="num">~14u</td></tr>
+        <tr><td>09:00 頃</td><td>④ 注目chの定点観測</td><td class="num">~85u</td></tr>
+        <tr><td>14:20</td><td>① 試験語検索（⏸ 検索は停止中）</td><td class="num">—</td></tr>
+        <tr><td>15:00 頃</td><td>④ 注目chの定点観測</td><td class="num">~85u</td></tr>
+        <tr><td>21:00 頃</td><td>④ 注目chの定点観測</td><td class="num">~85u</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="lead">急伸が出た回だけ、④の後に市場検証（1本100u・最大3本）が追加で走る。</p>
+
+  <h2>この網の死角</h2>
+  <div class="note warn">
+    <p style="margin:0 0 0.4rem"><b>入口がキーワードなので、キーワードにない分野は最初から見えない。</b></p>
+    <p style="margin:0">今のキーワードは IT・開発系だけ。たとえば AI×生命科学（AlphaFold・タンパク質設計・AI創薬）は、プール3,442ch中で関係するタイトルが2本しかない。「同じ好みの人がどこにどれくらいいるか」を測るには、①のキーワードを広げて網を張り、⑤で外れも含めて数える必要がある。</p>
+  </div>
+
+  <h2>あわせて残っている宿題</h2>
+  <ul>
+    <li>⑤を動かす：private repo <code>syuta-chiba/youtube-niche-corpus</code> を作り、push できる PAT を secret <code>CORPUS_PUSH_TOKEN</code> に登録（人の作業）</li>
+    <li>外部HITコーパスの上限5,000件で古いものを捨てている問題</li>
+    <li>プール3,442chの「調査対象に入れるか」の振り分けが全件未判定</li>
+  </ul>
+  <p class="lead">正本：<code>docs/discovery_loop.md</code>（①②③）／ <code>CLAUDE.md</code>（④）／ <code>docs/competitor_db.md</code>（⑤）／ <code>docs/direction_2026-10-27.md</code>（方向性）</p>
+</main>
+</body>
+</html>
