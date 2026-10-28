@@ -1159,3 +1159,8 @@ nav#channel-nav button.nav-memo { border-style: dashed; }
 .sh-q { min-width: 10rem; padding: 0.15rem 0.4rem; }
 .sh-watch, .ac-promote, .pl-reject { font-size: 0.8em; padding: 0.1rem 0.4rem; margin-right: 0.2rem; }
 .pl-actions { white-space: nowrap; }
+
+.ac-selcell { width: 1.6rem; text-align: center; }
+.ac-selected td { background: rgba(26, 127, 55, 0.08); }
+.ac-bulk { font-size: 0.85em; padding: 0.15rem 0.6rem; margin-left: 0.6rem; }
+.ac-bulk:disabled { opacity: 0.5; }

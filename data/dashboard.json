@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T04:13:39Z",
+  "generated_at": "2026-10-28T04:26:14Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -619143,31 +619143,6 @@
       "status": "pending"
     },
     {
-      "channel_id": "UC7mtygQOKMU1gPG3yN3niRw",
-      "title": "デブログfm - AIで生産性を上げるエンジニアログ",
-      "date": "2026-10-25",
-      "icon": "https://yt3.ggpht.com/CPINo_qWr9GGJslFndTXQU72DONFetrmu_1oYSDZ--FlPdksuZcBRwcnKNJBoKTQfgPbTj7osQ=s88-c-k-c0x00ffffff-no-rj",
-      "decision": "queued(cap)",
-      "subs": 215,
-      "n_videos": 25,
-      "kw_hits": 1,
-      "keywords": "Grok Bot Cursor",
-      "median_views": 79,
-      "recent_median_views": 79,
-      "hits": 3,
-      "momentum_hits": 0,
-      "fake_hits": 0,
-      "hit_rate": 0.12,
-      "max_views": 14076,
-      "max_title": "Grok Botを1週間使って感じた便利さ クレカも実装もエアコン操作もGrok Botで",
-      "like_rate": 0.0095,
-      "timing": "★立ち上がり/安定",
-      "has_metrics": true,
-      "latest_video_at": "2026-09-30",
-      "lang": "ja",
-      "status": "pending"
-    },
-    {
       "channel_id": "UCSrP8zyW0ptqJyho5DBCuQw",
       "title": "Travis Automates",
       "date": "2026-10-25",
@@ -625316,6 +625291,31 @@
       "latest_video_at": "2026-10-10",
       "lang": "ja",
       "status": "pending"
+    },
+    {
+      "channel_id": "UC7mtygQOKMU1gPG3yN3niRw",
+      "title": "デブログfm - AIで生産性を上げるエンジニアログ",
+      "date": "2026-10-25",
+      "icon": "https://yt3.ggpht.com/CPINo_qWr9GGJslFndTXQU72DONFetrmu_1oYSDZ--FlPdksuZcBRwcnKNJBoKTQfgPbTj7osQ=s88-c-k-c0x00ffffff-no-rj",
+      "decision": "queued(cap)",
+      "subs": 215,
+      "n_videos": 25,
+      "kw_hits": 1,
+      "keywords": "Grok Bot Cursor",
+      "median_views": 79,
+      "recent_median_views": 79,
+      "hits": 3,
+      "momentum_hits": 0,
+      "fake_hits": 0,
+      "hit_rate": 0.12,
+      "max_views": 14076,
+      "max_title": "Grok Botを1週間使って感じた便利さ クレカも実装もエアコン操作もGrok Botで",
+      "like_rate": 0.0095,
+      "timing": "★立ち上がり/安定",
+      "has_metrics": true,
+      "latest_video_at": "2026-09-30",
+      "lang": "ja",
+      "status": "watch"
     },
     {
       "channel_id": "UCBX6bkl-NE9SAf3Q4mAPzNw",

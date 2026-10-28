@@ -267,6 +267,7 @@ function buildTabs(channels) {
 const PRIORITY_EDIT_URL = "https://github.com/syuta-chiba/youtube-niche-research/edit/main/priority_channels.txt";
 const AC_STATUS = {
   pending: { label: "⏳ 未判断", cls: "dv-queue" },
+  watch: { label: "📈 波形待ち", cls: "dv-ok" },
   priority: { label: "✅ priority 済", cls: "dv-ok" },
   boosted: { label: "⚠️ boosted 枠", cls: "dv-na" },
   rejected: { label: "🚫 違う確定", cls: "dv-ng" },
@@ -298,9 +299,12 @@ function renderAllClear(rows) {
   // 🇯🇵 日本語 / 🌐 海外 の切替 (既定 🇯🇵・メインは日本語圏で回す 2026-10-28)。古い dashboard.json に lang が無い間は全件表示
   const hasLang = rows.some((r) => r.lang);
   const langFns = { all: () => true, ja: (r) => r.lang === "ja", foreign: (r) => r.lang !== "ja" };
-  const state = { pendingOnly: true, metricsOnly: false, lang: "ja" };
+  const state = { view: "pending", metricsOnly: false, lang: "ja" };
   try { state.lang = localStorage.getItem("langFilter:allclear") || "ja"; } catch (e) { /* private mode */ }
   const nPendingJa = rows.filter((r) => r.status === "pending" && r.lang === "ja").length;
+  const nWatch = rows.filter((r) => r.status === "watch").length;
+  // 複数選択 → まとめて shape_watch.txt 用の行をコピー (今日の候補選定用)。再描画をまたいで保持
+  const selected = new Set();
 
   const row = (r) => {
     const st = AC_STATUS[r.status] || { label: escapeHtml(r.status || "?"), cls: "dv-na" };
@@ -317,8 +321,12 @@ function renderAllClear(rows) {
          ${watchButtonHtml(r.channel_id, r.title, r.subs, r.median_views)}
          <button class="pl-reject" data-cid="${escapeHtml(r.channel_id)}" data-title="${escapeHtml(r.title)}" title="rejected_channels.txt 用の行をコピー → 貼って commit すると巡回・照合から外れる">✗違う</button>`
       : "";
+    const sel = r.status === "pending"
+      ? `<input type="checkbox" class="ac-sel" data-cid="${escapeHtml(r.channel_id)}"${selected.has(r.channel_id) ? " checked" : ""} title="選んで下の「📈 波形待ちに回す」でまとめて行コピー">`
+      : "";
     return `
-    <tr class="${r.has_metrics ? "" : "ac-nometrics"}">
+    <tr class="${r.has_metrics ? "" : "ac-nometrics"}${selected.has(r.channel_id) ? " ac-selected" : ""}">
+      <td class="ac-selcell">${sel}</td>
       <td class="dv-date">${escapeHtml(r.date || "")}</td>
       <td class="dv-ch">${r.icon ? `<img class="ch-icon" src="${r.icon}" alt="" loading="lazy">` : ""}<a href="https://www.youtube.com/channel/${encodeURIComponent(r.channel_id)}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a></td>
       <td class="dv-num">${r.subs != null ? fmtN(r.subs) : dash}</td>
@@ -337,21 +345,32 @@ function renderAllClear(rows) {
   };
 
   panel.innerHTML = `
-    <h2>✅ 全条件クリア — priority 候補の在庫 (${fmtN(rows.length)}件・未判断 ${fmtN(nPending)}件${hasLang ? `・うち 🇯🇵 ${fmtN(nPendingJa)}件` : ""})</h2>
+    <h2>✅ 全条件クリア — priority 候補の在庫 (${fmtN(rows.length)}件・未判断 ${fmtN(nPending)}件${hasLang ? `・うち 🇯🇵 ${fmtN(nPendingJa)}件` : ""}・📈 波形待ち ${fmtN(nWatch)}件)</h2>
     <p class="dv-desc">discovery loop の全 AND ゲート (subs 50-2000 / 本編≥8 / 相対HIT≥2 / 直近90日 HIT比≥20% / 最新投稿≤120日 / 広告疑い過半でない) を通った ch。
     AUTO 昇格は確認制で止めているため、ここが「次に priority へ加える候補」の全在庫。これまでは当日の <code>discovery_queue.md</code> と Slack に 1 回出るだけで翌日には視界から消えていた (2026-10-13 にこのタブで棚卸し化)。</p>
     <p class="dv-sub">関連度ゲートは 2026-07-21 に廃止済みなので軸外 (株・政治・海外ニュース等) も混ざる。<strong>検索KW と 最大HITタイトル</strong>で目視し、
     良ければ「📋 priority行」でコピー → <a href="${PRIORITY_EDIT_URL}" target="_blank" rel="noopener">priority_channels.txt を編集</a>に貼って commit (次の cron から定点観測開始)。
     違えば「✗違う」→ <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a>。
+    <strong>まだ決めかねる ch は「📈 波形待ち」へ</strong>: 行頭のチェックで選び、下の「📈 波形待ちに回す」で行をまとめてコピー → <a href="${SHAPE_WATCH_EDIT_URL}" target="_blank" rel="noopener">shape_watch.txt を編集</a>に貼って commit。翌朝から毎日 1 点記録され、📈 波形タブで伸び方の形を見てから priority に上げるか決める (quota ゼロ・通知なし)。
     指標が「—」の ${fmtN(rows.length - nMetrics)} 行は、同日 2 回目の discovery (quota-drain) がレポートを上書きしていた期間に指標が失われたもの (登録者/普段は RSS プールの最新値で補完。再評価は RSS 巡回でスパイクした時)。列見出しクリックでソート。</p>
     ${hasLang ? langFilterHtml("allclear", rows) : ""}
+    <div class="rw-filter-group" id="ac-view-filter">
+      <span class="rw-filter-label">状態</span>
+      <div class="rw-filters">
+        <button class="rw-filter" data-view="pending">⏳ 未判断 (${fmtN(nPending)})</button>
+        <button class="rw-filter" data-view="watch">📈 波形待ち (${fmtN(nWatch)})</button>
+        <button class="rw-filter" data-view="all">全部 (${fmtN(rows.length)})</button>
+      </div>
+    </div>
     <div class="ac-filters">
-      <label><input type="checkbox" id="ac-pending-only" checked> 未判断だけ表示</label>
       <label><input type="checkbox" id="ac-metrics-only"> 指標ありだけ表示</label>
+      <button id="ac-bulk-watch" class="ac-bulk" disabled title="チェックした ch の shape_watch.txt 用の行をまとめてコピー">📈 波形待ちに回す (0)</button>
+      <button id="ac-sel-clear" class="ac-bulk" disabled>選択解除</button>
     </div>
     <div class="dv-table-wrap">
       <table class="dv-table dv-eval ac-table">
         <thead><tr>
+          <th class="ac-selcell" title="複数選択 → 📈 波形待ちに回す">☑</th>
           <th class="dv-sortable" data-k="date">クリア日 <span class="dv-sort-ind">▼</span></th>
           <th>チャンネル</th>
           <th class="dv-sortable" data-k="subs">👥 登録者 <span class="dv-sort-ind"></span></th>
@@ -372,23 +391,66 @@ function renderAllClear(rows) {
     </div>`;
   const tbody = document.getElementById("ac-tbody");
   const table = panel.querySelector(".ac-table");
+  const bulkBtn = panel.querySelector("#ac-bulk-watch");
+  const clearBtn = panel.querySelector("#ac-sel-clear");
+  const refreshBulk = () => {
+    bulkBtn.textContent = `📈 波形待ちに回す (${selected.size})`;
+    bulkBtn.disabled = selected.size === 0;
+    clearBtn.disabled = selected.size === 0;
+  };
   const bind = (scope) => {
     bindRejectButtons(scope);
     scope.querySelectorAll(".ac-promote").forEach((btn) => {
       const r = rows.find((x) => x.channel_id === btn.dataset.cid);
       if (r) btn.addEventListener("click", () => copyPriorityLine(btn, r));
     });
+    scope.querySelectorAll(".ac-sel").forEach((cb) => {
+      cb.addEventListener("change", () => {
+        if (cb.checked) selected.add(cb.dataset.cid); else selected.delete(cb.dataset.cid);
+        cb.closest("tr").classList.toggle("ac-selected", cb.checked);
+        refreshBulk();
+      });
+    });
   };
+  const viewFns = { pending: (r) => r.status === "pending", watch: (r) => r.status === "watch", all: () => true };
   const apply = () => {
     const langFn = hasLang ? (langFns[state.lang] || langFns.ja) : langFns.all;
     const filtered = rows.filter((r) =>
-      langFn(r) && (!state.pendingOnly || r.status === "pending") && (!state.metricsOnly || r.has_metrics));
+      langFn(r) && (viewFns[state.view] || viewFns.pending)(r) && (!state.metricsOnly || r.has_metrics));
     if (!filtered.length) {
-      tbody.innerHTML = '<tr><td colspan="14">（該当なし）</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="15">（該当なし）</td></tr>';
       return;
     }
     makeSortable(table, filtered, row, tbody, { limit: 60, afterRender: bind });
   };
+  bulkBtn.addEventListener("click", () => {
+    const today = new Date().toISOString().slice(0, 10);
+    const lines = rows.filter((r) => selected.has(r.channel_id)).map((r) => {
+      const parts = [];
+      if (r.subs != null) parts.push(`${fmtN(r.subs)} subs`);
+      if (r.median_views != null) parts.push(`普段${fmtN(r.median_views)}`);
+      if (r.hits != null) parts.push(`相対HIT ${r.hits}本`);
+      if (r.max_views != null) parts.push(`最大 ${fmtN(r.max_views)}v${r.max_title ? `「${r.max_title}」` : ""}`);
+      parts.push(`全条件クリア ${r.date} → ${today} 波形待ち`);
+      return `${r.channel_id}  # ${r.title} (${parts.join(" / ")})`;
+    });
+    navigator.clipboard.writeText(lines.join("\n") + "\n").then(() => {
+      bulkBtn.textContent = `📋 ${lines.length} 行コピー済み → shape_watch.txt に貼って commit`;
+      setTimeout(refreshBulk, 4000);
+    });
+  });
+  clearBtn.addEventListener("click", () => {
+    selected.clear();
+    panel.querySelectorAll(".ac-sel").forEach((cb) => { cb.checked = false; cb.closest("tr").classList.remove("ac-selected"); });
+    refreshBulk();
+  });
+  const viewBox = panel.querySelector("#ac-view-filter");
+  if (viewBox) {
+    const vb = viewBox.querySelectorAll(".rw-filter");
+    const refreshV = () => vb.forEach((b) => b.classList.toggle("active", b.dataset.view === state.view));
+    vb.forEach((b) => b.addEventListener("click", () => { state.view = b.dataset.view; refreshV(); apply(); }));
+    refreshV();
+  }
   const langBox = panel.querySelector(".lang-filter");
   if (langBox) {
     const btns = langBox.querySelectorAll(".rw-filter");
@@ -400,7 +462,6 @@ function renderAllClear(rows) {
     }));
     refresh();
   }
-  document.getElementById("ac-pending-only").addEventListener("change", (e) => { state.pendingOnly = e.target.checked; apply(); });
   document.getElementById("ac-metrics-only").addEventListener("change", (e) => { state.metricsOnly = e.target.checked; apply(); });
   apply();
 }
@@ -421,7 +482,7 @@ const SHAPE_BADGE = {
   insufficient: { label: "・ 日数不足", cls: "dv-na" },
 };
 const SHAPE_GROUP = {
-  watch: { label: "📈 ウォッチ", cls: "dv-ok", desc: "shape_watch.txt に置いた ch (毎日必ず記録)" },
+  watch: { label: "📈 波形待ち", cls: "dv-ok", desc: "shape_watch.txt に置いた ch = priority に上げるか形を見て決める段 (毎日必ず記録)" },
   priority: { label: "⭐ priority", cls: "dv-queue", desc: "観測 ch (API 1日4点・videos.jsonl)" },
   allclear: { label: "✅ 全条件クリア", cls: "dv-na", desc: "priority 候補の在庫 (RSS 1日1点・毎日必ず記録)" },
 };
@@ -544,7 +605,8 @@ function renderShapesBody(panel, sh) {
   };
 
   panel.innerHTML = `
-    <h2>📈 波形 — 伸び方の形で広告とおすすめを見分ける (ウォッチ ${fmtN(counts.watch || 0)} / priority ${fmtN(counts.priority || 0)} / 全条件クリア ${fmtN(counts.allclear || 0)} ch)</h2>
+    <h2>📈 波形 — 伸び方の形で広告とおすすめを見分ける (波形待ち ${fmtN(counts.watch || 0)} / priority ${fmtN(counts.priority || 0)} / 全条件クリア ${fmtN(counts.allclear || 0)} ch)</h2>
+    <p class="dv-sub"><strong>📈 波形待ち</strong> = ✅ 全条件クリアから選んで、priority に上げる前に伸び方の形を見て決める段 (<code>shape_watch.txt</code>)。自然な形で当たっていれば priority へ、広告型なら ✗違う / boosted へ。</p>
     <p class="dv-desc"><strong>📈 自然</strong> = 公開 1〜2 日目がピーク → 日ごとに減衰 → 崖なしで尾が数週間続く (おすすめ・関連)。
     <strong>📢 広告型</strong> = 初日がピークにならず予算ペースの台地 → 予算終了日に崖 → 尾なし。
     like 基準線 (期待比 50% 線) が境界の時は、この形が決め手になる。判定は <code>view_shape.py</code>、定義は docs/ad_check_methodology.md 補助判定。</p>
@@ -554,7 +616,7 @@ function renderShapesBody(panel, sh) {
       <span class="rw-filter-label">対象</span>
       <div class="rw-filters">
         <button class="rw-filter" data-group="all">全部 (${fmtN(chans.length)})</button>
-        <button class="rw-filter" data-group="watch">📈 ウォッチ (${fmtN(counts.watch || 0)})</button>
+        <button class="rw-filter" data-group="watch">📈 波形待ち (${fmtN(counts.watch || 0)})</button>
         <button class="rw-filter" data-group="priority">⭐ priority (${fmtN(counts.priority || 0)})</button>
         <button class="rw-filter" data-group="allclear">✅ 全条件クリア (${fmtN(counts.allclear || 0)})</button>
       </div>
