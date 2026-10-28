@@ -1,0 +1,217 @@
+name: priority_channels 定期取得
+
+# ★ 2026-10-28 private repo (youtube-niche-research) から移設。
+#   理由: private repo の Actions 無料枠 (2,000分/月) を使い切り、課金ブロックで
+#   10/27 以降の定点観測が全停止したため。public repo の Actions は無料枠無制限。
+#   - データ・スクリプトは private repo のまま (deploy key で checkout して commit し返す)
+#   - public repo の run ログは誰でも読めるので、スクリプト出力は run.log に落とし
+#     stdout には件数しか出さない。失敗時のログ末尾は Slack (非公開) にだけ送る。
+#   - dashboard/ の同期はこの repo 自身への push (GITHUB_TOKEN)
+
+on:
+  schedule:
+    # UTC 0,6,12,18 時 = JST 9,15,21,3 時 (1 日 4 回)
+    - cron: "0 0,6,12,18 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: priority-channels
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      # この repo (public dashboard) 自身 = 配信先
+      - uses: actions/checkout@v4
+        with:
+          path: pub
+
+      # private repo = スクリプトとデータの正本。deploy key (書込可) で取得
+      - uses: actions/checkout@v4
+        with:
+          repository: syuta-chiba/youtube-niche-research
+          ssh-key: ${{ secrets.PRIVATE_REPO_SSH_KEY }}
+          path: src
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: src/requirements.txt
+
+      - run: pip install -q -r src/requirements.txt
+
+      - name: priority_channels_check.py 実行 (出力は run.log へ・public ログには件数のみ)
+        id: check
+        working-directory: src
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          set +e
+          python priority_channels_check.py > run.log 2>&1
+          rc=$?
+          set -e
+          if [ "$rc" != "0" ]; then echo "::error::priority_channels_check.py exit=$rc (詳細は Slack)"; exit $rc; fi
+          hit_count=$(jq 'length' hit_alerts.json 2>/dev/null || echo 0)
+          new_count=$(jq 'length' new_video_alerts.json 2>/dev/null || echo 0)
+          prime_count=$(jq 'length' prime_alerts.json 2>/dev/null || echo 0)
+          early_count=$(jq 'length' early_alerts.json 2>/dev/null || echo 0)
+          echo "hit_count=$hit_count" >> $GITHUB_OUTPUT
+          echo "new_count=$new_count" >> $GITHUB_OUTPUT
+          echo "prime_count=$prime_count" >> $GITHUB_OUTPUT
+          echo "early_count=$early_count" >> $GITHUB_OUTPUT
+          echo "新作検知: $new_count 件 / 急伸検知: $hit_count 件 / 初速検知: $early_count 件 / 本命検知: $prime_count 件"
+
+      - name: boosted_channels (広告混ざり枠) 取得 — 通知なし・別ディレクトリ
+        working-directory: src
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          if [ -s boosted_channels.txt ]; then
+            python priority_channels_check.py -c boosted_channels.txt --out-dir time_series_boosted --no-alert-files >> run.log 2>&1 || echo "boosted 取得失敗 (継続)"
+          fi
+
+      - name: 市場検証 (急伸/本命検知時のみ、全YouTube横断で企画需要を測定)
+        working-directory: src
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        if: steps.check.outputs.hit_count != '0' || steps.check.outputs.prime_count != '0'
+        run: |
+          python market_validate.py --from-alerts prime_alerts.json --from-alerts hit_alerts.json \
+            --update-alerts --max-videos 3 >> run.log 2>&1 \
+            || echo "市場検証失敗 (継続)"
+
+      - name: Slack 通知 (🎯 本命検知 = 相対HIT×横展開×like健全、SLACK_WEBHOOK_URL 設定時のみ)
+        working-directory: src
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: steps.check.outputs.prime_count != '0' && env.SLACK_WEBHOOK_URL != ''
+        run: |
+          jq -c '.[]' prime_alerts.json | while read -r h; do
+            payload=$(jq -nc --argjson h "$h" '{
+              text: ("🎯🎯 *本命候補（相対HIT × 横展開実証 × like健全）*\n"
+                + "*<" + $h.url + "|" + ($h.title | .[0:220]) + ">*\n"
+                + "channel: " + $h.channel
+                + " ・ views: " + ($h.views|tostring)
+                + (if $h.baseline_mult != null then " (普段の" + ($h.baseline_mult|tostring) + "倍)" else "" end)
+                + "\n" + $h.analysis)
+            }')
+            curl -sS -o /dev/null -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"
+            sleep 1
+          done
+
+      - name: Slack 通知 (新作検知時のみ、SLACK_WEBHOOK_URL 設定時のみ)
+        working-directory: src
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: steps.check.outputs.new_count != '0' && env.SLACK_WEBHOOK_URL != ''
+        run: |
+          jq -c '.[]' new_video_alerts.json | while read -r v; do
+            payload=$(jq -nc --argjson v "$v" '{
+              text: ("🆕 *新作検知: <" + $v.url + "|" + ($v.title | .[0:240]) + ">*\n"
+                + "公開: " + $v.published_at + " ・ 現 views: " + ($v.views|tostring)
+                + " ・ channel: " + $v.channel)
+            }')
+            curl -sS -o /dev/null -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"
+            sleep 1
+          done
+
+      - name: Slack 通知 (急伸検知=真似元候補、SLACK_WEBHOOK_URL 設定時のみ)
+        working-directory: src
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: steps.check.outputs.hit_count != '0' && env.SLACK_WEBHOOK_URL != ''
+        run: |
+          [ -f prime_alerts.json ] || echo "[]" > prime_alerts.json
+          jq -c --slurpfile prime prime_alerts.json \
+            '(($prime[0] // []) | map(.video_id)) as $pv | .[] | select(($pv | index(.video_id)) == null)' \
+            hit_alerts.json | while read -r h; do
+            payload=$(jq -nc --argjson h "$h" '{
+              text: ("🚀 *急伸検知（真似元候補）: <" + $h.url + "|" + ($h.title | .[0:230]) + ">*\n"
+                + "channel: " + $h.channel
+                + " ・ views: " + ($h.views|tostring) + (if ($h.delta != null) then " (Δ" + ($h.delta|tostring) + ")" else "" end)
+                + " ・ score: " + ($h.score|tostring) + "\n"
+                + $h.analysis)
+            }')
+            curl -sS -o /dev/null -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"
+            sleep 1
+          done
+
+      - name: Slack 通知 (⚡初速検知 = H-33分水嶺・1,000到達前の予告、SLACK_WEBHOOK_URL 設定時のみ)
+        working-directory: src
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: steps.check.outputs.early_count != '0' && env.SLACK_WEBHOOK_URL != ''
+        run: |
+          [ -f hit_alerts.json ] || echo "[]" > hit_alerts.json
+          [ -f prime_alerts.json ] || echo "[]" > prime_alerts.json
+          jq -c --slurpfile hits hit_alerts.json --slurpfile prime prime_alerts.json \
+            '((($hits[0] // []) + ($prime[0] // [])) | map(.video_id)) as $done | .[] | select(($done | index(.video_id)) == null)' \
+            early_alerts.json | while read -r h; do
+            payload=$(jq -nc --argjson h "$h" '{
+              text: ("⚡ *初速検知（1,000到達コース予告 / H-33: "
+                + (if $h.age_days <= 2 then "day1-2で500超え=94%" else "day7以内に700超え=96%" end)
+                + "が1,000到達）*\n"
+                + "*<" + $h.url + "|" + ($h.title | .[0:230]) + ">*\n"
+                + "channel: " + $h.channel
+                + " ・ views: " + ($h.views|tostring)
+                + " ・ 公開" + ($h.age_days|tostring) + "日目。early entry するなら今")
+            }')
+            curl -sS -o /dev/null -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"
+            sleep 1
+          done
+
+      - name: dashboard JSON 生成
+        working-directory: src
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python build_pages_data.py >> run.log 2>&1
+
+      - name: 変更があれば private repo に commit & push (deploy key)
+        working-directory: src
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add time_series/
+          git add channel_icons.json
+          if [ -d time_series_boosted ]; then git add time_series_boosted/; fi
+          if git diff --staged --quiet; then
+            echo "no changes"
+          else
+            git commit -q -m "data(auto): priority_channels 定期取得 $(date -u +%Y-%m-%dT%H:%MZ)"
+            for i in 1 2 3; do
+              git pull -q --rebase --autostash origin main && git push -q && break
+              sleep 5
+            done
+          fi
+
+      - name: dashboard をこの repo に同期 & push
+        run: |
+          # dashboard/ の中身を public repo の root に同期 (.git / README / .github は除外)
+          rsync -a --delete --exclude='.git' --exclude='README.md' --exclude='.github' src/dashboard/ pub/
+          cd pub
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "no dashboard changes"
+          else
+            git commit -q -m "auto: dashboard 更新 $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push -q
+          fi
+
+      - name: 失敗時は Slack に run.log 末尾を送る (public ログには出さない)
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          [ -n "$SLACK_WEBHOOK_URL" ] || { echo "SLACK_WEBHOOK_URL 未設定のため通知スキップ"; exit 0; }
+          tail -c 2500 src/run.log > tail.txt 2>/dev/null || echo "(run.log なし)" > tail.txt
+          payload=$(jq -nc --rawfile t tail.txt --arg u "$RUN_URL" \
+            '{text: ("🔥 *priority_channels 定期取得 失敗* (public runner)\n<" + $u + "|run を見る>\n```" + $t + "```")}')
+          curl -sS -o /dev/null -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"
