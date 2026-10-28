@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T03:55:02Z",
+  "generated_at": "2026-10-28T04:13:39Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -661550,14 +661550,15 @@
   ],
   "quota": {
     "date_pt": "2026-10-27",
-    "today_units": 384,
+    "today_units": 390,
     "limit": 10000,
     "by_source": {
       "priority": 85,
       "boosted": 9,
       "market_validate": 206,
       "daily_report": 13,
-      "rss_patrol": 71
+      "rss_patrol": 71,
+      "adhoc_ad_check": 6
     },
     "daily": [
       {
@@ -661614,7 +661615,7 @@
       },
       {
         "date": "2026-10-27",
-        "units": 384
+        "units": 390
       }
     ]
   }

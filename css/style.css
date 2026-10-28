@@ -1139,3 +1139,23 @@ nav#channel-nav button.nav-memo { border-style: dashed; }
 .hc-src-watch { color: var(--accent); border-color: var(--accent); }
 .hc-more { display: block; margin: 1rem auto 0; }
 @media (max-width: 480px) { .hc-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; } .hc-body { padding: 0.4rem 0.5rem 0.5rem; } .hc-title { font-size: 0.78rem; } }
+
+/* === 📈 波形タブ (2026-10-28) === */
+.sh-card { border: 1px solid var(--border, rgba(127,127,127,0.25)); border-radius: 8px; padding: 0.35rem 0.75rem; margin: 0.6rem 0; }
+.sh-card > summary { cursor: pointer; list-style: none; }
+.sh-card > summary::-webkit-details-marker { display: none; }
+.sh-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; padding: 0.3rem 0; }
+.sh-head a { font-weight: 600; }
+.sh-head .dv-note { font-size: 0.85em; }
+.sh-table { margin-top: 0.4rem; }
+.sh-table td, .sh-table th { white-space: nowrap; }
+.sh-title { max-width: 26rem; overflow: hidden; text-overflow: ellipsis; }
+.sh-label { max-width: 22rem; overflow: hidden; text-overflow: ellipsis; font-size: 0.85em; }
+.sh-spark-cell { padding: 2px 6px; }
+.sh-spark { display: block; }
+.sh-bar { fill: #4c8ef7; }
+.sh-bar-max { fill: #e5534b; }
+.sh-empty { margin: 0.3rem 0 0.5rem; }
+.sh-q { min-width: 10rem; padding: 0.15rem 0.4rem; }
+.sh-watch, .ac-promote, .pl-reject { font-size: 0.8em; padding: 0.1rem 0.4rem; margin-right: 0.2rem; }
+.pl-actions { white-space: nowrap; }

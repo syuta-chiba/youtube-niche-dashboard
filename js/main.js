@@ -93,6 +93,7 @@ async function load() {
   renderHitCases(data.channels || [], data.external_hits || []);
   renderDiscovery(data.discovery || {}, data.rejected || []);
   renderAllClear(data.all_clear || []);
+  renderShapes();
   renderMemo(data.memo || {});
   renderPool(data.pool || []);
   renderMarketPage(data.market || {});
@@ -132,6 +133,7 @@ function panelEl(id) {
   if (id === "hits") return document.getElementById("hits-panel");
   if (id === "discovery") return document.getElementById("discovery-panel");
   if (id === "allclear") return document.getElementById("allclear-panel");
+  if (id === "shapes") return document.getElementById("shapes-panel");
   if (id === "memo") return document.getElementById("memo-panel");
   if (id === "pool") return document.getElementById("pool-panel");
   if (id === "market") return document.getElementById("market-panel");
@@ -210,6 +212,13 @@ function buildTabs(channels) {
   acBtn.onclick = () => activateTab("allclear", tabs);
   tabs.push({ id: "allclear", btn: acBtn });
   nav.appendChild(acBtn);
+
+  const shBtn = document.createElement("button");
+  shBtn.className = "nav-discovery";
+  shBtn.textContent = "📈 波形";
+  shBtn.onclick = () => activateTab("shapes", tabs);
+  tabs.push({ id: "shapes", btn: shBtn });
+  nav.appendChild(shBtn);
 
   const poolBtn = document.createElement("button");
   poolBtn.className = "nav-discovery";
@@ -305,6 +314,7 @@ function renderAllClear(rows) {
       : dash;
     const actions = r.status === "pending"
       ? `<button class="ac-promote" data-cid="${escapeHtml(r.channel_id)}" title="priority_channels.txt 用の行をコピー → 貼って commit すると次の cron (JST 3/9/15/21) から定点観測が始まる">📋 priority行</button>
+         ${watchButtonHtml(r.channel_id, r.title, r.subs, r.median_views)}
          <button class="pl-reject" data-cid="${escapeHtml(r.channel_id)}" data-title="${escapeHtml(r.title)}" title="rejected_channels.txt 用の行をコピー → 貼って commit すると巡回・照合から外れる">✗違う</button>`
       : "";
     return `
@@ -392,6 +402,203 @@ function renderAllClear(rows) {
   }
   document.getElementById("ac-pending-only").addEventListener("change", (e) => { state.pendingOnly = e.target.checked; apply(); });
   document.getElementById("ac-metrics-only").addEventListener("change", (e) => { state.metricsOnly = e.target.checked; apply(); });
+  apply();
+}
+
+// === 📈 波形タブ (伸び方の形で広告とおすすめを見分ける・shape_watch.txt / view_shape.py) ===
+// データは dashboard.json と別ファイル data/shapes.json (動画ごとの日次系列で大きいため遅延読込)。
+// 形の定義 (docs/ad_check_methodology.md 補助判定):
+//   📈自然   = 公開 1〜2 日目ピーク → 日ごとに減衰 → 崖なしで尾が続く (おすすめ)
+//   📢広告型 = 初日がピークにならず台地 → 予算終了日に崖 → 尾なし
+// 追加方法: shape_watch.txt に ch ID を 1 行足して commit (「📈 ウォッチ」ボタンで行をコピー) → 翌朝 JST 05:03 から RSS が毎日必ず記録。
+
+const SHAPE_WATCH_EDIT_URL = "https://github.com/syuta-chiba/youtube-niche-research/edit/main/shape_watch.txt";
+const SHAPE_BADGE = {
+  organic: { label: "📈 自然", cls: "dv-ok" },
+  ad_like: { label: "📢 広告型", cls: "dv-ng" },
+  unclear: { label: "❔ 不明", cls: "dv-queue" },
+  late: { label: "⏩ 後期", cls: "dv-na" },
+  insufficient: { label: "・ 日数不足", cls: "dv-na" },
+};
+const SHAPE_GROUP = {
+  watch: { label: "📈 ウォッチ", cls: "dv-ok", desc: "shape_watch.txt に置いた ch (毎日必ず記録)" },
+  priority: { label: "⭐ priority", cls: "dv-queue", desc: "観測 ch (API 1日4点・videos.jsonl)" },
+  allclear: { label: "✅ 全条件クリア", cls: "dv-na", desc: "priority 候補の在庫 (RSS 1日1点・毎日必ず記録)" },
+};
+
+function copyWatchLine(btn, cid, title, extra) {
+  const today = new Date().toISOString().slice(0, 10);
+  const parts = [];
+  if (extra && extra.subs != null) parts.push(`${fmtN(extra.subs)} subs`);
+  if (extra && extra.median_views != null) parts.push(`普段${fmtN(extra.median_views)}`);
+  parts.push(`${today} 追加`);
+  const line = `${cid}  # ${title} (${parts.join(" / ")})`;
+  navigator.clipboard.writeText(line).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = "📋 コピー済み";
+    setTimeout(() => { btn.textContent = orig; }, 2500);
+  });
+}
+function watchButtonHtml(cid, title, subs, median) {
+  return `<button class="sh-watch" data-cid="${escapeHtml(cid)}" data-title="${escapeHtml(title || cid)}"${subs != null ? ` data-subs="${subs}"` : ""}${median != null ? ` data-median="${median}"` : ""} title="shape_watch.txt 用の行をコピー → 貼って commit すると翌朝から 📈 波形タブに日次カーブが積まれる (quota ゼロ)">📈 ウォッチ</button>`;
+}
+function bindWatchButtons(scope) {
+  scope.querySelectorAll(".sh-watch").forEach((btn) => {
+    btn.addEventListener("click", () => copyWatchLine(btn, btn.dataset.cid, btn.dataset.title, {
+      subs: btn.dataset.subs != null ? Number(btn.dataset.subs) : null,
+      median_views: btn.dataset.median != null ? Number(btn.dataset.median) : null,
+    }));
+  });
+}
+
+// 累計 → 日次増分 (欠測は null。view_shape.daily_deltas と同じ規則: 隣接日のみ差を取る)
+function shapeDeltas(cum) {
+  const out = []; let prev = null, prevI = null;
+  cum.forEach((v, i) => {
+    if (v == null) { out.push(null); return; }
+    if (prev == null) out.push(null);
+    else out.push(i - prevI === 1 ? Math.max(0, v - prev) : null);
+    prev = v; prevI = i;
+  });
+  return out;
+}
+// 日次増分の棒グラフ (inline SVG)。幅は日数に比例、高さ 32px、最大値でスケール。欠測は空欄
+function sparklineSvg(v) {
+  const d = shapeDeltas(v.s || []);
+  const n = d.length;
+  if (!n) return "";
+  const vals = d.filter((x) => x != null);
+  const mx = Math.max(1, ...vals);
+  const bw = 6, gap = 1, h = 32, w = Math.max(60, n * (bw + gap));
+  const bars = d.map((x, i) => {
+    if (x == null) return "";
+    const bh = Math.max(1, Math.round((x / mx) * (h - 2)));
+    const day = v.p && v.f ? Math.round((new Date(v.f) - new Date(v.p)) / 86400000) + i : i;
+    const cls = x === mx ? "sh-bar sh-bar-max" : "sh-bar";
+    return `<rect class="${cls}" x="${i * (bw + gap)}" y="${h - bh}" width="${bw}" height="${bh}"><title>公開 ${day} 日目: +${fmtN(x)}/日 (累計 ${fmtN(v.s[i])})</title></rect>`;
+  }).join("");
+  return `<svg class="sh-spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="日次増分 ${n} 日分">${bars}</svg>`;
+}
+
+function renderShapes() {
+  const panel = document.getElementById("shapes-panel");
+  if (!panel) return;
+  panel.innerHTML = `<h2>📈 波形 — 伸び方の形で広告とおすすめを見分ける</h2><p class="dv-desc">読み込み中…</p>`;
+  fetch("data/shapes.json?ts=" + Date.now())
+    .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
+    .then((sh) => renderShapesBody(panel, sh))
+    .catch((e) => {
+      panel.innerHTML = `<h2>📈 波形</h2><p class="dv-desc">data/shapes.json を読めませんでした (${escapeHtml(String(e.message || e))})。次回の cron (priority-channels) で生成されます。</p>`;
+    });
+}
+
+function renderShapesBody(panel, sh) {
+  const chans = sh.channels || [];
+  const counts = sh.counts || {};
+  const state = { group: "all", lang: "ja", shapedOnly: false, q: "", limit: 40 };
+  try { state.lang = localStorage.getItem("langFilter:shapes") || "ja"; } catch (e) { /* private mode */ }
+  try { state.group = localStorage.getItem("shapes:group") || "all"; } catch (e) { /* */ }
+  const langFns = { all: () => true, ja: (c) => c.lang === "ja", foreign: (c) => c.lang !== "ja" };
+
+  const videoRow = (v) => {
+    const b = SHAPE_BADGE[v.shape] || SHAPE_BADGE.insufficient;
+    const title = v.t || v.v;
+    return `
+    <tr>
+      <td class="dv-badge-cell"><span class="dv-badge ${b.cls}" title="${escapeHtml(v.label || "")}">${b.label}</span></td>
+      <td class="sh-title"><a href="https://www.youtube.com/watch?v=${encodeURIComponent(v.v)}" target="_blank" rel="noopener" title="${escapeHtml(title)}">${escapeHtml(title)}</a>${v.src === "api" ? ' <span class="dv-note" title="priority 観測 (API 1日4点) の日ごとの最後の値">API</span>' : ""}</td>
+      <td class="dv-date">${escapeHtml(v.p || "")}</td>
+      <td class="dv-num" title="日次の点の数 (記録開始 ${escapeHtml(v.f || "?")})">${v.n}</td>
+      <td class="dv-num">${fmtN(v.views)}</td>
+      <td class="dv-num">${v.max_delta != null ? `+${fmtN(v.max_delta)}` : "—"}</td>
+      <td class="sh-spark-cell">${sparklineSvg(v)}</td>
+      <td class="dv-note sh-label">${escapeHtml(v.label || "")}</td>
+    </tr>`;
+  };
+
+  const card = (c) => {
+    const g = SHAPE_GROUP[c.group] || SHAPE_GROUP.allclear;
+    const vids = c.videos || [];
+    const shown = vids.slice(0, 15);
+    const sum = [];
+    if (c.n_organic) sum.push(`📈 自然 ${c.n_organic}`);
+    if (c.n_ad) sum.push(`📢 広告型 ${c.n_ad}`);
+    sum.push(`判定可 ${c.n_shaped}/${c.n_videos}本`);
+    const addBtn = c.group === "allclear" ? watchButtonHtml(c.channel_id, c.title, c.subs, c.median_views) : "";   // priority は API 観測済み・watch は既に載っている
+    return `
+    <details class="sh-card" ${c.group !== "allclear" || c.n_shaped ? "open" : ""}>
+      <summary class="sh-head">
+        ${c.icon ? `<img class="ch-icon" src="${c.icon}" alt="" loading="lazy">` : ""}
+        <a href="https://www.youtube.com/channel/${encodeURIComponent(c.channel_id)}" target="_blank" rel="noopener">${escapeHtml(c.title)}</a>
+        <span class="dv-badge ${g.cls}" title="${escapeHtml(g.desc)}">${g.label}</span>
+        <span class="dv-note">${c.subs != null ? `${fmtN(c.subs)} subs` : ""}${c.median_views != null ? ` ・ 普段 ${fmtN(c.median_views)}` : ""} ・ ${sum.join(" ・ ")}</span>
+        ${addBtn}
+      </summary>
+      ${vids.length ? `
+      <div class="dv-table-wrap"><table class="dv-table sh-table">
+        <thead><tr><th>形</th><th>動画</th><th>公開</th><th>日数</th><th>累計</th><th>最大/日</th><th>日次増分</th><th>読み</th></tr></thead>
+        <tbody>${shown.map(videoRow).join("")}</tbody>
+      </table></div>${vids.length > shown.length ? `<p class="dv-note">他 ${vids.length - shown.length} 本 (最大/日 の小さい順に省略)</p>` : ""}`
+      : `<p class="dv-note sh-empty">まだ日次が 2 点未満 (RSS 巡回が昨日までに届いていないか、公開 60 日超の動画しかない)。毎朝 1 点ずつ増える。</p>`}
+    </details>`;
+  };
+
+  panel.innerHTML = `
+    <h2>📈 波形 — 伸び方の形で広告とおすすめを見分ける (ウォッチ ${fmtN(counts.watch || 0)} / priority ${fmtN(counts.priority || 0)} / 全条件クリア ${fmtN(counts.allclear || 0)} ch)</h2>
+    <p class="dv-desc"><strong>📈 自然</strong> = 公開 1〜2 日目がピーク → 日ごとに減衰 → 崖なしで尾が数週間続く (おすすめ・関連)。
+    <strong>📢 広告型</strong> = 初日がピークにならず予算ペースの台地 → 予算終了日に崖 → 尾なし。
+    like 基準線 (期待比 50% 線) が境界の時は、この形が決め手になる。判定は <code>view_shape.py</code>、定義は docs/ad_check_methodology.md 補助判定。</p>
+    <p class="dv-sub">データ: RSS 巡回 (毎朝 JST 05:03・最新 15 本・quota ゼロ) の 1 日 1 点。priority ch は API 観測の 1 日 4 点から日ごとの最後の値。公開 60 日で打ち切り。
+    <strong>見たい ch を足す</strong>には「📈 ウォッチ」で行をコピー → <a href="${SHAPE_WATCH_EDIT_URL}" target="_blank" rel="noopener">shape_watch.txt を編集</a>に貼って commit。翌朝から必ず毎日記録される (時間予算で翌日送りにならない)。✅ 全条件クリアの未判断 ch も自動で毎日記録。</p>
+    <div class="rw-filter-group" id="sh-group-filter">
+      <span class="rw-filter-label">対象</span>
+      <div class="rw-filters">
+        <button class="rw-filter" data-group="all">全部 (${fmtN(chans.length)})</button>
+        <button class="rw-filter" data-group="watch">📈 ウォッチ (${fmtN(counts.watch || 0)})</button>
+        <button class="rw-filter" data-group="priority">⭐ priority (${fmtN(counts.priority || 0)})</button>
+        <button class="rw-filter" data-group="allclear">✅ 全条件クリア (${fmtN(counts.allclear || 0)})</button>
+      </div>
+    </div>
+    ${langFilterHtml("shapes", chans)}
+    <div class="ac-filters">
+      <label><input type="checkbox" id="sh-shaped-only"> 形が判定できた動画がある ch だけ</label>
+      <label>ch名で絞る <input type="search" id="sh-q" placeholder="例: ローカル" class="sh-q"></label>
+    </div>
+    <div id="sh-list"></div>
+    <p id="sh-more"></p>`;
+
+  const list = panel.querySelector("#sh-list");
+  const more = panel.querySelector("#sh-more");
+  const apply = () => {
+    const q = state.q.trim().toLowerCase();
+    const rows = chans.filter((c) =>
+      (state.group === "all" || c.group === state.group)
+      && (langFns[state.lang] || langFns.ja)(c)
+      && (!state.shapedOnly || c.n_shaped > 0)
+      && (!q || (c.title || "").toLowerCase().includes(q) || c.channel_id.toLowerCase().includes(q)));
+    const shown = rows.slice(0, state.limit);
+    list.innerHTML = shown.length ? shown.map(card).join("") : '<p class="dv-note">（該当なし）</p>';
+    bindWatchButtons(list);
+    more.innerHTML = rows.length > shown.length
+      ? `<button class="rw-filter" id="sh-more-btn">さらに ${fmtN(Math.min(40, rows.length - shown.length))} ch 表示 (残り ${fmtN(rows.length - shown.length)})</button>`
+      : "";
+    const mb = more.querySelector("#sh-more-btn");
+    if (mb) mb.addEventListener("click", () => { state.limit += 40; apply(); });
+  };
+  const wire = (sel, attr, get, set) => {
+    const box = panel.querySelector(sel);
+    if (!box) return;
+    const btns = box.querySelectorAll(".rw-filter");
+    const refresh = () => btns.forEach((b) => b.classList.toggle("active", b.dataset[attr] === get()));
+    btns.forEach((b) => b.addEventListener("click", () => { set(b.dataset[attr]); state.limit = 40; refresh(); apply(); }));
+    refresh();
+  };
+  wire("#sh-group-filter", "group", () => state.group,
+    (v) => { state.group = v; try { localStorage.setItem("shapes:group", v); } catch (e) { /* */ } });
+  wire(".lang-filter", "lang", () => state.lang,
+    (v) => { state.lang = v; try { localStorage.setItem("langFilter:shapes", v); } catch (e) { /* */ } });
+  panel.querySelector("#sh-shaped-only").addEventListener("change", (e) => { state.shapedOnly = e.target.checked; state.limit = 40; apply(); });
+  panel.querySelector("#sh-q").addEventListener("input", (e) => { state.q = e.target.value; state.limit = 40; apply(); });
   apply();
 }
 
@@ -1187,7 +1394,7 @@ function renderPool(pool) {
       <td class="pl-num" title="RSS 最新15本 (公開7日超) の views 中央値 = そのchの普段">${p.median_views != null ? fmtN(p.median_views) : "—"}</td>
       <td class="pl-date">${escapeHtml(p.latest_video_at || "—")}</td>
       <td class="pl-date" title="発見経路: ${escapeHtml(p.source || "?")}">${escapeHtml(p.added || "—")}</td>
-      <td><button class="pl-reject" data-cid="${escapeHtml(p.channel_id)}" data-title="${escapeHtml(p.title)}" title="rejected_channels.txt 用の行をコピー → 上の編集リンクから貼って commit すると、巡回・照合から外れ 🧭 タブの「🚫 違う確定」台帳へ移動">✗違う</button></td>
+      <td class="pl-actions">${watchButtonHtml(p.channel_id, p.title, p.subs, p.median_views)} <button class="pl-reject" data-cid="${escapeHtml(p.channel_id)}" data-title="${escapeHtml(p.title)}" title="rejected_channels.txt 用の行をコピー → 上の編集リンクから貼って commit すると、巡回・照合から外れ 🧭 タブの「🚫 違う確定」台帳へ移動">✗違う</button></td>
     </tr>`;
   };
 
@@ -1266,6 +1473,7 @@ function bindRejectButtons(scope) {
   scope.querySelectorAll(".pl-reject").forEach((btn) => {
     btn.addEventListener("click", () => copyRejectLine(btn, btn.dataset.cid, btn.dataset.title));
   });
+  bindWatchButtons(scope);
 }
 
 function renderDiscovery(dv, rejected) {
