@@ -1,0 +1,117 @@
+name: competitor db 競合全動画DB
+
+# ★ 2026-10-28 private repo (youtube-niche-research) から移設 (priority-channels.yml 冒頭の説明を参照)。
+#
+# 横断分析の「分母」を貯める (private repo docs/competitor_db.md)。
+#   refresh … 毎日 RSS で新着だけ追記 (quota ~0)
+#   backfill … 全アップロード履歴の初回ダンプ。quota を食うので手動実行のみ。
+# 生成物は別 repo `youtube-niche-corpus` に commit する。
+# 前提 secret: CORPUS_PUSH_TOKEN … youtube-niche-corpus に push できる PAT (contents:write)。
+#             未設定なら DB ステップは黙ってスキップ (cron は success のまま)。
+
+on:
+  schedule:
+    # UTC 20:33 = JST 05:33。rss-patrol(05:03) の後・priority(0/6/12/18)と非衝突。
+    - cron: "33 20 * * *"
+  workflow_dispatch:
+    inputs:
+      backfill:
+        description: "全履歴バックフィルも走らせる (quota 消費)"
+        type: boolean
+        default: false
+      budget:
+        description: "backfill の quota 上限 (units)"
+        default: "3000"
+
+concurrency:
+  group: competitor-db
+  cancel-in-progress: false
+
+env:
+  CORPUS_REPO: syuta-chiba/youtube-niche-corpus
+  CORPUS_DIR: ${{ github.workspace }}/_corpus
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: syuta-chiba/youtube-niche-research
+          ssh-key: ${{ secrets.PRIVATE_REPO_SSH_KEY }}
+          path: src
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: DB repo を clone (token があれば)
+        id: clone
+        env:
+          TOKEN: ${{ secrets.CORPUS_PUSH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "CORPUS_PUSH_TOKEN 未設定 → DB ステップをスキップ"
+            echo "ok=0" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          git clone -q --depth 1 "https://x-access-token:${TOKEN}@github.com/${CORPUS_REPO}.git" "$CORPUS_DIR"
+          echo "ok=1" >> $GITHUB_OUTPUT
+
+      - name: refresh (RSS・quota 0)
+        if: steps.clone.outputs.ok == '1'
+        working-directory: src
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python competitor_db.py refresh >> run.log 2>&1
+
+      - name: backfill (手動 & budget 内・レジューム)
+        if: steps.clone.outputs.ok == '1' && github.event.inputs.backfill == 'true'
+        working-directory: src
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          CDB_BUDGET: ${{ github.event.inputs.budget }}
+        run: python competitor_db.py backfill --budget "$CDB_BUDGET" >> run.log 2>&1
+
+      - name: DB repo を commit & push
+        if: steps.clone.outputs.ok == '1'
+        working-directory: ${{ env.CORPUS_DIR }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "no changes"
+          else
+            git commit -q -m "cdb(auto): $(date -u +%Y-%m-%dT%H:%MZ)"
+            for i in 1 2 3; do git pull -q --rebase --autostash && git push -q && break; sleep 5; done
+          fi
+
+      - name: quota_log を private repo に commit
+        if: steps.clone.outputs.ok == '1'
+        working-directory: src
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -f time_series/quota_log.jsonl ]; then
+            git add time_series/quota_log.jsonl
+            if git diff --staged --quiet; then echo "no quota change"; else
+              git commit -q -m "cdb(auto): quota_log $(date -u +%Y-%m-%dT%H:%MZ)"
+              for i in 1 2 3; do git pull -q --rebase --autostash origin main && git push -q && break; sleep 5; done
+            fi
+          fi
+
+      - name: 失敗時は Slack に run.log 末尾を送る (public ログには出さない)
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          [ -n "$SLACK_WEBHOOK_URL" ] || { echo "SLACK_WEBHOOK_URL 未設定のため通知スキップ"; exit 0; }
+          tail -c 2500 src/run.log > tail.txt 2>/dev/null || echo "(run.log なし)" > tail.txt
+          payload=$(jq -nc --rawfile t tail.txt --arg u "$RUN_URL" \
+            '{text: ("🔥 *competitor db 失敗* (public runner)\n<" + $u + "|run を見る>\n```" + $t + "```")}')
+          curl -sS -o /dev/null -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"

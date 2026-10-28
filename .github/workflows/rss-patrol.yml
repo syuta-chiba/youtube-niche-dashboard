@@ -1,0 +1,81 @@
+name: rss patrol 競合候補巡回
+
+# ★ 2026-10-28 private repo (youtube-niche-research) から移設 (priority-channels.yml 冒頭の説明を参照)。
+#   この workflow が 10 月に 135〜216 分の run を 6 回出して private の無料枠を溶かした張本人。
+#   対策: job timeout 50 分 + rss_patrol.py 側の壁時計予算 RSS_TIME_BUDGET_SEC (35 分で打ち切り・翌日続きから)。
+
+on:
+  schedule:
+    # UTC 20:03 = JST 05:03 (1 日 1 回)。priority (0/6/12/18) と被らない。
+    - cron: "3 20 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: rss-patrol
+  cancel-in-progress: false
+
+jobs:
+  patrol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: syuta-chiba/youtube-niche-research
+          ssh-key: ${{ secrets.PRIVATE_REPO_SSH_KEY }}
+          path: src
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # rss_patrol.py は stdlib のみで動く (pip install 不要)。RSS 巡回は quota ゼロ。
+      - name: rss_patrol.py 実行 (出力は run.log へ・public ログには件数のみ)
+        id: run
+        working-directory: src
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          RSS_TIME_BUDGET_SEC: "2100"
+        run: |
+          set +e
+          python rss_patrol.py > run.log 2>&1
+          rc=$?
+          set -e
+          summary=$(grep "^RSS_SUMMARY|" run.log | tail -1 || true)
+          echo "summary=$summary" >> $GITHUB_OUTPUT
+          echo "$summary"
+          if [ "$rc" != "0" ]; then echo "::error::rss_patrol.py exit=$rc (詳細は Slack)"; exit $rc; fi
+
+      - name: 変更を private repo に commit & push (deploy key)
+        working-directory: src
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for f in rss_pool.json rss_state.json time_series/external_hits.jsonl time_series/quota_log.jsonl time_series/rss_video_series.jsonl; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          if [ -d rss_reports ]; then git add rss_reports/; fi
+          if [ -d time_series/external_hits_archive ]; then git add time_series/external_hits_archive/; fi
+          if git diff --staged --quiet; then
+            echo "no changes"
+          else
+            git commit -q -m "rss(auto): 競合候補巡回 $(date -u +%Y-%m-%dT%H:%MZ)"
+            for i in 1 2 3; do
+              git pull -q --rebase --autostash origin main && git push -q && break
+              sleep 5
+            done
+          fi
+
+      - name: 失敗時は Slack に run.log 末尾を送る (public ログには出さない)
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          [ -n "$SLACK_WEBHOOK_URL" ] || { echo "SLACK_WEBHOOK_URL 未設定のため通知スキップ"; exit 0; }
+          tail -c 2500 src/run.log > tail.txt 2>/dev/null || echo "(run.log なし)" > tail.txt
+          payload=$(jq -nc --rawfile t tail.txt --arg u "$RUN_URL" \
+            '{text: ("🔥 *rss patrol 失敗* (public runner)\n<" + $u + "|run を見る>\n```" + $t + "```")}')
+          curl -sS -o /dev/null -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"

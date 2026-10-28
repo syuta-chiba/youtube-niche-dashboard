@@ -1,0 +1,112 @@
+name: 日次分析レポート
+
+# ★ 2026-10-28 private repo (youtube-niche-research) から移設 (priority-channels.yml 冒頭の説明を参照)。
+
+on:
+  schedule:
+    # UTC 22:30 = JST 07:30 (priority JST3時 / rss-patrol JST5時 の後)
+    - cron: "30 22 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: daily-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: pub
+
+      - uses: actions/checkout@v4
+        with:
+          repository: syuta-chiba/youtube-niche-research
+          ssh-key: ${{ secrets.PRIVATE_REPO_SSH_KEY }}
+          path: src
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Slack/Discord への日次レポート送信は 2026-07-31 から停止 (--no-post)。
+      # own_channel/ スナップショット蓄積と dashboard 📰 日次タブの更新は継続。
+      - name: daily_report.py 実行 (own_channel スナップショットのみ・通知なし)
+        working-directory: src
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python daily_report.py --no-post > run.log 2>&1
+
+      # 企画の優先度ボード (quota 0)。daily_report.py が落ちてもボードは再生成する
+      - name: pipeline_board.py 実行 (企画優先度ボード再生成)
+        if: always()
+        working-directory: src
+        run: python pipeline_board.py >> run.log 2>&1
+
+      - name: feed_check.py --list 実行 (フィード型の打席ボード再生成)
+        if: always()
+        working-directory: src
+        run: python feed_check.py --list > docs/feed_board.md 2>> run.log
+
+      - name: today.py --write 実行 (今日の打席・2トラック再生成)
+        if: always()
+        working-directory: src
+        run: python today.py --write > /dev/null 2>> run.log
+
+      - name: own_channel スナップショット + ボードを private repo に commit
+        if: always()
+        working-directory: src
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add own_channel/
+          git add docs/pipeline_board.md
+          git add docs/feed_board.md
+          git add docs/today.md
+          if [ -f time_series/quota_log.jsonl ]; then git add time_series/quota_log.jsonl; fi
+          if git diff --cached --quiet; then
+            echo "変更なし"
+          else
+            git commit -q -m "data(auto): own_channel 日次スナップショット + 企画ボード再生成 $(date -u +%Y-%m-%dT%H:%MZ)"
+            for i in 1 2 3; do
+              git pull -q --rebase --autostash origin main && git push -q && break
+              sleep 5
+            done
+          fi
+
+      # 📰 日次タブを 7:30 時点で最新にするため、ここでも dashboard を publish
+      - name: dashboard JSON 生成
+        working-directory: src
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python build_pages_data.py >> run.log 2>&1
+
+      - name: dashboard をこの repo に同期 & push
+        run: |
+          rsync -a --delete --exclude='.git' --exclude='README.md' --exclude='.github' src/dashboard/ pub/
+          cd pub
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "no dashboard changes"
+          else
+            git commit -q -m "auto: daily report 更新 $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push -q
+          fi
+
+      - name: 失敗時は Slack に run.log 末尾を送る (public ログには出さない)
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          [ -n "$SLACK_WEBHOOK_URL" ] || { echo "SLACK_WEBHOOK_URL 未設定のため通知スキップ"; exit 0; }
+          tail -c 2500 src/run.log > tail.txt 2>/dev/null || echo "(run.log なし)" > tail.txt
+          payload=$(jq -nc --rawfile t tail.txt --arg u "$RUN_URL" \
+            '{text: ("🔥 *日次分析レポート 失敗* (public runner)\n<" + $u + "|run を見る>\n```" + $t + "```")}')
+          curl -sS -o /dev/null -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"

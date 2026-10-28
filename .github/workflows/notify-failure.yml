@@ -1,0 +1,48 @@
+# どの定期 workflow が落ちても Slack に必ず知らせるフォールバック通知。
+# ★ 2026-10-28 private repo (youtube-niche-research) から移設 (priority-channels.yml 冒頭の説明を参照)。
+#
+# 背景: 2026-07-08〜07-16 に priority-channels が 9 日間毎回 failure していたのに
+# 気づけなかった (成功時のみ通知する設計だったため)。
+# 注意:
+# - SLACK_WEBHOOK_URL secret が未設定だと何も通知できない (それ自体がサイレント故障)。
+# - 監視対象を増やしたら workflows: のリストに name を追加すること。
+# - 「job 未起動」(課金ブロック等) は workflow_run が発火しないので拾えない。public repo に移した理由の一つ。
+name: workflow 失敗通知
+
+on:
+  workflow_run:
+    workflows:
+      - "priority_channels 定期取得"
+      - "日次分析レポート"
+      - "discovery loop 当たり企画発掘"
+      - "rss patrol 競合候補巡回"
+      - "quota drain 残枠で試験語検索"
+      - "competitor db 競合全動画DB"
+    types: [completed]
+  workflow_dispatch: {}  # 手動実行 = Slack 疎通テスト送信
+
+jobs:
+  notify:
+    if: github.event_name == 'workflow_dispatch' || contains(fromJSON('["failure", "timed_out", "cancelled"]'), github.event.workflow_run.conclusion)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Slack へ失敗通知
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          WF_NAME: ${{ github.event.workflow_run.name }}
+          WF_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          WF_URL: ${{ github.event.workflow_run.html_url }}
+          WF_RUN_STARTED: ${{ github.event.workflow_run.run_started_at }}
+        run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ]; then
+            echo "::error::SLACK_WEBHOOK_URL 未設定のため通知できない (gh secret set SLACK_WEBHOOK_URL -R syuta-chiba/youtube-niche-dashboard で登録)"
+            exit 1
+          fi
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            msg=":white_check_mark: Slack 通知テスト — この workflow (workflow 失敗通知 / public runner) は疎通 OK"
+          else
+            msg=$(printf ':rotating_light: GitHub Actions 失敗 (public runner): %s (%s)\n開始: %s\nログ: %s' "$WF_NAME" "$WF_CONCLUSION" "$WF_RUN_STARTED" "$WF_URL")
+          fi
+          payload=$(jq -nc --arg t "$msg" '{text: $t}')
+          curl -sS -o /dev/null --fail-with-body -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_WEBHOOK_URL"
