@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T00:22:23Z",
+  "generated_at": "2026-10-28T00:31:58Z",
   "channels": [
     {
       "id": "UCe-sQjBOXaOLpRktgavAKmw",
@@ -550331,7 +550331,7 @@
       "published_at": "2026-09-27T21:54:08Z",
       "url": "https://www.youtube.com/watch?v=vfgxK401zWs",
       "source": "rss_patrol",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "xZ5TEaleUdg",
@@ -552112,7 +552112,7 @@
       "published_at": "2020-04-02T13:06:04Z",
       "url": "https://www.youtube.com/watch?v=--SSmCR7ky4",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "-1Hm4cIaEz0",
@@ -552125,7 +552125,7 @@
       "published_at": "2024-02-06T10:03:44Z",
       "url": "https://www.youtube.com/watch?v=-1Hm4cIaEz0",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "-OEXmXJNcL4",
@@ -552138,7 +552138,7 @@
       "published_at": "2026-07-31T05:16:12Z",
       "url": "https://www.youtube.com/watch?v=-OEXmXJNcL4",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "1YhrFlo1Og8",
@@ -552151,7 +552151,7 @@
       "published_at": "2026-09-06T13:54:20Z",
       "url": "https://www.youtube.com/watch?v=1YhrFlo1Og8",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "1oVRauf7BCs",
@@ -552164,7 +552164,7 @@
       "published_at": "2021-06-03T10:04:09Z",
       "url": "https://www.youtube.com/watch?v=1oVRauf7BCs",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "1qxbYx9YiAI",
@@ -552177,7 +552177,7 @@
       "published_at": "2025-08-28T01:30:04Z",
       "url": "https://www.youtube.com/watch?v=1qxbYx9YiAI",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "1tBjAW5MTkg",
@@ -552190,7 +552190,7 @@
       "published_at": "2026-09-05T02:43:01Z",
       "url": "https://www.youtube.com/watch?v=1tBjAW5MTkg",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "2NMR8EaxR-M",
@@ -552203,7 +552203,7 @@
       "published_at": "2020-07-07T08:53:44Z",
       "url": "https://www.youtube.com/watch?v=2NMR8EaxR-M",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "3Anl1g-EQKY",
@@ -552229,7 +552229,7 @@
       "published_at": "2024-01-27T10:04:49+00:00",
       "url": "https://www.youtube.com/watch?v=3OhwaPhIoGk",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "3pothv_BVLk",
@@ -552242,7 +552242,7 @@
       "published_at": "2026-07-13T06:21:35Z",
       "url": "https://www.youtube.com/watch?v=3pothv_BVLk",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "4k1zoBiF-QA",
@@ -552255,7 +552255,7 @@
       "published_at": "2021-09-30T15:03:48Z",
       "url": "https://www.youtube.com/watch?v=4k1zoBiF-QA",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "7aZL9y4EH_U",
@@ -552268,7 +552268,7 @@
       "published_at": "2026-08-28T04:38:38Z",
       "url": "https://www.youtube.com/watch?v=7aZL9y4EH_U",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "8QUC3DZFtQM",
@@ -552294,7 +552294,7 @@
       "published_at": "2026-06-21T02:26:07Z",
       "url": "https://www.youtube.com/watch?v=8ShKVerPQyQ",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "Au6A8SrAfUI",
@@ -552307,7 +552307,7 @@
       "published_at": "2018-10-23T06:53:18Z",
       "url": "https://www.youtube.com/watch?v=Au6A8SrAfUI",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "BdyTFgo0bj4",
@@ -552333,7 +552333,7 @@
       "published_at": "2026-09-17T10:27:36+00:00",
       "url": "https://www.youtube.com/watch?v=CfydfXs_9DI",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "CpqDhSCQ6J0",
@@ -552346,7 +552346,7 @@
       "published_at": "2021-07-17T06:51:14Z",
       "url": "https://www.youtube.com/watch?v=CpqDhSCQ6J0",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "ESNeU30Vv4Q",
@@ -552372,7 +552372,7 @@
       "published_at": "2026-01-02T01:19:26Z",
       "url": "https://www.youtube.com/watch?v=EoI21e-8nq0",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "EuKp63_phco",
@@ -552385,7 +552385,7 @@
       "published_at": "2021-02-18T10:10:35Z",
       "url": "https://www.youtube.com/watch?v=EuKp63_phco",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "HEIYd_Bflps",
@@ -552398,7 +552398,7 @@
       "published_at": "2026-06-13T02:42:59Z",
       "url": "https://www.youtube.com/watch?v=HEIYd_Bflps",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "J83axnzllYg",
@@ -552411,7 +552411,7 @@
       "published_at": "2025-12-04T10:05:50Z",
       "url": "https://www.youtube.com/watch?v=J83axnzllYg",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "JmsEjWEjt4I",
@@ -552437,7 +552437,7 @@
       "published_at": "2026-08-07T09:00:27Z",
       "url": "https://www.youtube.com/watch?v=KWsc9KBC4o0",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "KpG_CoEYY8I",
@@ -552450,7 +552450,7 @@
       "published_at": "2026-08-05T10:43:21Z",
       "url": "https://www.youtube.com/watch?v=KpG_CoEYY8I",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "KsU2IX_c2kk",
@@ -552463,7 +552463,7 @@
       "published_at": "2022-11-03T10:08:48Z",
       "url": "https://www.youtube.com/watch?v=KsU2IX_c2kk",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "LspdDVZAK74",
@@ -552476,7 +552476,7 @@
       "published_at": "2026-09-09T07:16:34Z",
       "url": "https://www.youtube.com/watch?v=LspdDVZAK74",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "MFMDy0iObGs",
@@ -552489,7 +552489,7 @@
       "published_at": "2021-06-30T14:20:33Z",
       "url": "https://www.youtube.com/watch?v=MFMDy0iObGs",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "OEjy_Re3EZc",
@@ -552502,7 +552502,7 @@
       "published_at": "2026-08-27T08:58:32Z",
       "url": "https://www.youtube.com/watch?v=OEjy_Re3EZc",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "OypbREKEF1o",
@@ -552515,7 +552515,7 @@
       "published_at": "2018-10-18T01:21:35Z",
       "url": "https://www.youtube.com/watch?v=OypbREKEF1o",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "RoJAmF_83rE",
@@ -552528,7 +552528,7 @@
       "published_at": "2026-06-06T23:26:12Z",
       "url": "https://www.youtube.com/watch?v=RoJAmF_83rE",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "RrG43ulfj3g",
@@ -552541,7 +552541,7 @@
       "published_at": "2025-08-09T23:52:13+00:00",
       "url": "https://www.youtube.com/watch?v=RrG43ulfj3g",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "UhKku_gbZEk",
@@ -552567,7 +552567,7 @@
       "published_at": "2026-03-21T15:03:32Z",
       "url": "https://www.youtube.com/watch?v=Vv0M0LTnL4U",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "Vvff2dZh8cU",
@@ -552580,7 +552580,7 @@
       "published_at": "2026-07-11T06:59:51Z",
       "url": "https://www.youtube.com/watch?v=Vvff2dZh8cU",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "WG5CiKXzakk",
@@ -552593,7 +552593,7 @@
       "published_at": "2026-09-27T12:13:25+00:00",
       "url": "https://www.youtube.com/watch?v=WG5CiKXzakk",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "WJs6-4JrXWY",
@@ -552606,7 +552606,7 @@
       "published_at": "2026-07-31T04:16:12Z",
       "url": "https://www.youtube.com/watch?v=WJs6-4JrXWY",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "XXKsf5mdG-g",
@@ -552619,7 +552619,7 @@
       "published_at": "2026-06-22T10:03:28+00:00",
       "url": "https://www.youtube.com/watch?v=XXKsf5mdG-g",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "XYz12fPMz4k",
@@ -552632,7 +552632,7 @@
       "published_at": "2026-09-17T23:52:13Z",
       "url": "https://www.youtube.com/watch?v=XYz12fPMz4k",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "YIHVB7AysrI",
@@ -552645,7 +552645,7 @@
       "published_at": "2025-05-08T13:09:06Z",
       "url": "https://www.youtube.com/watch?v=YIHVB7AysrI",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "Z0Ru5YjWjgo",
@@ -552658,7 +552658,7 @@
       "published_at": "2026-02-15T05:59:08+00:00",
       "url": "https://www.youtube.com/watch?v=Z0Ru5YjWjgo",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "ZIU4Xifn2BI",
@@ -552671,7 +552671,7 @@
       "published_at": "2026-09-30T22:08:01+00:00",
       "url": "https://www.youtube.com/watch?v=ZIU4Xifn2BI",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "_DWtHg-Xnxg",
@@ -552684,7 +552684,7 @@
       "published_at": "2021-07-12T15:43:12Z",
       "url": "https://www.youtube.com/watch?v=_DWtHg-Xnxg",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "_a3L89umJ8g",
@@ -552697,7 +552697,7 @@
       "published_at": "2023-12-09T10:03:22Z",
       "url": "https://www.youtube.com/watch?v=_a3L89umJ8g",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "_sVc2_QjJmU",
@@ -552710,7 +552710,7 @@
       "published_at": "2026-02-03T09:47:25Z",
       "url": "https://www.youtube.com/watch?v=_sVc2_QjJmU",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "apfEb-AO9oE",
@@ -552723,7 +552723,7 @@
       "published_at": "2025-06-04T12:29:48Z",
       "url": "https://www.youtube.com/watch?v=apfEb-AO9oE",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "cMKQ4BK_T9Y",
@@ -552736,7 +552736,7 @@
       "published_at": "2026-06-12T04:14:58Z",
       "url": "https://www.youtube.com/watch?v=cMKQ4BK_T9Y",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "dtcTshw-ZiA",
@@ -552749,7 +552749,7 @@
       "published_at": "2026-03-21T21:58:30Z",
       "url": "https://www.youtube.com/watch?v=dtcTshw-ZiA",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "eOIBCXCplaQ",
@@ -552762,7 +552762,7 @@
       "published_at": "2024-01-27T10:04:19Z",
       "url": "https://www.youtube.com/watch?v=eOIBCXCplaQ",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "eSK2GKwtBig",
@@ -552775,7 +552775,7 @@
       "published_at": "2026-07-31T04:44:50Z",
       "url": "https://www.youtube.com/watch?v=eSK2GKwtBig",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "er-TvKxo9f0",
@@ -552788,7 +552788,7 @@
       "published_at": "2021-07-20T09:07:01Z",
       "url": "https://www.youtube.com/watch?v=er-TvKxo9f0",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "fYHPtSwHhME",
@@ -552801,7 +552801,7 @@
       "published_at": "2025-08-31T10:49:10Z",
       "url": "https://www.youtube.com/watch?v=fYHPtSwHhME",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "gwLL-bDWtP8",
@@ -552814,7 +552814,7 @@
       "published_at": "2026-09-25T04:53:36+00:00",
       "url": "https://www.youtube.com/watch?v=gwLL-bDWtP8",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "hDbV6Yes0Ys",
@@ -552827,7 +552827,7 @@
       "published_at": "2026-06-13T09:09:56Z",
       "url": "https://www.youtube.com/watch?v=hDbV6Yes0Ys",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "hIiTH_XLz7s",
@@ -552840,7 +552840,7 @@
       "published_at": "2024-01-27T10:04:16Z",
       "url": "https://www.youtube.com/watch?v=hIiTH_XLz7s",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "hLEprZcRh6Y",
@@ -552853,7 +552853,7 @@
       "published_at": "2026-09-06T14:41:02Z",
       "url": "https://www.youtube.com/watch?v=hLEprZcRh6Y",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "i0CVU0ywl4c",
@@ -552866,7 +552866,7 @@
       "published_at": "2026-03-17T01:16:05Z",
       "url": "https://www.youtube.com/watch?v=i0CVU0ywl4c",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "j3XbhdhS0D8",
@@ -552892,7 +552892,7 @@
       "published_at": "2018-11-11T01:26:08Z",
       "url": "https://www.youtube.com/watch?v=lowxNeN4c8c",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "mfqynBHgWVg",
@@ -552905,7 +552905,7 @@
       "published_at": "2024-01-27T10:03:38Z",
       "url": "https://www.youtube.com/watch?v=mfqynBHgWVg",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "nf77bFP86FE",
@@ -552918,7 +552918,7 @@
       "published_at": "2024-02-02T15:47:43Z",
       "url": "https://www.youtube.com/watch?v=nf77bFP86FE",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "nrd-O8RI174",
@@ -552944,7 +552944,7 @@
       "published_at": "2026-01-02T01:19:52+00:00",
       "url": "https://www.youtube.com/watch?v=puG_kW0v6LA",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "qSXhiyNZEFY",
@@ -553074,7 +553074,7 @@
       "published_at": "2023-05-31T15:24:35Z",
       "url": "https://www.youtube.com/watch?v=57FIAzrvrY8",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "81V6HTJz79Y",
@@ -553100,7 +553100,7 @@
       "published_at": "2024-05-27T02:15:00Z",
       "url": "https://www.youtube.com/watch?v=90pyGErZ3JQ",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "G7wmpZE-qow",
@@ -553113,7 +553113,7 @@
       "published_at": "2020-06-05T11:19:08+00:00",
       "url": "https://www.youtube.com/watch?v=G7wmpZE-qow",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "HGQw6Izjojc",
@@ -553126,7 +553126,7 @@
       "published_at": "2026-03-21T05:29:02Z",
       "url": "https://www.youtube.com/watch?v=HGQw6Izjojc",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "HwQ63S5O3zY",
@@ -553139,7 +553139,7 @@
       "published_at": "2024-05-01T11:45:01Z",
       "url": "https://www.youtube.com/watch?v=HwQ63S5O3zY",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "J3dahIAhIoM",
@@ -553152,7 +553152,7 @@
       "published_at": "2020-05-15T20:42:33Z",
       "url": "https://www.youtube.com/watch?v=J3dahIAhIoM",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "LyijGBs1vKQ",
@@ -553165,7 +553165,7 @@
       "published_at": "2020-05-27T18:29:06Z",
       "url": "https://www.youtube.com/watch?v=LyijGBs1vKQ",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "OJWNi-6ZCx8",
@@ -553178,7 +553178,7 @@
       "published_at": "2023-06-13T08:00:09Z",
       "url": "https://www.youtube.com/watch?v=OJWNi-6ZCx8",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "SRsgL84x5EA",
@@ -553204,7 +553204,7 @@
       "published_at": "2023-06-23T04:02:18Z",
       "url": "https://www.youtube.com/watch?v=UP0abhWKifs",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "W2UpHjiERus",
@@ -553217,7 +553217,7 @@
       "published_at": "2026-03-07T21:00:33Z",
       "url": "https://www.youtube.com/watch?v=W2UpHjiERus",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "bvYMx22MjvA",
@@ -553230,7 +553230,7 @@
       "published_at": "2026-03-06T21:00:40Z",
       "url": "https://www.youtube.com/watch?v=bvYMx22MjvA",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "dfw4olpvMkc",
@@ -553243,7 +553243,7 @@
       "published_at": "2026-07-24T07:06:20Z",
       "url": "https://www.youtube.com/watch?v=dfw4olpvMkc",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "dvE3AoAnToY",
@@ -553256,7 +553256,7 @@
       "published_at": "2026-03-03T21:00:44Z",
       "url": "https://www.youtube.com/watch?v=dvE3AoAnToY",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "mmRRWpnrqCU",
@@ -553282,7 +553282,7 @@
       "published_at": "2026-07-22T19:03:02Z",
       "url": "https://www.youtube.com/watch?v=zoIiIaGeiTI",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "-OA5Qh8_7E8",
@@ -553321,7 +553321,7 @@
       "published_at": "2026-07-21T15:19:46Z",
       "url": "https://www.youtube.com/watch?v=1anow6iqppY",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "2uOpNKbz27s",
@@ -553334,7 +553334,7 @@
       "published_at": "2026-08-26T23:33:03+00:00",
       "url": "https://www.youtube.com/watch?v=2uOpNKbz27s",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "4JrGhsuFnkQ",
@@ -553360,7 +553360,7 @@
       "published_at": "2026-10-01T21:31:27+00:00",
       "url": "https://www.youtube.com/watch?v=4d0sGIe4O2I",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "53_y3WcC6qc",
@@ -553373,7 +553373,7 @@
       "published_at": "2026-09-17T10:01:12+00:00",
       "url": "https://www.youtube.com/watch?v=53_y3WcC6qc",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "5WB4sgoMU5s",
@@ -553399,7 +553399,7 @@
       "published_at": "2026-09-29T12:11:35+00:00",
       "url": "https://www.youtube.com/watch?v=7YlYCghSq10",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "8lgTG8-qACY",
@@ -553412,7 +553412,7 @@
       "published_at": "2026-09-18T15:50:41+00:00",
       "url": "https://www.youtube.com/watch?v=8lgTG8-qACY",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "9_wJtCPJV44",
@@ -553425,7 +553425,7 @@
       "published_at": "2026-09-10T10:05:08+00:00",
       "url": "https://www.youtube.com/watch?v=9_wJtCPJV44",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "CncyYt9ozAQ",
@@ -553451,7 +553451,7 @@
       "published_at": "2026-10-01T02:50:15+00:00",
       "url": "https://www.youtube.com/watch?v=D12abv_S-BY",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "Dc24UV-C_IM",
@@ -553464,7 +553464,7 @@
       "published_at": "2026-05-29T14:29:50+00:00",
       "url": "https://www.youtube.com/watch?v=Dc24UV-C_IM",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "EI897o5xOeE",
@@ -553490,7 +553490,7 @@
       "published_at": "2026-09-27T17:20:03+00:00",
       "url": "https://www.youtube.com/watch?v=IzFE53kCQBc",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "JvBD-6h0hw4",
@@ -553503,7 +553503,7 @@
       "published_at": "2026-08-22T10:19:20+00:00",
       "url": "https://www.youtube.com/watch?v=JvBD-6h0hw4",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "Lt9Jh53suNQ",
@@ -553516,7 +553516,7 @@
       "published_at": "2026-06-03T13:35:11+00:00",
       "url": "https://www.youtube.com/watch?v=Lt9Jh53suNQ",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "MXI-OO_lESg",
@@ -553529,7 +553529,7 @@
       "published_at": "2026-09-25T06:23:27+00:00",
       "url": "https://www.youtube.com/watch?v=MXI-OO_lESg",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "MfTKxb7M8SQ",
@@ -553581,7 +553581,7 @@
       "published_at": "2026-07-13T10:00:08+00:00",
       "url": "https://www.youtube.com/watch?v=OEFeGA0-XoE",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "QGUdLd51V24",
@@ -553594,7 +553594,7 @@
       "published_at": "2026-09-27T15:26:09+00:00",
       "url": "https://www.youtube.com/watch?v=QGUdLd51V24",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "R0jrEJyavNM",
@@ -553607,7 +553607,7 @@
       "published_at": "2026-09-30T09:00:15+00:00",
       "url": "https://www.youtube.com/watch?v=R0jrEJyavNM",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "SuHYZdadRBk",
@@ -553620,7 +553620,7 @@
       "published_at": "2026-10-01T20:57:22+00:00",
       "url": "https://www.youtube.com/watch?v=SuHYZdadRBk",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "TWEXrBo_O_A",
@@ -553633,7 +553633,7 @@
       "published_at": "2026-09-25T07:55:10+00:00",
       "url": "https://www.youtube.com/watch?v=TWEXrBo_O_A",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "VJQntsnHnC8",
@@ -553646,7 +553646,7 @@
       "published_at": "2026-10-01T18:47:51+00:00",
       "url": "https://www.youtube.com/watch?v=VJQntsnHnC8",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "W72y0XLNMdk",
@@ -553659,7 +553659,7 @@
       "published_at": "2026-10-01T12:00:27+00:00",
       "url": "https://www.youtube.com/watch?v=W72y0XLNMdk",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "WBshme5ttvo",
@@ -553672,7 +553672,7 @@
       "published_at": "2026-09-29T10:00:29+00:00",
       "url": "https://www.youtube.com/watch?v=WBshme5ttvo",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "XISpdAYRzd8",
@@ -553698,7 +553698,7 @@
       "published_at": "2025-08-22T14:56:42+00:00",
       "url": "https://www.youtube.com/watch?v=aUPM4ES0vic",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "dAIIaepNhQM",
@@ -553711,7 +553711,7 @@
       "published_at": "2026-09-30T12:00:24+00:00",
       "url": "https://www.youtube.com/watch?v=dAIIaepNhQM",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "db1KRJQEt8w",
@@ -553737,7 +553737,7 @@
       "published_at": "2026-10-01T21:26:56+00:00",
       "url": "https://www.youtube.com/watch?v=f5ATszIO3ME",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "fHEIw5CcN5U",
@@ -553750,7 +553750,7 @@
       "published_at": "2026-10-01T17:20:52Z",
       "url": "https://www.youtube.com/watch?v=fHEIw5CcN5U",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "j3FeWKrWlfA",
@@ -553763,7 +553763,7 @@
       "published_at": "2026-09-27T20:00:12+00:00",
       "url": "https://www.youtube.com/watch?v=j3FeWKrWlfA",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "jLj0Aq47vJg",
@@ -553776,7 +553776,7 @@
       "published_at": "2026-09-29T10:00:33+00:00",
       "url": "https://www.youtube.com/watch?v=jLj0Aq47vJg",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "k91xvbnJJzY",
@@ -553789,7 +553789,7 @@
       "published_at": "2026-10-01T09:00:02+00:00",
       "url": "https://www.youtube.com/watch?v=k91xvbnJJzY",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "kfPGulrqVtI",
@@ -553802,7 +553802,7 @@
       "published_at": "2026-09-29T10:00:03+00:00",
       "url": "https://www.youtube.com/watch?v=kfPGulrqVtI",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "krTcjq25dvQ",
@@ -553815,7 +553815,7 @@
       "published_at": "2026-09-18T02:30:59+00:00",
       "url": "https://www.youtube.com/watch?v=krTcjq25dvQ",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "m4MLC2VcjGY",
@@ -553828,7 +553828,7 @@
       "published_at": "2026-09-28T09:00:13+00:00",
       "url": "https://www.youtube.com/watch?v=m4MLC2VcjGY",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "o0XQbLXCm6w",
@@ -553841,7 +553841,7 @@
       "published_at": "2026-09-29T10:03:28+00:00",
       "url": "https://www.youtube.com/watch?v=o0XQbLXCm6w",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "pdWX1DMF_Bw",
@@ -553854,7 +553854,7 @@
       "published_at": "2026-09-22T08:26:11+00:00",
       "url": "https://www.youtube.com/watch?v=pdWX1DMF_Bw",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "po1ut5JG3FQ",
@@ -553867,7 +553867,7 @@
       "published_at": "2026-09-28T12:00:07+00:00",
       "url": "https://www.youtube.com/watch?v=po1ut5JG3FQ",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "qg9wFINHKbs",
@@ -553880,7 +553880,7 @@
       "published_at": "2026-10-01T08:25:27+00:00",
       "url": "https://www.youtube.com/watch?v=qg9wFINHKbs",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "u367cNOdjps",
@@ -553893,7 +553893,7 @@
       "published_at": "2026-09-29T05:19:07+00:00",
       "url": "https://www.youtube.com/watch?v=u367cNOdjps",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "uOSnx9W6-tQ",
@@ -553906,7 +553906,7 @@
       "published_at": "2026-09-26T23:25:04+00:00",
       "url": "https://www.youtube.com/watch?v=uOSnx9W6-tQ",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "uYzAlJwUAoo",
@@ -553919,7 +553919,7 @@
       "published_at": "2026-09-08T03:09:16+00:00",
       "url": "https://www.youtube.com/watch?v=uYzAlJwUAoo",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "ufLTkFzgw2k",
@@ -553932,7 +553932,7 @@
       "published_at": "2026-10-01T01:35:30+00:00",
       "url": "https://www.youtube.com/watch?v=ufLTkFzgw2k",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "ugXyyk6Aw_8",
@@ -553945,7 +553945,7 @@
       "published_at": "2026-09-30T02:00:12+00:00",
       "url": "https://www.youtube.com/watch?v=ugXyyk6Aw_8",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "xJIrYKZT0PY",
@@ -553958,7 +553958,7 @@
       "published_at": "2026-09-25T10:03:48+00:00",
       "url": "https://www.youtube.com/watch?v=xJIrYKZT0PY",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "yU_os7ZsMy4",
@@ -553984,7 +553984,7 @@
       "published_at": "2026-09-28T04:26:20+00:00",
       "url": "https://www.youtube.com/watch?v=z5Foz9CVcKk",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "1av6Xrh2SNE",
@@ -553997,7 +553997,7 @@
       "published_at": "2020-01-25T18:24:27Z",
       "url": "https://www.youtube.com/watch?v=1av6Xrh2SNE",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "1qimFveSAp4",
@@ -554010,7 +554010,7 @@
       "published_at": "2025-10-17T00:31:02Z",
       "url": "https://www.youtube.com/watch?v=1qimFveSAp4",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "5QTcJ6TylSk",
@@ -554023,7 +554023,7 @@
       "published_at": "2020-01-25T18:24:26Z",
       "url": "https://www.youtube.com/watch?v=5QTcJ6TylSk",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "5Sg0kP9GDR0",
@@ -554036,7 +554036,7 @@
       "published_at": "2024-11-05T10:03:43Z",
       "url": "https://www.youtube.com/watch?v=5Sg0kP9GDR0",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "5tBprMS4VS8",
@@ -554049,7 +554049,7 @@
       "published_at": "2017-01-25T19:41:18Z",
       "url": "https://www.youtube.com/watch?v=5tBprMS4VS8",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "7P6bQHKPEdA",
@@ -554062,7 +554062,7 @@
       "published_at": "2024-12-12T19:12:32Z",
       "url": "https://www.youtube.com/watch?v=7P6bQHKPEdA",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "7cDPOOpsfHM",
@@ -554075,7 +554075,7 @@
       "published_at": "2024-12-12T19:12:32Z",
       "url": "https://www.youtube.com/watch?v=7cDPOOpsfHM",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "8naG6mRo0Go",
@@ -554088,7 +554088,7 @@
       "published_at": "2026-07-23T03:00:09+00:00",
       "url": "https://www.youtube.com/watch?v=8naG6mRo0Go",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "9lN8we7ErgA",
@@ -554101,7 +554101,7 @@
       "published_at": "2020-01-25T18:24:36Z",
       "url": "https://www.youtube.com/watch?v=9lN8we7ErgA",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "B-P7W5lLtSM",
@@ -554127,7 +554127,7 @@
       "published_at": "2014-11-09T04:14:06Z",
       "url": "https://www.youtube.com/watch?v=B2fPIo_lTUQ",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "DkSoL-tLbuE",
@@ -554140,7 +554140,7 @@
       "published_at": "2024-12-12T19:12:32Z",
       "url": "https://www.youtube.com/watch?v=DkSoL-tLbuE",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "EXsLi_zlQgs",
@@ -554153,7 +554153,7 @@
       "published_at": "2015-09-30T14:36:07Z",
       "url": "https://www.youtube.com/watch?v=EXsLi_zlQgs",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "EkNL1lZUhGQ",
@@ -554166,7 +554166,7 @@
       "published_at": "2015-09-22T16:39:57Z",
       "url": "https://www.youtube.com/watch?v=EkNL1lZUhGQ",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "K5nP4sREYqs",
@@ -554179,7 +554179,7 @@
       "published_at": "2024-10-15T10:00:20Z",
       "url": "https://www.youtube.com/watch?v=K5nP4sREYqs",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "MwmkErJ35O4",
@@ -554192,7 +554192,7 @@
       "published_at": "2019-10-10T10:55:54Z",
       "url": "https://www.youtube.com/watch?v=MwmkErJ35O4",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "PQgxHkABiNs",
@@ -554205,7 +554205,7 @@
       "published_at": "2015-11-06T06:09:21Z",
       "url": "https://www.youtube.com/watch?v=PQgxHkABiNs",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "TY9iW4cqJyE",
@@ -554218,7 +554218,7 @@
       "published_at": "2024-12-12T19:15:39Z",
       "url": "https://www.youtube.com/watch?v=TY9iW4cqJyE",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "Wk_0z6rHvnU",
@@ -554231,7 +554231,7 @@
       "published_at": "2019-10-10T11:00:20Z",
       "url": "https://www.youtube.com/watch?v=Wk_0z6rHvnU",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "Z1jPTjX7fAA",
@@ -554244,7 +554244,7 @@
       "published_at": "2025-09-08T21:54:04+00:00",
       "url": "https://www.youtube.com/watch?v=Z1jPTjX7fAA",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "ZGfrSt_DDPc",
@@ -554257,7 +554257,7 @@
       "published_at": "2024-12-12T19:13:27Z",
       "url": "https://www.youtube.com/watch?v=ZGfrSt_DDPc",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "dABxMHEhbds",
@@ -554283,7 +554283,7 @@
       "published_at": "2015-09-13T20:09:45Z",
       "url": "https://www.youtube.com/watch?v=egKzCuRajNQ",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "gQSmKJOFWVg",
@@ -554296,7 +554296,7 @@
       "published_at": "2024-12-24T23:31:36Z",
       "url": "https://www.youtube.com/watch?v=gQSmKJOFWVg",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "hE02gfCEDD8",
@@ -554309,7 +554309,7 @@
       "published_at": "2020-01-25T18:24:26Z",
       "url": "https://www.youtube.com/watch?v=hE02gfCEDD8",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "jFgi0Zus3W0",
@@ -554322,7 +554322,7 @@
       "published_at": "2025-05-08T10:01:41Z",
       "url": "https://www.youtube.com/watch?v=jFgi0Zus3W0",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "jkUh7X0KNkA",
@@ -554335,7 +554335,7 @@
       "published_at": "2024-12-12T19:12:32Z",
       "url": "https://www.youtube.com/watch?v=jkUh7X0KNkA",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "pnAPQrRiOww",
@@ -554348,7 +554348,7 @@
       "published_at": "2024-12-12T19:17:13Z",
       "url": "https://www.youtube.com/watch?v=pnAPQrRiOww",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "w_VUHe0DWFY",
@@ -554361,7 +554361,7 @@
       "published_at": "2024-12-12T19:15:39Z",
       "url": "https://www.youtube.com/watch?v=w_VUHe0DWFY",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "yvhrsLsBlkc",
@@ -554374,7 +554374,7 @@
       "published_at": "2017-02-19T04:53:28Z",
       "url": "https://www.youtube.com/watch?v=yvhrsLsBlkc",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "z45yWIXipy8",
@@ -554387,7 +554387,7 @@
       "published_at": "2019-10-10T10:02:04Z",
       "url": "https://www.youtube.com/watch?v=z45yWIXipy8",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "zZFELP29IW8",
@@ -554400,7 +554400,7 @@
       "published_at": "2022-08-12T13:10:43Z",
       "url": "https://www.youtube.com/watch?v=zZFELP29IW8",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "GjN3xLDuc8o",
@@ -554413,7 +554413,7 @@
       "published_at": "2026-09-29T22:48:01+00:00",
       "url": "https://www.youtube.com/watch?v=GjN3xLDuc8o",
       "source": "market_validate",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "tRtgbMwx-d8",
@@ -554439,7 +554439,7 @@
       "published_at": "2026-10-01T14:00:24+00:00",
       "url": "https://www.youtube.com/watch?v=tgKsHfID6Sg",
       "source": "market_validate",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "8GUfT9WDn50",
@@ -554452,7 +554452,7 @@
       "published_at": "2026-08-30T04:24:19Z",
       "url": "https://www.youtube.com/watch?v=8GUfT9WDn50",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "9cKlVQEmoTE",
@@ -554465,7 +554465,7 @@
       "published_at": "2026-03-22T21:50:06+00:00",
       "url": "https://www.youtube.com/watch?v=9cKlVQEmoTE",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "ENpxJQQr6wI",
@@ -554478,7 +554478,7 @@
       "published_at": "2022-07-09T21:26:47+00:00",
       "url": "https://www.youtube.com/watch?v=ENpxJQQr6wI",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "H5w4zBDmv2g",
@@ -554517,7 +554517,7 @@
       "published_at": "2026-06-03T08:00:26Z",
       "url": "https://www.youtube.com/watch?v=THaoMJ7LRL0",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "U5JKGjsSkcI",
@@ -554530,7 +554530,7 @@
       "published_at": "2023-06-09T09:58:21Z",
       "url": "https://www.youtube.com/watch?v=U5JKGjsSkcI",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "Wm0SfXveHnQ",
@@ -554543,7 +554543,7 @@
       "published_at": "2026-06-29T14:21:37Z",
       "url": "https://www.youtube.com/watch?v=Wm0SfXveHnQ",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "XZmbiQAaOz4",
@@ -554582,7 +554582,7 @@
       "published_at": "2022-03-31T21:00:22+00:00",
       "url": "https://www.youtube.com/watch?v=dZnxhPQUuKE",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "epg292lGCZ4",
@@ -554595,7 +554595,7 @@
       "published_at": "2026-09-01T00:29:06+00:00",
       "url": "https://www.youtube.com/watch?v=epg292lGCZ4",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "h856O8ly7mE",
@@ -554621,7 +554621,7 @@
       "published_at": "2022-04-09T18:03:51+00:00",
       "url": "https://www.youtube.com/watch?v=pBS-FzOFbFU",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "pk3Nsy0B1wE",
@@ -554634,7 +554634,7 @@
       "published_at": "2025-07-30T05:33:34Z",
       "url": "https://www.youtube.com/watch?v=pk3Nsy0B1wE",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "pryf2-jesTg",
@@ -554660,7 +554660,7 @@
       "published_at": "2026-06-05T12:27:31Z",
       "url": "https://www.youtube.com/watch?v=u-kpoMKkOxs",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "-qpKefVavo4",
@@ -554686,7 +554686,7 @@
       "published_at": "2025-09-18T19:20:04+00:00",
       "url": "https://www.youtube.com/watch?v=3wuvYQsmLik",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "45AWhSkkaQ4",
@@ -554699,7 +554699,7 @@
       "published_at": "2026-10-01T07:50:29+00:00",
       "url": "https://www.youtube.com/watch?v=45AWhSkkaQ4",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "4KxkOOsBOFI",
@@ -554712,7 +554712,7 @@
       "published_at": "2026-09-29T08:20:03+00:00",
       "url": "https://www.youtube.com/watch?v=4KxkOOsBOFI",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "4q_VlobZU0A",
@@ -554725,7 +554725,7 @@
       "published_at": "2026-09-30T14:30:17+00:00",
       "url": "https://www.youtube.com/watch?v=4q_VlobZU0A",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "81p22NHKwMQ",
@@ -554738,7 +554738,7 @@
       "published_at": "2026-09-29T23:42:56+00:00",
       "url": "https://www.youtube.com/watch?v=81p22NHKwMQ",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "8XL_vEGCh6Y",
@@ -554764,7 +554764,7 @@
       "published_at": "2026-06-12T12:01:46+00:00",
       "url": "https://www.youtube.com/watch?v=9QAWHsl141M",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "BuReoFwz6wc",
@@ -554790,7 +554790,7 @@
       "published_at": "2026-10-02T02:45:10+00:00",
       "url": "https://www.youtube.com/watch?v=Dcohwyypf_E",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "ERMlS53ZYlI",
@@ -554816,7 +554816,7 @@
       "published_at": "2026-03-01T15:00:44+00:00",
       "url": "https://www.youtube.com/watch?v=PGYPvuyU6Nw",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "QGy3Xg8y9QY",
@@ -554842,7 +554842,7 @@
       "published_at": "2026-09-29T14:00:21+00:00",
       "url": "https://www.youtube.com/watch?v=QngPt78MClA",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "U2w-Up9klDc",
@@ -554881,7 +554881,7 @@
       "published_at": "2026-10-01T11:00:23+00:00",
       "url": "https://www.youtube.com/watch?v=YGgNBcIgI4s",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "a0Fn4-pIW1g",
@@ -554907,7 +554907,7 @@
       "published_at": "2026-06-02T14:55:15+00:00",
       "url": "https://www.youtube.com/watch?v=cpfC_87tPPo",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "ihwwLT7zRuw",
@@ -554933,7 +554933,7 @@
       "published_at": "2026-09-27T11:00:22+00:00",
       "url": "https://www.youtube.com/watch?v=kyJ1vd7yEPc",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "low6B0CgKKw",
@@ -554946,7 +554946,7 @@
       "published_at": "2026-09-23T11:00:25+00:00",
       "url": "https://www.youtube.com/watch?v=low6B0CgKKw",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "mSQnhKKmC1s",
@@ -554959,7 +554959,7 @@
       "published_at": "2026-09-28T16:40:22+00:00",
       "url": "https://www.youtube.com/watch?v=mSQnhKKmC1s",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "mZh8IUuNnvs",
@@ -554972,7 +554972,7 @@
       "published_at": "2026-10-02T19:26:56+00:00",
       "url": "https://www.youtube.com/watch?v=mZh8IUuNnvs",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "pBzz_USK2ic",
@@ -554985,7 +554985,7 @@
       "published_at": "2026-10-01T19:50:30+00:00",
       "url": "https://www.youtube.com/watch?v=pBzz_USK2ic",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "qDUdy8B5IM4",
@@ -554998,7 +554998,7 @@
       "published_at": "2026-10-02T21:24:17+00:00",
       "url": "https://www.youtube.com/watch?v=qDUdy8B5IM4",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "r_3WJJulP3Q",
@@ -555011,7 +555011,7 @@
       "published_at": "2026-09-17T20:46:15+00:00",
       "url": "https://www.youtube.com/watch?v=r_3WJJulP3Q",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "in"
     },
     {
       "video_id": "tggdNYUGIBM",
@@ -555024,7 +555024,7 @@
       "published_at": "2026-09-22T22:26:27+00:00",
       "url": "https://www.youtube.com/watch?v=tggdNYUGIBM",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "vIMRSmaB85w",
@@ -555050,7 +555050,7 @@
       "published_at": "2026-03-22T21:36:22+00:00",
       "url": "https://www.youtube.com/watch?v=xGyj3GDOSsk",
       "source": "rss_patrol",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "-63G2sMqetk",
@@ -555804,7 +555804,7 @@
       "published_at": "2023-03-31T17:57:54Z",
       "url": "https://www.youtube.com/watch?v=dANsId2gpEY",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "fM1yjfuPnM0",
@@ -555830,7 +555830,7 @@
       "published_at": "2026-03-07T08:07:23Z",
       "url": "https://www.youtube.com/watch?v=faRwoPW72Ts",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "hCl0v9vWwDE",
@@ -555843,7 +555843,7 @@
       "published_at": "2023-06-02T11:34:28Z",
       "url": "https://www.youtube.com/watch?v=hCl0v9vWwDE",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "hIp2JPxGj3g",
@@ -555882,7 +555882,7 @@
       "published_at": "2017-03-01T06:08:23Z",
       "url": "https://www.youtube.com/watch?v=hqNc56pcAzU",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "iDlN-pnRT30",
@@ -555895,7 +555895,7 @@
       "published_at": "2016-04-05T15:04:48Z",
       "url": "https://www.youtube.com/watch?v=iDlN-pnRT30",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "iQMpNo-aG0E",
@@ -555908,7 +555908,7 @@
       "published_at": "2022-11-16T14:00:34Z",
       "url": "https://www.youtube.com/watch?v=iQMpNo-aG0E",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "ioSM6CoVamI",
@@ -555921,7 +555921,7 @@
       "published_at": "2020-10-10T00:38:45Z",
       "url": "https://www.youtube.com/watch?v=ioSM6CoVamI",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "j3njnuCqdJw",
@@ -555934,7 +555934,7 @@
       "published_at": "2025-12-07T22:00:48Z",
       "url": "https://www.youtube.com/watch?v=j3njnuCqdJw",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "j5ln12HnksE",
@@ -555947,7 +555947,7 @@
       "published_at": "2025-11-08T16:09:58Z",
       "url": "https://www.youtube.com/watch?v=j5ln12HnksE",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "ki5zSrqI17E",
@@ -555960,7 +555960,7 @@
       "published_at": "2024-06-23T15:28:18Z",
       "url": "https://www.youtube.com/watch?v=ki5zSrqI17E",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "mMQ5fFbJXxw",
@@ -555986,7 +555986,7 @@
       "published_at": "2021-12-20T23:54:42Z",
       "url": "https://www.youtube.com/watch?v=mMuFvv2Mr6w",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "m_tkN8-JbmQ",
@@ -555999,7 +555999,7 @@
       "published_at": "2019-07-19T08:44:19Z",
       "url": "https://www.youtube.com/watch?v=m_tkN8-JbmQ",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "n_dTm6HT4sc",
@@ -556012,7 +556012,7 @@
       "published_at": "2022-05-26T08:46:08Z",
       "url": "https://www.youtube.com/watch?v=n_dTm6HT4sc",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "nxplDXmUVGY",
@@ -556038,7 +556038,7 @@
       "published_at": "2018-09-05T16:09:54+00:00",
       "url": "https://www.youtube.com/watch?v=of_G4gxmdlk",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "s2ww71IaO64",
@@ -556051,7 +556051,7 @@
       "published_at": "2024-11-10T08:22:46+00:00",
       "url": "https://www.youtube.com/watch?v=s2ww71IaO64",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "seZfG_pN0cA",
@@ -556077,7 +556077,7 @@
       "published_at": "2015-07-31T04:05:25Z",
       "url": "https://www.youtube.com/watch?v=sqD6k7-RGOY",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "tMpT-gfGZp8",
@@ -556090,7 +556090,7 @@
       "published_at": "2026-09-09T09:30:26+00:00",
       "url": "https://www.youtube.com/watch?v=tMpT-gfGZp8",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "txBFdN9djkA",
@@ -556103,7 +556103,7 @@
       "published_at": "2023-05-24T14:20:24Z",
       "url": "https://www.youtube.com/watch?v=txBFdN9djkA",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "vrdTXtqMCfA",
@@ -556129,7 +556129,7 @@
       "published_at": "2023-04-02T19:43:23Z",
       "url": "https://www.youtube.com/watch?v=w_PcCsLpmiQ",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "wwuyjB9ZP-g",
@@ -556142,7 +556142,7 @@
       "published_at": "2020-11-10T23:50:00Z",
       "url": "https://www.youtube.com/watch?v=wwuyjB9ZP-g",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "yti6LhLsvPU",
@@ -556155,7 +556155,7 @@
       "published_at": "2013-07-19T05:20:50Z",
       "url": "https://www.youtube.com/watch?v=yti6LhLsvPU",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "z6zD4-nQ0qI",
@@ -556181,7 +556181,7 @@
       "published_at": "2015-05-25T05:59:27+00:00",
       "url": "https://www.youtube.com/watch?v=zGbEN6yWOBA",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "zeaL8QaTZ8Y",
@@ -556194,7 +556194,7 @@
       "published_at": "2017-02-12T14:27:05+00:00",
       "url": "https://www.youtube.com/watch?v=zeaL8QaTZ8Y",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "ztvPyTm6BuA",
@@ -556207,7 +556207,7 @@
       "published_at": "2022-09-16T07:19:35Z",
       "url": "https://www.youtube.com/watch?v=ztvPyTm6BuA",
       "source": "discovery_loop",
-      "axis": "unknown"
+      "axis": "out"
     },
     {
       "video_id": "0klXv4uaEOQ",
@@ -564358,7 +564358,7 @@
       "published_at": "2026-10-02T01:24:49Z",
       "url": "https://www.youtube.com/watch?v=x5JEGhXBFzw",
       "source": "discovery_loop",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "-vCz82dTHEU",
@@ -565333,7 +565333,7 @@
       "published_at": "2026-09-21T15:00:18Z",
       "url": "https://www.youtube.com/watch?v=GxSZLzRTiN0",
       "source": "market_validate",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "RxAW9h5woSk",
@@ -582233,7 +582233,7 @@
       "published_at": "2026-05-07T10:55:21Z",
       "url": "https://www.youtube.com/watch?v=3wgF2YEo4bk",
       "source": "market_validate",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "954MLJ3cRuk",
@@ -582246,7 +582246,7 @@
       "published_at": "2026-09-02T03:00:33Z",
       "url": "https://www.youtube.com/watch?v=954MLJ3cRuk",
       "source": "market_validate",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "DHSMawXCkpY",
@@ -582259,7 +582259,7 @@
       "published_at": "2026-05-01T09:00:18Z",
       "url": "https://www.youtube.com/watch?v=DHSMawXCkpY",
       "source": "market_validate",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "IQ8FDwmM3rc",
@@ -582272,7 +582272,7 @@
       "published_at": "2026-07-20T15:00:13Z",
       "url": "https://www.youtube.com/watch?v=IQ8FDwmM3rc",
       "source": "market_validate",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "QipcBjvmCYs",
@@ -582285,7 +582285,7 @@
       "published_at": "2026-06-27T02:05:57Z",
       "url": "https://www.youtube.com/watch?v=QipcBjvmCYs",
       "source": "market_validate",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "TPbS6JEkBF8",
@@ -582298,7 +582298,7 @@
       "published_at": "2026-06-29T09:57:17Z",
       "url": "https://www.youtube.com/watch?v=TPbS6JEkBF8",
       "source": "market_validate",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "mcfhRIiQFvc",
@@ -582311,7 +582311,7 @@
       "published_at": "2026-08-19T09:00:26Z",
       "url": "https://www.youtube.com/watch?v=mcfhRIiQFvc",
       "source": "market_validate",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "mu26TOjCbyw",
@@ -582324,7 +582324,7 @@
       "published_at": "2026-07-01T15:00:11Z",
       "url": "https://www.youtube.com/watch?v=mu26TOjCbyw",
       "source": "market_validate",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "vYm0wwtHPLU",
@@ -582337,7 +582337,7 @@
       "published_at": "2026-08-30T15:00:09Z",
       "url": "https://www.youtube.com/watch?v=vYm0wwtHPLU",
       "source": "market_validate",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "GiowKQqGVns",
@@ -582350,7 +582350,7 @@
       "published_at": "2021-11-03T15:00:19Z",
       "url": "https://www.youtube.com/watch?v=GiowKQqGVns",
       "source": "market_validate",
-      "axis": null
+      "axis": "unknown"
     },
     {
       "video_id": "bPBqK8itZvs",
@@ -582363,7 +582363,7 @@
       "published_at": "2026-10-09T09:00:04Z",
       "url": "https://www.youtube.com/watch?v=bPBqK8itZvs",
       "source": "market_validate",
-      "axis": null
+      "axis": "unknown"
     },
     {
       "video_id": "ro9HgwIremU",
@@ -582376,7 +582376,7 @@
       "published_at": "2026-09-13T08:28:27Z",
       "url": "https://www.youtube.com/watch?v=ro9HgwIremU",
       "source": "market_validate",
-      "axis": null
+      "axis": "in"
     },
     {
       "video_id": "ruCkHnOlnMg",
@@ -582389,7 +582389,7 @@
       "published_at": "2026-10-16T13:20:33Z",
       "url": "https://www.youtube.com/watch?v=ruCkHnOlnMg",
       "source": "market_validate",
-      "axis": null
+      "axis": "unknown"
     }
   ],
   "discovery": {
@@ -624995,7 +624995,7 @@
   ],
   "memo": {
     "text": "# メモ — アイデア・気づき\n\n> ダッシュボード「📝 メモ」タブに公開レンダリングされる正本。クイックメモ（ブラウザ localStorage）から「📋 まとめてコピー」で貼る。**public repo 経由で公開される**ので、秘匿情報は書かない。\n\n## 2026-10-13\n\n- （ここから自由に書く）\n",
-    "updated_at": "2026-10-28T09:13:04+09:00"
+    "updated_at": "2026-10-28T09:30:52+09:00"
   },
   "rejected": [],
   "pool": [
@@ -657665,6 +657665,243 @@
   ],
   "daily_reports": [
     {
+      "date": "2026-10-28",
+      "weekday": "Wed",
+      "subs": 1550,
+      "total_views": 202681,
+      "subs_delta": 0,
+      "views_delta": 389,
+      "views_delta_long": 241,
+      "views_delta_short": 174,
+      "views_delta_sum": 415,
+      "movers": [
+        {
+          "video_id": "P_Z7uv1YGpo",
+          "title": "GPUなしの普通のノートPCで、最新ローカルLLMがそのまま動く",
+          "views": 3867,
+          "delta": 56,
+          "published_at": "2026-07-31",
+          "format": "short"
+        },
+        {
+          "video_id": "RshRjA12Dus",
+          "title": "【Ollama】Claude Codeを無料で使う2つの方法｜ローカル vs クラウド無料枠",
+          "views": 5711,
+          "delta": 34,
+          "published_at": "2026-05-10",
+          "format": "long"
+        },
+        {
+          "video_id": "ncGHITBLY5c",
+          "title": "【Claude Code】VScodeと連携して使う方法！【差分をしっかりみて判断できる！】",
+          "views": 1746,
+          "delta": 34,
+          "published_at": "2026-04-19",
+          "format": "long"
+        },
+        {
+          "video_id": "EIabeQcBmYM",
+          "title": "【PHPの入門編】#1 PHPってどんなプログラミング言語？【Web系です。】",
+          "views": 6581,
+          "delta": 24,
+          "published_at": "2025-05-16",
+          "format": "long"
+        },
+        {
+          "video_id": "avmLusDxSCY",
+          "title": "【経験談】大学生がプログラミングの勉強したら「完全在宅」で「月13万円」稼げた話【バイト代わり】",
+          "views": 20633,
+          "delta": 24,
+          "published_at": "2024-05-14",
+          "format": "long"
+        },
+        {
+          "video_id": "aOBCNjRYE4c",
+          "title": "【実測】GPUなしの13万円ノートPCで、最新ローカルLLM 5本はどこまで動くのか【2026年7月】",
+          "views": 675,
+          "delta": 23,
+          "published_at": "2026-07-28",
+          "format": "long"
+        },
+        {
+          "video_id": "6mXApkIoBXc",
+          "title": "Premiere Pro に月9,080円。使うのは自動カットだけなので Claude Code に作らせて0円にした",
+          "views": 1337,
+          "delta": 19,
+          "published_at": "2026-10-20",
+          "format": "short"
+        },
+        {
+          "video_id": "b0k8nwApO7s",
+          "title": "【知らずに実行】PowerShellの危険コマンドの見分け方",
+          "views": 1325,
+          "delta": 16,
+          "published_at": "2026-05-11",
+          "format": "short"
+        },
+        {
+          "video_id": "2nrZd7sINXk",
+          "title": "Premiere Pro の代わりを Claude Code が9分43秒で作った。仕上がりの秒数は同じ、ファイルは小さい",
+          "views": 1015,
+          "delta": 15,
+          "published_at": "2026-10-22",
+          "format": "short"
+        },
+        {
+          "video_id": "ESIWaI3nwNc",
+          "title": "【入門】Ollamaって結局何？AIモデルの実行環境を解説",
+          "views": 314,
+          "delta": 13,
+          "published_at": "2026-05-13",
+          "format": "short"
+        },
+        {
+          "video_id": "npJpXSvDVGA",
+          "title": "【0円継続】Claude Code制限が来ても無料で動かす方法",
+          "views": 2390,
+          "delta": 13,
+          "published_at": "2026-05-10",
+          "format": "short"
+        },
+        {
+          "video_id": "Pqd57DOhde4",
+          "title": "\"最強クラス\"の27Bモデル、GPUなしで動かすと1秒に2文字しか出ない",
+          "views": 579,
+          "delta": 10,
+          "published_at": "2026-08-02",
+          "format": "short"
+        },
+        {
+          "video_id": "UWvy94HpYH8",
+          "title": "【経験談】ノートPCでClaudeをローカル化したら遅すぎた",
+          "views": 1440,
+          "delta": 10,
+          "published_at": "2026-05-11",
+          "format": "short"
+        },
+        {
+          "video_id": "bQhxc7PDvv8",
+          "title": "【情報が古くなっています！VPSなしでいける最新の動画を用意しています！】VPSサーバーで24時間claude codeを動かしてそこにremote-controlで接続！【アプリ開発】",
+          "views": 396,
+          "delta": 9,
+          "published_at": "2026-05-14",
+          "format": "long"
+        },
+        {
+          "video_id": "geXueZ_12mk",
+          "title": "【作業時間が1時間→3分】Word×Claudeで作業時間を削減しよう！",
+          "views": 441,
+          "delta": 7,
+          "published_at": "2026-05-02",
+          "format": "long"
+        }
+      ],
+      "recent": [
+        {
+          "video_id": "JPB5n6EqGeQ",
+          "title": "調べ物のハードルをダブルクリック1回まで下げたら、1日の検索回数が増えた（自作Chrome拡張）",
+          "views": 1128,
+          "published_at": "2026-10-24",
+          "format": "short"
+        },
+        {
+          "video_id": "_tBZmZmAS3g",
+          "title": "Claude Code には「やって」より「できますか？」と聞く方が通る気がする。できる理由とやり方をセットで考えるから",
+          "views": 1056,
+          "published_at": "2026-10-23",
+          "format": "short"
+        },
+        {
+          "video_id": "2nrZd7sINXk",
+          "title": "Premiere Pro の代わりを Claude Code が9分43秒で作った。仕上がりの秒数は同じ、ファイルは小さい",
+          "views": 1015,
+          "published_at": "2026-10-22",
+          "format": "short"
+        },
+        {
+          "video_id": "N7_bDfEpHKc",
+          "title": "今見てるこの動画、0円の自作ツールでカットしてます。Premiere Pro との画質差は SSIM 0.99 で見分けつかず",
+          "views": 168,
+          "published_at": "2026-10-21",
+          "format": "short"
+        }
+      ],
+      "priority": [
+        {
+          "video_id": "pWYLyG-Lo_8",
+          "title": "「OllamaはLlama.cppより1.8倍遅い」知らないと損するローカルLLM完全比較2026",
+          "channel": "AI時代のテック速報【ずんだもん解説】",
+          "views": 2924,
+          "delta": 19
+        },
+        {
+          "video_id": "U_070leEyvM",
+          "title": "2MBでOllamaを超えた：Lemonadeがローカルフルスタックを無料で実現する方法",
+          "channel": "AI時代のテック速報【ずんだもん解説】",
+          "views": 9849,
+          "delta": 16
+        },
+        {
+          "video_id": "NaGAhDWFs60",
+          "title": "国立国会図書館が無料公開したAI OCRが有料サービスを超えた：NDLOCR-Liteの真実",
+          "channel": "AI時代のテック速報【ずんだもん解説】",
+          "views": 66772,
+          "delta": 4
+        },
+        {
+          "video_id": "UDfoPMVro-k",
+          "title": "ClaudeをハッキングAIに変える「RAPTOR」の正体",
+          "channel": "AI時代のテック速報【ずんだもん解説】",
+          "views": 1530,
+          "delta": 2
+        },
+        {
+          "video_id": "lIjItBdODGo",
+          "title": "GitHubスター30,000超：MicrosoftのMarkItDownがRAGパイプラインを変えた",
+          "channel": "AI時代のテック速報【ずんだもん解説】",
+          "views": 2599,
+          "delta": 2
+        },
+        {
+          "video_id": "StXaHVx-1Pc",
+          "title": "文献レビュー40時間が激減？Zotero統合AI「DeepTutor」が研究の常識を壊した",
+          "channel": "AI時代のテック速報【ずんだもん解説】",
+          "views": 294,
+          "delta": 2
+        },
+        {
+          "video_id": "F5Yi8WoUp6s",
+          "title": "「発売されないかもしれない」──究極のハッカーPC「Flipper One」の全真実",
+          "channel": "AI時代のテック速報【ずんだもん解説】",
+          "views": 268,
+          "delta": 2
+        },
+        {
+          "video_id": "emC-sSL94RM",
+          "title": "Mandiant FLAREが無料公開：高度なマルウェア解析教材の全貌",
+          "channel": "AI時代のテック速報【ずんだもん解説】",
+          "views": 132,
+          "delta": 1
+        },
+        {
+          "video_id": "BgHPMo-Xt7A",
+          "title": "AIのムダ喋りを省く「caveman」でトークン代を劇的削減",
+          "channel": "AI時代のテック速報【ずんだもん解説】",
+          "views": 328,
+          "delta": 1
+        },
+        {
+          "video_id": "nlIGq8SJsBY",
+          "title": "MozillaがAI専用ハッキングツールを無償公開——あなたのAIは今すぐ突破される",
+          "channel": "AI時代のテック速報【ずんだもん解説】",
+          "views": 339,
+          "delta": 1
+        }
+      ],
+      "discovery": "2026-10-25: 深掘り評価: 12 ch / AUTO 追加: 0 / queue: 12",
+      "quota_yesterday": 291
+    },
+    {
       "date": "2026-10-26",
       "weekday": "Mon",
       "subs": 1550,
@@ -660716,281 +660953,17 @@
       ],
       "discovery": "2026-10-13: 深掘り評価: 8 ch / AUTO 追加: 0 / queue: 8",
       "quota_yesterday": 4724
-    },
-    {
-      "date": "2026-10-13",
-      "weekday": "Tue",
-      "subs": 1550,
-      "total_views": 193928,
-      "subs_delta": 0,
-      "views_delta": 601,
-      "views_delta_long": 117,
-      "views_delta_short": 123,
-      "views_delta_sum": 240,
-      "movers": [
-        {
-          "video_id": "P_Z7uv1YGpo",
-          "title": "GPUなしの普通のノートPCで、最新ローカルLLMがそのまま動く",
-          "views": 3388,
-          "delta": 62,
-          "published_at": "2026-07-31",
-          "format": "short"
-        },
-        {
-          "video_id": "avmLusDxSCY",
-          "title": "【経験談】大学生がプログラミングの勉強したら「完全在宅」で「月13万円」稼げた話【バイト代わり】",
-          "views": 20422,
-          "delta": 23,
-          "published_at": "2024-05-14",
-          "format": "long"
-        },
-        {
-          "video_id": "b0k8nwApO7s",
-          "title": "【知らずに実行】PowerShellの危険コマンドの見分け方",
-          "views": 1204,
-          "delta": 16,
-          "published_at": "2026-05-11",
-          "format": "short"
-        },
-        {
-          "video_id": "ncGHITBLY5c",
-          "title": "【Claude Code】VScodeと連携して使う方法！【差分をしっかりみて判断できる！】",
-          "views": 1584,
-          "delta": 16,
-          "published_at": "2026-04-19",
-          "format": "long"
-        },
-        {
-          "video_id": "RshRjA12Dus",
-          "title": "【Ollama】Claude Codeを無料で使う2つの方法｜ローカル vs クラウド無料枠",
-          "views": 5491,
-          "delta": 15,
-          "published_at": "2026-05-10",
-          "format": "long"
-        },
-        {
-          "video_id": "hVQ0i9PA_3U",
-          "title": "【PowerShell】 claude codeを1秒で開くコマンド作った！",
-          "views": 77,
-          "delta": 12,
-          "published_at": "2026-10-06",
-          "format": "long"
-        },
-        {
-          "video_id": "aOBCNjRYE4c",
-          "title": "【実測】GPUなしの13万円ノートPCで、最新ローカルLLM 5本はどこまで動くのか【2026年7月】",
-          "views": 562,
-          "delta": 8,
-          "published_at": "2026-07-28",
-          "format": "long"
-        },
-        {
-          "video_id": "UWvy94HpYH8",
-          "title": "【経験談】ノートPCでClaudeをローカル化したら遅すぎた",
-          "views": 1346,
-          "delta": 6,
-          "published_at": "2026-05-11",
-          "format": "short"
-        },
-        {
-          "video_id": "uUeNlu0bwfI",
-          "title": "【CSSの基本編】#1 専門的なCSSのコーディングが学べます。まずは基本的な知識を身に着けよう！【再生リストの概要】",
-          "views": 1391,
-          "delta": 6,
-          "published_at": "2023-03-03",
-          "format": "long"
-        },
-        {
-          "video_id": "p02KidUytj4",
-          "title": "Claude Code の Read Read Read…、毎回それでトークン溶かしてませんか？設計の質問1つで43回探索",
-          "views": 761,
-          "delta": 5,
-          "published_at": "2026-10-07",
-          "format": "short"
-        },
-        {
-          "video_id": "npJpXSvDVGA",
-          "title": "【0円継続】Claude Code制限が来ても無料で動かす方法",
-          "views": 2290,
-          "delta": 5,
-          "published_at": "2026-05-10",
-          "format": "short"
-        },
-        {
-          "video_id": "ssfthRiZP3Q",
-          "title": "AIにどれだけトークンを使わせられるかが、そのまま仕事量になる時代",
-          "views": 1205,
-          "delta": 4,
-          "published_at": "2026-10-10",
-          "format": "short"
-        },
-        {
-          "video_id": "WpbsIaI6xsA",
-          "title": "Claude Codeにgrepさせるな。コードの「地図」を渡すとトークン71.5分の1・回答3.6倍速",
-          "views": 299,
-          "delta": 4,
-          "published_at": "2026-10-06",
-          "format": "short"
-        },
-        {
-          "video_id": "r_T8MSzUXoA",
-          "title": "【Mac不要】スマホだけでiPhoneアプリをApp Storeに公開した方法",
-          "views": 1187,
-          "delta": 4,
-          "published_at": "2026-05-17",
-          "format": "short"
-        },
-        {
-          "video_id": "LqnDlVu18LQ",
-          "title": "【スマホ1台】VPS×Claude Codeで24時間どこでも開発する仕組み",
-          "views": 1176,
-          "delta": 4,
-          "published_at": "2026-05-16",
-          "format": "short"
-        }
-      ],
-      "recent": [
-        {
-          "video_id": "wgX0JSydqvE",
-          "title": "CodeGraph が効くのは VS Code 級の大きいリポだけ。6ファイルのリポだと効果ほぼゼロ",
-          "views": 888,
-          "published_at": "2026-10-12",
-          "format": "short"
-        },
-        {
-          "video_id": "T-RLhi40WCA",
-          "title": "Claude Code への指示がアバウトだと全部読まれてトークンが溶ける。ファイルを指定するだけで速くなる",
-          "views": 349,
-          "published_at": "2026-10-11",
-          "format": "short"
-        },
-        {
-          "video_id": "ssfthRiZP3Q",
-          "title": "AIにどれだけトークンを使わせられるかが、そのまま仕事量になる時代",
-          "views": 1205,
-          "published_at": "2026-10-10",
-          "format": "short"
-        },
-        {
-          "video_id": "mdkv6SrEF2I",
-          "title": "CodeGraph を入れて逆に損するケース。最初の地図作りに固定でトークンがかかる",
-          "views": 1279,
-          "published_at": "2026-10-09",
-          "format": "short"
-        },
-        {
-          "video_id": "FTexme3BYpE",
-          "title": "Claude Code の回答が半分の時間で返ると、8時間かかった仕事が4時間で終わる",
-          "views": 10,
-          "published_at": "2026-10-08",
-          "format": "short"
-        },
-        {
-          "video_id": "p02KidUytj4",
-          "title": "Claude Code の Read Read Read…、毎回それでトークン溶かしてませんか？設計の質問1つで43回探索",
-          "views": 761,
-          "published_at": "2026-10-07",
-          "format": "short"
-        },
-        {
-          "video_id": "WpbsIaI6xsA",
-          "title": "Claude Codeにgrepさせるな。コードの「地図」を渡すとトークン71.5分の1・回答3.6倍速",
-          "views": 299,
-          "published_at": "2026-10-06",
-          "format": "short"
-        },
-        {
-          "video_id": "hVQ0i9PA_3U",
-          "title": "【PowerShell】 claude codeを1秒で開くコマンド作った！",
-          "views": 77,
-          "published_at": "2026-10-06",
-          "format": "long"
-        }
-      ],
-      "priority": [
-        {
-          "video_id": "hSwFKCSGfck",
-          "title": "12GBのPCで125BのAIは使える？ Strataを実機で検証（Gemma 4 12B・Qwen3.5 9Bと比較）【ずんだもん解説】",
-          "channel": "AIの歩き方",
-          "views": 6148,
-          "delta": 2909
-        },
-        {
-          "video_id": "6II7EhUYRWQ",
-          "title": "日本語なら国産のローカルAI？ LLM-jp-4.1・ELYZAを、Qwen・Gemmaと12GBのPCで比べた",
-          "channel": "AIの歩き方",
-          "views": 7077,
-          "delta": 1407
-        },
-        {
-          "video_id": "UeivBYerbI8",
-          "title": "Claude CodeをローカルAIで動かしたら？ 12GBのPCで本物のClaudeと比べた【ずんだもん解説】",
-          "channel": "AIの歩き方",
-          "views": 24059,
-          "delta": 1118
-        },
-        {
-          "video_id": "mLl3uSG1Pnw",
-          "title": "【2026年版】LM StudioとOllama、初心者はどっち？違いと使い方【ずんだもん解説】",
-          "channel": "AIの歩き方",
-          "views": 14099,
-          "delta": 462
-        },
-        {
-          "video_id": "HSf7rcaSOjU",
-          "title": "ローカルAI（ローカルLLM）で実現!?無課金AI生活～自分専用のAI環境つくってみた",
-          "channel": "デジタルの時間",
-          "views": 62978,
-          "delta": 416
-        },
-        {
-          "video_id": "9GHcy64Avbg",
-          "title": "【始動】99%が知らない「ローカルLLM」の世界。Google最新Gemma 3を無料で構築する方法【ローカルLLM構築計画#1】#Ollama",
-          "channel": "reckの知識の森",
-          "views": 63402,
-          "delta": 282
-        },
-        {
-          "video_id": "FoahClJa5f4",
-          "title": "ローカルAI（ローカルLLM）にAIエージェントを追加！無課金AI生活３～Ollama + Hermesで実現してみた～",
-          "channel": "デジタルの時間",
-          "views": 14167,
-          "delta": 235
-        },
-        {
-          "video_id": "Ru6dJO90pX8",
-          "title": "Codex × diagram-design の使い方 ── 素のCodex vs スキル、業務フロー・構成図・Mermaidの描き直しを照合",
-          "channel": "Sura×Asura For AI Agent",
-          "views": 537,
-          "delta": 216
-        },
-        {
-          "video_id": "xnXpOBG11Tc",
-          "title": "【Mac mini M4 24GB】9月だけで不正アクセス20件近く。AIが1件25ドルで裏口を探す時代｜自分のMacを点検したら同じ穴があった",
-          "channel": "茶々丸のIT教室",
-          "views": 958,
-          "delta": 179
-        },
-        {
-          "video_id": "kgsXprkibg8",
-          "title": "【完全解説】OpenAIの新ツール「Dots」は使うべき？丸投げして放置するだけで、面倒なタスクが勝手に片付く神機能【実演解説】",
-          "channel": "reckの知識の森",
-          "views": 457,
-          "delta": 134
-        }
-      ],
-      "discovery": "2026-10-13: 深掘り評価: 8 ch / AUTO 追加: 0 / queue: 8",
-      "quota_yesterday": 5005
     }
   ],
   "quota": {
     "date_pt": "2026-10-27",
-    "today_units": 300,
+    "today_units": 313,
     "limit": 10000,
     "by_source": {
       "priority": 85,
       "boosted": 9,
-      "market_validate": 206
+      "market_validate": 206,
+      "daily_report": 13
     },
     "daily": [
       {
@@ -661047,7 +661020,7 @@
       },
       {
         "date": "2026-10-27",
-        "units": 300
+        "units": 313
       }
     ]
   }
