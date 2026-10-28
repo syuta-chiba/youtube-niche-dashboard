@@ -286,7 +286,12 @@ function renderAllClear(rows) {
   if (!panel) return;
   const nPending = rows.filter((r) => r.status === "pending").length;
   const nMetrics = rows.filter((r) => r.has_metrics).length;
-  const state = { pendingOnly: true, metricsOnly: false };
+  // 🇯🇵 日本語 / 🌐 海外 の切替 (既定 🇯🇵・メインは日本語圏で回す 2026-10-28)。古い dashboard.json に lang が無い間は全件表示
+  const hasLang = rows.some((r) => r.lang);
+  const langFns = { all: () => true, ja: (r) => r.lang === "ja", foreign: (r) => r.lang !== "ja" };
+  const state = { pendingOnly: true, metricsOnly: false, lang: "ja" };
+  try { state.lang = localStorage.getItem("langFilter:allclear") || "ja"; } catch (e) { /* private mode */ }
+  const nPendingJa = rows.filter((r) => r.status === "pending" && r.lang === "ja").length;
 
   const row = (r) => {
     const st = AC_STATUS[r.status] || { label: escapeHtml(r.status || "?"), cls: "dv-na" };
@@ -322,13 +327,14 @@ function renderAllClear(rows) {
   };
 
   panel.innerHTML = `
-    <h2>✅ 全条件クリア — priority 候補の在庫 (${fmtN(rows.length)}件・未判断 ${fmtN(nPending)}件)</h2>
+    <h2>✅ 全条件クリア — priority 候補の在庫 (${fmtN(rows.length)}件・未判断 ${fmtN(nPending)}件${hasLang ? `・うち 🇯🇵 ${fmtN(nPendingJa)}件` : ""})</h2>
     <p class="dv-desc">discovery loop の全 AND ゲート (subs 50-2000 / 本編≥8 / 相対HIT≥2 / 直近90日 HIT比≥20% / 最新投稿≤120日 / 広告疑い過半でない) を通った ch。
     AUTO 昇格は確認制で止めているため、ここが「次に priority へ加える候補」の全在庫。これまでは当日の <code>discovery_queue.md</code> と Slack に 1 回出るだけで翌日には視界から消えていた (2026-10-13 にこのタブで棚卸し化)。</p>
     <p class="dv-sub">関連度ゲートは 2026-07-21 に廃止済みなので軸外 (株・政治・海外ニュース等) も混ざる。<strong>検索KW と 最大HITタイトル</strong>で目視し、
     良ければ「📋 priority行」でコピー → <a href="${PRIORITY_EDIT_URL}" target="_blank" rel="noopener">priority_channels.txt を編集</a>に貼って commit (次の cron から定点観測開始)。
     違えば「✗違う」→ <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a>。
     指標が「—」の ${fmtN(rows.length - nMetrics)} 行は、同日 2 回目の discovery (quota-drain) がレポートを上書きしていた期間に指標が失われたもの (登録者/普段は RSS プールの最新値で補完。再評価は RSS 巡回でスパイクした時)。列見出しクリックでソート。</p>
+    ${hasLang ? langFilterHtml("allclear", rows) : ""}
     <div class="ac-filters">
       <label><input type="checkbox" id="ac-pending-only" checked> 未判断だけ表示</label>
       <label><input type="checkbox" id="ac-metrics-only"> 指標ありだけ表示</label>
@@ -364,14 +370,26 @@ function renderAllClear(rows) {
     });
   };
   const apply = () => {
+    const langFn = hasLang ? (langFns[state.lang] || langFns.ja) : langFns.all;
     const filtered = rows.filter((r) =>
-      (!state.pendingOnly || r.status === "pending") && (!state.metricsOnly || r.has_metrics));
+      langFn(r) && (!state.pendingOnly || r.status === "pending") && (!state.metricsOnly || r.has_metrics));
     if (!filtered.length) {
       tbody.innerHTML = '<tr><td colspan="14">（該当なし）</td></tr>';
       return;
     }
     makeSortable(table, filtered, row, tbody, { limit: 60, afterRender: bind });
   };
+  const langBox = panel.querySelector(".lang-filter");
+  if (langBox) {
+    const btns = langBox.querySelectorAll(".rw-filter");
+    const refresh = () => btns.forEach((b) => b.classList.toggle("active", b.dataset.lang === state.lang));
+    btns.forEach((b) => b.addEventListener("click", () => {
+      state.lang = b.dataset.lang;
+      try { localStorage.setItem("langFilter:allclear", state.lang); } catch (e) { /* ignore */ }
+      refresh(); apply();
+    }));
+    refresh();
+  }
   document.getElementById("ac-pending-only").addEventListener("change", (e) => { state.pendingOnly = e.target.checked; apply(); });
   document.getElementById("ac-metrics-only").addEventListener("change", (e) => { state.metricsOnly = e.target.checked; apply(); });
   apply();
