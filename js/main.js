@@ -368,7 +368,7 @@ function renderDaily10(rows) {
     panel.innerHTML = `
     <h2>🔟 今日の10件 — 毎日 10 ch ずつ見て、押した ch だけ 📈 波形待ちへ</h2>
     <p class="dv-desc">✅ 全条件クリアの<strong>未判断 ch を新しい順に 10 件ずつ</strong>出す。カードごとに <strong>👍 ウォッチ候補</strong> か <strong>👎 見送り</strong> を押すと「押した」がこの端末に記録され (ブラウザの localStorage・端末ごと)、次回からは出てこない。
-    👍 を押した分は下の <strong>「📈 押した ch を波形待ちに上げる」</strong> で GitHub の Issue 画面にまとめて入る → <strong>「Submit new issue」</strong> を押すだけで Actions が <code>shape_watch.txt</code> に追記して commit する。翌朝 JST 05:03 から毎日記録され 📈 波形タブに出る。</p>
+    👍 を押した分は下の <strong>「📈 押した ch を波形待ちに上げる」</strong> で GitHub の Issue 画面にまとめて入る → <strong>「Submit new issue」</strong> を押すだけで Actions が <code>shape_watch.txt</code> に追記して commit する。下の <strong>🔑 設定</strong> でトークンを保存した端末は GitHub を開かずボタンだけで完結する (スマホ向け)。翌朝 JST 05:03 から毎日記録され 📈 波形タブに出る。</p>
     <div class="rw-filter-group lang-filter" data-key="daily10">
       <span class="rw-filter-label">言語</span>
       <div class="rw-filters">
@@ -381,6 +381,7 @@ function renderDaily10(rows) {
       <span class="d10-count">今日: 👍 ${nPickToday} / 👎 ${nSkipToday} 判断済み (バッチ ${batch} 件) · 残り未判断 ${fmtN(fresh.length)} 件</span>
       <button id="d10-send" class="ac-bulk d10-send"${picked.length ? "" : " disabled"} title="👍 を押した ch を shape_watch.txt 用の Issue にまとめて入れる">📈 押した ch を波形待ちに上げる (${picked.length})</button>
     </div>
+    <div id="d10-status" class="d10-status"></div>
     ${picked.length ? `<div class="d10-pickbox">👍 未送信: ${picked.map((r) => `<span class="d10-chip">${escapeHtml(r.title)} <button class="d10-undo" data-cid="${escapeHtml(r.channel_id)}" title="取り消す">✕</button></span>`).join(" ")}</div>` : ""}
     <div class="d10-grid">${[...todayDone, ...slice].map(card).join("") || '<div class="d10-empty">（未判断の ch がありません）</div>'}</div>
     ${done ? `<p class="d10-done">🎉 今日の ${batch} 件は見終わり。<button id="d10-more" class="ac-bulk">もう 10 件見る</button></p>` : ""}
@@ -394,7 +395,8 @@ function renderDaily10(rows) {
         </table>
       </div>
       <button id="d10-clear-skips" class="ac-bulk"${nSkip ? "" : " disabled"}>👎 見送りの記録を消す (${nSkip} 件をもう一度出す)</button>
-    </details>`;
+    </details>
+    ${tokenBoxHtml()}`;
 
     panel.querySelectorAll(".rw-filter").forEach((b) => b.addEventListener("click", () => {
       lang = b.dataset.lang;
@@ -415,13 +417,25 @@ function renderDaily10(rows) {
     const send = panel.querySelector("#d10-send");
     if (send) send.addEventListener("click", () => {
       const lines = picked.map((r) => watchLineFor(r, today));
-      const opened = openWatchIssue(lines, `${lines.length} ch (🔟 今日の10件)`);
-      picked.forEach((r) => { st[r.channel_id] = { d: "sent", t: st[r.channel_id].t || today, s: today }; });
-      d10Save(st);
-      draw();
-      const b2 = panel.querySelector("#d10-send");
-      if (b2) b2.textContent = opened ? `📨 ${lines.length} ch の Issue を開いた → 「Submit new issue」を押せば登録` : `📋 ${lines.length} 行コピー済み (ポップアップ遮断) → shape_watch.txt に貼って commit`;
+      const ids = picked.map((r) => r.channel_id);
+      send.disabled = true;
+      let marked = false;
+      submitWatch(lines, `${lines.length} ch (🔟 今日の10件)`, (stt) => {
+        if (WATCH_SENT_KINDS.has(stt.kind) && !marked) {
+          marked = true;
+          ids.forEach((cid) => { st[cid] = { d: "sent", t: (st[cid] && st[cid].t) || today, s: today, issue: stt.number || null }; });
+          d10Save(st);
+          draw();
+        }
+        const b2 = panel.querySelector("#d10-send");
+        const line = panel.querySelector("#d10-status");
+        const txt = watchStatusText(stt, lines.length);
+        if (stt.kind === "sending" && b2) b2.textContent = txt;
+        if (line) line.innerHTML = `${escapeHtml(txt)}${stt.url ? ` <a href="${stt.url}" target="_blank" rel="noopener">Issue</a>` : ""}${stt.kind === "done" && stt.comment ? `<div class="d10-result">${escapeHtml(stt.comment).replace(/\n/g, "<br>")}</div>` : ""}`;
+        if (stt.kind === "error" && b2) { b2.disabled = false; b2.textContent = `📈 押した ch を波形待ちに上げる (${lines.length})`; }
+      });
     });
+    bindTokenBox(panel, draw);
   };
   draw();
 }
@@ -561,11 +575,12 @@ function renderAllClear(rows) {
   bulkBtn.addEventListener("click", () => {
     const today = new Date().toISOString().slice(0, 10);
     const lines = rows.filter((r) => selected.has(r.channel_id)).map((r) => watchLineFor(r, today));
-    const opened = openWatchIssue(lines, `${lines.length} ch (✅ 全条件クリアから)`);
-    bulkBtn.textContent = opened
-      ? `📨 ${lines.length} ch の Issue を開いた → 「Submit new issue」を押せば登録`
-      : `📋 ${lines.length} 行コピー済み (ポップアップ遮断) → shape_watch.txt に貼って commit`;
-    setTimeout(refreshBulk, 5000);
+    bulkBtn.disabled = true;
+    submitWatch(lines, `${lines.length} ch (✅ 全条件クリアから)`, (stt) => {
+      bulkBtn.textContent = watchStatusText(stt, lines.length);
+      if (stt.kind === "error") bulkBtn.disabled = false;
+      if (["done", "pending", "page", "blocked"].includes(stt.kind)) setTimeout(refreshBulk, 6000);
+    });
   });
   clearBtn.addEventListener("click", () => {
     selected.clear();
@@ -606,13 +621,120 @@ const SHAPE_WATCH_EDIT_URL = "https://github.com/syuta-chiba/youtube-niche-resea
 // public repo に開く → 「Submit new issue」で public 側の watch-inbox.yml が private の shape_watch.txt に
 // 追記して commit し、Issue にコメントして閉じる。オーナー本人の Issue だけ処理。行はクリップボードにも入れる (手貼りの保険)
 const WATCH_ISSUE_URL = "https://github.com/syuta-chiba/youtube-niche-dashboard/issues/new";
-function openWatchIssue(lines, label) {
+// スマホ完結 (2026-10-29): 端末に GitHub の fine-grained トークン (youtube-niche-dashboard の Issues: write だけ) を
+// 保存しておくと、ページを離れずに API で Issue を作り、watch-inbox.yml の結果コメントまで画面内で待つ。
+// トークンは localStorage にだけ置く (ページのソースには入らない・URL にも載せない)。無い端末は Issue 画面を開く従来方式。
+const GH_TOKEN_KEY = "ghIssueToken.v1";
+const GH_ISSUES_API = "https://api.github.com/repos/syuta-chiba/youtube-niche-dashboard/issues";
+function ghToken() { try { return localStorage.getItem(GH_TOKEN_KEY) || ""; } catch (e) { return ""; } }
+function ghHeaders(token) {
+  return { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" };
+}
+async function ghCreateIssue(token, title, body) {
+  const r = await fetch(GH_ISSUES_API, { method: "POST", headers: { ...ghHeaders(token), "Content-Type": "application/json" }, body: JSON.stringify({ title, body }) });
+  if (!r.ok) throw new Error(r.status === 401 ? "トークンが無効 (401)" : r.status === 403 ? "権限不足 (403・Issues: write が要る)" : `GitHub API ${r.status}`);
+  return r.json();
+}
+// watch-inbox.yml が Issue に付けるコメント (✅ 追加 / ⏭ 追加なし) を最長 2 分待つ
+async function ghWaitResult(token, number, ms) {
+  const until = Date.now() + (ms || 120000);
+  while (Date.now() < until) {
+    await new Promise((res) => setTimeout(res, 8000));
+    try {
+      const r = await fetch(`${GH_ISSUES_API}/${number}/comments`, { headers: ghHeaders(token) });
+      if (r.ok) {
+        const cs = await r.json();
+        if (cs.length) return cs[cs.length - 1].body || "";
+      }
+    } catch (e) { /* 一時的な失敗は次の周回で */ }
+  }
+  return null;
+}
+// onStatus({kind}) : sending → sent (Issue 作成済) → done (結果コメント到着) / pending (タイムアウト) / error。
+// トークン無し: page (Issue 画面を開いた) / blocked (ポップアップ遮断・行はクリップボード)
+function submitWatch(lines, label, onStatus) {
+  const title = `watch: ${label}`;
   const body = lines.join("\n") + "\n";
-  const url = `${WATCH_ISSUE_URL}?title=${encodeURIComponent(`watch: ${label}`)}&body=${encodeURIComponent(body)}`;
-  // window.open はクリック直後に同期で呼ぶ (clipboard の then の中だとポップアップ扱いで止められる)
-  const w = window.open(url, "_blank", "noopener");
-  if (navigator.clipboard) navigator.clipboard.writeText(body).catch(() => {});
-  return !!w;
+  const token = ghToken();
+  if (!token) {
+    const url = `${WATCH_ISSUE_URL}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+    // window.open はクリック直後に同期で呼ぶ (clipboard の then の中だとポップアップ扱いで止められる)
+    const w = window.open(url, "_blank", "noopener");
+    if (navigator.clipboard) navigator.clipboard.writeText(body).catch(() => {});
+    onStatus({ kind: w ? "page" : "blocked" });
+    return;
+  }
+  onStatus({ kind: "sending" });
+  ghCreateIssue(token, title, body).then(async (iss) => {
+    onStatus({ kind: "sent", number: iss.number, url: iss.html_url });
+    const c = await ghWaitResult(token, iss.number);
+    onStatus({ kind: c ? "done" : "pending", number: iss.number, url: iss.html_url, comment: c || "" });
+  }).catch((e) => onStatus({ kind: "error", error: e.message || String(e) }));
+}
+// ボタン文言 (単体ボタン・まとめてボタン・🔟 で共用)
+function watchStatusText(st, n) {
+  const c = (st.comment || "").split("\n")[0];
+  switch (st.kind) {
+    case "sending": return "⏳ 送信中…";
+    case "sent": return `📨 Issue #${st.number} 作成 → 追記待ち (数十秒)…`;
+    case "done": return c.startsWith("✅") ? `✅ 登録完了 (Issue #${st.number})` : `⏭ ${c.slice(0, 40)}`;
+    case "pending": return `📨 Issue #${st.number} 送信済 (結果は Issue で確認)`;
+    case "error": return `❌ 送れず: ${st.error}`;
+    case "page": return `📨 ${n} ch の Issue を開いた → 「Submit new issue」を押せば登録`;
+    case "blocked": return `📋 ${n} 行コピー済み (ポップアップ遮断) → shape_watch.txt に貼って commit`;
+    default: return "";
+  }
+}
+const WATCH_SENT_KINDS = new Set(["sent", "page", "blocked"]);
+// 🔑 トークン設定 UI (🔟 タブに置く)
+function tokenBoxHtml() {
+  const has = !!ghToken();
+  return `
+    <details class="an-item d10-token">
+      <summary>🔑 スマホ/この端末から直接送る設定 — ${has ? "✅ トークン保存済み (ボタンだけで完結)" : "未設定 (今は GitHub の Issue 画面が開く方式)"}</summary>
+      <p class="dv-sub">GitHub の <strong>fine-grained personal access token</strong> をこの端末に保存すると、ページを離れずに送信〜結果表示まで終わる。
+      作り方: GitHub → Settings → Developer settings → Personal access tokens → <strong>Fine-grained tokens</strong> → Generate →
+      Repository access = <strong>Only select repositories: youtube-niche-dashboard</strong> → Permissions → Repository permissions → <strong>Issues: Read and write</strong> だけ → 生成した文字列を下に貼る。
+      トークンはこの端末のブラウザ (localStorage) にだけ残り、ページのソースや URL には入らない。期限が切れたら作り直して貼り直す (有効期限は最長 1 年)。</p>
+      <div class="d10-token-row">
+        <input id="gh-token-input" type="password" placeholder="github_pat_…" autocomplete="off" spellcheck="false">
+        <button id="gh-token-save" class="ac-bulk">💾 保存</button>
+        <button id="gh-token-test" class="ac-bulk"${has ? "" : " disabled"}>🔍 動作確認</button>
+        <button id="gh-token-del" class="ac-bulk"${has ? "" : " disabled"}>🗑 削除</button>
+        <span id="gh-token-msg" class="dv-note"></span>
+      </div>
+    </details>`;
+}
+function bindTokenBox(scope, onChange) {
+  const inp = scope.querySelector("#gh-token-input");
+  const msg = scope.querySelector("#gh-token-msg");
+  if (!inp) return;
+  const say = (t) => { if (msg) msg.textContent = t; };
+  scope.querySelector("#gh-token-save").addEventListener("click", () => {
+    const v = (inp.value || "").trim();
+    if (!v) { say("トークンが空です"); return; }
+    try { localStorage.setItem(GH_TOKEN_KEY, v); } catch (e) { say("この端末では保存できません (プライベートモード?)"); return; }
+    inp.value = "";
+    say("保存しました → 🔍 動作確認 で権限を確かめられます");
+    if (onChange) onChange();
+  });
+  scope.querySelector("#gh-token-del").addEventListener("click", () => {
+    try { localStorage.removeItem(GH_TOKEN_KEY); } catch (e) { /* ignore */ }
+    say("削除しました (Issue 画面を開く方式に戻ります)");
+    if (onChange) onChange();
+  });
+  scope.querySelector("#gh-token-test").addEventListener("click", async () => {
+    const token = ghToken();
+    if (!token) { say("未設定"); return; }
+    say("確認中…");
+    try {
+      const r = await fetch("https://api.github.com/user", { headers: ghHeaders(token) });
+      if (!r.ok) { say(r.status === 401 ? "❌ トークンが無効 (401)" : `❌ GitHub API ${r.status}`); return; }
+      const u = await r.json();
+      const r2 = await fetch(GH_ISSUES_API + "?state=closed&per_page=1", { headers: ghHeaders(token) });
+      say(r2.ok ? `✅ ${u.login} として送れます (Issues 読み取り OK)` : `⚠ ${u.login} で認証はできたが Issues にアクセスできません (${r2.status}・Repository access を確認)`);
+    } catch (e) { say(`❌ ${e.message || e}`); }
+  });
 }
 // shape_watch.txt 用の 1 行 (✅ 全条件クリアの行から)。まとめてボタン / 🔟 今日の10件 で共用
 function watchLineFor(r, today) {
@@ -644,10 +766,14 @@ function copyWatchLine(btn, cid, title, extra) {
   if (extra && extra.median_views != null) parts.push(`普段${fmtN(extra.median_views)}`);
   parts.push(`${today} 追加`);
   const line = `${cid}  # ${title} (${parts.join(" / ")})`;
-  const opened = openWatchIssue([line], title);
   const orig = btn.textContent;
-  btn.textContent = opened ? "📨 Issue を開いた → Submit" : "📋 コピー済み (ポップアップ遮断)";
-  setTimeout(() => { btn.textContent = orig; }, 4000);
+  btn.disabled = true;
+  submitWatch([line], title, (stt) => {
+    btn.textContent = stt.kind === "sent" ? "📨 送信 → 追記待ち…" : stt.kind === "done" ? (String(stt.comment).startsWith("✅") ? "✅ 登録完了" : "⏭ 既登録") : watchStatusText(stt, 1);
+    if (["done", "pending", "error", "page", "blocked"].includes(stt.kind)) {
+      setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 6000);
+    }
+  });
 }
 function watchButtonHtml(cid, title, subs, median) {
   return `<button class="sh-watch" data-cid="${escapeHtml(cid)}" data-title="${escapeHtml(title || cid)}"${subs != null ? ` data-subs="${subs}"` : ""}${median != null ? ` data-median="${median}"` : ""} title="GitHub の Issue 画面が本文入りで開く → 「Submit new issue」を押すだけで shape_watch.txt に追記される (Actions が自動 commit)。翌朝から 📈 波形タブに日次カーブが積まれる (quota ゼロ)">📈 ウォッチ</button>`;
