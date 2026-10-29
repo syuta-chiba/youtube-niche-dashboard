@@ -65,7 +65,10 @@
     <p>サジェスト鉱脈探索（<code>suggest_vein_scan.py</code> + ゲストモード実SERP目視）の結果台帳。キーワードごとに<strong>◎チャンス（空席×需要あり）/ ○空席寄り / △争奪戦・需要小 / 🏠自分が現職 / ✗寡占・満席</strong>を判定し、供給側の証拠動画（リンク付き）と需要シグナルを一覧する。データは <code>vein_map.json</code>（セッションで調査するたびに追記・確認日付き）。判定手順の正本は docs/suggest_vein_scan.md。</p>
 
     <h4>🧭 新規発見（右端のタブ）</h4>
-    <p>discovery loop（毎朝 JST 4:23）が使う<strong>検索キーワード一覧</strong>と、<strong>評価済みチャンネルの履歴</strong>（合格・確認待ち / queue / 不採用と理由）。既存の注目チャンネル（左側のタブ群）に「次に加える候補」を検討する場所。HIT 判定はチャンネル相対（普段の5倍・下限500v・偽HIT除外後）。</p>
+    <p>discovery loop（毎朝 JST 4:23）が使う<strong>検索キーワード一覧</strong>（core）、<strong>🧪 試験語の在庫</strong>（自動収穫されて quota drain が上から消費する）と <strong>✔ 消化済み</strong>の台帳、<strong>評価済みチャンネルの履歴</strong>（合格・確認待ち / queue / 不採用と理由）。既存の注目チャンネル（左側のタブ群）に「次に加える候補」を検討する場所。HIT 判定はチャンネル相対（普段の5倍・下限500v・偽HIT除外後）。</p>
+
+    <h4>🔟 今日の10件</h4>
+    <p>✅ 全条件クリアの未判断 ch を<strong>毎日 10 件ずつ目視する専用画面</strong>（2026-10-29）。カードの「👍 ウォッチ候補」「👎 見送り」を押すと「押した」が端末に記録されて次回から出ない。👍 を押した分だけ「📈 押した ch を波形待ちに上げる」で GitHub の Issue 画面にまとめて入り、「Submit new issue」で public 側の Actions（<code>watch-inbox.yml</code>）が <code>shape_watch.txt</code> に追記・commit する。「📈 ウォッチ」「📈 波形待ちに回す」ボタンも同じ Issue 経路になった（手貼り不要）。</p>
 
     <h4>✅ 全条件クリア</h4>
     <p>discovery の全 AND ゲート（登録者 50-2000 / 本編 8 本以上 / 相対 HIT 2 本以上 / 直近 90 日 HIT 比 20% 以上 / 最新投稿 120 日以内 / 広告疑い過半でない）を通ったのに、<strong>まだ人間が判断していない</strong>チャンネルの棚卸し。自動昇格は確認制で止めているので、ここが「priority に加える候補の在庫」。関連度ゲートは廃止済みなので軸外（株・政治・海外ニュース等）も混ざる — 検索 KW 列と最大 HIT タイトルで目視して、良ければ「📋 priority行」で行をコピーして priority_channels.txt に貼る、違えば「✗違う」。評価指標が「—」の行は、同日 2 回目の discovery 実行がレポートを上書きしていた期間（2026-07-24〜10-12）に指標が失われたもの（2026-10-13 に修正済み・以降は台帳に残る）。</p>
@@ -85,6 +88,7 @@
   <section id="hits-panel" class="tab-panel"></section>
   <section id="discovery-panel" class="tab-panel"></section>
   <section id="allclear-panel" class="tab-panel"></section>
+  <section id="daily10-panel" class="tab-panel"></section>
   <section id="shapes-panel" class="tab-panel"></section>
   <section id="memo-panel" class="tab-panel"></section>
   <section id="pool-panel" class="tab-panel"></section>

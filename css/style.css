@@ -1164,3 +1164,29 @@ nav#channel-nav button.nav-memo { border-style: dashed; }
 .ac-selected td { background: rgba(26, 127, 55, 0.08); }
 .ac-bulk { font-size: 0.85em; padding: 0.15rem 0.6rem; margin-left: 0.6rem; }
 .ac-bulk:disabled { opacity: 0.5; }
+
+/* === 🔟 今日の10件 (2026-10-29) === */
+.d10-top { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 0.6rem 0; }
+.d10-count { color: var(--text-dim); font-size: 0.9rem; }
+.d10-send { margin-left: 0; font-weight: 600; }
+.d10-pickbox { margin: 0.3rem 0 0.8rem; font-size: 0.88rem; line-height: 1.9; }
+.d10-chip { display: inline-block; background: var(--accent-bg); border: 1px solid var(--border); border-radius: 999px; padding: 0 0.55rem; margin-right: 0.3rem; white-space: nowrap; }
+.d10-chip button { font-size: 0.75em; padding: 0 0.3rem; margin-left: 0.2rem; }
+.d10-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 0.6rem; }
+.d10-card { border: 1px solid var(--border); border-radius: 10px; padding: 0.6rem 0.8rem; background: var(--panel); display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+.d10-card.d10-picked { border-color: var(--pos); box-shadow: inset 4px 0 0 var(--pos); }
+.d10-card.d10-skipped { opacity: 0.5; }
+.d10-card.d10-sent { border-color: var(--accent); box-shadow: inset 4px 0 0 var(--accent); opacity: 0.75; }
+.d10-head { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; font-weight: 600; }
+.d10-head a { overflow-wrap: anywhere; }
+.d10-mark { font-size: 0.78rem; font-weight: 600; color: var(--pos); background: rgba(26, 127, 55, 0.1); border-radius: 999px; padding: 0 0.5rem; }
+.d10-skipped .d10-mark { color: var(--text-dim); background: var(--accent-bg); }
+.d10-sent .d10-mark { color: var(--accent); background: var(--accent-bg); }
+.d10-stats, .d10-kw { font-size: 0.82rem; color: var(--text-dim); overflow-wrap: anywhere; }
+.d10-max { font-size: 0.88rem; overflow-wrap: anywhere; }
+.d10-actions { margin-top: 0.2rem; display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.d10-actions button { font-size: 0.85em; padding: 0.2rem 0.6rem; }
+.d10-pick { border-color: var(--pos); color: var(--pos); }
+.d10-pick:hover { background: rgba(26, 127, 55, 0.08); }
+.d10-done { margin: 0.8rem 0; font-weight: 600; }
+.d10-empty { color: var(--text-dim); padding: 1rem; }

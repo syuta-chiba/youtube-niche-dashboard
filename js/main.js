@@ -93,6 +93,7 @@ async function load() {
   renderHitCases(data.channels || [], data.external_hits || []);
   renderDiscovery(data.discovery || {}, data.rejected || []);
   renderAllClear(data.all_clear || []);
+  renderDaily10(data.all_clear || []);
   renderShapes();
   renderMemo(data.memo || {});
   renderPool(data.pool || []);
@@ -133,6 +134,7 @@ function panelEl(id) {
   if (id === "hits") return document.getElementById("hits-panel");
   if (id === "discovery") return document.getElementById("discovery-panel");
   if (id === "allclear") return document.getElementById("allclear-panel");
+  if (id === "daily10") return document.getElementById("daily10-panel");
   if (id === "shapes") return document.getElementById("shapes-panel");
   if (id === "memo") return document.getElementById("memo-panel");
   if (id === "pool") return document.getElementById("pool-panel");
@@ -213,6 +215,13 @@ function buildTabs(channels) {
   tabs.push({ id: "allclear", btn: acBtn });
   nav.appendChild(acBtn);
 
+  const d10Btn = document.createElement("button");
+  d10Btn.className = "nav-discovery";
+  d10Btn.textContent = "🔟 今日の10件";
+  d10Btn.onclick = () => activateTab("daily10", tabs);
+  tabs.push({ id: "daily10", btn: d10Btn });
+  nav.appendChild(d10Btn);
+
   const shBtn = document.createElement("button");
   shBtn.className = "nav-discovery";
   shBtn.textContent = "📈 波形";
@@ -291,6 +300,132 @@ function copyPriorityLine(btn, r) {
   });
 }
 
+// === 🔟 今日の10件 — ✅ 全条件クリアの未判断 ch を毎日 10 件ずつ目視し、押した ch だけ 📈 波形待ちへ (2026-10-29) ===
+// 判断 (👍 ウォッチ候補 / 👎 見送り / 📨 送信済み) はこの端末の localStorage に残す:
+//   daily10.v1 = { <channel_id>: { d: "pick"|"skip"|"sent", t: 判断日, s?: 送信日 }, "_extra": { t: 日, n: 追加バッチ数 } }
+// 送った ch は cron 後に ✅ 側で status=watch になり pending から外れるので、端末記録が消えても二重には出ない。
+const D10_KEY = "daily10.v1";
+const D10_PAGE = 10;
+function d10Load() { try { return JSON.parse(localStorage.getItem(D10_KEY) || "{}"); } catch (e) { return {}; } }
+function d10Save(st) { try { localStorage.setItem(D10_KEY, JSON.stringify(st)); } catch (e) { /* private mode */ } }
+function renderDaily10(rows) {
+  const panel = document.getElementById("daily10-panel");
+  if (!panel) return;
+  const today = new Date().toISOString().slice(0, 10);
+  const st = d10Load();
+  let lang = "ja";
+  try { lang = localStorage.getItem("langFilter:daily10") || "ja"; } catch (e) { /* private mode */ }
+  const langOk = (r) => (lang === "all" ? true : lang === "ja" ? r.lang === "ja" : r.lang !== "ja");
+  const dec = (r) => (r && st[r.channel_id] && st[r.channel_id].d) || "";
+  const isCh = (k) => !k.startsWith("_");
+  const dash = "—";
+  const pct = (v, d) => (v == null ? dash : `${(v * 100).toFixed(d)}%`);
+
+  const card = (r) => {
+    const s = st[r.channel_id];
+    const d = s ? s.d : "";
+    const cls = d === "pick" ? " d10-picked" : d === "skip" ? " d10-skipped" : d === "sent" ? " d10-sent" : "";
+    const mark = d === "pick" ? "👍 押した → 波形待ち候補" : d === "skip" ? "👎 見送り" : d === "sent" ? `📨 送信済み ${escapeHtml(s.s || "")}` : "";
+    const actions = d
+      ? `<button class="d10-undo" data-cid="${escapeHtml(r.channel_id)}" title="判断を取り消して候補に戻す">↩ 戻す</button>`
+      : `<button class="d10-pick" data-cid="${escapeHtml(r.channel_id)}" title="この ch を 📈 波形待ちの候補に入れる (下の送信ボタンでまとめて上げる)">👍 ウォッチ候補</button>
+         <button class="d10-skip" data-cid="${escapeHtml(r.channel_id)}" title="今は見送り (この端末ではもう出ない)">👎 見送り</button>`;
+    const usual = r.median_views != null
+      ? `${fmtN(r.median_views)}${r.recent_median_views != null && r.recent_median_views !== r.median_views ? `→${fmtN(r.recent_median_views)}` : ""}`
+      : dash;
+    return `
+    <div class="d10-card${cls}" data-cid="${escapeHtml(r.channel_id)}">
+      <div class="d10-head">
+        ${r.icon ? `<img class="ch-icon ch-icon-lg" src="${r.icon}" alt="" loading="lazy">` : ""}
+        <a href="https://www.youtube.com/channel/${encodeURIComponent(r.channel_id)}/videos" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>
+        ${mark ? `<span class="d10-mark">${mark}</span>` : ""}
+      </div>
+      <div class="d10-stats">👥 ${r.subs != null ? fmtN(r.subs) : dash} · 普段 ${usual} · 相対HIT ${r.hits != null ? `${r.hits}本` : dash} (${pct(r.hit_rate, 0)}) · 最大 ${r.max_views != null ? `${fmtN(r.max_views)}v` : dash} · like ${pct(r.like_rate, 2)}${r.timing ? ` · ${escapeHtml(r.timing)}` : ""}</div>
+      ${r.max_title ? `<div class="d10-max" title="最大HITのタイトル">🏆 ${escapeHtml(r.max_title)}</div>` : ""}
+      <div class="d10-kw">${r.keywords ? `🔎 ${escapeHtml(r.keywords)} · ` : ""}全条件クリア ${escapeHtml(r.date || "")}</div>
+      <div class="d10-actions">${actions}</div>
+    </div>`;
+  };
+
+  const draw = () => {
+    const pool = rows.filter((r) => r.status === "pending" && langOk(r));
+    const fresh = pool.filter((r) => !dec(r));
+    fresh.sort((a, b) => (b.date || "").localeCompare(a.date || "") || (b.max_views || 0) - (a.max_views || 0));
+    // 今日判断した ch は「押しました」を見せるため同じ画面に残す (送信済みも含む)
+    const todayDone = pool.filter((r) => dec(r) && st[r.channel_id].t === today);
+    const extra = st._extra && st._extra.t === today ? st._extra.n : 0;
+    const batch = D10_PAGE * (1 + extra);
+    const slice = fresh.slice(0, Math.max(0, batch - todayDone.length));
+    const picked = rows.filter((r) => dec(r) === "pick");
+    const sent = rows.filter((r) => dec(r) === "sent").sort((a, b) => (st[b.channel_id].s || "").localeCompare(st[a.channel_id].s || ""));
+    const nSkip = Object.keys(st).filter((k) => isCh(k) && st[k].d === "skip").length;
+    const nPickToday = todayDone.filter((r) => dec(r) === "pick" || dec(r) === "sent").length;
+    const nSkipToday = todayDone.filter((r) => dec(r) === "skip").length;
+    const done = todayDone.length >= batch && !slice.length;
+    const nJa = rows.filter((r) => r.status === "pending" && r.lang === "ja").length;
+    const nFo = rows.filter((r) => r.status === "pending" && r.lang !== "ja").length;
+
+    panel.innerHTML = `
+    <h2>🔟 今日の10件 — 毎日 10 ch ずつ見て、押した ch だけ 📈 波形待ちへ</h2>
+    <p class="dv-desc">✅ 全条件クリアの<strong>未判断 ch を新しい順に 10 件ずつ</strong>出す。カードごとに <strong>👍 ウォッチ候補</strong> か <strong>👎 見送り</strong> を押すと「押した」がこの端末に記録され (ブラウザの localStorage・端末ごと)、次回からは出てこない。
+    👍 を押した分は下の <strong>「📈 押した ch を波形待ちに上げる」</strong> で GitHub の Issue 画面にまとめて入る → <strong>「Submit new issue」</strong> を押すだけで Actions が <code>shape_watch.txt</code> に追記して commit する。翌朝 JST 05:03 から毎日記録され 📈 波形タブに出る。</p>
+    <div class="rw-filter-group lang-filter" data-key="daily10">
+      <span class="rw-filter-label">言語</span>
+      <div class="rw-filters">
+        <button class="rw-filter${lang === "ja" ? " active" : ""}" data-lang="ja">🇯🇵 日本語 (${fmtN(nJa)})</button>
+        <button class="rw-filter${lang === "foreign" ? " active" : ""}" data-lang="foreign">🌐 海外 (${fmtN(nFo)})</button>
+        <button class="rw-filter${lang === "all" ? " active" : ""}" data-lang="all">全部 (${fmtN(nJa + nFo)})</button>
+      </div>
+    </div>
+    <div class="d10-top">
+      <span class="d10-count">今日: 👍 ${nPickToday} / 👎 ${nSkipToday} 判断済み (バッチ ${batch} 件) · 残り未判断 ${fmtN(fresh.length)} 件</span>
+      <button id="d10-send" class="ac-bulk d10-send"${picked.length ? "" : " disabled"} title="👍 を押した ch を shape_watch.txt 用の Issue にまとめて入れる">📈 押した ch を波形待ちに上げる (${picked.length})</button>
+    </div>
+    ${picked.length ? `<div class="d10-pickbox">👍 未送信: ${picked.map((r) => `<span class="d10-chip">${escapeHtml(r.title)} <button class="d10-undo" data-cid="${escapeHtml(r.channel_id)}" title="取り消す">✕</button></span>`).join(" ")}</div>` : ""}
+    <div class="d10-grid">${[...todayDone, ...slice].map(card).join("") || '<div class="d10-empty">（未判断の ch がありません）</div>'}</div>
+    ${done ? `<p class="d10-done">🎉 今日の ${batch} 件は見終わり。<button id="d10-more" class="ac-bulk">もう 10 件見る</button></p>` : ""}
+    <details class="an-item">
+      <summary>📨 送信済み (${sent.length}) · 👎 見送り (${nSkip}) — この端末の記録</summary>
+      <p class="dv-sub">送信済みは Issue を Submit した分 (cron 後に ✅ 側の状態が「📈 波形待ち」に変わる)。見送りは端末にだけ残る記録なので、別の端末では再び候補に出る。</p>
+      <div class="dv-table-wrap">
+        <table class="dv-table">
+          <thead><tr><th>送信日</th><th>チャンネル</th><th></th></tr></thead>
+          <tbody>${sent.map((r) => `<tr><td class="dv-date">${escapeHtml(st[r.channel_id].s || "")}</td><td class="dv-ch"><a href="https://www.youtube.com/channel/${encodeURIComponent(r.channel_id)}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a></td><td><button class="d10-undo" data-cid="${escapeHtml(r.channel_id)}">↩ 戻す</button></td></tr>`).join("") || '<tr><td colspan="3">（まだなし）</td></tr>'}</tbody>
+        </table>
+      </div>
+      <button id="d10-clear-skips" class="ac-bulk"${nSkip ? "" : " disabled"}>👎 見送りの記録を消す (${nSkip} 件をもう一度出す)</button>
+    </details>`;
+
+    panel.querySelectorAll(".rw-filter").forEach((b) => b.addEventListener("click", () => {
+      lang = b.dataset.lang;
+      try { localStorage.setItem("langFilter:daily10", lang); } catch (e) { /* ignore */ }
+      draw();
+    }));
+    const mark = (cid, d) => { st[cid] = { d, t: today }; d10Save(st); draw(); };
+    panel.querySelectorAll(".d10-pick").forEach((b) => b.addEventListener("click", () => mark(b.dataset.cid, "pick")));
+    panel.querySelectorAll(".d10-skip").forEach((b) => b.addEventListener("click", () => mark(b.dataset.cid, "skip")));
+    panel.querySelectorAll(".d10-undo").forEach((b) => b.addEventListener("click", () => { delete st[b.dataset.cid]; d10Save(st); draw(); }));
+    const more = panel.querySelector("#d10-more");
+    if (more) more.addEventListener("click", () => { st._extra = { t: today, n: extra + 1 }; d10Save(st); draw(); });
+    const clr = panel.querySelector("#d10-clear-skips");
+    if (clr) clr.addEventListener("click", () => {
+      Object.keys(st).forEach((k) => { if (isCh(k) && st[k].d === "skip") delete st[k]; });
+      d10Save(st); draw();
+    });
+    const send = panel.querySelector("#d10-send");
+    if (send) send.addEventListener("click", () => {
+      const lines = picked.map((r) => watchLineFor(r, today));
+      const opened = openWatchIssue(lines, `${lines.length} ch (🔟 今日の10件)`);
+      picked.forEach((r) => { st[r.channel_id] = { d: "sent", t: st[r.channel_id].t || today, s: today }; });
+      d10Save(st);
+      draw();
+      const b2 = panel.querySelector("#d10-send");
+      if (b2) b2.textContent = opened ? `📨 ${lines.length} ch の Issue を開いた → 「Submit new issue」を押せば登録` : `📋 ${lines.length} 行コピー済み (ポップアップ遮断) → shape_watch.txt に貼って commit`;
+    });
+  };
+  draw();
+}
+
 function renderAllClear(rows) {
   const panel = document.getElementById("allclear-panel");
   if (!panel) return;
@@ -303,7 +438,7 @@ function renderAllClear(rows) {
   try { state.lang = localStorage.getItem("langFilter:allclear") || "ja"; } catch (e) { /* private mode */ }
   const nPendingJa = rows.filter((r) => r.status === "pending" && r.lang === "ja").length;
   const nWatch = rows.filter((r) => r.status === "watch").length;
-  // 複数選択 → まとめて shape_watch.txt 用の行をコピー (今日の候補選定用)。再描画をまたいで保持
+  // 複数選択 → まとめて shape_watch.txt 用の Issue を開く (今日の候補選定用)。再描画をまたいで保持
   const selected = new Set();
 
   const row = (r) => {
@@ -351,7 +486,7 @@ function renderAllClear(rows) {
     <p class="dv-sub">関連度ゲートは 2026-07-21 に廃止済みなので軸外 (株・政治・海外ニュース等) も混ざる。<strong>検索KW と 最大HITタイトル</strong>で目視し、
     良ければ「📋 priority行」でコピー → <a href="${PRIORITY_EDIT_URL}" target="_blank" rel="noopener">priority_channels.txt を編集</a>に貼って commit (次の cron から定点観測開始)。
     違えば「✗違う」→ <a href="${REJECT_EDIT_URL}" target="_blank" rel="noopener">rejected_channels.txt</a>。
-    <strong>まだ決めかねる ch は「📈 波形待ち」へ</strong>: 行頭のチェックで選び、下の「📈 波形待ちに回す」で行をまとめてコピー → <a href="${SHAPE_WATCH_EDIT_URL}" target="_blank" rel="noopener">shape_watch.txt を編集</a>に貼って commit。翌朝から毎日 1 点記録され、📈 波形タブで伸び方の形を見てから priority に上げるか決める (quota ゼロ・通知なし)。
+    <strong>まだ決めかねる ch は「📈 波形待ち」へ</strong>: 行頭のチェックで選び、下の「📈 波形待ちに回す」を押す → GitHub の Issue 画面が本文入りで開くので「Submit new issue」を押すだけ (Actions が <code>shape_watch.txt</code> に追記して commit し、Issue を閉じる)。毎日 10 件ずつ見るなら <strong>🔟 今日の10件</strong> タブが専用画面。翌朝から毎日 1 点記録され、📈 波形タブで伸び方の形を見てから priority に上げるか決める (quota ゼロ・通知なし)。
     指標が「—」の ${fmtN(rows.length - nMetrics)} 行は、同日 2 回目の discovery (quota-drain) がレポートを上書きしていた期間に指標が失われたもの (登録者/普段は RSS プールの最新値で補完。再評価は RSS 巡回でスパイクした時)。列見出しクリックでソート。</p>
     ${hasLang ? langFilterHtml("allclear", rows) : ""}
     <div class="rw-filter-group" id="ac-view-filter">
@@ -425,19 +560,12 @@ function renderAllClear(rows) {
   };
   bulkBtn.addEventListener("click", () => {
     const today = new Date().toISOString().slice(0, 10);
-    const lines = rows.filter((r) => selected.has(r.channel_id)).map((r) => {
-      const parts = [];
-      if (r.subs != null) parts.push(`${fmtN(r.subs)} subs`);
-      if (r.median_views != null) parts.push(`普段${fmtN(r.median_views)}`);
-      if (r.hits != null) parts.push(`相対HIT ${r.hits}本`);
-      if (r.max_views != null) parts.push(`最大 ${fmtN(r.max_views)}v${r.max_title ? `「${r.max_title}」` : ""}`);
-      parts.push(`全条件クリア ${r.date} → ${today} 波形待ち`);
-      return `${r.channel_id}  # ${r.title} (${parts.join(" / ")})`;
-    });
-    navigator.clipboard.writeText(lines.join("\n") + "\n").then(() => {
-      bulkBtn.textContent = `📋 ${lines.length} 行コピー済み → shape_watch.txt に貼って commit`;
-      setTimeout(refreshBulk, 4000);
-    });
+    const lines = rows.filter((r) => selected.has(r.channel_id)).map((r) => watchLineFor(r, today));
+    const opened = openWatchIssue(lines, `${lines.length} ch (✅ 全条件クリアから)`);
+    bulkBtn.textContent = opened
+      ? `📨 ${lines.length} ch の Issue を開いた → 「Submit new issue」を押せば登録`
+      : `📋 ${lines.length} 行コピー済み (ポップアップ遮断) → shape_watch.txt に貼って commit`;
+    setTimeout(refreshBulk, 5000);
   });
   clearBtn.addEventListener("click", () => {
     selected.clear();
@@ -474,6 +602,28 @@ function renderAllClear(rows) {
 // 追加方法: shape_watch.txt に ch ID を 1 行足して commit (「📈 ウォッチ」ボタンで行をコピー) → 翌朝 JST 05:03 から RSS が毎日必ず記録。
 
 const SHAPE_WATCH_EDIT_URL = "https://github.com/syuta-chiba/youtube-niche-research/edit/main/shape_watch.txt";
+// 1 クリック登録 (2026-10-29): public サイトには書き込みトークンを置けないので、本文入りの Issue 作成画面を
+// public repo に開く → 「Submit new issue」で public 側の watch-inbox.yml が private の shape_watch.txt に
+// 追記して commit し、Issue にコメントして閉じる。オーナー本人の Issue だけ処理。行はクリップボードにも入れる (手貼りの保険)
+const WATCH_ISSUE_URL = "https://github.com/syuta-chiba/youtube-niche-dashboard/issues/new";
+function openWatchIssue(lines, label) {
+  const body = lines.join("\n") + "\n";
+  const url = `${WATCH_ISSUE_URL}?title=${encodeURIComponent(`watch: ${label}`)}&body=${encodeURIComponent(body)}`;
+  // window.open はクリック直後に同期で呼ぶ (clipboard の then の中だとポップアップ扱いで止められる)
+  const w = window.open(url, "_blank", "noopener");
+  if (navigator.clipboard) navigator.clipboard.writeText(body).catch(() => {});
+  return !!w;
+}
+// shape_watch.txt 用の 1 行 (✅ 全条件クリアの行から)。まとめてボタン / 🔟 今日の10件 で共用
+function watchLineFor(r, today) {
+  const parts = [];
+  if (r.subs != null) parts.push(`${fmtN(r.subs)} subs`);
+  if (r.median_views != null) parts.push(`普段${fmtN(r.median_views)}`);
+  if (r.hits != null) parts.push(`相対HIT ${r.hits}本`);
+  if (r.max_views != null) parts.push(`最大 ${fmtN(r.max_views)}v${r.max_title ? `「${r.max_title}」` : ""}`);
+  parts.push(`全条件クリア ${r.date} → ${today} 波形待ち`);
+  return `${r.channel_id}  # ${r.title} (${parts.join(" / ")})`;
+}
 const SHAPE_BADGE = {
   organic: { label: "📈 自然", cls: "dv-ok" },
   ad_like: { label: "📢 広告型", cls: "dv-ng" },
@@ -494,14 +644,13 @@ function copyWatchLine(btn, cid, title, extra) {
   if (extra && extra.median_views != null) parts.push(`普段${fmtN(extra.median_views)}`);
   parts.push(`${today} 追加`);
   const line = `${cid}  # ${title} (${parts.join(" / ")})`;
-  navigator.clipboard.writeText(line).then(() => {
-    const orig = btn.textContent;
-    btn.textContent = "📋 コピー済み";
-    setTimeout(() => { btn.textContent = orig; }, 2500);
-  });
+  const opened = openWatchIssue([line], title);
+  const orig = btn.textContent;
+  btn.textContent = opened ? "📨 Issue を開いた → Submit" : "📋 コピー済み (ポップアップ遮断)";
+  setTimeout(() => { btn.textContent = orig; }, 4000);
 }
 function watchButtonHtml(cid, title, subs, median) {
-  return `<button class="sh-watch" data-cid="${escapeHtml(cid)}" data-title="${escapeHtml(title || cid)}"${subs != null ? ` data-subs="${subs}"` : ""}${median != null ? ` data-median="${median}"` : ""} title="shape_watch.txt 用の行をコピー → 貼って commit すると翌朝から 📈 波形タブに日次カーブが積まれる (quota ゼロ)">📈 ウォッチ</button>`;
+  return `<button class="sh-watch" data-cid="${escapeHtml(cid)}" data-title="${escapeHtml(title || cid)}"${subs != null ? ` data-subs="${subs}"` : ""}${median != null ? ` data-median="${median}"` : ""} title="GitHub の Issue 画面が本文入りで開く → 「Submit new issue」を押すだけで shape_watch.txt に追記される (Actions が自動 commit)。翌朝から 📈 波形タブに日次カーブが積まれる (quota ゼロ)">📈 ウォッチ</button>`;
 }
 function bindWatchButtons(scope) {
   scope.querySelectorAll(".sh-watch").forEach((btn) => {
@@ -611,7 +760,7 @@ function renderShapesBody(panel, sh) {
     <strong>📢 広告型</strong> = 初日がピークにならず予算ペースの台地 → 予算終了日に崖 → 尾なし。
     like 基準線 (期待比 50% 線) が境界の時は、この形が決め手になる。判定は <code>view_shape.py</code>、定義は docs/ad_check_methodology.md 補助判定。</p>
     <p class="dv-sub">データ: RSS 巡回 (毎朝 JST 05:03・最新 15 本・quota ゼロ) の 1 日 1 点。priority ch は API 観測の 1 日 4 点から日ごとの最後の値。公開 60 日で打ち切り。
-    <strong>見たい ch を足す</strong>には「📈 ウォッチ」で行をコピー → <a href="${SHAPE_WATCH_EDIT_URL}" target="_blank" rel="noopener">shape_watch.txt を編集</a>に貼って commit。翌朝から必ず毎日記録される (時間予算で翌日送りにならない)。✅ 全条件クリアの未判断 ch も自動で毎日記録。</p>
+    <strong>見たい ch を足す</strong>には「📈 ウォッチ」を押す → 開いた Issue 画面で「Submit new issue」を押すだけ (Actions が <a href="${SHAPE_WATCH_EDIT_URL}" target="_blank" rel="noopener">shape_watch.txt</a> に追記して commit)。翌朝から必ず毎日記録される (時間予算で翌日送りにならない)。✅ 全条件クリアの未判断 ch も自動で毎日記録。</p>
     <div class="rw-filter-group" id="sh-group-filter">
       <span class="rw-filter-label">対象</span>
       <div class="rw-filters">
@@ -1542,6 +1691,8 @@ function renderDiscovery(dv, rejected) {
   const panel = document.getElementById("discovery-panel");
   if (!panel) return;
   const kws = dv.keywords || [];
+  const trial = dv.trial || [];
+  const tried = dv.tried || [];
   const evaluated = dv.evaluated || [];
   rejected = rejected || [];
 
@@ -1564,6 +1715,32 @@ function renderDiscovery(dv, rejected) {
       <td class="dv-note">${escapeHtml(k.note || "")}</td>
     </tr>`;
   }).join("");
+
+  // 🧪 試験語の在庫 (trial) — 上から順に quota_drain が消費する。出所 = auto-harvest の見出し
+  const trialRows = trial.map((t, i) => `
+    <tr>
+      <td class="dv-num">${i + 1}</td>
+      <td class="dv-kw">${escapeHtml(t.kw)}</td>
+      <td class="dv-date">${escapeHtml(t.date || "")}</td>
+      <td class="dv-note">${escapeHtml(t.how || "")}</td>
+    </tr>`).join("");
+
+  // ✔ 消化済み語 (tried) — 日付ごとに見出し行を入れて新しい順
+  let triedPrevDate = null;
+  const triedRows = tried.map((t) => {
+    let head = "";
+    if (t.date !== triedPrevDate) {
+      triedPrevDate = t.date;
+      const n = tried.filter((x) => x.date === t.date).length;
+      head = `<tr class="dv-kw-group"><td colspan="2">📅 ${escapeHtml(t.date)} <span class="dv-kw-group-n">(${n}語)</span></td></tr>`;
+    }
+    return `${head}
+    <tr>
+      <td class="dv-date">${escapeHtml(t.date)}</td>
+      <td class="dv-kw">${escapeHtml(t.kw)}</td>
+    </tr>`;
+  }).join("");
+  const triedLastDate = tried.length ? tried[0].date : "—";
 
   const evRow = (e) => {
     const d = DV_DECISION[e.decision] || { label: escapeHtml(e.decision || "?"), cls: "dv-na" };
@@ -1602,6 +1779,29 @@ function renderDiscovery(dv, rejected) {
         <tbody>${kwRows || '<tr><td colspan="2">（データなし）</td></tr>'}</tbody>
       </table>
     </div>
+
+    <h3>🧪 試験語の在庫 (${trial.length}語) — discovery_keywords_trial.txt</h3>
+    <p class="dv-sub">キーワードを広げる仕組みの入口。外部HITコーパスの直近14日の題名から「2ch以上に共通するツール名」を毎日自動収穫 (keyword_harvest / claude.ai Routine) して積む。
+    毎日 JST 14:20 の quota drain が<strong>残 quota の範囲で上から順に1回ずつ検索</strong>し、使った語は下の「消化済み」へ移る (同じ語は二度と検索しない・H-14「検索KWは消耗品」)。
+    思いついた語は <a href="https://github.com/syuta-chiba/emperor-ch/edit/main/discovery_keywords_trial.txt" target="_blank" rel="noopener">trial.txt</a> に1行足して commit すれば翌日消化される。収穫が良かった語だけ人の判断で上の core へ昇格。</p>
+    <div class="dv-table-wrap">
+      <table class="dv-table">
+        <thead><tr><th>#</th><th>キーワード</th><th>収穫日</th><th>経路</th></tr></thead>
+        <tbody>${trialRows || '<tr><td colspan="4">（在庫なし — 今日の収穫待ち）</td></tr>'}</tbody>
+      </table>
+    </div>
+
+    <details class="an-item">
+      <summary>✔ 消化済みの試験語 (${tried.length}語・最終消化 ${escapeHtml(triedLastDate)}) — discovery_keywords_tried.txt</summary>
+      <p class="dv-sub">quota drain が検索し終えた語の台帳 (新しい順)。最終消化日が何日も止まっていたら drain が quota 不足か停止中。
+      ここにある語の収穫 (見つかった ch) は「評価済みチャンネル」「✅ 全条件クリア」の各行に検索 KW として残る。</p>
+      <div class="dv-table-wrap">
+        <table class="dv-table">
+          <thead><tr><th>消化日</th><th>キーワード</th></tr></thead>
+          <tbody>${triedRows || '<tr><td colspan="2">（まだなし）</td></tr>'}</tbody>
+        </table>
+      </div>
+    </details>
 
     <h3>発見推移</h3>
     <p class="dv-sub">discovery が新規に評価したチャンネル数の推移 (棒 = 日次、線 = 累計)。新KW投入で跳ね、定常は同語で少数 — 発掘ペースの健全性を見る (H-14)。</p>
