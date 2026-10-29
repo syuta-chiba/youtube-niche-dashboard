@@ -1,0 +1,137 @@
+name: watch inbox (Issue → shape_watch.txt)
+
+# ダッシュボードの「📈 ウォッチ」ボタンを 1 クリックで効かせるための受け口 (2026-10-29)。
+#   public サイトには書き込みトークンを置けないので、ボタンは本文入りの Issue 作成画面を開くだけ。
+#   「Submit new issue」が押されると、この workflow が本文の ch 行を private repo の
+#   shape_watch.txt (title "watch:") / priority_channels.txt ("priority:") / rejected_channels.txt ("reject:")
+#   に追記して commit し、Issue にコメントして閉じる。
+#   安全策: repo オーナー本人が開いた Issue だけ処理する (public repo なので誰でも Issue を立てられる)。
+#   行の形式: 「UC<22文字>  # 任意のメモ」。ID が既にある行はスキップ (二重登録しない)。
+
+on:
+  issues:
+    types: [opened]
+
+concurrency:
+  group: watch-inbox
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    if: >-
+      github.event.issue.user.login == github.repository_owner &&
+      (startsWith(github.event.issue.title, 'watch:') ||
+       startsWith(github.event.issue.title, 'priority:') ||
+       startsWith(github.event.issue.title, 'reject:'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: syuta-chiba/youtube-niche-research
+          ssh-key: ${{ secrets.PRIVATE_REPO_SSH_KEY }}
+          path: src
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Issue 本文の ch 行を対象ファイルに追記
+        id: apply
+        working-directory: src
+        env:
+          TITLE: ${{ github.event.issue.title }}
+          BODY: ${{ github.event.issue.body }}
+        run: |
+          python - <<'PY'
+          import os, re, pathlib
+          title = os.environ.get("TITLE", "")
+          body = os.environ.get("BODY") or ""
+          kind = title.split(":", 1)[0].strip().lower()
+          target = {"watch": "shape_watch.txt", "priority": "priority_channels.txt", "reject": "rejected_channels.txt"}[kind]
+          p = pathlib.Path(target)
+          existing = p.read_text(encoding="utf-8-sig") if p.exists() else ""
+          have = set(re.findall(r"^(UC[0-9A-Za-z_-]{22})", existing, re.M))
+          added, skipped = [], []
+          for raw in body.replace("\r", "").split("\n"):
+              m = re.match(r"^(UC[0-9A-Za-z_-]{22})(?:\s+(.*))?$", raw.strip())
+              if not m:
+                  continue
+              cid = m.group(1)
+              if cid in have:
+                  skipped.append(cid)
+                  continue
+              note = re.sub(r"[\x00-\x1f\x7f]", "", m.group(2) or "").strip()
+              if note and not note.startswith("#"):
+                  note = "# " + note
+              added.append(f"{cid}  {note}".rstrip())
+              have.add(cid)
+          if added:
+              text = existing
+              if text and not text.endswith("\n"):
+                  text += "\n"
+              p.write_text(text + "\n".join(added) + "\n", encoding="utf-8")
+          out = pathlib.Path(os.environ["GITHUB_OUTPUT"])
+          with out.open("a", encoding="utf-8") as f:
+              f.write(f"target={target}\nadded={len(added)}\nskipped={len(skipped)}\n")
+              f.write("added_ids=" + " ".join(a.split()[0] for a in added) + "\n")
+          print(f"target={target} added={len(added)} skipped={len(skipped)}")
+          PY
+
+      - name: private repo に commit & push (deploy key)
+        id: push
+        if: steps.apply.outputs.added != '0'
+        working-directory: src
+        env:
+          TARGET: ${{ steps.apply.outputs.target }}
+          N: ${{ steps.apply.outputs.added }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$TARGET"
+          git commit -q -m "$TARGET: ダッシュボードの Issue #$ISSUE から $N ch 追加 (watch-inbox)"
+          for i in 1 2 3; do
+            git pull -q --rebase --autostash origin main && git push -q && break
+            sleep 5
+          done
+          echo "sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Issue にコメントして閉じる
+        if: always() && steps.apply.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+          TARGET: ${{ steps.apply.outputs.target }}
+          N: ${{ steps.apply.outputs.added }}
+          SKIPPED: ${{ steps.apply.outputs.skipped }}
+          IDS: ${{ steps.apply.outputs.added_ids }}
+          SHA: ${{ steps.push.outputs.sha }}
+        run: |
+          if [ "$N" != "0" ]; then
+            case "$TARGET" in
+              shape_watch.txt) next="翌朝 JST 05:03 の RSS 巡回から毎日記録され、📈 波形タブに出ます。✅ タブの状態は次の定期取得 (JST 3/9/15/21 時) で「📈 波形待ち」に変わります。" ;;
+              priority_channels.txt) next="次の定期取得 (JST 3/9/15/21 時) から API で 1 日 4 点観測し、Slack 検知 (🚨⚡🚀🎯) の対象になります。" ;;
+              *) next="次の定期取得から各一覧・RSS 巡回・類似HIT照合の対象外になります。" ;;
+            esac
+            msg=$(printf '✅ `%s` に %s ch 追加しました (private commit `%s`・既登録スキップ %s)。\n%s\n\n%s' "$TARGET" "$N" "$SHA" "$SKIPPED" "$IDS" "$next")
+          else
+            msg="⏭ 追加なし (既登録 $SKIPPED 件 / 形式に合う行なし)。\`$TARGET\` は変更していません。"
+          fi
+          gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body "$msg"
+          gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY" --reason completed
+
+      - name: 失敗時は Slack に通知
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          [ -n "$SLACK_WEBHOOK_URL" ] || exit 0
+          payload=$(jq -nc --arg u "$RUN_URL" --arg i "$ISSUE_URL" \
+            '{text: ("🔥 *watch inbox 失敗* (Issue → shape_watch.txt)\n<" + $u + "|run を見る> / <" + $i + "|Issue>")}')
+          curl -sS -o /dev/null -H 'Content-Type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"
