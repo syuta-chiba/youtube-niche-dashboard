@@ -3,10 +3,10 @@ name: discovery loop 当たり企画発掘
 # ★ 2026-10-28 private repo (youtube-niche-research) から移設 (priority-channels.yml 冒頭の説明を参照)。
 
 on:
-  # schedule: (空の schedule: はワークフロー定義として不正なので行ごとコメントアウト)
+  schedule:
     # UTC 19:23 = JST 04:23 (1 日 1 回)。priority-channels の 0/6/12/18 と被らない時刻。
-    # ⏸ 一時停止 (2026-10-26): 広告判定(回帰)に quota を回すため。再開=「schedule:」と次行のコメントを外す。
-    # - cron: "23 19 * * *"
+    # 2026-10-26〜30 は広告判定に quota を回すため停止していた → 2026-10-30 再開
+    - cron: "23 19 * * *"
   workflow_dispatch:
     inputs:
       dry_run:

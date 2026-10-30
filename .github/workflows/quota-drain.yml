@@ -74,9 +74,7 @@ jobs:
 
       - name: quota_drain.py 実行
         id: run
-        # ⏸ 一時停止 (2026-10-26): 広告判定(回帰)に quota を回すため試験語検索を止める。
-        # AI判定 apply / 関連度ラベリング(上の step・quota 0)は継続。再開=この if 行を消す。
-        if: ${{ false }}
+        # 2026-10-26〜30 は広告判定に quota を回すため if:false で停止していた (実際は 9,000u/日が未使用) → 2026-10-30 再開
         working-directory: src
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
