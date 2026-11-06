@@ -1194,3 +1194,28 @@ nav#channel-nav button.nav-memo { border-style: dashed; }
 .d10-result { margin-top: 0.3rem; padding: 0.4rem 0.6rem; background: var(--accent-bg); border-radius: 6px; font-size: 0.82rem; }
 .d10-token-row { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
 .d10-token-row input { flex: 1 1 220px; min-width: 0; padding: 0.3rem 0.5rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); font-family: monospace; }
+
+/* === 🔎 確認枠 / 🧩 仕組み (2026-11-07) === */
+.d10-card.rv-rej { border-color: var(--hit); box-shadow: inset 4px 0 0 var(--hit); }
+.rv-rej .d10-mark { color: var(--hit); background: rgba(207, 34, 46, 0.08); }
+.rv-rej-btn { border-color: var(--hit); color: var(--hit); }
+.rv-rej-btn:hover { background: rgba(207, 34, 46, 0.08); }
+.d10-card .sh-table { font-size: 0.82rem; }
+.mech-funnel { display: flex; flex-direction: column; align-items: stretch; max-width: 720px; margin: 0.4rem 0 0.8rem; }
+.mech-step { display: flex; gap: 0.8rem; align-items: center; border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 0.8rem; background: var(--panel); }
+.mech-step-n { font-size: 1.4rem; font-weight: 700; min-width: 4.5rem; text-align: right; color: var(--accent); }
+.mech-step-label { font-weight: 600; }
+.mech-step-body { min-width: 0; }
+.mech-arrow { text-align: center; color: var(--text-dim); line-height: 1.2; }
+.mech-health { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 0.6rem; margin: 0.4rem 0 0.8rem; }
+.mech-hcard { border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 0.8rem; background: var(--panel); min-width: 0; }
+.mech-hk { font-size: 0.82rem; color: var(--text-dim); font-weight: 600; margin-bottom: 0.2rem; }
+.mech-hv { font-size: 0.92rem; overflow-wrap: anywhere; }
+.mech-covs { display: flex; gap: 3px; align-items: flex-end; height: 58px; margin: 0.3rem 0; }
+.mech-cov { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 0; }
+.mech-cov-bar { width: 100%; background: var(--pos); border-radius: 2px 2px 0 0; }
+.mech-cov-bad .mech-cov-bar { background: var(--hit); }
+.mech-cov-zero .mech-cov-bar { background: var(--border); }
+.mech-cov-d { font-size: 0.6rem; color: var(--text-dim); white-space: nowrap; }
+.mech-stage summary { cursor: pointer; }
+.mech-table td { vertical-align: top; }

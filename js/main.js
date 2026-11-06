@@ -95,6 +95,8 @@ async function load() {
   renderAllClear(data.all_clear || []);
   renderDaily10(data.all_clear || []);
   renderShapes();
+  renderReview();
+  renderMechanism(data.mechanism || {});
   renderMemo(data.memo || {});
   renderPool(data.pool || []);
   renderMarketPage(data.market || {});
@@ -136,6 +138,8 @@ function panelEl(id) {
   if (id === "allclear") return document.getElementById("allclear-panel");
   if (id === "daily10") return document.getElementById("daily10-panel");
   if (id === "shapes") return document.getElementById("shapes-panel");
+  if (id === "review") return document.getElementById("review-panel");
+  if (id === "mechanism") return document.getElementById("mechanism-panel");
   if (id === "memo") return document.getElementById("memo-panel");
   if (id === "pool") return document.getElementById("pool-panel");
   if (id === "market") return document.getElementById("market-panel");
@@ -222,6 +226,13 @@ function buildTabs(channels) {
   tabs.push({ id: "daily10", btn: d10Btn });
   nav.appendChild(d10Btn);
 
+  const rvBtn = document.createElement("button");
+  rvBtn.className = "nav-discovery";
+  rvBtn.textContent = "🔎 確認枠";
+  rvBtn.onclick = () => activateTab("review", tabs);
+  tabs.push({ id: "review", btn: rvBtn });
+  nav.appendChild(rvBtn);
+
   const shBtn = document.createElement("button");
   shBtn.className = "nav-discovery";
   shBtn.textContent = "📈 波形";
@@ -256,6 +267,14 @@ function buildTabs(channels) {
   anBtn.onclick = () => activateTab("analyses", tabs);
   tabs.push({ id: "analyses", btn: anBtn });
   nav.appendChild(anBtn);
+
+  // 🧩 仕組み (漏斗・設定値・稼働状況。build_pages_data.load_mechanism が生成)
+  const mechBtn = document.createElement("button");
+  mechBtn.className = "nav-discovery";
+  mechBtn.textContent = "🧩 仕組み";
+  mechBtn.onclick = () => activateTab("mechanism", tabs);
+  tabs.push({ id: "mechanism", btn: mechBtn });
+  nav.appendChild(mechBtn);
 
   // 📝 メモ (運営者の自由メモ・アイデア帳)
   const memoBtn = document.createElement("button");
@@ -652,8 +671,9 @@ async function ghWaitResult(token, number, ms) {
 }
 // onStatus({kind}) : sending → sent (Issue 作成済) → done (結果コメント到着) / pending (タイムアウト) / error。
 // トークン無し: page (Issue 画面を開いた) / blocked (ポップアップ遮断・行はクリップボード)
-function submitWatch(lines, label, onStatus) {
-  const title = `watch: ${label}`;
+function submitWatch(lines, label, onStatus, kind) {
+  // kind = watch (shape_watch.txt) / priority (priority_channels.txt) / reject (rejected_channels.txt)。watch-inbox.yml が title 先頭で振り分ける
+  const title = `${kind || "watch"}: ${label}`;
   const body = lines.join("\n") + "\n";
   const token = ghToken();
   if (!token) {
@@ -756,7 +776,7 @@ const SHAPE_BADGE = {
 const SHAPE_GROUP = {
   watch: { label: "📈 波形待ち", cls: "dv-ok", desc: "shape_watch.txt に置いた ch = priority に上げるか形を見て決める段 (毎日必ず記録)" },
   priority: { label: "⭐ priority", cls: "dv-queue", desc: "観測 ch (API 1日4点・videos.jsonl)" },
-  allclear: { label: "✅ 全条件クリア", cls: "dv-na", desc: "priority 候補の在庫 (RSS 1日1点・毎日必ず記録)" },
+  allclear: { label: "✅ 全条件クリア", cls: "dv-na", desc: "priority 候補の在庫。日本語 ch は全員が自動で 📈 定点観測 (API 1日1点) に入る (2026-11-07)" },
 };
 
 function copyWatchLine(btn, cid, title, extra) {
@@ -820,8 +840,7 @@ function renderShapes() {
   const panel = document.getElementById("shapes-panel");
   if (!panel) return;
   panel.innerHTML = `<h2>📈 波形 — 伸び方の形で広告とおすすめを見分ける</h2><p class="dv-desc">読み込み中…</p>`;
-  fetch("data/shapes.json?ts=" + Date.now())
-    .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
+  fetchShapes()
     .then((sh) => renderShapesBody(panel, sh))
     .catch((e) => {
       panel.innerHTML = `<h2>📈 波形</h2><p class="dv-desc">data/shapes.json を読めませんでした (${escapeHtml(String(e.message || e))})。次回の cron (priority-channels) で生成されます。</p>`;
@@ -885,7 +904,8 @@ function renderShapesBody(panel, sh) {
     <p class="dv-desc"><strong>📈 自然</strong> = 公開 1〜2 日目がピーク → 日ごとに減衰 → 崖なしで尾が数週間続く (おすすめ・関連)。
     <strong>📢 広告型</strong> = 初日がピークにならず予算ペースの台地 → 予算終了日に崖 → 尾なし。
     like 基準線 (期待比 50% 線) が境界の時は、この形が決め手になる。判定は <code>view_shape.py</code>、定義は docs/ad_check_methodology.md 補助判定。</p>
-    <p class="dv-sub">データ: RSS 巡回 (毎朝 JST 05:03・最新 15 本・quota ゼロ) の 1 日 1 点。priority ch は API 観測の 1 日 4 点から日ごとの最後の値。公開 60 日で打ち切り。
+    <p class="dv-sub">データ: 📈 波形待ち と ✅ 全条件クリアの日本語 ch は <strong>API で毎日 1 点</strong> (<code>shape_series_api.py</code>・rss-patrol 直後・2026-11-07〜。RSS 巡回が GitHub ランナーから落ちる日の穴を埋める)。他のプール ch は RSS 巡回 (quota ゼロ) の 1 日 1 点。priority ch は API 観測の 1 日 4 点から日ごとの最後の値。公開 60 日で打ち切り。英語 ch は波形に上げない (台帳と RSS 系列には残る)。
+    形が出た ch のうち「📈 自然で HIT・📢 広告型なし」は <strong>🔎 確認枠</strong> タブに自動で並ぶ。
     <strong>見たい ch を足す</strong>には「📈 ウォッチ」を押す → 開いた Issue 画面で「Submit new issue」を押すだけ (Actions が <a href="${SHAPE_WATCH_EDIT_URL}" target="_blank" rel="noopener">shape_watch.txt</a> に追記して commit)。翌朝から必ず毎日記録される (時間予算で翌日送りにならない)。✅ 全条件クリアの未判断 ch も自動で毎日記録。</p>
     <div class="rw-filter-group" id="sh-group-filter">
       <span class="rw-filter-label">対象</span>
@@ -3454,3 +3474,257 @@ document.addEventListener("DOMContentLoaded", () => {
   const b = document.getElementById("cache-refresh");
   if (b) b.addEventListener("click", () => forceRefreshCache(b));
 });
+
+// === 🔎 確認枠 — 📈 定点観測で「広告型でなく当てている」と出た ch を毎日 10 件ずつ裁く (2026-11-07) ===
+// 入口: ✅ 全条件クリアの日本語 ch は全員が自動で 📈 定点観測 (API 1日1点) に入る → 形判定で
+//       「📈 自然の動画が ch 相対 HIT を超え、同 ch に 📢 広告型が無い」ch がここに出る (shapes.json の review)。
+// 出口: ⭐ priority (Issue "priority:" → priority_channels.txt) / ✗ 違う (Issue "reject:" → rejected_channels.txt)。
+//       どちらも翌朝の再生成で枠から消える。判断の記録はこの端末の localStorage (review.v1)。
+const REVIEW_KEY = "review.v1";
+const REVIEW_PAGE = 10;
+function rvLoad() { try { return JSON.parse(localStorage.getItem(REVIEW_KEY) || "{}"); } catch (e) { return {}; } }
+function rvSave(st) { try { localStorage.setItem(REVIEW_KEY, JSON.stringify(st)); } catch (e) { /* private mode */ } }
+
+let _shapesPromise = null;
+function fetchShapes() {
+  if (!_shapesPromise) {
+    _shapesPromise = fetch("data/shapes.json?ts=" + Date.now())
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))));
+  }
+  return _shapesPromise;
+}
+
+function priorityLineFor(r, today) {
+  const parts = [];
+  if (r.subs != null) parts.push(`${fmtN(r.subs)} subs`);
+  if (r.median_views != null) parts.push(`普段${fmtN(r.median_views)}`);
+  const h = (r.hits || [])[0];
+  if (h) parts.push(`📈自然HIT「${h.t || h.v}」${fmtN(h.views)}v (公開 ${h.p || "?"})`);
+  parts.push(`広告型なし`);
+  parts.push(`確認枠から昇格 ${today}`);
+  return `${r.channel_id}  # ${r.title} (${parts.join(" / ")})`;
+}
+function rejectLineFor(r, today) {
+  return `${r.channel_id}  # ${r.title} (違う確定 ${today}・🔎 確認枠)`;
+}
+
+function renderReview() {
+  const panel = document.getElementById("review-panel");
+  if (!panel) return;
+  panel.innerHTML = `<h2>🔎 確認枠 — 広告でなく当てている ch</h2><p class="dv-desc">読み込み中…</p>`;
+  fetchShapes()
+    .then((sh) => renderReviewBody(panel, sh))
+    .catch((e) => {
+      panel.innerHTML = `<h2>🔎 確認枠</h2><p class="dv-desc">data/shapes.json を読めませんでした (${escapeHtml(String(e.message || e))})。</p>`;
+    });
+}
+
+function renderReviewBody(panel, sh) {
+  const rows = sh.review || [];
+  const rule = sh.review_rule || { mult: 5, floor: 500 };
+  const byCh = {};
+  (sh.channels || []).forEach((c) => { byCh[c.channel_id] = c; });
+  const today = new Date().toISOString().slice(0, 10);
+  const st = rvLoad();
+  const dec = (r) => (r && st[r.channel_id] && st[r.channel_id].d) || "";
+  const dash = "—";
+
+  const hitRow = (r, h) => {
+    const c = byCh[r.channel_id];
+    const full = c && (c.videos || []).find((v) => v.v === h.v);
+    return `
+      <tr>
+        <td class="sh-title"><a href="https://www.youtube.com/watch?v=${encodeURIComponent(h.v)}" target="_blank" rel="noopener">${escapeHtml(h.t || h.v)}</a></td>
+        <td class="dv-date">${escapeHtml(h.p || "")}</td>
+        <td class="dv-num">${fmtN(h.views)}</td>
+        <td class="dv-num">${h.max_delta != null ? `+${fmtN(h.max_delta)}` : dash}</td>
+        <td class="sh-spark-cell">${full ? sparklineSvg(full) : ""}</td>
+        <td class="dv-note sh-label">${escapeHtml(h.label || "")}</td>
+      </tr>`;
+  };
+
+  const card = (r) => {
+    const s = st[r.channel_id];
+    const d = s ? s.d : "";
+    const cls = d === "pri" ? " d10-picked" : d === "rej" ? " rv-rej" : d === "hold" ? " d10-skipped" : d.startsWith("sent") ? " d10-sent" : "";
+    const mark = d === "pri" ? "⭐ 押した → priority 候補" : d === "rej" ? "✗ 違う (未送信)" : d === "hold" ? "⏸ 保留" : d === "sent-pri" ? `📨 priority 送信済み ${escapeHtml(s.s || "")}` : d === "sent-rej" ? `📨 違う 送信済み ${escapeHtml(s.s || "")}` : "";
+    const actions = d
+      ? `<button class="d10-undo" data-cid="${escapeHtml(r.channel_id)}" title="判断を取り消す">↩ 戻す</button>`
+      : `<button class="d10-pick rv-pri" data-cid="${escapeHtml(r.channel_id)}" title="priority に上げる候補に入れる (下の送信ボタンでまとめて上げる)">⭐ priority 候補</button>
+         <button class="rv-rej-btn" data-cid="${escapeHtml(r.channel_id)}" title="真似元ではない (rejected_channels.txt へ・下の送信でまとめて確定)">✗ 違う</button>
+         <button class="d10-skip" data-cid="${escapeHtml(r.channel_id)}" title="今は決めない (この端末ではしばらく出ない・形が増えたらまた見る)">⏸ 保留</button>`;
+    const c = byCh[r.channel_id] || {};
+    const g = SHAPE_GROUP[r.group] || SHAPE_GROUP.allclear;
+    return `
+    <div class="d10-card${cls}" data-cid="${escapeHtml(r.channel_id)}">
+      <div class="d10-head">
+        ${r.icon ? `<img class="ch-icon ch-icon-lg" src="${r.icon}" alt="" loading="lazy">` : ""}
+        <a href="https://www.youtube.com/channel/${encodeURIComponent(r.channel_id)}/videos" target="_blank" rel="noopener">${escapeHtml(r.title)}</a>
+        <span class="dv-badge ${g.cls}">${g.label}</span>
+        ${mark ? `<span class="d10-mark">${mark}</span>` : ""}
+      </div>
+      <div class="d10-stats">👥 ${r.subs != null ? fmtN(r.subs) : dash} · 普段 ${r.median_views != null ? fmtN(r.median_views) : dash} · HIT しきい ${fmtN(r.th)}v · 📈 自然 ${r.n_organic}本 / 判定可 ${r.n_shaped}/${r.n_videos}本 · 📢 広告型 0本</div>
+      <div class="dv-table-wrap"><table class="dv-table sh-table">
+        <thead><tr><th>📈 自然で HIT した動画</th><th>公開</th><th>累計</th><th>最大/日</th><th>日次増分</th><th>読み</th></tr></thead>
+        <tbody>${(r.hits || []).map((h) => hitRow(r, h)).join("")}</tbody>
+      </table></div>
+      <div class="d10-kw">最新 HIT ${escapeHtml(r.latest_hit || "")} · <a href="#shapes" onclick="document.querySelector('#sh-q') && (document.querySelector('#sh-q').value='${escapeHtml((r.title || "").slice(0, 12))}')">📈 波形タブで全動画を見る</a></div>
+      <div class="d10-actions">${actions}</div>
+    </div>`;
+  };
+
+  const draw = () => {
+    const fresh = rows.filter((r) => !dec(r));
+    const todayDone = rows.filter((r) => dec(r) && st[r.channel_id].t === today);
+    const extra = st._extra && st._extra.t === today ? st._extra.n : 0;
+    const batch = REVIEW_PAGE * (1 + extra);
+    const slice = fresh.slice(0, Math.max(0, batch - todayDone.length));
+    const pri = rows.filter((r) => dec(r) === "pri");
+    const rej = rows.filter((r) => dec(r) === "rej");
+    const nHold = rows.filter((r) => dec(r) === "hold").length;
+    const sent = rows.filter((r) => dec(r).startsWith("sent"));
+    const done = todayDone.length >= batch && !slice.length;
+
+    panel.innerHTML = `
+    <h2>🔎 確認枠 — 広告でなく当てている ch (${fmtN(rows.length)} 件 · 未判断 ${fmtN(fresh.length)})</h2>
+    <p class="dv-desc"><strong>どう出てくるか</strong>: ✅ 全条件クリアの日本語 ch は全員が自動で 📈 定点観測 (API で毎日 1 点) に入る。その日次カーブで
+    「<strong>📈 自然</strong> (初日ピーク → 減衰 → 尾) の動画が ch 相対 HIT (普段の ${rule.mult} 倍・下限 ${fmtN(rule.floor)}v) を超えていて、同じ ch に <strong>📢 広告型</strong> (台地 → 崖 → 尾なし) が 1 本も無い」ch だけがここに並ぶ。
+    <strong>やること</strong>: 毎日 ${REVIEW_PAGE} 件、ch と動画を見て <strong>⭐ priority 候補</strong> か <strong>✗ 違う</strong> を押す → 下の送信ボタンで Issue にまとめて送る (Actions が <code>priority_channels.txt</code> / <code>rejected_channels.txt</code> に追記)。翌朝の再生成で枠から消え、⭐ は次の定期取得 (JST 3/9/15/21) から API 1 日 4 点観測 + Slack 検知の対象になる。</p>
+    <div class="d10-top">
+      <span class="d10-count">今日: ⭐ ${todayDone.filter((r) => dec(r) === "pri" || dec(r) === "sent-pri").length} / ✗ ${todayDone.filter((r) => dec(r) === "rej" || dec(r) === "sent-rej").length} / ⏸ ${todayDone.filter((r) => dec(r) === "hold").length} 判断済み (バッチ ${batch} 件)</span>
+      <button id="rv-send-pri" class="ac-bulk d10-send"${pri.length ? "" : " disabled"} title="⭐ を押した ch を priority_channels.txt 用の Issue にまとめて入れる">⭐ 押した ch を priority に上げる (${pri.length})</button>
+      <button id="rv-send-rej" class="ac-bulk"${rej.length ? "" : " disabled"} title="✗ を押した ch を rejected_channels.txt 用の Issue にまとめて入れる">✗ 違うを確定する (${rej.length})</button>
+    </div>
+    <div id="rv-status" class="d10-status"></div>
+    <div class="d10-grid">${[...todayDone, ...slice].map(card).join("") || '<div class="d10-empty">（いま確認枠に出ている ch はありません。📈 定点観測の日次が溜まる (5 日分以上) と出てきます）</div>'}</div>
+    ${done ? `<p class="d10-done">🎉 今日の ${batch} 件は見終わり。<button id="rv-more" class="ac-bulk">もう ${REVIEW_PAGE} 件見る</button></p>` : ""}
+    <details class="an-item">
+      <summary>📨 送信済み (${sent.length}) · ⏸ 保留 (${nHold}) — この端末の記録</summary>
+      <p class="dv-sub">送信済みは Issue を Submit した分 (翌朝の再生成で枠から消える)。保留は端末にだけ残る記録。</p>
+      <div class="dv-table-wrap"><table class="dv-table">
+        <thead><tr><th>送信日</th><th>判断</th><th>チャンネル</th><th></th></tr></thead>
+        <tbody>${sent.map((r) => `<tr><td class="dv-date">${escapeHtml(st[r.channel_id].s || "")}</td><td>${dec(r) === "sent-pri" ? "⭐ priority" : "✗ 違う"}</td><td class="dv-ch"><a href="https://www.youtube.com/channel/${encodeURIComponent(r.channel_id)}" target="_blank" rel="noopener">${escapeHtml(r.title)}</a></td><td><button class="d10-undo" data-cid="${escapeHtml(r.channel_id)}">↩ 戻す</button></td></tr>`).join("") || '<tr><td colspan="4">（まだなし）</td></tr>'}</tbody>
+      </table></div>
+      <button id="rv-clear-holds" class="ac-bulk"${nHold ? "" : " disabled"}>⏸ 保留の記録を消す (${nHold} 件をもう一度出す)</button>
+    </details>
+    ${tokenBoxHtml()}`;
+
+    const mark = (cid, d) => { st[cid] = { d, t: today }; rvSave(st); draw(); };
+    panel.querySelectorAll(".rv-pri").forEach((b) => b.addEventListener("click", () => mark(b.dataset.cid, "pri")));
+    panel.querySelectorAll(".rv-rej-btn").forEach((b) => b.addEventListener("click", () => mark(b.dataset.cid, "rej")));
+    panel.querySelectorAll(".d10-skip").forEach((b) => b.addEventListener("click", () => mark(b.dataset.cid, "hold")));
+    panel.querySelectorAll(".d10-undo").forEach((b) => b.addEventListener("click", () => { delete st[b.dataset.cid]; rvSave(st); draw(); }));
+    const more = panel.querySelector("#rv-more");
+    if (more) more.addEventListener("click", () => { st._extra = { t: today, n: extra + 1 }; rvSave(st); draw(); });
+    const clr = panel.querySelector("#rv-clear-holds");
+    if (clr) clr.addEventListener("click", () => { Object.keys(st).forEach((k) => { if (!k.startsWith("_") && st[k].d === "hold") delete st[k]; }); rvSave(st); draw(); });
+    const wireSend = (btnId, list, kind, lineFn, sentD, label) => {
+      const btn = panel.querySelector(btnId);
+      if (!btn) return;
+      btn.addEventListener("click", () => {
+        const lines = list.map((r) => lineFn(r, today));
+        const ids = list.map((r) => r.channel_id);
+        btn.disabled = true;
+        let marked = false;
+        submitWatch(lines, `${lines.length} ch (🔎 確認枠)`, (stt) => {
+          if (WATCH_SENT_KINDS.has(stt.kind) && !marked) {
+            marked = true;
+            ids.forEach((cid) => { st[cid] = { d: sentD, t: (st[cid] && st[cid].t) || today, s: today, issue: stt.number || null }; });
+            rvSave(st);
+            draw();
+          }
+          const b2 = panel.querySelector(btnId);
+          const line = panel.querySelector("#rv-status");
+          const txt = watchStatusText(stt, lines.length);
+          if (stt.kind === "sending" && b2) b2.textContent = txt;
+          if (line) line.innerHTML = `${escapeHtml(txt)}${stt.url ? ` <a href="${stt.url}" target="_blank" rel="noopener">Issue</a>` : ""}${stt.kind === "done" && stt.comment ? `<div class="d10-result">${escapeHtml(stt.comment).replace(/\n/g, "<br>")}</div>` : ""}`;
+          if (stt.kind === "error" && b2) { b2.disabled = false; b2.textContent = `${label} (${lines.length})`; }
+        }, kind);
+      });
+    };
+    wireSend("#rv-send-pri", pri, "priority", priorityLineFor, "sent-pri", "⭐ 押した ch を priority に上げる");
+    wireSend("#rv-send-rej", rej, "reject", rejectLineFor, "sent-rej", "✗ 違うを確定する");
+    bindTokenBox(panel, draw);
+  };
+  draw();
+}
+
+// === 🧩 仕組み — 当たる動画発見の漏斗・各段の設定値 (コードの現在値)・稼働状況 (2026-11-07) ===
+// データは build_pages_data.load_mechanism が毎朝生成 (dashboard.json の mechanism)。数値は手で書かず全部ファイルから読む。
+const DOCS_URL = "https://github.com/syuta-chiba/youtube-niche-research/blob/main/";
+function renderMechanism(m) {
+  const panel = document.getElementById("mechanism-panel");
+  if (!panel) return;
+  const funnel = m.funnel || [];
+  const stages = m.stages || [];
+  const h = m.health || {};
+  const dash = "—";
+  const fmtTs = (ts) => (ts ? ts.replace("T", " ").replace("Z", " UTC") : dash);
+
+  const funnelHtml = funnel.map((f, i) => `
+    <div class="mech-step">
+      <div class="mech-step-n">${f.n != null ? fmtN(f.n) : ""}</div>
+      <div class="mech-step-body"><div class="mech-step-label">${escapeHtml(f.label)}</div><div class="dv-note">${escapeHtml(f.note || "")}</div></div>
+    </div>${i < funnel.length - 1 ? '<div class="mech-arrow">↓</div>' : ""}`).join("");
+
+  const cov = h.rss_coverage_14d || [];
+  const covMax = Math.max(1, ...cov.map((c) => c.ch));
+  const covHtml = cov.map((c) => {
+    const bad = c.ch > 0 && c.ch < 1000;
+    const hgt = Math.max(2, Math.round((c.ch / covMax) * 40));
+    return `<div class="mech-cov${bad ? " mech-cov-bad" : c.ch === 0 ? " mech-cov-zero" : ""}" title="${c.d}: ${fmtN(c.ch)} ch"><div class="mech-cov-bar" style="height:${hgt}px"></div><div class="mech-cov-d">${cov.length > 8 && (cov.length - 1 - cov.indexOf(c)) % 2 ? "" : c.d.slice(8)}</div></div>`;
+  }).join("");
+  const api = h.api_series || {};
+  const qt = h.quota_today || {};
+  const disc = h.discovery_recent || [];
+
+  const healthHtml = `
+    <div class="mech-health">
+      <div class="mech-hcard">
+        <div class="mech-hk">③ RSS 巡回の日別カバー (直近 14 日・ch 数)</div>
+        <div class="mech-covs">${covHtml}</div>
+        <div class="dv-note">赤 = 1,000 ch 未満しか取れなかった日 (GitHub ランナーから YouTube RSS が 404/500 の全体障害) — ${fmtN(h.rss_outage_days_14d || 0)} 日 / 14 日。系列 ${fmtN(h.series_videos || 0)} 本のうち日次 10 点以上は ${fmtN(h.series_videos_10pts || 0)} 本。</div>
+      </div>
+      <div class="mech-hcard">
+        <div class="mech-hk">④ 📈 定点観測 (API) の最終実行</div>
+        <div class="mech-hv">${api.last_run ? `${fmtTs(api.last_run)} · 対象 ${fmtN(api.targets)} ch · 記録 ${fmtN(api.ok)} / 失敗 ${fmtN(api.fail)} · 動画 ${fmtN(api.videos)} 本 · ${fmtN(api.api_units)}u` : "まだ実行されていない (初回は次の rss-patrol 直後)"}</div>
+      </div>
+      <div class="mech-hcard">
+        <div class="mech-hk">① discovery の深掘り評価 (直近 7 run)</div>
+        <div class="mech-hv">${disc.length ? disc.map((d) => `${d.d.slice(5)}: ${d.evaluated != null ? d.evaluated : "?"} ch`).join(" · ") : dash}</div>
+        <div class="dv-note">試験語の最終消化日 ${escapeHtml(h.drain_last_tried || dash)}</div>
+      </div>
+      <div class="mech-hcard">
+        <div class="mech-hk">⑥ priority 観測の最終取得</div>
+        <div class="mech-hv">${fmtTs(h.priority_latest_ts)}</div>
+      </div>
+      <div class="mech-hcard">
+        <div class="mech-hk">今日の quota (推定・PT 日)</div>
+        <div class="mech-hv">${fmtN(h.quota_total_today || 0)} / ${fmtN(h.quota_limit || 10000)}u${Object.keys(qt).length ? " · " + Object.entries(qt).map(([k, v]) => `${escapeHtml(k)} ${fmtN(v)}`).join(" · ") : ""}</div>
+      </div>
+    </div>`;
+
+  const stageHtml = stages.map((s) => `
+    <details class="an-item mech-stage">
+      <summary><strong>${escapeHtml(s.name)}</strong> <span class="dv-note">· <code>${escapeHtml(s.script)}</code> · ${escapeHtml(s.schedule)}</span></summary>
+      <p class="dv-sub">${escapeHtml(s.what)}</p>
+      <div class="dv-table-wrap"><table class="dv-table mech-table">
+        <thead><tr><th>設定</th><th>現在値 (コードから読んだ値)</th><th>根拠</th></tr></thead>
+        <tbody>${(s.settings || []).map((x) => `<tr><td class="dv-kw">${escapeHtml(x.k)}</td><td>${escapeHtml(x.v)}</td><td class="dv-note">${escapeHtml(x.why || "")}</td></tr>`).join("")}</tbody>
+      </table></div>
+    </details>`).join("");
+
+  panel.innerHTML = `
+    <h2>🧩 仕組み — 当たる動画の見つけ方 (漏斗・設定値・稼働状況)</h2>
+    <p class="dv-desc">このページの数値は毎朝 <code>build_pages_data.py</code> がファイルとコードから読んで生成する (手書きなし・生成 ${escapeHtml(m.generated || "")})。
+    文章の正本は <a href="${DOCS_URL}docs/hit_system.md" target="_blank" rel="noopener">docs/hit_system.md</a> (4 層の内部構造) と
+    <a href="${DOCS_URL}docs/discovery_loop.md" target="_blank" rel="noopener">docs/discovery_loop.md</a> (発掘ループ)、毎日の入口は
+    <a href="${DOCS_URL}docs/two_tracks.md" target="_blank" rel="noopener">docs/two_tracks.md</a>。</p>
+    <h3>漏斗 (ch がどう上がってくるか)</h3>
+    <div class="mech-funnel">${funnelHtml}</div>
+    <p class="dv-sub">人がやるのは <strong>🔎 確認枠を毎日 10 件</strong> (⭐ priority / ✗ 違う) だけ。✅ → 📈 は自動 (日本語 ch 全員)、📈 → 🔎 は形判定が自動で出す。</p>
+    <h3>稼働状況</h3>
+    ${healthHtml}
+    <h3>各段の設定値</h3>
+    ${stageHtml}`;
+}
